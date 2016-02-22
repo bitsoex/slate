@@ -26,6 +26,10 @@ system functions, along with examples in common programming languages.
 
 General Information about Bitso's APIs
 
+## HTTP and WebSocket APIs
+
+Bitso offers a HTTP API, and a WebSocket API. The HTTP API exposes both public and private functions. The WebSocket API offers realtime streaming of market-data, such as the Bitso orderbook state.
+
 ## Notations
 
 **Major** denotes the cryptocurrency, in our case Bitcoin (BTC).
@@ -864,3 +868,204 @@ Parameter | Default | Required | Description
 ### HTTP Response
 
 Returns “ok” (quotation marks included) if the withdrawal was successfully triggered. Otherwise it returns a JSON dictionary indicating the error
+# WebSocket API
+
+## General
+
+### How to connect
+
+> Create a WebSocket instance:
+
+```blab
+websocket = new WebSocket('wss://ws.bitso.com');
+```
+
+> Subscribe to each channel you wish to connect to:
+
+```blab
+websocket.onopen = function() {
+    websocket.send(JSON.stringify({ action: 'subscribe', book: 'btc_mxn', type: 'trades' }));
+    websocket.send(JSON.stringify({ action: 'subscribe', book: 'btc_mxn', type: 'diff-orders' }));
+    websocket.send(JSON.stringify({ action: 'subscribe', book: 'btc_mxn', type: 'orders' }));
+};
+```
+
+> The server will acknowledge each subscription to a channel with a message. For example, a successful subscription to the 'trades' channel
+will be acknowledged in the following manner:
+
+```blab
+{action: "subscribe", response: "ok", time: 1455831538045, type: "trades"}
+```
+
+> Once you've succesfuly subscribed to a channel, listen for messages and handle them appropriately:
+
+```blab
+websocket.onmessage = function(message){
+                var data = JSON.parse(message.data);
+
+                if (data.type == 'trades' && data.payload) {
+
+                }
+                else if (data.type == 'diff-orders' && data.payload) {
+
+                }
+                else if (data.type == 'orders' && data.payload) {
+
+                }
+            };
+```
+
+### Example Implementation
+
+Use this example native javascript implementation for your reference:
+[https://bitso.com/ws_demo.html](https://bitso.com/ws_demo.html)
+
+## Trades Channel
+
+> Messages on this channel look like this:
+
+```blab
+{
+  "type": "trades",
+  "book": "btc_mxn",
+  "payload": [
+    {
+      "i": 72022,
+      "a": 0.0035,
+      "r": 7190,
+      "v": 25.16
+    }
+  ]
+}
+```
+
+### Client subscription message
+
+`{ action: 'subscribe', book: 'btc_mxn', type: 'trades' }`
+
+### Server subscription response message
+
+`{action: "subscribe", response: "ok", time: 1455831538045, type: "trades"}`
+
+### Server JSON message
+
+The payload contains an array with one or more trades of the following form:
+
+Field Name | Type | Description | Units
+---------- | ---- | ----------- | -----
+**i** | Number | A unique number identifying the transaction | -
+**a** | Number | Amount | Major
+**r** | String | Rate | Minor
+**v** | String | Value | Minor
+
+## Diff-Orders
+
+> Messages on this channel look like this:
+
+```blab
+{
+  "type": "diff-orders",
+  "book": "btc_mxn",
+  "payload": [
+    {
+      "d": 1455315979682,
+      "r": 7251.1,
+      "t": 1,
+      "a": 0.29437179,
+      "v": 2134.51
+    }
+  ]
+}
+```
+
+### Client subscription message
+
+`websocket.send(JSON.stringify({ action: 'subscribe', book: 'btc_mxn', type: 'diff-orders' }));`
+
+### Server subscription response message
+
+`{action: "subscribe", response: "ok", time: 1455831538047, type: "diff-orders"}`
+
+### Server JSON Message
+
+The payload contains an array with one or more orders of the following form:
+
+Field Name | Type | Description | Units
+---------- | ---- | ----------- | -----
+**d** | Number | Unix timestamp | Milliseconds
+**r** | String | Rate | Minor
+**t** | Number | 0 indicates buy 1 indicates sell | -
+**a** | Number | Amount | Major
+**v** | String | Value | Minor
+
+## Orders
+
+> Messages on this channel look like this:
+
+```blab
+{
+  "type": "orders",
+  "book": "btc_mxn",
+  "payload": {
+    "bids": [
+      {
+        "r": 7185,
+        "a": 0.001343,
+        "v": 9.64,
+        "t": 1,
+        "d": 1455315394039
+      },
+      {
+        "r": 7183.01,
+        "a": 0.007715,
+        "v": 55.41,
+        "t": 1,
+        "d": 1455314938419
+      },
+      {
+        "r": 7183,
+        "a": 1.59667303,
+        "v": 11468.9,
+        "t": 1,
+        "d": 1455314894615
+      }
+    ],
+    "asks": [
+      {
+        "r": 7251.1,
+        "a": 0.29437179,
+        "v": 2134.51,
+        "t": 0,
+        "d": 1455315979682
+      },
+      {
+        "r": 7251.72,
+        "a": 1.32057812,
+        "v": 9576.46,
+        "t": 0,
+        "d": 1455303931277
+      }
+    ]
+  }
+}
+```
+
+### Client Subscription message
+
+`{ websocket.send(JSON.stringify({ action: 'subscribe', book: 'btc_mxn', type: 'orders' }));`
+
+### Server subscription response message
+
+`{action: "subscribe", response: "ok", time: 1455831538048, type: "orders"}`
+
+### Server JSON message
+
+The payload contains a JSON with two keys, one for the bids and the other for asks on the order book. Both bids and asks contain orders of the following form:
+
+Field Name | Type | Description | Units
+---------- | ---- | ----------- | -----
+**r** | String | Rate | Minor
+**a** | Number | Amount | Major
+**v** | String | Value | Minor
+**t** | Number | 0 indicates buy 1 indicates sell | -
+**d** | Number | Unix timestamp | Milliseconds
