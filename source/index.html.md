@@ -881,13 +881,13 @@ Returns “ok” (quotation marks included) if the withdrawal was successfully t
 
 > Create a WebSocket instance:
 
-```json
+```blab
 websocket = new WebSocket('wss://ws.bitso.com');
 ```
 
 > Subscribe to each channel you wish to connect to:
 
-```json
+```blab
 websocket.onopen = function() {
     websocket.send(JSON.stringify({ action: 'subscribe', book: 'btc_mxn', type: 'trades' }));
     websocket.send(JSON.stringify({ action: 'subscribe', book: 'btc_mxn', type: 'diff-orders' }));
@@ -898,13 +898,13 @@ websocket.onopen = function() {
 > The server will acknowledge each subscription to a channel with a message. For example, a successful subscription to the 'trades' channel
 will be acknowledged in the following manner:
 
-```json
+```blab
 {action: "subscribe", response: "ok", time: 1455831538045, type: "trades"}
 ```
 
 > Once you've succesfuly subscribed to a channel, listen for messages and handle them appropriately:
 
-```json
+```blab
 websocket.onmessage = function(message){
                 var data = JSON.parse(message.data);
 
@@ -929,7 +929,7 @@ Use this example native javascript implementation for your reference:
 
 > Messages on this channel look like this:
 
-```json
+```blab
 {
   "type": "trades",
   "book": "btc_mxn",
