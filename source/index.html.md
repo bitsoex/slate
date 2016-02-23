@@ -872,6 +872,7 @@ Parameter | Default | Required | Description
 ### HTTP Response
 
 Returns “ok” (quotation marks included) if the withdrawal was successfully triggered. Otherwise it returns a JSON dictionary indicating the error
+
 # WebSocket API
 
 ## General
@@ -1073,3 +1074,236 @@ Field Name | Type | Description | Units
 **v** | String | Value | Minor
 **t** | Number | 0 indicates buy 1 indicates sell | -
 **d** | Number | Unix timestamp | Milliseconds
+
+# Transfer API
+
+## General
+
+Bitso’s powerful Transfer API allows for simple integration for routing Bitcoin payments directly through to a choice of Mexican Peso end-points.
+
+The workflow breaks down in the following steps:
+
+1. Request quote
+2. Create transfer using quote
+3. Send bitcoins to address given
+4. After 1 confirmation, pesos are delivered
+
+The quote acquired in step #1 is valid for 60 seconds. Once this is used to create a transfer (#2), that transfer is then valid for 60 seconds from creation (within which time the Bitcoin transaction to satisfy it must be ‘seen’ by our servers – this typically happens within 20 seconds).
+
+Once the transfer is satisfied, the Bitcoin transaction must be confirmed before a further action takes place. Typically this takes around a maximum of 10 minutes, but can be a little longer.
+
+The transfer can be monitored throughout the process by making a request to the URL returned with the transfer creation.
+
+### Authentication
+
+The Transfer API is accessible via an API key created for your account. For full details on creating an API key and how to sign your API requests, please refer to the Trade API documentation, here:
+[https://bitso.com/api_info](https://bitso.com/api_info)
+
+## Requesting a Quote
+
+> The JSON dictionary retuned by the API looks like this:
+
+```json
+{
+   "quote":{
+      "btc_amount":"0.14965623",
+      "currency":"MXN",
+      "rate":"3340.99",
+      "gross":”500.00”,
+      "outlets":{
+         "sp":{
+            "id":"sp",
+            "name":"SPEI Transfer",
+            "required_fields":[
+               "recipient_given_names",
+               "recipient_family_names",
+               "clabe",
+               "bank_name"
+            ],
+            "minimum_transaction":"500.00",
+            "maximum_transaction":"2500000.00",
+            "daily_limit":"10000.00",
+            "fee":"12.00",
+            "net":"488.00",
+            "available":"1",
+            "verification_level_requirement":"0"
+         },
+         "vo":{
+            "id":"vo",
+            "name":"Voucher",
+            "required_fields":[
+               "email_address"
+            ],
+            "minimum_transaction":"25.00",
+            "maximum_transaction":"9999.00",
+            "fee":"0.00",
+            "daily_limit":"0.00",
+            "net":"500.00",
+            "available":"1",
+            "verification_level_requirement":"0"
+         },
+         "rp":{
+            "id":"rp",
+            "name":"Ripple",
+            "required_fields":[
+               "ripple_address"
+            ],
+            "minimum_transaction":"0.00",
+            "maximum_transaction":"10000000.00",
+            "fee":"5.00",
+            "daily_limit":"0.00",
+            "net":"495.00",
+            "available":"1",
+            "verification_level_requirement":"0"
+         },
+         "pm":{
+            "id":"pm",
+            "name":"Pademobile",
+            "required_fields":[
+               "phone_number"
+            ],
+            "minimum_transaction":"1.00",
+            "maximum_transaction":"1000000.00",
+            "fee":"0.00",
+            "daily_limit":"0.00",
+            "net":"500.00",
+            "available":"1",
+            "verification_level_requirement":"0"
+         },
+         "bw":{
+            "id":"bw",
+            "name":"Bank Wire",
+            "required_fields":[
+               "recipient_full_name",
+               "account_holder_address",
+               "bank_name",
+               "bank_address",
+               "account_number",
+               "swift",
+               "other_instructions"
+            ],
+            "minimum_transaction":"1000.00",
+            "maximum_transaction":"2500000.00",
+            "daily_limit":"2500000.00",
+            "fee":"500.00",
+            "net":"0.00",
+            "available":"1",
+            "verification_level_requirement":"0"
+         }
+      },
+      "timestamp":"1425101044",
+      "expires_epoch":”1425101104”
+   },
+   "success":true
+}
+```
+
+### HTTP Request
+
+`POST https://api.bitso.com/v2/transfer_quote`
+
+### Body Parameters
+
+Parameter | Required | Description
+--------- | -------- | -----------
+**btc_amount** | No | Mutually exclusive with amount. Either this, or amount should be present in the request. The total amount in Bitcoins, as provided by the user. NOTE: The amount is in BTC format (900mbtc = .9 BTC).
+**amount** | No | Mutually exclusive with btc_amount. Either this, or btc_amount should be present in the request. The total amount in Fiat currency. Use this if you prefer specifying amounts in fiat instead of BTC.
+**currency** | Yes | An ISO 4217 fiat currency symbol (ie, “MXN”). If btc_amount is provided instead of amount, this is the currency to which the BTC price will be converted into. Otherwise, if amount is specified instead of btc_amount, this is the currency of the specified amount.
+**full** | No | (optional, defaults to False) - Show the required_fields for each payment outlet as an array of {id, name} objects. This accepts either True or False. When not provided or if the value is False, the required_fields for each Payment Outlet are returned as an array of id strings. For more information about required_fields, please refer to the Payment Outlet Documentation.
+**key** | Yes | API key (see Authentication)
+**signature** | Yes | Signature (see Authentication)
+**nonce** | Yes | nonce (see Authentication)
+
+## Creating a Transfer
+
+> The JSON dictionary retuned by the API looks like this:
+
+```json
+{
+   "order":{
+      "btc_amount":"0.14965623",
+      "btc_pending":"0",
+      "btc_received":"0",
+      "confirmation_code":"9b2a4",
+      "created_at":"1425101044",
+      "currency":"MXN",
+      "currency_amount":"0",
+      "currency_fees":"0",
+      "currency_settled":"0",
+      "expires_epoch":1425101104,
+      "fields":{
+         "phone_number":"5554181042"
+      },
+      "id":"9b2a431b98597312e99cbff1ba432cbf",
+      "payment_outlet_id":"pm",
+      "qr_img_uri":"https:\/\/chart.googleapis.com\/chart?chl=bitcoin%3AmgKZfNdFJgztvfvhEaGgMTQRQ2iHCadHGa%3Famount%3D0.14965623&chs=400x400&cht=qr&choe=UTF-8&chld=L%7C0",
+      "user_uri":"https:\/\/api.bitso.com\/v2\/transfer\/9b2a431b98597312e99cbff1ba432cbf",
+      "wallet_address":"mgKZfNdFJgztvfvhEaGgMTQRQ2iHCadHGa"
+   },
+   "success":true
+}
+```
+
+### HTTP Request
+
+`POST https://api.bitso.com/v2/transfer_create`
+
+### Body Parameters
+
+Parameter | Required | Description
+--------- | -------- | -----------
+**btc_amount** | No | Mutually exclusive with amount. Either this, or amount should be present in the request. The total amount in Bitcoins, as provided by the user. NOTE: The amount is in BTC format (900mbtc = .9 BTC).
+**amount** | No | Mutually exclusive with btc_amount. Either this, or btc_amount should be present in the request. The total amount in Fiat currency. Use this if you prefer specifying amounts in fiat instead of BTC.
+**currency** | Yes | An ISO 4217 fiat currency symbol (ie, “MXN”). If btc_amount is provided instead of amount, this is the currency to which the BTC price will be converted into. Otherwise, if amount is specified instead of btc_amount, this is the currency of the specified amount.
+**rate** | Yes | This is the rate (e.g. BTC/MXN), as acquired from the transfer_quote method. You must request a quote in this way before creating a transfer.
+**payment_outlet** | Yes | The outlet_id as provided by quote method. See below for more information on available outlets.
+**<required_field1>** | Yes | Each of the other ‘required fields’, as stipulated in the quote method for the chosen payment_outlet.
+**<required_field2>** | Yes |
+**etc...** | Yes |
+**key** | Yes | API key (see Authentication)
+**signature** | Yes | Signature (see Authentication)
+**nonce** | Yes | nonce (see Authentication)
+
+## Reviewing a Transfer
+
+Make requests to the transfer review end point at any time to monitor the status of your transfer.
+
+### HTTP Request
+
+`GET https://api.bitso.com/v2/transfer/<transfer_id>`
+
+### Response
+
+Parameter | Required | Description
+--------- | -------- | -----------
+**status** | Yes | pending: waiting for the bitcoin transaction to be seen, confirming: transaction has been seen, and now waiting for a network confirmation, completed: transaction has completed, and funds dispatched via the outlet specified.
+
+## Currently Available Outlets
+
+### SPEI
+
+SPEI is Mexico’s lightning fast and inexpensive inter-bank transfer system (akin to SEPA in Europe, and vastly superior to ACH).
+
+All bank accounts in Mexico can be identified by their special 18-digit SPEI account number, otherwise known as a ‘CLABE’.
+
+Transfers executed via SPEI are typically concluded within a few seconds.
+
+### Pademobile
+
+Pademobile is a popular mobile wallet and payments system in Latin America and beyond. Users running the Pademobile wallet on their cellphone can carry a balance in local currency, and spend it at a variety of locations, including cash-out at stores such as 7-Eleven (this is limited to 300 MXN per day, per location).
+
+Pademobile accounts are identified simply by the user’s phone number. Recipients who do not have smart phones, or who have not installed the wallet app, will receive a text message containing instructions on how to access the received funds.
+
+For more information, please see:  https://www.pademobile.com/en/mx/
+
+### Ripple
+
+As a Ripple Gateway, Bitso is able to issue currencies such as the Mexican Peso directly into the Ripple Network. For more information on Ripple, please see: https://ripple.com/
+
+### Voucher
+
+Bitso offers the ability to issue voucher codes redeemable on Bitso.com, and delivered by email. Simply specify the amount and email address, and the recipient can at any time register on Bitso.com and redeem their code.
+
+### Bank Wire
+
+Execute a standard international bank wire via this outlet.
