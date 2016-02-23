@@ -1275,7 +1275,7 @@ Make requests to the transfer review end point at any time to monitor the status
 
 Parameter | Required | Description
 --------- | -------- | -----------
-**status** | Yes | pending: waiting for the bitcoin transaction to be seen, confirming: transaction has been seen, and now waiting for a network confirmation, completed: transaction has completed, and funds dispatched via the outlet specified.
+**status** | Yes | **pending**: waiting for the bitcoin transaction to be seen, **confirming**: transaction has been seen, and now waiting for a network confirmation, **completed**: transaction has completed, and funds dispatched via the outlet specified.
 
 ## Currently Available Outlets
 
