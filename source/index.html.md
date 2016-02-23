@@ -30,6 +30,10 @@ General Information about Bitso's APIs
 
 Bitso offers a HTTP API, and a WebSocket API. The HTTP API exposes both public and private functions. The WebSocket API offers realtime streaming of market-data, such as the Bitso orderbook state.
 
+## Transfer API
+
+Bitso’s powerful Transfer API allows for simple integration for routing Bitcoin payments directly through to a choice of Mexican Peso end-points. Please contact us if you're interested in using this API, access is available on request.
+
 ## Notations
 
 **Major** denotes the cryptocurrency, in our case Bitcoin (BTC).
