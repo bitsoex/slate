@@ -1257,9 +1257,8 @@ Parameter | Required | Description
 **currency** | Yes | An ISO 4217 fiat currency symbol (ie, “MXN”). If btc_amount is provided instead of amount, this is the currency to which the BTC price will be converted into. Otherwise, if amount is specified instead of btc_amount, this is the currency of the specified amount.
 **rate** | Yes | This is the rate (e.g. BTC/MXN), as acquired from the transfer_quote method. You must request a quote in this way before creating a transfer.
 **payment_outlet** | Yes | The outlet_id as provided by quote method. See below for more information on available outlets.
-**<required_field1>** | Yes | Each of the other ‘required fields’, as stipulated in the quote method for the chosen payment_outlet.
-**<required_field2>** | Yes |
-**etc...** | Yes |
+**required_field1** | Yes | Each of the other ‘required fields’, as stipulated in the quote method for the chosen payment_outlet.
+**required_field2** | Yes |
 **key** | Yes | API key (see Authentication)
 **signature** | Yes | Signature (see Authentication)
 **nonce** | Yes | nonce (see Authentication)
