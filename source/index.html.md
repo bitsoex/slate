@@ -929,7 +929,7 @@ Use this example native javascript implementation for your reference:
 
 > Messages on this channel look like this:
 
-```blab
+```json
 {
   "type": "trades",
   "book": "btc_mxn",
