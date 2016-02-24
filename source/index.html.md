@@ -1100,8 +1100,8 @@ The transfer can be monitored throughout the process by making a request to the 
 
 ### Authentication
 
-The Transfer API is accessible via an API key created for your account. For full details on creating an API key and how to sign your API requests, please refer to the Trade API documentation, here:
-[https://bitso.com/api_info](https://bitso.com/api_info)
+The Transfer API is accessible via an API key created for your account. For full details on creating an API key and how to sign your API requests, please refer to the following:
+[http://bitsoex.github.io/slate/#generating-api-keys](http://bitsoex.github.io/slate/#generating-api-keys)
 
 ## Requesting a Quote
 
