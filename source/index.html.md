@@ -877,6 +877,12 @@ Returns “ok” (quotation marks included) if the withdrawal was successfully t
 
 ## General
 
+The Orders channel maintains an up-to-date list of the top 20 asks and the top 20 bids, new messages are sent across the channel whenever there is a change in either top 20.
+
+The Diff-Orders channel will send across any modifications to the order book. Specifically, any state changes in existing orders (including orders not in the top 20), and any new orders. An order could be removed, in which case it won't have an 'a' field (amount), or am order could have been partially filled (you can look up an order's state via the lookup_order endpoint) which will be reflected in the amount field. In theory, you can get a copy of the full order book via REST once, and keep it up to date by using the diff-orders channel.
+
+An order's timestamp field is immutable. Even if the amount field is mutated, or the order removed, the timestamp field remains as it was when the order was created. Note that a timestamp is not unique. Different orders can have the same timestamp.
+
 ### How to connect
 
 > Create a WebSocket instance:
