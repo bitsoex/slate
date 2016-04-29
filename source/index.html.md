@@ -687,8 +687,8 @@ Parameter | Default | Required | Description
 **signature** | - | Yes | See [Creating and Signing Requests](#creating-and-signing-requests)
 **nonce** | - | Yes | See [Creating and Signing Requests](#creating-and-signing-requests)
 **book** | btc_mxn | No | Specifies which book to use
-**amount** | - | Yes | Amount of major currency to buy
-**price** | - | No | If supplied, this will place a **limit order** to buy at the specified price. If not supplied, this will place a **market order** to buy the amount of major currency specified in **amount** at the market rate
+**amount** | - | Yes | For limit orders, this indicates the amount of major currency to buy. For market orders, this indicates the amount of minor currency to spend
+**price** | - | No | If supplied, this will place a **limit order** to buy at the specified price. If not supplied, this will place a **market order** and spend the amount of minor currency specified in **amount** to buy major currency at the market rate.
 
 ### JSON Response
 
