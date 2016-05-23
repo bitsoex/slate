@@ -53,6 +53,7 @@ The following client libraries will allow you to integrate quickly with our APIs
 * [Java](https://github.com/bitsoex/bitso-java)
 * [NodeJS](https://github.com/etiennetatur/bitso-api)
 * [.NET](http://www.nuget.org/packages/Bitso)
+* [Python](https://github.com/bitsoex/bitso-py)
 
 # Public Endpoints
 
