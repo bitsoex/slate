@@ -54,6 +54,7 @@ The following client libraries will allow you to integrate quickly with our APIs
 * [NodeJS](https://github.com/etiennetatur/bitso-api)
 * [.NET](http://www.nuget.org/packages/Bitso)
 * [Python](https://github.com/bitsoex/bitso-py)
+* [Objective-C](https://github.com/bitsoex/bitso-ios-sdk)
 
 # Public Endpoints
 
