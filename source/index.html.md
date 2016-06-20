@@ -690,7 +690,7 @@ Parameter | Default | Required | Description
 **nonce** | - | Yes | See [Creating and Signing Requests](#creating-and-signing-requests)
 **book** | btc_mxn | No | Specifies which book to use
 **amount** | - | Yes | The amount of major currency to buy. 
-**price** | - | No | If supplied, this will place a **limit order** to sell at the specified price. If not supplied, this will place a **market order** to sell the amount of major currency specified in **amount** at the market rate
+**price** | - | No | If supplied, this will place a **limit order** to buy at the specified price. If not supplied, this will place a **market order** to buy the amount of major currency specified in **amount** at the market rate
 
 
 
