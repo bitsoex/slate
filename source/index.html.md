@@ -46,6 +46,11 @@ An order book is always referred to in the API as "Major_Minor". For example: "*
 
 We return decimal numbers as strings to preserve full precision across platforms. We recommend you also convert your numbers to string in order to avoid undesired consequences from precision and truncation errors.
 
+
+## Rate Limits
+
+Rate limits are are based on one minute windows. If you do more than 30 requests in a minute, you get locked out for one minute.
+
 ## Client Libraries
 
 The following client libraries will allow you to integrate quickly with our APIs
