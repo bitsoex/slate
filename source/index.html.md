@@ -4,6 +4,7 @@ title: Bitso API Reference
 language_tabs:
   - shell: cURL
   - javascript: NodeJS
+  - python: Python
   - ruby: Ruby
   - java: Java
   - php: PHP
@@ -63,24 +64,82 @@ The following client libraries will allow you to integrate quickly with our APIs
 
 # Public Endpoints
 
-## Ticker
+
+## Available Books
 
 ```shell
-curl "https://bitso.com/api/v2/ticker?book=btc_mxn"
+curl "https://api.bitso.com/v3/available_books/"
 ```
 
 > The JSON dictionary returned by the API looks like this:
 
 ```json
 {
-    "volume": "22.31349615",
-    "high": "5750.00",
-    "last": "5633.98",
-    "low": "5450.00",
-    "vwap": "5393.45",
-    "ask": "5632.24",
-    "bid": "5520.01",
-    "timestamp": "1447348096"
+    "success": true,
+    "payload": [{
+        "book": "btc_mxn",
+        "minimum_amount": ".003",
+        "maximum_amount": "1000.00",
+        "minimum_price": "100.00",
+        "maximum_price": "1000000.00",
+        "minimum_value": "25.00",
+        "maximum_value": "1000000.00"
+    }, {
+        "book": "mxn_eth",
+        "minimum_amount": ".003",
+        "maximum_amount": "1000.00",
+        "minimum_price": "100.0",
+        "maximum_price": "1000000.0",
+        "minimum_value": "25.0",
+        "maximum_value": "1000000.0"
+    }]
+}
+```
+
+This endpoint returns a list of existing exchange order books and
+their respective max/min limits.
+
+### HTTP Request
+
+`GET https://api.bitso.com/v3/available_books/`
+
+
+### JSON Response
+
+Field Name | Type | Description | Units
+---------- | ---- | ----------- | -----
+**book** | String | Order book symbol | Major_Minor
+**minimum_amount** | String | Minimum amount of major when placing orders | Major
+**maximum_amount** | String | Maximum amount of major when placing orders | Major
+**minimum_price** | String | Minimum price when placing orders | Minor
+**maximum_price** | String | Maximum price when placing orders | Minor
+**minimum_value** | String | Minimum value amount (amount*price) when placing orders | Minor
+**maximum_value** | String | Maximum value amount (amount*price) when placing orders | Minor
+
+
+
+## Ticker
+
+```shell
+curl "https://api.bitso.com/v3/ticker/?book=btc_mxn"
+```
+
+> The JSON dictionary returned by the API looks like this:
+
+```json
+{
+    "success": true,
+    "payload": {
+        "book": "btc_mxn",
+        "volume": "22.31349615",
+        "high": "5750.00",
+        "last": "5633.98",
+        "low": "5450.00",
+        "vwap": "5393.45",
+        "ask": "5632.24",
+        "bid": "5520.01",
+        "created_at": "2016-04-08T17:52:31.000+00:00"
+    }
 }
 ```
 
@@ -88,47 +147,75 @@ This endpoint returns trading information from the specified book.
 
 ### HTTP Request
 
-`GET https://api.bitso.com/v2/ticker`
+`GET https://api.bitso.com/v3/ticker/`
 
 ### Query Parameters
 
 Parameter | Default | Required | Description
 --------- | ------- | -------- | -----------
-**book** | btc_mxn | No | Specifies which book to use
+**book** |  | YES | Specifies which book to use
 
 ### JSON Response
 
 Field Name | Type | Description | Units
 ---------- | ---- | ----------- | -----
-**last** | String | Last traded price | Minor/Major
+**book** | String | Order book symbol | Major_Minor
+**volume** | String | Last 24 hours volume | Major
 **high** | String | Last 24 hours price high | Minor/Major
+**last** | String | Last traded price | Minor/Major
 **low** | String | Last 24 hours price low | Minor/Major
 **vwap** | String | Last 24 hours volume weighted average price: [vwap](http://en.wikipedia.org/wiki/Volume-weighted_average_price) | Minor/Major
-**volume** | String | Last 24 hours volume | Major
-**bid** | String | Highest buy order | Minor/Major
 **ask** | String | Lowest sell order | Minor/Major
+**bid** | String | Highest buy order | Minor/Major
+**created_at** | String | Timestamp at wich the ticker was generated | ISO 8601 timestamp
+
 
 ## Order Book
 
 ```shell
-curl "https://api.bitso.com/v2/order_book?book=btc_mxn&group=1"
+curl "https://api.bitso.com/v3/order_book/?book=btc_mxn"
 ```
 
 > The JSON dictionary returned by the API looks like this:
 
 ```json
 {
-    "asks": [
-        ["5632.24", "1.34491802"],
-        ["5632.25", "1.00000000"],
-        ["5633.99", "0.61980799"]
-    ],
-    "bids": [
-        ["5520.01", "0.34493053"],
-        ["5520.00", "0.08000000"],
-        ["5486.01", "0.00250000"]
-    ],
-    "timestamp": "1447348416"
+    "success": true,
+    "payload": {
+        "asks": [{
+            "book": "btc_mxn",
+            "price": "5632.24",
+            "amount": "1.34491802",
+            "created_at": "2016-04-08T17:52:31.000+00:00",
+            "updated_at": null
+        },{
+            "book": "btc_mxn",
+            "price": "5633.44",
+            "amount": "0.4259",
+            "created_at": "2016-04-08T17:52:31.000+00:00",
+            "updated_at": "2016-04-08T18:43:11.000+00:00"
+        },{
+            "book": "btc_mxn",
+            "price": "5642.14",
+            "amount": "1.21642",
+            "created_at": "2016-04-08T17:52:31.000+00:00",
+            "updated_at": null
+        }],
+        "bids": [{
+            "book": "btc_mxn",
+            "price": "6123.55",
+            "amount": "1.12560000",
+            "created_at": "2016-04-08T17:52:31.000+00:00",
+            "updated_at": null
+        },{
+            "book": "btc_mxn",
+            "price": "6121.55",
+            "amount": "2.23976",
+            "created_at": "2016-04-08T19:34:23.000+00:00",
+            "updated_at": "2016-04-08T19:54:21.000+00:00"
+        }],
+        "created_at": "2016-04-08T17:52:31.000+00:00"
+    }
 }
 ```
 
@@ -136,69 +223,76 @@ This endpoint returns a list of all open orders in the specified book.
 
 ### HTTP Request
 
-`GET https://api.bitso.com/v2/order_book`
+`GET https://api.bitso.com/v3/order_book/`
 
 ### Query Parameters
 
-Parameter | Default | Required | Description
+Parameter | Default | Required | Description 
 --------- | ------- | -------- | -----------
-**book** | btc_mxn | No | Specifies which book to use
-**group** | 1 | No | Group orders with the same price (0 - false; 1 - true)
+**book** |  | YES | Specifies which book to use
+
 
 ### JSON Response
 
-Returns JSON dictionary with "bids" and "asks". Each is a JSON Array of open orders and each open order is represented as a JSON Array of price (minor) and amount (major).
+Returns JSON dictionary with "bids" and "asks". Each is a JSON Array
+of open orders and each open order is represented as a JSON dictionary
 
 Field Name | Type | Description
 ---------- | ---- | -----------
 **asks** | JSON Array | List of open asks
 **bids** | JSON Array | List of open bids
 
-**asks** and **bids** JSON Array format:
+**asks** and **bids** JSON Dictionary with the follwing fields:
 
-Array Position | Type | Description | Units
--------------- | ---- | ----------- | -----
-**0** | String | Order Price | Minor
-**1** | String | Order Amount | Major
+Field Name | Type | Description | Units
+---------- | ---- | ----------- | -----
+**book** | String | Order book symbol | Major_Minor
+**price** | String | Price per unit of major | Minor
+**amount** | String | Major amount in order | Major
+**created_at** | String | Timestamp at wich the order was created | ISO 8601 timestamp
+**updated_at** | String | Timestamp at wich the order was updated | ISO 8601 timestamp
 
-## Transactions
+
+## Trades
 
 ```shell
-curl "https://api.bitso.com/v2/transactions?book=btc_mxn&time=minute"
+curl "https://api.bitso.com/v3/trades/?book=btc_mxn"
 ```
 
 > The JSON Array returned by the API looks like this:
 
 ```json
-[
-    {
-        "date": "1447350465",
+{
+    "success": true,
+    "payload": [{
+        "book": "btc_mxn",
+        "created_at": "2016-04-08T17:52:31.000+00:00",
         "amount": "0.02000000",
         "side": "buy",
         "price": "5545.01",
         "tid": 55845
-    },
-    {
-        "date": "1447347533",
+    }, {
+        "book": "btc_mxn",
+        "created_at": "2016-04-08T17:52:31.000+00:00",
         "amount": "0.33723939",
         "side": "sell",
         "price": "5633.98",
         "tid": 55844
-    }
-]
+    }]
+}
 ```
 
 This endpoint returns a list of recent trades from the specified book.
 
 ### HTTP Request
 
-`GET https://api.bitso.com/v2/transactions`
+`GET https://api.bitso.com/v3/trades/`
 
 ### Query Parameters
 
 Parameter | Default | Required | Description
 --------- | ------- | -------- | -----------
-**book** | btc_mxn | No | Specifies which book to use
+**book** |   | Yes | Specifies which book to use
 **time** | hour | No | Time frame for transaction export ("minute" - 1 minute, "hour" - 1 hour)
 
 ### JSON Response
@@ -207,11 +301,97 @@ Returns descending JSON Array of transactions. Every element in the array is a J
 
 Field Name | Type | Description | Units
 ---------- | ---- | ----------- | -----
-**date** | String | Unix timestamp | Seconds
-**tid** | Long | transaction id | -
-**price** | String | Price per unit of major | Minor
+**book** | String | Order book symbol | Major_Minor
+**created_at** | String | Timestamp at wich the trade was executed | ISO 8601 timestamp
 **amount** | String | Major amount transacted | Major
-**side** | String | Indicates the maker order side (maker order is the order that was open on the order book) | -
+**side** | String | Indicates the maker order side (maker order is the order that was open on the order book) | 
+**price** | String | Price per unit of major | Minor
+**tid** | Long | Trade ID |
+
+
+
+## Account Required Fields
+
+```shell
+curl "https://api.bitso.com/v3/account_required_fields/"
+```
+
+> The JSON Array returned by the API looks like this:
+
+```json
+{
+	"success": true,
+	"payload": [
+		{"field_name": "email_address", "field_description": ""},
+		{"field_name": "mobile_phone_number", "field_description": ""},
+		{"field_name": "given_names", "field_description": ""},
+		{"field_name": "family_names", "field_description": ""}
+	]
+}
+```
+
+This endpoint returns a list of required fields and their descriptions
+for use in the "Account Creation" endpoint.
+
+### HTTP Request
+
+`GET https://api.bitso.com/v3/account_required_fields/`
+
+
+### JSON Response
+
+Returns descending JSON Array. Every element in the array is a JSON
+dictionary with the following fields.
+
+Field Name | Type | Description 
+---------- | ---- | ----------- 
+**field_name** | String |  field name that will be user for "account_creation" endpoint
+**field_description** | String | 
+
+
+## Account Creation
+
+```shell
+curl --data "email_address=value1&mobile_phone_number=value2&given_names=value3&family_names=value4" "https://api.bitso.com/v3/accounts/"
+```
+
+> The JSON Array returned by the API looks like this:
+
+```json
+{
+	"success": true,
+	"payload": {
+		"client_id": 1234,
+		"account_level": 0
+	}
+}
+```
+
+This endpoint returns a list of required field and their descriptions
+for use in the "Account Creation" endpoint.
+
+### HTTP Request
+
+`POST https://api.bitso.com/v3/accounts/`
+
+### Query Parameters
+All parameters as returned by the "Account Required
+Fields[#account-required-fields]" endpoint
+
+Parameter | Default | Required | Description
+--------- | ------- | -------- | -----------
+
+### JSON Response
+
+Returns descending JSON Array. Every element in the array is a JSON
+dictionary with the following fields.
+
+Field Name | Type | Description | Units
+---------- | ---- | ----------- | -----
+**client_id** | Long | Designated Bitso User ID | 
+**account_level** | String | Account Verification Level |
+
+
 
 # Private Endpoints
 
