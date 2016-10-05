@@ -2,7 +2,7 @@
 title: Bitso API Reference
 
 language_tabs:
-  - shell: cURL
+  - shell: Shell
   - javascript: NodeJS
   - python: Python
   - ruby: Ruby
@@ -35,11 +35,33 @@ Bitso offers a HTTP API, and a WebSocket API. The HTTP API exposes both public a
 
 Bitso’s powerful Transfer API allows for simple integration for routing Bitcoin payments directly through to a choice of Mexican Peso end-points. Please contact us if you're interested in using this API, access is available on request.
 
+## HTTP API Responses
+
+Our REST-like API will always return a JSON Object.
+
+For successful API calls, we should always return something that looks like:
+
+`
+{   "success": true,
+    "payload": {RELEVANT_DATA_HERE}
+}
+`
+	
+For unsuccessful API calls, we should always return something that looks like:
+
+`
+{
+    "success": false,
+    "error": {"message": ERROR_MESSAGE, "code": ERROR_CODE}
+}
+`
+
+
 ## Notations
 
-**Major** denotes the cryptocurrency, in our case Bitcoin (BTC).
+**Major** denotes the cryptocurrency, in our case Bitcoin (BTC) or Ether (ETH).
 
-**Minor** denotes fiat currencies such as Mexican Peso (MXN), etc
+**Minor** denotes fiat currencies, in our case Mexican Peso (MXN)
 
 An order book is always referred to in the API as "Major_Minor". For example: "**btc_mxn**"
 
@@ -97,7 +119,7 @@ curl "https://api.bitso.com/v3/available_books/"
 ```
 
 This endpoint returns a list of existing exchange order books and
-their respective max/min limits.
+their respective order placement limits.
 
 ### HTTP Request
 
@@ -296,7 +318,7 @@ Parameter | Default | Required | Description
 **time** | hour | No | Time frame for transaction export ("minute" - 1 minute, "hour" - 1 hour)
 **marker** |  | No | Returns objects that are older or newer (depending on 'sort') than the object with this ID
 **sort** | desc | No | Specifies ordering direction of returned objects
-**limit** | 25 | No | Specifis number of objects tu return. (Max is 100)
+**limit** | 25 | No | Specifis number of objects to return. (Max is 100)
 
 
 ### JSON Response
@@ -348,8 +370,8 @@ Returns descending JSON Array. Every element in the array is a JSON object with 
 
 Field Name | Type | Description 
 ---------- | ---- | ----------- 
-**field_name** | String |  field name that will be user for "account_creation" endpoint
-**field_description** | String | 
+**field_name** | String |  Field name that will be user for "account_creation" endpoint
+**field_description** | String | Describes each field
 
 
 ## Account Creation
@@ -397,7 +419,7 @@ Field Name | Type | Description | Units
 
 # Private Endpoints
 
-Private endpoints are used to manage your account and your orders. These requests must be signed (more about this below).
+Private endpoints are used to manage your account and your orders. These requests must be signed (more ont this below).
 
 <aside class="notice">
 Private endpoints require API Keys. Make sure you read more about obtaining your private keys <a href="#generating-api-keys">here</a>
@@ -419,11 +441,24 @@ The three key elements you will need to sign requests are:
 * Bitso Client ID
 
 ## Creating and Signing Requests
+```shell
+#!/bin/bash
+# requires:
+# -httpie: https://github.com/jkbrzt/httpie
+# -openssl
+  
+URL="https://api.bitso.com/v3/balance/"
+CLIENT_ID="BITSO_CLIENT_ID"
+API_KEY="BITSO_KEY"
+API_SECRET="BITSO_SECRET"
+DNONCE=$(date +%s)
+http GET $URL Authorization:$API_KEY:$DNONCE:$(echo -n $DNONCE$CLIENT_ID$API_KEY | openssl dgst -sha256 -hmac $API_SECRET)
+```
 
 ```javascript
 var secret = "BITSO API SECRET";
 var key = "BITSO API KEY";
-var client_id = "BITSO CLIENT ID";
+var client_id = "BITSO_CLIENT_ID";
 var nonce = new Date().getTime();
 
 // Create the signature
@@ -431,20 +466,17 @@ var Data = nonce + client_id + key;
 var crypto = require('crypto');
 var signature = crypto.createHmac('sha256', secret).update(Data).digest('hex');
 
-// Build the request parameters
-var querystring = require('querystring');
-var data = querystring.stringify({
-  key: key,
-  nonce: nonce,
-  signature: signature
-});
+// Build the auth header
+var auth_header = "Bitso "+bitso_key+":" +nonce+":"+signature;
+
+
 var options = {
   host: 'api.bitso.com',
   port: 443,
-  path: '/v2/balance',
-  method: 'POST',
+  path: '/v3/balance/',
+  method: GET,
   headers: {
-        'Content-Type': 'application/x-www-form-urlencoded'
+        'Authorization': auth_header
     }
 };
 
@@ -455,9 +487,36 @@ var req = http.request(options, function(res) {
         console.log("body: " + chunk);
     });
 });
-req.write(data);
 req.end();
 ```
+
+```python
+#!/usr/bin/python
+
+import time
+import hmac
+import hashlib
+import requests
+
+bitso_key = "BITSO_KEY"
+bitso_secret = "BITSO_SECRET"
+bitso_client_id = "BITSO_CLIENT_ID"
+nonce =  str(int(round(time.time() * 1000)))
+
+# Create signature
+message = nonce + bitso_key + bitso_client_id
+signature = hmac.new(bitso_secret.encode('utf-8'),message.encode('utf-8'), hashlib.sha256).hexdigest()
+
+
+# Build the auth header
+auth_header = 'Bitso %s:%s:%s' % (bitso_key, nonce, signature)
+
+# Send request
+response = requests.get("https://api.bitso.com/v3/balance/", headers={"Authorization": auth_header})
+
+print response.content
+```
+
 
 ```ruby
 #!/usr/bin/ruby
@@ -476,20 +535,14 @@ nonce = DateTime.now.strftime('%Q')
 message = nonce + bitso_key + bitso_client_id
 signature = OpenSSL::HMAC.hexdigest(OpenSSL::Digest.new('sha256'), bitso_secret, message)
 
-# Build the request parameters
-o = {
-  :key => bitso_key,
-  :nonce => nonce.to_i,
-  :signature => signature
-}
-body = JSON.generate(o)
+# Build the auth header
+auth_header = "'Bitso #{bitso_key}:#{nonce}:#{signature}"
 
 # Send request
 response = Typhoeus::Request.new(
-  "https://api.bitso.com/v2/balance",
-  method: "post",
-  body: body,
-  headers: { "Content-Type" => "application/json" }
+  "https://api.bitso.com/v3/balance/",
+  method: "get",
+  headers: {"Authorization" =>  auth_header}
 ).run
 
 puts response.body
@@ -529,19 +582,15 @@ public class BitsoJavaExample {
         BigInteger localBigInteger = new BigInteger(1, arrayOfByte);
         signature = String.format("%0" + (arrayOfByte.length << 1) + "x", new Object[] { localBigInteger });
 
-        // Build the request parameters
-        JSONObject o = new JSONObject();
-        o.put("key", bitsoKey);
-        o.put("nonce", nonce);
-        o.put("signature", signature);
-        String body = o.toString();
-        String url = "https://api.bitso.com/v2/balance";
+        String url = "https://api.bitso.com/v3/balance/";
+	
+        // Build the auth header
+	    String authHeader = String.format("Bitso %s:%s:%s", bitsoKey, nonce, signature);
+        
 
         // Send request
         HttpPost postRequest = new HttpPost(url);
-        postRequest.addHeader("Content-Type", "application/json");
-        postRequest.setEntity(new StringEntity(body));
-
+        postRequest.addHeader("Authorization", authHeader);
         CloseableHttpResponse response = HttpClients.createDefault().execute(postRequest);
         BufferedReader in = new BufferedReader(new InputStreamReader(response.getEntity().getContent()));
 
@@ -552,10 +601,10 @@ public class BitsoJavaExample {
             responseBody.append(inputLine);
         }
         in.close();
-
         System.out.println(responseBody.toString());
     }
 }
+
 ```
 
 ```php
@@ -569,22 +618,17 @@ public class BitsoJavaExample {
   $message = $nonce . $bitsoClientId . $bitsoKey;
   $signature = hash_hmac('sha256', $message, $bitsoSecret);
 
-  // Build the request parameters
-  $o = array(
-      'key'       => $bitsoKey,
-      'nonce'     => $nonce,
-      'signature' => $signature
-  );
-  $body = json_encode($o);
+  // Build the auth header
+  $format = 'Bitso %s:%s:%s';
+  $authHeader =  sprintf($format, ($bitsoKey, $nonce, $signature);
+
 
   // Send request
   $ch = curl_init();
-  curl_setopt($ch, CURLOPT_URL, 'https://api.bitso.com/v2/balance');
-  curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
-  curl_setopt($ch, CURLOPT_POSTFIELDS, $body);
+  curl_setopt($ch, CURLOPT_URL, 'https://api.bitso.com/v3/balance/');
+  curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "GET");
   curl_setopt($ch, CURLOPT_HTTPHEADER, array(
-      'Content-Type: application/json; charset=utf-8',
-      'Content-Length: ' . strlen($body))
+      'Authorization: ' .  $authHeader)
   );
   $result = curl_exec($ch);
 
@@ -608,7 +652,7 @@ The signature is generated by creating a SHA256 HMAC using the **Bitso API Secre
 The header should be constructed, using the fields described above, in
 the following form:
 
-**Authorization: Bitso key:nonce:signature**
+**Authorization: Bitso \<key>:\<nonce>:\<signature>**
 
 
 ## Account Balance
@@ -639,7 +683,7 @@ the following form:
 }
 ```
 
-This endpoint returns information of all balances.
+This endpoint returns information concering the user's balances for all supported currencies.
 
 ### HTTP Request
 
@@ -696,7 +740,7 @@ order books
 
 ### HTTP Request
 
-`GET https://api.bitso.com/v3/fees`
+`GET https://api.bitso.com/v3/fees/`
 
 ### Authorization Header Parameters
 
@@ -805,11 +849,11 @@ Field Name | Type | Description | Units
         "details": {
             "fid": "3ef729ccf0cc56079ca546d58083dc12",
             "method": "SPEI Transfer",
-            "sender_name": "HUGO HERNANDEZ MANZANO",
+            "sender_name": "MANUEL OROZCO Y BERRA",
             "sender_bank": "BBVA Bancomer",
             "sender_clabe": "012610001967722183",
             "numeric_reference": "80416",
-            "concepto": "Para el 🐖",
+            "concepto": "Para el regalo",
             "clave_rastreo": "BNET01001604080002076841"
         }
  
@@ -824,11 +868,11 @@ Field Name | Type | Description | Units
         "details": {
             "wid": "c5b8d7f0768ee91d3b33bee648318688",
             "method": "SPEI Transfer",
-            "beneficiary_name": "Daniel Vogel",
+            "beneficiary_name": "DANIEL COSIO VILLEGAS",
             "beneficiary_bank": "BANAMEX",
             "beneficiary_clabe": "5204165009315197",
             "numeric_reference": "99548",
-            "concepto": "Por los 🌮 del viernes",
+            "concepto": "Por los tacos del viernes",
             "clave_rastreo": "BNET01001604080002076841"
         }
     }]
@@ -850,7 +894,7 @@ Parameter | Default | Required | Description
 **nonce** | - | Yes | See [Creating and Signing Requests](#creating-and-signing-requests)
 
 
-### Body Parameters
+### Query Parameters
 
 Parameter | Default | Required | Description
 --------- | ------- | -------- | -----------
@@ -880,6 +924,9 @@ Field Name | Type | Description | Units
 
 
 ### Filter Ledger by operation type
+
+You can specify that the ledger endpoint return only objects that are
+a specific operation type.
 
 `GET https://api.bitso.com/v3/ledger/trades/`
 
@@ -959,12 +1006,12 @@ Returns a JSON Array of open orders. Every element in the array is a JSON object
 
 Field Name | Type | Description | Units
 ---------- | ---- | ----------- | -----
+**oid** | String | The Order ID | -
 **book** | String | Order book symbol | Major_Minor
 **amount** | String | The order's major currency amount | Major
 **created_at** | String | Timestamp at wich the trade was executed |ISO 8601 timestamp
 **updated_at** | String | Timestamp at wich the trade was updated | ISO 8601 timestamp
 **price** | String | The order's price | Minor
-**oid** | String | The Order ID | -
 **side** | String | The order side (buy, sell) | -
 **status** | String | The order's status (open, partial-fill) | 
 **type** | String | The order type (will always be 'limit' for open orders) | -
@@ -1037,12 +1084,12 @@ Returns a JSON Array of open orders. Every element in the array is a JSON object
 
 Field Name | Type | Description | Units
 ---------- | ---- | ----------- | -----
+**oid** | String | The Order ID | -
 **book** | String | Order book symbol | Major_Minor
 **amount** | String | The order's major currency amount | Major
 **created_at** | String | Timestamp at wich the order was created |ISO 8601 timestamp
 **updated_at** | String | Timestamp at wich the order was updated | ISO 8601 timestamp
 **price** | String | The order's price | Minor
-**oid** | String | The Order ID | -
 **side** | String | The order side (buy, sell) | -
 **status** | String | The order's status (open, partial-fill, closed) | 
 **type** | String | The order type (market, limit) | -
@@ -1182,7 +1229,7 @@ Parameter | Default | Required | Description
 **nonce** | - | Yes | See [Creating and Signing Requests](#creating-and-signing-requests)
 
 
-### Body Parameters
+### Query Parameters
 
 Parameter | Default | Required | Description
 --------- | ------- | -------- | -----------
