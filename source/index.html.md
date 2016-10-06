@@ -1124,6 +1124,14 @@ Parameter | Default | Required | Description
 
 
 
+### Query Parameters
+
+Parameter | Default | Required | Description
+--------- | ------- | -------- | -----------
+**marker** |  | No | Returns objects that are older or newer (depending on 'sort') than the object with this ID
+**sort** | desc | No | Specifies ordering direction of returned objects
+**limit** | 25 | No | Specifies number of objects tu return. (Max is 100)
+
 ### JSON Response
 
 Returns a JSON Array of open orders. Every element in the array is a JSON object:
@@ -1197,6 +1205,14 @@ Parameter | Default | Required | Description
 **signature** | - | Yes | See [Creating and Signing Requests](#creating-and-signing-requests)
 **nonce** | - | Yes | See [Creating and Signing Requests](#creating-and-signing-requests)
 
+
+### Query Parameters
+
+Parameter | Default | Required | Description
+--------- | ------- | -------- | -----------
+**marker** |  | No | Returns objects that are older or newer (depending on 'sort') than the object with this ID
+**sort** | desc | No | Specifies ordering direction of returned objects
+**limit** | 25 | No | Specifies number of objects tu return. (Max is 100)
 
 
 ### JSON Response
