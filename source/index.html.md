@@ -994,6 +994,298 @@ a specific operation type.
 
 `GET https://api.bitso.com/v3/ledger/fees/`
 
+## Withdrawals
+
+> The JSON object returned by the API looks like this:
+
+```json
+{
+    "success": true,
+    "payload": [{
+        "wid": "c5b8d7f0768ee91d3b33bee648318688",
+        "status": "pending",
+        "created_at": "2016-04-08T17:52:31.000+00:00",
+        "currency": "btc",
+        "method": "Bitcoin",
+        "amount": "0.48650929",
+        "details": {
+            "withdrawal_address": "18MsnATiNiKLqUHDTRKjurwMg7inCrdNEp",
+            "tx_hash": "d4f28394693e9fb5fffcaf730c11f32d1922e5837f76ca82189d3bfe30ded433"
+        }
+    }, {
+        "wid": "p4u8d7f0768ee91d3b33bee6483132i8",
+        "status": "complete",
+        "created_at": "2016-04-08T17:52:31.000+00:00",
+        "currency": "mxn",
+        "method": "SPEI Transfer",
+        "amount": "2612.70",
+        "details": {
+            "beneficiary_name": "BERTRAND RUSSELL",
+            "beneficiary_bank": "BANAMEX",
+            "beneficiary_clabe": "002320700708015728",
+            "numeric_reference": "99548",
+            "concepto": "Por los 🌮 del viernes",
+            "clave_rastreo": "BNET01001604080002076841",
+            "cep": {
+                "return": {
+                    "cda": {
+                        "cadenaOriginal": "||1|13062016|13062016|172053|40002|STP|Bitso - BERTRAND RUSSELL|40|646180115400000002|BIT140123U70|BANAMEX|BERTRAND RUSSELL|40|002320700708015728|ND|-|0.00|2612.70|00001000000401205824||",
+                        "conceptoPago": "-",
+                        "cuentaBeneficiario": "002320700708015728",
+                        "cuentaOrdenante": "646180115400000002",
+                        "fechaCaptura": "20160613",
+                        "fechaOperacion": "20160613",
+                        "hora": "17:08:42",
+                        "iva": "0.00",
+                        "monto": "2612.70",
+                        "nombreBeneficiario": "BERTRAND RUSSELL",
+                        "nombreInstBeneficiaria": "BANAMEX",
+                        "nombreInstOrdenante": "STP",
+                        "nombreOrdenante": "Bitso - Russell",
+                        "referenciaNumerica": "99548",
+                        "rfcCurpBeneficiario": "ND",
+                        "rfcCurpOrdenante": "BIT140123U70",
+                        "selloDigital": "cd7yUrnmUQ7CG6M+LX7WOZeizOpkTyMlEAunJaP2j5MAaNPZxy+vAJtgiVL73i1LNSrwK10eBb66Rh4\/RxU6AT2S03chQ\/BS1beknH5xPpGQg+wEXeANtnF2lp71lAD6QZ2O0NE4MIDvLhGGjTGklSP+2fS6joTAaV+tLbtrIp8JiR0MOX1rGPC5h+0ZHNvXQkcHJz3s68+iUAvDnQBiSu768b2C4zpHzteGEnJhU8sAdk83spiWogKALAVAuN4xfSXni7GTk9HObTTRdY+zehfWVPdE\/7uQSmMTzOKfPbQU02Jn\/5DdE3gYk6JZ5m70JsUSFBTF\/EVX8hhg0pu2iA==",
+                        "serieCertificado": "",
+                        "tipoOperacion": "C",
+                        "tipoPago": "1"
+                    },
+                    "estadoConsulta": "1",
+                    "url": "http:\/\/www.banxico.org.mx\/cep?i=90646&s=20150825&d=viAKjS0GVYB8qihmG9I%2B9O1VUvrR2td%2Fuo3GyVDn8vBp371tVx5ltRnk4QsWP6KP%2BQvlWjT%2BzfwWWTA3TMk4tg%3D%3D"
+                }
+            }
+        }
+    }, {
+        "wid": "of40d7f0768ee91d3b33bee64831jg73",
+        "status": "complete",
+        "created_at": "2016-04-08T17:52:31.000+00:00",
+        "currency": "mxn",
+        "method": "Debit Card",
+        "amount": "500.00",
+        "details": {
+            "beneficiary_name": "ALFRED NORTH WHITEHEAD",
+            "beneficiary_bank": "BANAMEX",
+            "beneficiary_clabe": "5204165009315197",
+            "numeric_reference": "30535",
+            "concepto": "-",
+            "clave_rastreo": "BNET01001604080002076841",
+            "cep": {
+                "return": {
+                    "cda": {
+                        "cadenaOriginal": "||1|07042016|07042016|095656|40002|STP|Bitso - Al|40|646180115400000002|BIT140123U70|BANAMEX|ALFRED NORTH WHITEHEAD|3|5204165009315197|ND|-|0.00|500.00|00001000000401205824||",
+                        "conceptoPago": "-",
+                        "cuentaBeneficiario": "5204165009315197",
+                        "cuentaOrdenante": "646180115400000002",
+                        "fechaCaptura": "20160407",
+                        "fechaOperacion": "20160407",
+                        "hora": "09:56:51",
+                        "iva": "0.00",
+                        "monto": "500.00",
+                        "nombreBeneficiario": "ALFRED NORTH WHITEHEAD",
+                        "nombreInstBeneficiaria": "BANAMEX",
+                        "nombreInstOrdenante": "STP",
+                        "nombreOrdenante": "Bitso - RUSSELL",
+                        "referenciaNumerica": "30535",
+                        "rfcCurpBeneficiario": "ND",
+                        "rfcCurpOrdenante": "BIT140123U70",
+                        "selloDigital": "GaXpeaKgkc+gc0w9XgBbRCMmKWLNdSTV5C4CNQ4DL4ZVT+1OBSqNtX\/pv2IGjI7bKjCkaNrKUdaCdFwG6SdZ0nS9KtYSx1Ewg2Irg6x4kSzeHdlzBDr6ygT+bb+weizxcXMARKkciPuSQlyltCrEwSi07yVzachKfcEN8amj2fsEzim7gSyUc3ecKA1n8DX89158fwukKTIg4ECfOLsgueKF8unwbICWHXwRaaxIAA6PVw7O6WwGXxMtMBTCdiT202c8I2SnULFqK9QVJlQ\/YDRXFI4IMMAwGQZWbbmk8gf\/J3Fixy+0lcQV35TBBrbHyFPiaHaRN95yK\/BUxPOhag==",
+                        "serieCertificado": "",
+                        "tipoOperacion": "C",
+                        "tipoPago": "1"
+                    },
+                    "estadoConsulta": "1",
+                    "url": "http:\/\/www.banxico.org.mx\/cep?i=90646&s=20150825&d=3AeATtn9mM9yySMqwClgSTnKIddFN7JVwo38kDBVjOBRtcYVENx1LblV%2BXOHnKEGTfp0g%2BVLM76C3ewQ0c9vpA%3D%3D"
+                }
+            },
+            "folio_origen": "BITSO4405016499736144"
+        }
+    }]
+}
+```
+
+Returns detailed info on a user's fund withdrawals.
+
+### HTTP Request
+
+
+`GET https://api.bitso.com/v3/withdrawals/`
+
+`GET https://api.bitso.com/v3/withdrawals/wid/`
+
+`GET https://api.bitso.com/v3/withdrawals/wid-wid-wid/`
+
+### Authorization Header Parameters
+
+Parameter | Default | Required | Description
+--------- | ------- | -------- | -----------
+**key** | - | Yes | See [Creating and Signing Requests](#creating-and-signing-requests)
+**signature** | - | Yes | See [Creating and Signing Requests](#creating-and-signing-requests)
+**nonce** | - | Yes | See [Creating and Signing Requests](#creating-and-signing-requests)
+
+
+
+### JSON Response
+
+Returns a JSON Array of open orders. Every element in the array is a JSON object:
+
+Field Name | Type | Description | Units
+---------- | ---- | ----------- | -----
+**wid** | String | The unique withdrawal ID | -
+**currency** | String | Currency withdrawn | -
+**method** | String | Method for this withdrawal (MXN, BTC, ETH). | -
+**amount** | String | The withdrawn amount | currency
+**status** | String | The status for this withdrawal (pending, complete, cancelled) | currency
+**created_at** | String | Timestamp at which the withdrawal as created |ISO 8601 timestamp
+**details** | JSON object | Specific withdrawal details | -
+
+
+## Fundings
+
+> The JSON object returned by the API looks like this:
+
+```json
+{
+    "success": true,
+    "payload": [{
+        "fid": "c5b8d7f0768ee91d3b33bee648318688",
+        "status": "pending",
+        "created_at": "2016-04-08T17:52:31.000+00:00",
+        "currency": "btc",
+        "method": "Bitcoin",
+        "amount": "0.48650929",
+        "details": {
+            "funding_address": "18MsnATiNiKLqUHDTRKjurwMg7inCrdNEp",
+            "tx_hash": "d4f28394693e9fb5fffcaf730c11f32d1922e5837f76ca82189d3bfe30ded433"
+        }
+    }, {
+        "fid": "p4u8d7f0768ee91d3b33bee6483132i8",
+        "status": "complete",
+        "created_at": "2016-04-08T17:52:31.000+00:00",
+        "currency": "mxn",
+        "method": "SPEI Transfer",
+        "amount": "300.15",
+        "details": {
+            "sender_name": "BERTRAND RUSSELL",
+            "sender_bank": "BBVA Bancomer",
+            "sender_clabe": "012610001967722183",
+            "receive_clabe": "646180115400467548",
+            "numeric_reference": "80416",
+            "concepto": "Para el 🐖",
+            "clave_rastreo": "BNET01001604080002076841",
+            "beneficiary_name": "ALFRED NORTH WHITEHEAD"
+        }
+    }]
+}
+```
+
+Returns detailed info on a user's fund withdrawals.
+
+### HTTP Request
+
+
+`GET https://api.bitso.com/v3/fundings/`
+
+`GET https://api.bitso.com/v3/fundings/fid/`
+
+`GET https://api.bitso.com/v3/fundings/fid-fid-fid/`
+
+### Authorization Header Parameters
+
+Parameter | Default | Required | Description
+--------- | ------- | -------- | -----------
+**key** | - | Yes | See [Creating and Signing Requests](#creating-and-signing-requests)
+**signature** | - | Yes | See [Creating and Signing Requests](#creating-and-signing-requests)
+**nonce** | - | Yes | See [Creating and Signing Requests](#creating-and-signing-requests)
+
+
+
+### JSON Response
+
+Returns a JSON Array of open orders. Every element in the array is a JSON object:
+
+Field Name | Type | Description | Units
+---------- | ---- | ----------- | -----
+**fid** | String | The unique funding ID | -
+**currency** | String | Currency funded | -
+**method** | String | Method for this funding (MXN, BTC, ETH). | -
+**amount** | String | The funding amount | currency
+**status** | String | The status for this funding (pending, complete, cancelled) | currency
+**created_at** | String | Timestamp at which the funding as created |ISO 8601 timestamp
+**details** | JSON object | Specific funding details | -
+
+## User Trades
+
+```shell
+curl "https://api.bitso.com/v3/user_trades/?book=btc_mxn"
+```
+
+> The JSON Array returned by the API looks like this:
+
+```json
+{
+    "success": true,
+    "payload": [{
+        "book": "mxn_btc",
+        "major": "-0.25232073",
+        "created_at": "2016-04-08T17:52:31.000+00:00",
+        "minor": "1013.540958479115",
+        "fees_amount": "-10.237787459385",
+        "fees_currency": "mxn",
+        "price": "4057.45",
+        "tid": 51756,
+        "oid": "19vaqiv72drbphig81d3y1ywri0yg8miihs80ng217drpw7xyl0wmytdhtby2ygk",
+        "side": "sell"
+    }, {
+        "book": "mxn_btc",
+        "major": "4.86859395",
+        "created_at": "2016-04-08T17:52:31.000+00:00",
+        "minor": "-626.77",
+        "fees_amount": "-0.04917771",
+        "fees_currency": "btc",
+        "price": "127.45",
+        "tid": 51757,
+        "oid": "19vaqiv72drbphig81d3y1ywri0yg8miihs80ng217drpw7xyl0wmytdhtby2ygk",
+        "side": "buy"
+    }]
+}
+```
+
+This endpoint returns a list of recent trades from the specified book.
+
+### HTTP Request
+
+`GET https://api.bitso.com/v3/user_trades/`
+
+`GET https://api.bitso.com/v3/user_trades/tid/`
+
+`GET https://api.bitso.com/v3/user_trades/tid-tid-tid/`
+
+### Query Parameters
+
+Parameter | Default | Required | Description
+--------- | ------- | -------- | -----------
+**book** |   | Yes | Specifies which book to use
+**marker** |  | No | Returns objects that are older or newer (depending on 'sort') than the object with this ID
+**sort** | desc | No | Specifies ordering direction of returned objects
+**limit** | 25 | No | Specifies number of objects to return. (Max is 100)
+
+
+### JSON Response
+
+Returns descending JSON Array of transactions. Every element in the array is a JSON object:
+
+Field Name | Type | Description | Units
+---------- | ---- | ----------- | -----
+**book** | String | Order book symbol | Major_Minor
+**major** | String | Major amount transacted | Major
+**minor** | String | Minr amount transacted | Minor
+**price** | String | Price per unit of major | Minor
+**side** | String | Indicates the user's side for this trade (buy, sell) |
+**fees_currency** | String | Indicates the currency in which the trade fee was charged | -
+**fees_amount** | String | Indicates the amount charged as trade fee |
+**tid** | Long | Trade ID |
+**oid** | Long | Users' Order ID |
+**created_at** | String | Timestamp at which the trade was executed | ISO 8601 timestamp
 
 ## Open Orders
 
