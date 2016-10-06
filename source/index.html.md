@@ -458,12 +458,10 @@ for use in the "Account Creation" endpoint.
 
 `POST https://api.bitso.com/v3/accounts/`
 
-### Query Parameters
-All parameters as returned by the "Account Required
-Fields[#account-required-fields]" endpoint
+### Body Parameters
+All parameters as returned by the [Account Required
+Fields](#account-required-fields) endpoint
 
-Parameter | Default | Required | Description
---------- | ------- | -------- | -----------
 
 ### JSON Response
 
