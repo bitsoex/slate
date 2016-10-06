@@ -76,6 +76,63 @@ We return decimal numbers as strings to preserve full precision across platforms
 
 Rate limits are are based on one minute windows. If you do more than 30 requests in a minute, you get locked out for one minute.
 
+## Error Codes
+
+Error codes consist of four digits, first two digits correspond to
+error categories, the last two digits define specific errors.
+
+### Unknown Errors: 01 (HTTP 500)
+* 01001: "Unknown Error"
+
+### Authentication Errors: 02 (HTTP 401)
+* 0201: Invalid Nonce or Invalid Credentials
+
+### Validation Errors: 03 (HTTP 400)
+* 0301: Unknown Order book
+* 0302: Incorrect time frame (not 'hour' or 'minute')
+* 0303: Required field missing
+* 0304: Required field not valid (email, phone_number)
+* 0305: Invalid SMS code (would also apply to correct code but not-correct client id)
+* 0306: Order side not in (buy, sell)
+* 0307: Order type not in (limit, market)
+* 0308: Order request included both minor and major
+* 0309: Order request does not include neither minor or major
+* 0310: Incorrect WID (non-existent or does not belong to user)
+* 0311: Incorrect FID (non-existent or does not belong to user)
+* 0312: Incorrect OID (non-existent or does not belong to user)
+* 0313: Selected currency not in (mxn, btc, eth)
+* 0314: Auto-trade not available for selected currencies
+* 0314: Invalid Bitcoin address
+* 0315: Invalid Ripple address
+* 0316: Invalid Ripple currency
+* 0317: Invalid SPEI number
+* 0318: Invalid SPEI numeric_ref
+* 0319: Invalid SPEI notes_ref 
+* 0320: Invalid pagination parameters
+* 0321: Incorrect TID (non-existent)
+### System Limit Errors: 04 (HTTP 400)
+* 0401: Incorrect price, below the mininum
+* 0402: Incorrect price, above than maximum
+* 0403: Incorrect major, below the mininum
+* 0404: Incorrect major, above the maximum
+* 0405: Incorrect minor, below the mininum
+* 0406: Incorrect minor, above the maximum
+* 0407: Invalid precision
+
+### User Limit Error: 05 (HTTP 400)
+* 0501: Exceeds user limit for withdrawals
+
+### Funds Error: 06 (HTTP 400)
+* 0601: Not enough btc funds
+* 0602: Not enough mxn funds
+
+### Throttling Errors: 08 (HTTP 420)
+* 0801: You have hit the request rate-limit
+
+### Unsupported HTTP method (400 error)
+* 0901: Unsupported HTTP method
+
+
 ## Client Libraries
 
 The following client libraries will allow you to integrate quickly with our APIs
