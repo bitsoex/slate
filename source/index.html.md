@@ -447,14 +447,15 @@ The three key elements you will need to sign requests are:
 #!/bin/bash
 # requires:
 # -httpie: https://github.com/jkbrzt/httpie
-# -openssl
+
   
 URL="https://api.bitso.com/v3/balance/"
 CLIENT_ID="BITSO_CLIENT_ID"
 API_KEY="BITSO_KEY"
 API_SECRET="BITSO_SECRET"
 DNONCE=$(date +%s)
-http GET $URL Authorization:$API_KEY:$DNONCE:$(echo -n $DNONCE$CLIENT_ID$API_KEY | openssl dgst -sha256 -hmac $API_SECRET)
+SIGNATURE=$(echo -n $DNONCE$CLIENT_ID$API_KEY | openssl dgst -sha256 -hmac $API_SECRET)
+http GET $URL Authorization:$API_KEY:$DNONCE:$SIGNATURE
 ```
 
 ```javascript
@@ -1743,7 +1744,8 @@ The Transfer API is accessible via an API key created for your account. For full
 
 ```json
 {
-   "quote":{
+   "success":true,
+   "payload":{
       "btc_amount":"0.14965623",
       "currency":"MXN",
       "rate":"3340.99",
@@ -1831,8 +1833,7 @@ The Transfer API is accessible via an API key created for your account. For full
       },
       "timestamp":"1425101044",
       "expires_epoch":"1425101104"
-   },
-   "success":true
+   }
 }
 ```
 
@@ -1858,7 +1859,8 @@ Parameter | Required | Description
 
 ```json
 {
-   "order":{
+   "success":true,
+   "payload":{
       "btc_amount":"0.14965623",
       "btc_pending":"0",
       "btc_received":"0",
@@ -1877,8 +1879,7 @@ Parameter | Required | Description
       "qr_img_uri":"https:\/\/chart.googleapis.com\/chart?chl=bitcoin%3AmgKZfNdFJgztvfvhEaGgMTQRQ2iHCadHGa%3Famount%3D0.14965623&chs=400x400&cht=qr&choe=UTF-8&chld=L%7C0",
       "user_uri":"https:\/\/api.bitso.com\/v2\/transfer\/9b2a431b98597312e99cbff1ba432cbf",
       "wallet_address":"mgKZfNdFJgztvfvhEaGgMTQRQ2iHCadHGa"
-   },
-   "success":true
+   } 
 }
 ```
 
