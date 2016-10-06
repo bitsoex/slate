@@ -562,7 +562,7 @@ bitso_client_id = "BITSO_CLIENT_ID"
 nonce =  str(int(round(time.time() * 1000)))
 
 # Create signature
-message = nonce + bitso_key + bitso_client_id
+message = nonce +bitso_client_id+bitso_key
 signature = hmac.new(bitso_secret.encode('utf-8'),message.encode('utf-8'), hashlib.sha256).hexdigest()
 
 
@@ -590,7 +590,7 @@ bitso_client_id = "BITSO_CLIENT_ID";
 nonce = DateTime.now.strftime('%Q')
 
 # Create signature
-message = nonce + bitso_key + bitso_client_id
+message = nonce +bitso_client_id+bitso_key
 signature = OpenSSL::HMAC.hexdigest(OpenSSL::Digest.new('sha256'), bitso_secret, message)
 
 # Build the auth header
@@ -630,7 +630,7 @@ public class BitsoJavaExample {
         long nonce = System.currentTimeMillis();
 
         // Create the signature
-        String message = nonce + bitsoKey + bitsoClientId;
+        String message = nonce + bitsoClientId + bitsoKey;
         String signature = "";
         byte[] secretBytes = bitsoSecret.getBytes();
         SecretKeySpec localMac = new SecretKeySpec(secretBytes, "HmacSHA256");
