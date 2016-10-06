@@ -29,7 +29,9 @@ General Information about Bitso's APIs
 
 ## HTTP and WebSocket APIs
 
-Bitso offers a HTTP API, and a WebSocket API. The HTTP API exposes both public and private functions. The WebSocket API offers realtime streaming of market-data, such as the Bitso orderbook state.
+Bitso offers a HTTP API, and a WebSocket API. The HTTP API exposes
+both public and private functions. The WebSocket API offers realtime
+streaming of market-data, such as the Bitso order book state.
 
 ## Transfer API
 
@@ -37,9 +39,9 @@ Bitso’s powerful Transfer API allows for simple integration for routing Bitcoi
 
 ## HTTP API Responses
 
-Our REST-like API will always return a JSON Object.
+Our REST-like APIs will always return a JSON Object.
 
-For successful API calls, we should always return something that looks like:
+For successful API calls, our JSON response objects looks like:
 
 `
 {   "success": true,
@@ -47,7 +49,7 @@ For successful API calls, we should always return something that looks like:
 }
 `
 	
-For unsuccessful API calls, we should always return something that looks like:
+For unsuccessful API calls, our JSON response objects look like:
 
 `
 {
@@ -189,7 +191,7 @@ Field Name | Type | Description | Units
 **vwap** | String | Last 24 hours volume weighted average price: [vwap](http://en.wikipedia.org/wiki/Volume-weighted_average_price) | Minor/Major
 **ask** | String | Lowest sell order | Minor/Major
 **bid** | String | Highest buy order | Minor/Major
-**created_at** | String | Timestamp at wich the ticker was generated | ISO 8601 timestamp
+**created_at** | String | Timestamp at which the ticker was generated | ISO 8601 timestamp
 
 
 ## Order Book
@@ -264,15 +266,15 @@ Field Name | Type | Description
 **asks** | JSON Array | List of open asks
 **bids** | JSON Array | List of open bids
 
-**asks** and **bids** JSON Dictionary with the follwing fields:
+**asks** and **bids** JSON Dictionary with the following fields:
 
 Field Name | Type | Description | Units
 ---------- | ---- | ----------- | -----
 **book** | String | Order book symbol | Major_Minor
 **price** | String | Price per unit of major | Minor
 **amount** | String | Major amount in order | Major
-**created_at** | String | Timestamp at wich the order was created | ISO 8601 timestamp
-**updated_at** | String | Timestamp at wich the order was updated | ISO 8601 timestamp
+**created_at** | String | Timestamp at which the order was created | ISO 8601 timestamp
+**updated_at** | String | Timestamp at which the order was updated | ISO 8601 timestamp
 
 
 ## Trades
@@ -318,7 +320,7 @@ Parameter | Default | Required | Description
 **time** | hour | No | Time frame for transaction export ("minute" - 1 minute, "hour" - 1 hour)
 **marker** |  | No | Returns objects that are older or newer (depending on 'sort') than the object with this ID
 **sort** | desc | No | Specifies ordering direction of returned objects
-**limit** | 25 | No | Specifis number of objects to return. (Max is 100)
+**limit** | 25 | No | Specifies number of objects to return. (Max is 100)
 
 
 ### JSON Response
@@ -328,7 +330,7 @@ Returns descending JSON Array of transactions. Every element in the array is a J
 Field Name | Type | Description | Units
 ---------- | ---- | ----------- | -----
 **book** | String | Order book symbol | Major_Minor
-**created_at** | String | Timestamp at wich the trade was executed | ISO 8601 timestamp
+**created_at** | String | Timestamp at which the trade was executed | ISO 8601 timestamp
 **amount** | String | Major amount transacted | Major
 **side** | String | Indicates the maker order side (maker order is the order that was open on the order book) |
 **price** | String | Price per unit of major | Minor
@@ -419,7 +421,7 @@ Field Name | Type | Description | Units
 
 # Private Endpoints
 
-Private endpoints are used to manage your account and your orders. These requests must be signed (more ont this below).
+Private endpoints are used to manage your account and your orders. These requests must be signed (more on this below).
 
 <aside class="notice">
 Private endpoints require API Keys. Make sure you read more about obtaining your private keys <a href="#generating-api-keys">here</a>
@@ -683,7 +685,7 @@ the following form:
 }
 ```
 
-This endpoint returns information concering the user's balances for all supported currencies.
+This endpoint returns information concerning the user's balances for all supported currencies.
 
 ### HTTP Request
 
@@ -900,7 +902,7 @@ Parameter | Default | Required | Description
 --------- | ------- | -------- | -----------
 **marker** |  | No | Returns objects that are older or newer (depending on 'sort') than the object with this ID
 **sort** | desc | No | Specifies ordering direction of returned objects
-**limit** | 25 | No | Specifis number of objects tu return. (Max is 100)
+**limit** | 25 | No | Specifies number of objects tu return. (Max is 100)
 
 
 ### JSON Response
@@ -911,8 +913,8 @@ Field Name | Type | Description | Units
 ---------- | ---- | ----------- | -----
 **eid** | String | Entry ID | -
 **operation** | String | Unique identifier (only for trades) | -
-**created_at** | String | Timestamp at wich the order was created | ISO 8601 timestamp
-**balance_updates** | JSON object | Updates to user balances for this opertion (See dictionary specification below) | -
+**created_at** | String | Timestamp at which the order was created | ISO 8601 timestamp
+**balance_updates** | JSON object | Updates to user balances for this operation (See dictionary specification below) | -
 **details** | JSON object | Specific operation  details | -
 
 ### JSON Object for balance_updates
@@ -920,7 +922,7 @@ Field Name | Type | Description | Units
 Field Name | Type | Description | Units
 ---------- | ---- | ----------- | -----
 **currency** | String | Currency for this balance update | -
-**balance** | String | Amount added or substracted to user balance | Currency
+**balance** | String | Amount added or subtracted to user balance | Currency
 
 
 ### Filter Ledger by operation type
@@ -1009,8 +1011,8 @@ Field Name | Type | Description | Units
 **oid** | String | The Order ID | -
 **book** | String | Order book symbol | Major_Minor
 **amount** | String | The order's major currency amount | Major
-**created_at** | String | Timestamp at wich the trade was executed |ISO 8601 timestamp
-**updated_at** | String | Timestamp at wich the trade was updated | ISO 8601 timestamp
+**created_at** | String | Timestamp at which the trade was executed |ISO 8601 timestamp
+**updated_at** | String | Timestamp at which the trade was updated | ISO 8601 timestamp
 **price** | String | The order's price | Minor
 **side** | String | The order side (buy, sell) | -
 **status** | String | The order's status (open, partial-fill) | 
@@ -1087,8 +1089,8 @@ Field Name | Type | Description | Units
 **oid** | String | The Order ID | -
 **book** | String | Order book symbol | Major_Minor
 **amount** | String | The order's major currency amount | Major
-**created_at** | String | Timestamp at wich the order was created |ISO 8601 timestamp
-**updated_at** | String | Timestamp at wich the order was updated | ISO 8601 timestamp
+**created_at** | String | Timestamp at which the order was created |ISO 8601 timestamp
+**updated_at** | String | Timestamp at which the order was updated | ISO 8601 timestamp
 **price** | String | The order's price | Minor
 **side** | String | The order side (buy, sell) | -
 **status** | String | The order's status (open, partial-fill, closed) | 
@@ -1192,8 +1194,8 @@ Field Name | Type | Description | Units
 **oid** | String | The Order ID | -
 **book** | String | Order book symbol | Major_Minor
 **amount** | String | The order's major currency amount | Major
-**created_at** | String | Timestamp at wich the order was created |ISO 8601 timestamp
-**updated_at** | String | Timestamp at wich the order was updated | ISO 8601 timestamp
+**created_at** | String | Timestamp at which the order was created |ISO 8601 timestamp
+**updated_at** | String | Timestamp at which the order was updated | ISO 8601 timestamp
 **price** | String | The order's price | Minor
 **side** | String | The order side (buy, sell) | -
 **status** | String | The order's status (open, partial-fill, closed) | 
@@ -1299,7 +1301,7 @@ Field Name | Type | Description | Units
 ---------- | ---- | ----------- | -----
 **wid** | String | Unique Withdrawal ID | -
 **status** | String | Status of the withdrawal request (pending, complete) | -
-**created_at** | String | Timestamp at wich the withdrawal request was created | ISO 8601 timestamp
+**created_at** | String | Timestamp at which the withdrawal request was created | ISO 8601 timestamp
 **currency** | String | Currency specified for this withdrawal (BTC) | -
 **method** | String | Method for this withdrawal (BTC). | -
 **amount** | String | Amount to withdraw. | BTC
@@ -1356,7 +1358,7 @@ Field Name | Type | Description | Units
 ---------- | ---- | ----------- | -----
 **wid** | String | Unique Withdrawal ID | -
 **status** | String | Status of the withdrawal request (pending, complete) | -
-**created_at** | String | Timestamp at wich the withdrawal request was created | ISO 8601 timestamp
+**created_at** | String | Timestamp at which the withdrawal request was created | ISO 8601 timestamp
 **currency** | String | Currency specified for this withdrawal (ETH) | -
 **method** | String | Method for this withdrawal (ETH). | -
 **amount** | String | Amount to withdraw. | ETH
@@ -1416,7 +1418,7 @@ Field Name | Type | Description | Units
 ---------- | ---- | ----------- | -----
 **wid** | String | Unique Withdrawal ID | -
 **status** | String | Status of the withdrawal request (pending, complete) | -
-**created_at** | String | Timestamp at wich the withdrawal request was created | ISO 8601 timestamp
+**created_at** | String | Timestamp at which the withdrawal request was created | ISO 8601 timestamp
 **currency** | String | Currency specified for this withdrawal | -
 **method** | String | Method for this withdrawal | -
 **amount** | String | Amount to withdraw | -
@@ -1492,7 +1494,7 @@ Field Name | Type | Description | Units
 ---------- | ---- | ----------- | -----
 **wid** | String | Unique Withdrawal ID | -
 **status** | String | Status of the withdrawal request (pending, complete) | -
-**created_at** | String | Timestamp at wich the withdrawal request was created | ISO 8601 timestamp
+**created_at** | String | Timestamp at which the withdrawal request was created | ISO 8601 timestamp
 **currency** | String | Currency specified for this withdrawal (MXN) | -
 **method** | String | Method for this withdrawal (SPEI Transfer) | -
 **amount** | String | Amount to withdraw | -
@@ -1534,7 +1536,7 @@ will be acknowledged in the following manner:
 {action: "subscribe", response: "ok", time: 1455831538045, type: "trades"}
 ```
 
-> Once you've succesfuly subscribed to a channel, listen for messages and handle them appropriately:
+> Once you've succesfully subscribed to a channel, listen for messages and handle them appropriately:
 
 ```blab
 websocket.onmessage = function(message){
