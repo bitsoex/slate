@@ -510,7 +510,7 @@ API_KEY="BITSO_KEY"
 API_SECRET="BITSO_SECRET"
 DNONCE=$(date +%s)
 SIGNATURE=$(echo -n $DNONCE$CLIENT_ID$API_KEY | openssl dgst -sha256 -hmac $API_SECRET)
-http GET $URL Authorization:$API_KEY:$DNONCE:$SIGNATURE
+http GET $URL Authorization:Bitso $API_KEY:$DNONCE:$SIGNATURE
 ```
 
 ```javascript
