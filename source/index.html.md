@@ -1808,7 +1808,7 @@ Please ensure that any subsequent Ripple funding emanates from this address.</b>
         "created_at": "2016-04-08T17:52:31.000+00:00",
         "currency": "mxn",
         "method": "SPEI Transfer",
-        "amount": "-300.15",
+        "amount": "300.15",
         "details": {
             "sender_name": "JUAN ESCUTIA",
             "receive_clabe": "012610001967722183",
