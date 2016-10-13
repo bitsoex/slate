@@ -1241,7 +1241,7 @@ curl "https://api.bitso.com/v3/user_trades/?book=btc_mxn"
 {
     "success": true,
     "payload": [{
-        "book": "mxn_btc",
+        "book": "btc_mxn",
         "major": "-0.25232073",
         "created_at": "2016-04-08T17:52:31.000+00:00",
         "minor": "1013.540958479115",
@@ -1252,7 +1252,7 @@ curl "https://api.bitso.com/v3/user_trades/?book=btc_mxn"
         "oid": "19vaqiv72drbphig81d3y1ywri0yg8miihs80ng217drpw7xyl0wmytdhtby2ygk",
         "side": "sell"
     }, {
-        "book": "mxn_btc",
+        "book": "eth_mxn",
         "major": "4.86859395",
         "created_at": "2016-04-08T17:52:31.000+00:00",
         "minor": "-626.77",
