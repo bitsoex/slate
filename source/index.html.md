@@ -2194,8 +2194,8 @@ The Transfer API is accessible via an API key created for your account. For full
             "verification_level_requirement":"0"
          }
       },
-      "timestamp":"1425101044",
-      "expires_epoch":"1425101104"
+      "created_at":"2016-04-08T17:52:31.000+00:0",
+      "expires_epoch":"2016-04-08T18:02:31.000+00:0"
    }
 }
 ```
@@ -2228,12 +2228,12 @@ Parameter | Required | Description
       "btc_pending":"0",
       "btc_received":"0",
       "confirmation_code":"9b2a4",
-      "created_at":"1425101044",
+      "created_at":"2016-04-08T17:52:31.000+00:0",
       "currency":"MXN",
       "currency_amount":"0",
       "currency_fees":"0",
       "currency_settled":"0",
-      "expires_epoch":1425101104,
+      "expires_epoch":"2016-04-08T18:02:31.000+00:0",
       "fields":{
          "phone_number":"5554181042"
       },
