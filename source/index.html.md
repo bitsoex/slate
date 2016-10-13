@@ -1627,7 +1627,7 @@ Field Name | Type | Description | Units
         "created_at": "2016-04-08T17:52:31.000+00:00",
         "currency": "btc",
         "method": "Bitcoin",
-        "amount": "-0.48650929",
+        "amount": "0.48650929",
         "details": {
             "withdrawal_address": "3EW92Ajg6sMT4hxK8ngEc7Ehrqkr9RoDt7",
             "tx_hash": null
@@ -1684,7 +1684,7 @@ Field Name | Type | Description | Units
         "created_at": "2016-04-08T17:52:31.000+00:00",
         "currency": "btc",
         "method": "Ether",
-        "amount": "-10.00",
+        "amount": "10.00",
         "details": {
             "withdrawal_address": "0x55f03a62acc946dedcf8a0c47f16ec3892b29e6d",
             "tx_hash": null
@@ -1742,7 +1742,7 @@ Field Name | Type | Description | Units
         "created_at": "2016-04-08T17:52:31.000+00:00",
         "currency": "btc",
         "method": "Ripple",
-        "amount": "-0.48650929",
+        "amount": "0.48650929",
         "details": {
             "withdrawal_address": "rG1QQv2nh2gr7RCZ1P8YYcBUKCCN633jCn",
             "tx_id": null
