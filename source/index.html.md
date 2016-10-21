@@ -331,7 +331,7 @@ Field Name | Type | Description | Units
 **price** | String | Price per unit of major | Minor
 **amount** | String | Major amount in order | Major
 **created_at** | String | Timestamp at which the order was created | ISO 8601 timestamp
-**updated_at** | String | Timestamp at which the order was updated | ISO 8601 timestamp
+**updated_at** | String | Timestamp at which the order was updated (can be null) | ISO 8601 timestamp
 
 
 ## Trades
@@ -510,7 +510,7 @@ API_SECRET="BITSO_SECRET"
 DNONCE=$(date +%s)
 SIGNATURE=$(echo -n $DNONCE$CLIENT_ID$API_KEY | openssl dgst -sha256 -hmac $API_SECRET)
 AUTH_HEADER="Bitso $API_KEY:$DNONCE:$SIGNATURE"
-http GET $URL Authorization:"$AUTH_HEADER
+http GET $URL Authorization:"$AUTH_HEADER"
 ```
 
 ```javascript
@@ -968,8 +968,8 @@ Returns a descending JSON Array of transactions. Every element in the array is a
 Field Name | Type | Description | Units
 ---------- | ---- | ----------- | -----
 **eid** | String | Entry ID | -
-**operation** | String | Unique identifier (only for trades) | -
-**created_at** | String | Timestamp at which the order was created | ISO 8601 timestamp
+**operation** | String | Indicates type of operation (funding, withdrawal, trade, fee) | -
+**created_at** | String | Timestamp at which the operation was recorded | ISO 8601 timestamp
 **balance_updates** | JSON object | Updates to user balances for this operation (See dictionary specification below) | -
 **details** | JSON object | Specific operation  details | -
 
@@ -1142,7 +1142,7 @@ Field Name | Type | Description | Units
 **currency** | String | Currency withdrawn | -
 **method** | String | Method for this withdrawal (MXN, BTC, ETH). | -
 **amount** | String | The withdrawn amount | currency
-**status** | String | The status for this withdrawal (pending, complete, cancelled) | currency
+**status** | String | The status for this withdrawal (pending, complete, cancelled) | 
 **created_at** | String | Timestamp at which the withdrawal as created |ISO 8601 timestamp
 **details** | JSON object | Specific withdrawal details | -
 
@@ -1226,7 +1226,7 @@ Field Name | Type | Description | Units
 **method** | String | Method for this funding (MXN, BTC, ETH). | -
 **amount** | String | The funding amount | currency
 **status** | String | The status for this funding (pending, complete, cancelled) | currency
-**created_at** | String | Timestamp at which the funding as created |ISO 8601 timestamp
+**created_at** | String | Timestamp at which the funding was recieved |ISO 8601 timestamp
 **details** | JSON object | Specific funding details | -
 
 ## User Trades
@@ -1241,7 +1241,7 @@ curl "https://api.bitso.com/v3/user_trades/?book=btc_mxn"
 {
     "success": true,
     "payload": [{
-        "book": "mxn_btc",
+        "book": "btc_mxn",
         "major": "-0.25232073",
         "created_at": "2016-04-08T17:52:31.000+00:00",
         "minor": "1013.540958479115",
@@ -1252,7 +1252,7 @@ curl "https://api.bitso.com/v3/user_trades/?book=btc_mxn"
         "oid": "19vaqiv72drbphig81d3y1ywri0yg8miihs80ng217drpw7xyl0wmytdhtby2ygk",
         "side": "sell"
     }, {
-        "book": "mxn_btc",
+        "book": "eth_mxn",
         "major": "4.86859395",
         "created_at": "2016-04-08T17:52:31.000+00:00",
         "minor": "-626.77",
@@ -1293,14 +1293,14 @@ Returns descending JSON Array of transactions. Every element in the array is a J
 Field Name | Type | Description | Units
 ---------- | ---- | ----------- | -----
 **book** | String | Order book symbol | Major_Minor
-**major** | String | Major amount transacted | Major
-**minor** | String | Minr amount transacted | Minor
+**major** | String | Major amount traded | Major
+**minor** | String | Minr amount traded | Minor
 **price** | String | Price per unit of major | Minor
 **side** | String | Indicates the user's side for this trade (buy, sell) |
 **fees_currency** | String | Indicates the currency in which the trade fee was charged | -
 **fees_amount** | String | Indicates the amount charged as trade fee |
 **tid** | Long | Trade ID |
-**oid** | Long | Users' Order ID |
+**oid** | String | Users' Order ID |
 **created_at** | String | Timestamp at which the trade was executed | ISO 8601 timestamp
 
 ## Open Orders
@@ -1376,7 +1376,7 @@ Field Name | Type | Description | Units
 **book** | String | Order book symbol | Major_Minor
 **amount** | String | The order's major currency amount | Major
 **created_at** | String | Timestamp at which the trade was executed |ISO 8601 timestamp
-**updated_at** | String | Timestamp at which the trade was updated | ISO 8601 timestamp
+**updated_at** | String | Timestamp at which the trade was updated (can be null) | ISO 8601 timestamp
 **price** | String | The order's price | Minor
 **side** | String | The order side (buy, sell) | -
 **status** | String | The order's status (open, partial-fill) | 
@@ -1454,7 +1454,7 @@ Field Name | Type | Description | Units
 **book** | String | Order book symbol | Major_Minor
 **amount** | String | The order's major currency amount | Major
 **created_at** | String | Timestamp at which the order was created |ISO 8601 timestamp
-**updated_at** | String | Timestamp at which the order was updated | ISO 8601 timestamp
+**updated_at** | String | Timestamp at which the order was updated (can be null) | ISO 8601 timestamp
 **price** | String | The order's price | Minor
 **side** | String | The order side (buy, sell) | -
 **status** | String | The order's status (open, partial-fill, closed) | 
@@ -1559,7 +1559,7 @@ Field Name | Type | Description | Units
 **book** | String | Order book symbol | Major_Minor
 **amount** | String | The order's major currency amount | Major
 **created_at** | String | Timestamp at which the order was created |ISO 8601 timestamp
-**updated_at** | String | Timestamp at which the order was updated | ISO 8601 timestamp
+**updated_at** | String | Timestamp at which the order was updated (can be null) | ISO 8601 timestamp
 **price** | String | The order's price | Minor
 **side** | String | The order side (buy, sell) | -
 **status** | String | The order's status (open, partial-fill, closed) | 
@@ -1627,7 +1627,7 @@ Field Name | Type | Description | Units
         "created_at": "2016-04-08T17:52:31.000+00:00",
         "currency": "btc",
         "method": "Bitcoin",
-        "amount": "-0.48650929",
+        "amount": "0.48650929",
         "details": {
             "withdrawal_address": "3EW92Ajg6sMT4hxK8ngEc7Ehrqkr9RoDt7",
             "tx_hash": null
@@ -1684,7 +1684,7 @@ Field Name | Type | Description | Units
         "created_at": "2016-04-08T17:52:31.000+00:00",
         "currency": "btc",
         "method": "Ether",
-        "amount": "-10.00",
+        "amount": "10.00",
         "details": {
             "withdrawal_address": "0x55f03a62acc946dedcf8a0c47f16ec3892b29e6d",
             "tx_hash": null
@@ -1742,7 +1742,7 @@ Field Name | Type | Description | Units
         "created_at": "2016-04-08T17:52:31.000+00:00",
         "currency": "btc",
         "method": "Ripple",
-        "amount": "-0.48650929",
+        "amount": "0.48650929",
         "details": {
             "withdrawal_address": "rG1QQv2nh2gr7RCZ1P8YYcBUKCCN633jCn",
             "tx_id": null
@@ -1808,7 +1808,7 @@ Please ensure that any subsequent Ripple funding emanates from this address.</b>
         "created_at": "2016-04-08T17:52:31.000+00:00",
         "currency": "mxn",
         "method": "SPEI Transfer",
-        "amount": "-300.15",
+        "amount": "300.15",
         "details": {
             "sender_name": "JUAN ESCUTIA",
             "receive_clabe": "012610001967722183",
@@ -2194,8 +2194,8 @@ The Transfer API is accessible via an API key created for your account. For full
             "verification_level_requirement":"0"
          }
       },
-      "timestamp":"1425101044",
-      "expires_epoch":"1425101104"
+      "created_at":"2016-04-08T17:52:31.000+00:00",
+      "expires_at":"2016-04-08T18:02:31.000+00:00"
    }
 }
 ```
@@ -2228,12 +2228,12 @@ Parameter | Required | Description
       "btc_pending":"0",
       "btc_received":"0",
       "confirmation_code":"9b2a4",
-      "created_at":"1425101044",
+      "created_at":"2016-04-08T17:52:31.000+00:0",
       "currency":"MXN",
       "currency_amount":"0",
       "currency_fees":"0",
       "currency_settled":"0",
-      "expires_epoch":1425101104,
+      "expires_epoch":"2016-04-08T18:02:31.000+00:0",
       "fields":{
          "phone_number":"5554181042"
       },
