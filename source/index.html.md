@@ -503,14 +503,14 @@ The three key elements you will need to sign requests are:
 # requires:
 # -httpie: https://github.com/jkbrzt/httpie
 
-  
-URL="https://api.bitso.com/v3/balance/"
+URL=https://dev.bitso.com/api/v3/balance/
 CLIENT_ID="BITSO_CLIENT_ID"
 API_KEY="BITSO_KEY"
 API_SECRET="BITSO_SECRET"
 DNONCE=$(date +%s)
 SIGNATURE=$(echo -n $DNONCE$CLIENT_ID$API_KEY | openssl dgst -sha256 -hmac $API_SECRET)
-http GET $URL Authorization:$API_KEY:$DNONCE:$SIGNATURE
+AUTH_HEADER="Bitso $API_KEY:$DNONCE:$SIGNATURE"
+http GET $URL Authorization:"$AUTH_HEADER
 ```
 
 ```javascript
