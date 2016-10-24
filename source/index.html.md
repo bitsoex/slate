@@ -525,14 +525,14 @@ var crypto = require('crypto');
 var signature = crypto.createHmac('sha256', secret).update(Data).digest('hex');
 
 // Build the auth header
-var auth_header = "Bitso "+bitso_key+":" +nonce+":"+signature;
+var auth_header = "Bitso "+key+":" +nonce+":"+signature;
 
 
 var options = {
   host: 'api.bitso.com',
   port: 443,
   path: '/v3/balance/',
-  method: GET,
+  method: 'GET',
   headers: {
         'Authorization': auth_header
     }
@@ -584,9 +584,9 @@ require 'json'
 require 'openssl'
 require 'typhoeus'
 
-bitso_key = "BITSO_KEY";
-bitso_secret = "BITSO_SECRET";
-bitso_client_id = "BITSO_CLIENT_ID";
+bitso_key = "BITSO_KEY"
+bitso_secret = "BITSO_SECRET"
+bitso_client_id = "BITSO_CLIENT_ID"
 nonce = DateTime.now.strftime('%Q')
 
 # Create signature
@@ -594,7 +594,8 @@ message = nonce +bitso_client_id+bitso_key
 signature = OpenSSL::HMAC.hexdigest(OpenSSL::Digest.new('sha256'), bitso_secret, message)
 
 # Build the auth header
-auth_header = "'Bitso #{bitso_key}:#{nonce}:#{signature}"
+auth_header = "Bitso #{bitso_key}:#{nonce}:#{signature}"
+
 
 # Send request
 response = Typhoeus::Request.new(
@@ -2241,7 +2242,7 @@ Parameter | Required | Description
       "payment_outlet_id":"pm",
       "qr_img_uri":"https:\/\/chart.googleapis.com\/chart?chl=bitcoin%3AmgKZfNdFJgztvfvhEaGgMTQRQ2iHCadHGa%3Famount%3D0.14965623&chs=400x400&cht=qr&choe=UTF-8&chld=L%7C0",
       "user_uri":"https:\/\/api.bitso.com\/v2\/transfer\/9b2a431b98597312e99cbff1ba432cbf",
-      "wallet_address":"mgKZfNdFJgztvfvhEaGgMTQRQ2iHCadHGa"
+      "wallet_address":"3AmgKZfNdFJgztvfvhEaGgMTQRQ2iHCadHGa"
    } 
 }
 ```
