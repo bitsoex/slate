@@ -709,7 +709,7 @@ This endpoint is used to upload KYC documents for verification.
 
 ### HTTP Request
 
-`GET https://api.bitso.com/v3/account_status/`
+`GET https://api.bitso.com/v3/kyc_documents/`
 
 ### Authorization Header Parameters
 
