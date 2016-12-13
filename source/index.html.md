@@ -266,41 +266,79 @@ curl "https://api.bitso.com/v3/order_book/?book=btc_mxn"
         "asks": [{
             "book": "btc_mxn",
             "price": "5632.24",
+            "amount": "1.34491802"
+        },{
+            "book": "btc_mxn",
+            "price": "5633.44",
+            "amount": "0.4259"
+        },{
+            "book": "btc_mxn",
+            "price": "5642.14",
+            "amount": "1.21642"
+        }],
+        "bids": [{
+            "book": "btc_mxn",
+            "price": "6123.55",
+            "amount": "1.12560000"
+        },{
+            "book": "btc_mxn",
+            "price": "6121.55",
+            "amount": "2.23976"
+        }],
+        "updated_at": "2016-04-08T17:52:31.000+00:00",
+		"sequence": "27214"
+    }
+}
+```
+
+```shell
+curl "https://api.bitso.com/v3/order_book/?book=btc_mxn&aggregate=false"
+```
+
+> The JSON object returned by the API looks like this:
+
+```json
+{
+    "success": true,
+    "payload": {
+        "asks": [{
+            "book": "btc_mxn",
+            "price": "5632.24",
             "amount": "1.34491802",
-            "created_at": "2016-04-08T17:52:31.000+00:00",
-            "updated_at": null
+			"oid": "19vaqiv72drbphig81d3y1ywri0yg8miihs80ng217drpw7xyl0wmytdhtby2ygk"
         },{
             "book": "btc_mxn",
             "price": "5633.44",
             "amount": "0.4259",
-            "created_at": "2016-04-08T17:52:31.000+00:00",
-            "updated_at": "2016-04-08T18:43:11.000+00:00"
+			"oid": "27poriv72drbphig81d3y1ywri0yg8miihs80ng217drpw7xyl0wmytdhtby2acb"
         },{
             "book": "btc_mxn",
             "price": "5642.14",
             "amount": "1.21642",
-            "created_at": "2016-04-08T17:52:31.000+00:00",
-            "updated_at": null
+			"oid": "46efbiv72drbphig81d3y1ywri0yg8miihs80ng217drpw7xyl0wmytdhtby1puv"
         }],
         "bids": [{
             "book": "btc_mxn",
             "price": "6123.55",
             "amount": "1.12560000",
-            "created_at": "2016-04-08T17:52:31.000+00:00",
-            "updated_at": null
+			"oid": "11brtiv72drbphig81d3y1ywri0yg8miihs80ng217drpw7xyl0wmytdhtto4lgh"
         },{
             "book": "btc_mxn",
             "price": "6121.55",
             "amount": "2.23976",
-            "created_at": "2016-04-08T19:34:23.000+00:00",
-            "updated_at": "2016-04-08T19:54:21.000+00:00"
+			"oid": "96topiv72drbphig81d3y1ywri0yg8miihs80ng217drpw7xyl0wmytdhttp8flo"
         }],
-        "created_at": "2016-04-08T17:52:31.000+00:00"
+        "updated_at": "2016-04-08T17:52:31.000+00:00",
+		"sequence": "27214"
     }
 }
 ```
 
-This endpoint returns a list of all open orders in the specified book.
+This endpoint returns a list of all open orders in the specified
+book. If the *aggregate* parameter is set to true, orders will be
+aggregated by price, and the response will only include the top 50
+orders for each side of the book. If the *aggregate* parameter is set
+to false, the response will include the full order book.
 
 ### HTTP Request
 
@@ -311,6 +349,7 @@ This endpoint returns a list of all open orders in the specified book.
 Parameter | Default | Required | Description 
 --------- | ------- | -------- | -----------
 **book** |  | YES | Specifies which book to use
+**aggregate** | true  | NO | Speciy if orders should be aggregated by price.
 
 
 ### JSON Response Payload
@@ -322,16 +361,25 @@ Field Name | Type | Description
 ---------- | ---- | -----------
 **asks** | JSON Array | List of open asks
 **bids** | JSON Array | List of open bids
+**updated_at** |  String | Timestamp at which the order was last updated | ISO 8601 timestamp
+**sequence** | Long | Increasing integer value for each order book update.
 
-**asks** and **bids** JSON Dictionary with the following fields:
+**Asks** and **Bids** in the aggregated order books are JSON Dictionaries with the following fields:
 
 Field Name | Type | Description | Units
 ---------- | ---- | ----------- | -----
 **book** | String | Order book symbol | Major_Minor
 **price** | String | Price per unit of major | Minor
 **amount** | String | Major amount in order | Major
-**created_at** | String | Timestamp at which the order was created | ISO 8601 timestamp
-**updated_at** | String | Timestamp at which the order was updated (can be null) | ISO 8601 timestamp
+
+**Asks** and **Bids** in the unaggregated (full) order books are JSON Dictionaries with the following fields:
+
+Field Name | Type | Description | Units
+---------- | ---- | ----------- | -----
+**book** | String | Order book symbol | Major_Minor
+**price** | String | Price per unit of major | Minor
+**amount** | String | Major amount in order | Major
+**oid** | String | Order ID |
 
 
 ## Trades
@@ -349,14 +397,14 @@ curl "https://api.bitso.com/v3/trades/?book=btc_mxn"
         "book": "btc_mxn",
         "created_at": "2016-04-08T17:52:31.000+00:00",
         "amount": "0.02000000",
-        "side": "buy",
+        "maker_side": "buy",
         "price": "5545.01",
         "tid": 55845
     }, {
         "book": "btc_mxn",
         "created_at": "2016-04-08T17:52:31.000+00:00",
         "amount": "0.33723939",
-        "side": "sell",
+        "maker_side": "sell",
         "price": "5633.98",
         "tid": 55844
     }]
@@ -374,7 +422,6 @@ This endpoint returns a list of recent trades from the specified book.
 Parameter | Default | Required | Description
 --------- | ------- | -------- | -----------
 **book** |   | Yes | Specifies which book to use
-**time** | hour | No | Time frame for transaction export ("minute" - 1 minute, "hour" - 1 hour)
 **marker** |  | No | Returns objects that are older or newer (depending on 'sort') than the object with this ID
 **sort** | desc | No | Specifies ordering direction of returned objects
 **limit** | 25 | No | Specifies number of objects to return. (Max is 100)
@@ -389,7 +436,7 @@ Field Name | Type | Description | Units
 **book** | String | Order book symbol | Major_Minor
 **created_at** | String | Timestamp at which the trade was executed | ISO 8601 timestamp
 **amount** | String | Major amount transacted | Major
-**side** | String | Indicates the maker order side (maker order is the order that was open on the order book) |
+**maker_side** | String | Indicates the maker order side (maker order is the order that was open on the order book) |
 **price** | String | Price per unit of major | Minor
 **tid** | Long | Trade ID |
 
@@ -413,11 +460,10 @@ When setting up a new API, you will need to choose an **API Name** to identify y
 This name will never be shown anywhere apart from on your API Index page within your account.
 You have the option of adding a **Withdrawal Bitcoin Address**, which can be used to lock the API Withdrawal function to a specific Bitcoin address of your choosing. This field is optional.
 
-The three key elements you will need to sign requests are:
+The two elements you will need to sign requests are:
 
 * Bitso API Key
 * Bitso API Secret
-* Bitso Client ID
 
 ## Creating and Signing Requests
 ```shell
@@ -636,7 +682,7 @@ payload in the "Authorization" header for all Private API Endpoints in order to 
 
 ### Signature
 
-The signature is generated by creating a SHA256 HMAC using the **Bitso API Secret** on the concatenation of **nonce** + **HTTP method** + **requestPath** + **JSON payload** (no ’+’ signs in the concatenated string) and base64 encode the output. The **nonce** value should be the same as the **nonce** field in the Authorization header. The **requestPath** and **JSON payload** must, of course, be exactly as the ones used in the request.
+The signature is generated by creating a SHA256 HMAC using the **Bitso API Secret** on the concatenation of **nonce** + **HTTP method** + **requestPath** + **JSON payload** (no ’+’ signs in the concatenated string) and hex encode the output. The **nonce** value should be the same as the **nonce** field in the Authorization header. The **requestPath** and **JSON payload** must, of course, be exactly as the ones used in the request.
 
 ### Authorization Header
 
@@ -2104,9 +2150,36 @@ Field Name | Type | Description | Units
 
 ## General
 
-The Orders channel maintains an up-to-date list of the top 20 asks and the top 20 bids, new messages are sent across the channel whenever there is a change in either top 20.
+The **Trades channel** send a message whenver a new trade is executed in the corresponding order book.
 
-The Diff-Orders channel will send across any modifications to the order book. Specifically, any state changes in existing orders (including orders not in the top 20), and any new orders. An order could be removed, in which case it won't have an 'a' field (amount), or am order could have been partially filled (you can look up an order's state via the lookup_order endpoint) which will be reflected in the amount field. In theory, you can get a copy of the full order book via REST once, and keep it up to date by using the diff-orders channel.
+The **Orders channel** maintains an up-to-date list of the top 20 asks and the top 20 bids, new messages are sent across the channel whenever there is a change in either top 20.
+
+The **Diff-Orders** channel will send across any modifications to the
+order book. Specifically, any state changes in existing orders
+(including orders not in the top 20), and any new orders. An order
+could be removed, in which case it won't have an 'a' field (amount),
+or an order could have been partially filled (you can look up an
+order's state via the lookup_order endpoint) which will be reflected
+in the amount field. Each message contains a sequence number, which
+are increasing integer values, each new message incrementing the
+sequence number by one. If you see a sequence number that is more than
+one value that the previous, this means a message has been dropped and
+you need to update the order book to get to correct state. In theory,
+you can get a copy of the full order book via REST once, and keep it
+up to date by using the diff-orders channel with the following
+algorithm:
+
+1. Subscribe to the diff-orders channel.
+2. Queue any message that come in to this channel.
+3. Get the full orderbook from the REST orderbook endpoint.
+4. Playback the queued message, discarding the ones with sequence
+number below or equal to the one from the REST orderbook.
+5. Apply the next queued messages to your local order book data
+structure.
+6. Apply real-time messages to your local orderbook as they come in
+   trough the stream.
+
+
 
 An order's timestamp field is immutable. Even if the amount field is mutated, or the order removed, the timestamp field remains as it was when the order was created. Note that a timestamp is not unique. Different orders can have the same timestamp.
 
@@ -2204,6 +2277,7 @@ Field Name | Type | Description | Units
 {
   "type": "diff-orders",
   "book": "btc_mxn",
+  "sequence": 2734,
   "payload": [
     {
       "d": 1455315979682,
@@ -2616,7 +2690,7 @@ Fields](#account-required-fields) endpoint in addition to the following optional
 
 Parameter | Default | Required | Description
 --------- | ------- | -------- | -----------
-**callback_url** |  | NO | Specifies a url that will be hit on events specified in the [Callback Payloads Section](#callback_payloads)
+**callback_url** |  | NO | Specifies a url that will be hit on events specified in the [Callbacks Section](#callback_payloads)
 
 
 ### JSON Response Payload
@@ -2629,7 +2703,37 @@ Field Name | Type | Description | Units
 **account_level** | String | Account Verification Level |
 
 
-# Callback Payloads
+# Callbacks
+
+## Registering URLs
+
+Users can register a callback url that will get hit with payloads
+correspding to certain events described below.
+
+> The JSON object returned by the API looks like this:
+
+```json
+{
+    "success": true
+}
+```
+
+
+
+### HTTP Request
+
+`POST https://api.bitso.com/v3/callbacks/`
+
+### Authorization Header Parameters
+
+Parameter | Default | Required | Description
+--------- | ------- | -------- | -----------
+**key** | - | Yes | See [Creating and Signing Requests](#creating-and-signing-requests)
+**signature** | - | Yes | See [Creating and Signing Requests](#creating-and-signing-requests)
+**nonce** | - | Yes | See [Creating and Signing Requests](#creating-and-signing-requests)
+
+
+
 
 ## Fundings
 
