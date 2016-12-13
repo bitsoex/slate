@@ -349,7 +349,7 @@ to false, the response will include the full order book.
 Parameter | Default | Required | Description 
 --------- | ------- | -------- | -----------
 **book** |  | YES | Specifies which book to use
-**aggregate** | true  | NO | Speciy if orders should be aggregated by price.
+**aggregate** | true  | NO | Specifies if orders should be aggregated by price.
 
 
 ### JSON Response Payload
