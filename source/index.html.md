@@ -426,24 +426,28 @@ The three key elements you will need to sign requests are:
 # -httpie: https://github.com/jkbrzt/httpie
 
 URL=https://dev.bitso.com/api/v3/balance/
-CLIENT_ID="BITSO_CLIENT_ID"
 API_KEY="BITSO_KEY"
 API_SECRET="BITSO_SECRET"
 DNONCE=$(date +%s)
-SIGNATURE=$(echo -n $DNONCE$CLIENT_ID$API_KEY | openssl dgst -sha256 -hmac $API_SECRET)
+HTTPmethod=GET
+JSONPayload=""
+RequestPath="/api/v3/balance/"
+SIGNATURE=$(echo -n $DNONCE$HTTPmethod$RequestPath$JSONPayload | openssl dgst -hex -sha256 -hmac $API_SECRET )
 AUTH_HEADER="Bitso $API_KEY:$DNONCE:$SIGNATURE"
 http GET $URL Authorization:"$AUTH_HEADER"
 ```
 
 
 ```javascript
-var secret = "BITSO API SECRET";
 var key = "BITSO API KEY";
-var client_id = "BITSO_CLIENT_ID";
+var secret = "BITSO API SECRET";
 var nonce = new Date().getTime();
+var http_method="GET";
+var json_payload=""
+var request_path="/api/v3/balance/"
 
 // Create the signature
-var Data = nonce + client_id + key;
+var Data = nonce+http_method+request_path+json_payload;
 var crypto = require('crypto');
 var signature = crypto.createHmac('sha256', secret).update(Data).digest('hex');
 
@@ -452,8 +456,8 @@ var auth_header = "Bitso "+key+":" +nonce+":"+signature;
 
 
 var options = {
-  host: 'api.bitso.com',
-  port: 443,
+  host: 'bitso.lan',
+  port: 80,
   path: '/v3/balance/',
   method: 'GET',
   headers: {
@@ -479,15 +483,19 @@ import hmac
 import hashlib
 import requests
 
+
 bitso_key = "BITSO_KEY"
 bitso_secret = "BITSO_SECRET"
-bitso_client_id = "BITSO_CLIENT_ID"
 nonce =  str(int(round(time.time() * 1000)))
+http_method = "GET"
+request_path = "/api/v3/balance/"
+json_payload = ""
 
 # Create signature
-message = nonce +bitso_client_id+bitso_key
-signature = hmac.new(bitso_secret.encode('utf-8'),message.encode('utf-8'), hashlib.sha256).hexdigest()
-
+message = nonce+http_method+request_path+json_payload
+signature = hmac.new(bitso_secret.encode('utf-8'),
+                                            message.encode('utf-8'),
+                                            hashlib.sha256).hexdigest()
 
 # Build the auth header
 auth_header = 'Bitso %s:%s:%s' % (bitso_key, nonce, signature)
@@ -501,19 +509,20 @@ print response.content
 
 ```ruby
 #!/usr/bin/ruby
-
 require 'date'
 require 'json'
 require 'openssl'
 require 'typhoeus'
 
-bitso_key = "BITSO_KEY"
-bitso_secret = "BITSO_SECRET"
-bitso_client_id = "BITSO_CLIENT_ID"
+bitso_key = "API_KEY"
+bitso_secret = "API_SECRET"
 nonce = DateTime.now.strftime('%Q')
+http_method = "GET"
+request_path = "/api/v3/balance/"
+json_payload = ""
 
 # Create signature
-message = nonce +bitso_client_id+bitso_key
+message = nonce+http_method+request_path+json_payload
 signature = OpenSSL::HMAC.hexdigest(OpenSSL::Digest.new('sha256'), bitso_secret, message)
 
 # Build the auth header
@@ -531,78 +540,78 @@ puts response.body
 ```
 
 ```java
-package com.bitso.awesome;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.math.BigInteger;
-
+import java.net.URL;
 import javax.crypto.Mac;
 import javax.crypto.spec.SecretKeySpec;
-
-import org.apache.http.client.methods.CloseableHttpResponse;
-import org.apache.http.client.methods.HttpPost;
-import org.apache.http.entity.StringEntity;
-import org.apache.http.impl.client.HttpClients;
-import org.json.JSONObject;
+import java.net.HttpURLConnection;
 
 public class BitsoJavaExample {
     public static void main(String[] args) throws Exception {
-        String bitsoKey = "BITSO API KEY";
-        String bitsoSecret = "BITSO API SECRET";
-        String bitsoClientId = "BITSO CLIENT ID";
-        long nonce = System.currentTimeMillis();
+    String bitsoKey = "BITSO API KEY";
+    String bitsoSecret = "BITSO API SECRET";
+    long nonce = System.currentTimeMillis();
+    String HTTPMethod = "GET";
+    String RequestPath = "/api/v3/balance/";
+    String JSONPayload = "";
 
-        // Create the signature
-        String message = nonce + bitsoClientId + bitsoKey;
-        String signature = "";
-        byte[] secretBytes = bitsoSecret.getBytes();
-        SecretKeySpec localMac = new SecretKeySpec(secretBytes, "HmacSHA256");
-        Mac mac = Mac.getInstance("HmacSHA256");
-        mac.init(localMac);
-        byte[] arrayOfByte = mac.doFinal(message.getBytes());
-        BigInteger localBigInteger = new BigInteger(1, arrayOfByte);
-        signature = String.format("%0" + (arrayOfByte.length << 1) + "x", new Object[] { localBigInteger });
+    // Create the signature
+    String message = nonce + HTTPMethod + RequestPath + JSONPayload;
+    String signature = "";
+    byte[] secretBytes = bitsoSecret.getBytes();
+    SecretKeySpec localMac = new SecretKeySpec(secretBytes, "HmacSHA256");
+    Mac mac = Mac.getInstance("HmacSHA256");
+    mac.init(localMac);
+    byte[] arrayOfByte = mac.doFinal(message.getBytes());
+    BigInteger localBigInteger = new BigInteger(1, arrayOfByte);
+    signature = String.format("%0" + (arrayOfByte.length << 1) + "x", new Object[] { localBigInteger });
 
-        String url = "https://api.bitso.com/v3/balance/";
-	
-        // Build the auth header
-	    String authHeader = String.format("Bitso %s:%s:%s", bitsoKey, nonce, signature);
-        
+    String authHeader = String.format("Bitso %s:%s:%s", bitsoKey, nonce, signature);
+    String url = "https://api.bitso.com/v3/balance/";
+    URL obj = new URL(url);
+    HttpURLConnection con = (HttpURLConnection) obj.openConnection();
+    con.setRequestMethod("GET");
+    con.setRequestProperty("Authorization", authHeader);
 
-        // Send request
-        HttpPost postRequest = new HttpPost(url);
-        postRequest.addHeader("Authorization", authHeader);
-        CloseableHttpResponse response = HttpClients.createDefault().execute(postRequest);
-        BufferedReader in = new BufferedReader(new InputStreamReader(response.getEntity().getContent()));
+    // Send request
+    int responseCode = con.getResponseCode();
+    System.out.println("\nSending 'GET' request to URL : " + url);
+    System.out.println("Response Code : " + responseCode);
 
-        String inputLine;
-        StringBuffer responseBody = new StringBuffer();
+    BufferedReader in = new BufferedReader(new InputStreamReader(con.getInputStream()));
+    String inputLine;
+    StringBuffer response = new StringBuffer();
 
-        while ((inputLine = in.readLine()) != null) {
-            responseBody.append(inputLine);
-        }
-        in.close();
-        System.out.println(responseBody.toString());
+    while ((inputLine = in.readLine()) != null) {
+        response.append(inputLine);
+    }
+    in.close();
+    System.out.println(response.toString());
     }
 }
+
 
 ```
 
 ```php
 <?php
-  $bitsoKey       = 'BITSO_API_KEY';
-  $bitsoSecret    = 'BITSO_API_SECRET';
-  $bitsoClientId  = 'BITSO_CLIENT_ID';
-  $nonce          = round(microtime(true) * 1000);
+  $bitsoKey = "BITSO_API_KEY";
+  $bitsoSecret = 'BITSO_API_SECRET';
+  $nonce = round(microtime(true) * 1000);
+  $HTTPMethod = "GET";
+  $RequestPath = "/api/v3/balance/";
+  $JSONPayload = "";
 
   // Create signature
-  $message = $nonce . $bitsoClientId . $bitsoKey;
+  $message = $nonce . $HTTPMethod . $RequestPath . $JSONPayload;
   $signature = hash_hmac('sha256', $message, $bitsoSecret);
 
   // Build the auth header
   $format = 'Bitso %s:%s:%s';
-  $authHeader =  sprintf($format, ($bitsoKey, $nonce, $signature);
+  $authHeader =  sprintf($format, $bitsoKey, $nonce, $signature);
 
 
   // Send request
