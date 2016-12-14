@@ -25,17 +25,6 @@ system functions, along with examples in common programming languages.
 
 # General
 
-General Information about Bitso's APIs
-
-## HTTP and WebSocket APIs
-
-Bitso offers a HTTP API, and a WebSocket API. The HTTP API exposes
-both public and private functions. The WebSocket API offers realtime
-streaming of market-data, such as the Bitso order book state.
-
-## Transfer API
-
-Bitso’s powerful Transfer API allows for simple integration for routing Bitcoin payments directly through to a choice of Mexican Peso end-points. Please contact us if you're interested in using this API, access is available on request.
 
 ## HTTP API Responses
 
@@ -143,7 +132,7 @@ The following client libraries will allow you to integrate quickly with our APIs
 * [Python](https://github.com/bitsoex/bitso-py)
 * [Objective-C](https://github.com/bitsoex/bitso-ios-sdk)
 
-# Public Endpoints
+# Public REST API
 
 
 ## Available Books
@@ -423,7 +412,7 @@ Parameter | Default | Required | Description
 --------- | ------- | -------- | -----------
 **book** |   | Yes | Specifies which book to use
 **marker** |  | No | Returns objects that are older or newer (depending on 'sort') than the object with this ID
-**sort** | desc | No | Specifies ordering direction of returned objects
+**sort** | desc | No | Specifies ordering direction of returned objects ('asc', 'desc')
 **limit** | 25 | No | Specifies number of objects to return. (Max is 100)
 
 
@@ -443,9 +432,9 @@ Field Name | Type | Description | Units
 
 
 
-# Private Endpoints
+# Private REST API
 
-Private endpoints are used to manage your account and your orders. These requests must be signed (more on this below).
+The Private REST API is used to manage your account and your orders. These requests must be signed (more on this below).
 
 <aside class="notice">
 Private endpoints require API Keys. Make sure you read more about obtaining your private keys <a href="#generating-api-keys">here</a>
@@ -752,6 +741,7 @@ Field Name | Type | Description | Units
 
 ## Document Upload
 
+
 > The JSON object returned by the API looks like this:
 
 ```json
@@ -760,7 +750,7 @@ Field Name | Type | Description | Units
 }
 
 ```
-This endpoint is used to upload KYC documents for verification.
+This endpoint is used to upload KYC documents for verification. [**Coming Soon**]
 
 ### HTTP Request
 
@@ -799,7 +789,8 @@ Parameter | Default | Required | Description
 }
 
 ```
-This endpoint is used to register Mobile phone number for verification.
+This endpoint is used to register Mobile phone number for
+verification.  [**Coming Soon**]
 
 ### HTTP Request
 
@@ -845,7 +836,8 @@ Field Name | Type | Description | Units
 }
 
 ```
-This endpoint is used to register Mobile phone number for verification.
+This endpoint is used to register Mobile phone number for
+verification. [**Coming Soon**]
 
 ### HTTP Request
 
@@ -1766,7 +1758,7 @@ Parameter | Default | Required | Description
 Parameter | Default | Required | Description
 --------- | ------- | -------- | -----------
 **fund_currency** | - | Yes | Specifies which currency to fund with.
-**converted_currency** | - | No | Specifies what currency to auto-trade for. Funds received will be automatically traded for this currency. 
+
 
 
 ### JSON Response Payload
@@ -2690,7 +2682,8 @@ Fields](#account-required-fields) endpoint in addition to the following optional
 
 Parameter | Default | Required | Description
 --------- | ------- | -------- | -----------
-**callback_url** |  | NO | Specifies a url that will be hit on events specified in the [Callbacks Section](#callback_payloads)
+**callback_url** |  | NO | Specifies a url that will be hit on events
+specified in the [Callback API Section](#callback_payloads)
 
 
 ### JSON Response Payload
@@ -2703,12 +2696,12 @@ Field Name | Type | Description | Units
 **account_level** | String | Account Verification Level |
 
 
-# Callbacks
+# Callback API
 
 ## Registering URLs
 
 Users can register a callback url that will get hit with payloads
-correspding to certain events described below.
+correspding to certain events described below. [**Coming Soon**]
 
 > The JSON object returned by the API looks like this:
 
@@ -2737,7 +2730,8 @@ Parameter | Default | Required | Description
 
 ## Fundings
 
-Users that register a callback will get a POST payload to that URL with the following fields on SPEI deposits.
+Users that register a callback will get a POST payload to that URL
+with the following fields on SPEI deposits.  [**Coming Soon**]
 
 > The JSON Array posted to the callback URL looks like this
 
