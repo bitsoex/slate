@@ -1101,6 +1101,15 @@ Returns a list of all the user's registered operations.
 
 `GET https://api.bitso.com/v3/ledger/`
 
+`GET https://api.bitso.com/v3/ledger/trades/`
+
+`GET https://api.bitso.com/v3/ledger/fees/`
+
+`GET https://api.bitso.com/v3/ledger/fundings/`
+
+`GET https://api.bitso.com/v3/ledger/withdrawals/`
+
+
 ### Authorization Header Parameters
 
 Parameter | Default | Required | Description
@@ -1344,7 +1353,7 @@ Field Name | Type | Description | Units
 }
 ```
 
-Returns detailed info on a user's fund withdrawals.
+Returns detailed info on a user's fundings.
 
 ### HTTP Request
 
@@ -1424,7 +1433,7 @@ curl "https://api.bitso.com/v3/user_trades/?book=btc_mxn"
 }
 ```
 
-This endpoint returns a list of recent trades from the specified book.
+This endpoint returns a list of the user's trades.
 
 ### HTTP Request
 
@@ -1470,7 +1479,9 @@ Field Name | Type | Description | Units
     "success": true,
     "payload": [{
         "book": "btc_mxn",
-        "amount": "0.01000000",
+        "original_amount": "0.01000000",
+		"unfilled_amount": "0.00500000",
+		"original_value": "56.0",
         "created_at": "2016-04-08T17:52:31.000+00:00",
         "updated_at": "2016-04-08T17:52:51.000+00:00",
         "price": "5600.00",
@@ -1480,7 +1491,9 @@ Field Name | Type | Description | Units
         "type": "limit"
     }, {
         "book": "btc_mxn",
-        "amount": "0.12680000",
+        "original_amount": "0.12680000",
+		"unfilled_amount": "0.12680000",
+		"original_value": "507.2",
         "created_at": "2016-04-08T17:52:31.000+00:00",
         "updated_at": "2016-04-08T17:52:41.000+00:00",
         "price": "4000.00",
@@ -1490,7 +1503,9 @@ Field Name | Type | Description | Units
         "type": "limit"
     }, {
         "book": "btc_mxn",
-        "amount": "1.12560000",
+        "original_amount": "1.12560000",
+		"unfilled_amount": "1.12560000",
+		"original_value": "6892.66788",
         "created_at": "2016-04-08T17:52:31.000+00:00",
         "updated_at": "2016-04-08T17:52:41.000+00:00",
         "price": "6123.55",
@@ -1521,8 +1536,10 @@ Parameter | Default | Required | Description
 
 Parameter | Default | Required | Description
 --------- | ------- | -------- | -----------
-**book** | -  | YES | Specifies which book to use
-
+**book** | all  | No | Specifies which book to use
+**marker** |  | No | Returns objects that are older or newer (depending on 'sort') than the object with this ID
+**sort** | desc | No | Specifies ordering direction of returned objects
+**limit** | 25 | No | Specifies number of objects to return. (Max is 100)
 
 ### JSON Response Payload
 
@@ -1532,7 +1549,9 @@ Field Name | Type | Description | Units
 ---------- | ---- | ----------- | -----
 **oid** | String | The Order ID | -
 **book** | String | Order book symbol | Major_Minor
-**amount** | String | The order's major currency amount | Major
+**original_amount** | String | The order's initial major currency amount | Major
+**unfilled_amount** | String | The order's unfilled major currency amount | Major
+**original_value** | String | The order's initial minor currency amount | Minor
 **created_at** | String | Timestamp at which the trade was executed |ISO 8601 timestamp
 **updated_at** | String | Timestamp at which the trade was updated (can be null) | ISO 8601 timestamp
 **price** | String | The order's price | Minor
@@ -1550,7 +1569,9 @@ Field Name | Type | Description | Units
     "success": true,
     "payload": [{
         "book": "btc_mxn",
-        "amount": "0.01000000",
+        "original_amount": "0.01000000",
+		"unfilled_amount": "0.00500000",
+		"original_value": "56.0",
         "created_at": "2016-04-08T17:52:31.000+00:00",
         "updated_at": "2016-04-08T17:52:51.000+00:00",
         "price": "5600.00",
@@ -1560,22 +1581,13 @@ Field Name | Type | Description | Units
         "type": "limit"
     }, {
         "book": "btc_mxn",
-        "amount": "0.12680000",
+        "original_amount": "0.12680000",
+		"unfilled_amount": "0.12680000",
+		"original_value": "507.2",
         "created_at": "2016-04-08T17:52:31.000+00:00",
-        "updated_at": "2016-04-08T17:58:31.000+00:00",
+        "updated_at": "2016-04-08T17:52:41.000+00:00",
         "price": "4000.00",
         "oid": "qlbga6b600n3xta7actori10z19acfb20njbtuhtu5xry7z8jswbaycazlkc0wf1",
-        "side": "sell",
-        "status": "open",
-        "type": "limit"
- 
-    }, {
-        "book": "btc_mxn",
-        "amount": "1.12560000",
-        "created_at": "2016-04-08T17:52:31.000+00:00",
-        "updated_at": "2016-04-08T17:53:31.000+00:00",
-        "price": "6123.55",
-        "oid": "d71e3xy2lowndkfmde6bwkdsvw62my6058e95cbr08eesu0687i5swyot4rf2yf8",
         "side": "sell",
         "status": "open",
         "type": "limit"
@@ -1610,7 +1622,9 @@ Field Name | Type | Description | Units
 ---------- | ---- | ----------- | -----
 **oid** | String | The Order ID | -
 **book** | String | Order book symbol | Major_Minor
-**amount** | String | The order's major currency amount | Major
+**original_amount** | String | The order's initial major currency amount | Major
+**unfilled_amount** | String | The order's unfilled major currency amount | Major
+**original_value** | String | The order's initial minor currency amount | Minor
 **created_at** | String | Timestamp at which the order was created |ISO 8601 timestamp
 **updated_at** | String | Timestamp at which the order was updated (can be null) | ISO 8601 timestamp
 **price** | String | The order's price | Minor
