@@ -1942,8 +1942,8 @@ Parameter | Default | Required | Description
 
 Parameter | Default | Required | Description
 --------- | ------- | -------- | -----------
-**amount** | - | Yes | The amount of ETH to withdraw from your account
-**address** | - | Yes | The ETH address to send the amount to
+**amount** | - | Yes | The amount of currency to withdraw from your account
+**address** | - | Yes | The ripple address we will send the amount to
 **currency** | - | Yes | The currency to withdraw
 
 ### JSON Response Payload
@@ -2519,6 +2519,16 @@ The Transfer API is accessible via an API key created for your account. For full
 
 `POST https://api.bitso.com/v2/transfer_quote`
 
+### Authorization Header Parameters
+
+Parameter | Default | Required | Description
+--------- | ------- | -------- | -----------
+**key** | - | Yes | See [Creating and Signing Requests](#creating-and-signing-requests)
+**signature** | - | Yes | See [Creating and Signing Requests](#creating-and-signing-requests)
+**nonce** | - | Yes | See [Creating and Signing Requests](#creating-and-signing-requests)
+
+
+
 ### Body Parameters
 
 Parameter | Required | Description
@@ -2564,6 +2574,16 @@ Parameter | Required | Description
 ### HTTP Request
 
 `POST https://api.bitso.com/v2/transfer_create`
+
+### Authorization Header Parameters
+
+Parameter | Default | Required | Description
+--------- | ------- | -------- | -----------
+**key** | - | Yes | See [Creating and Signing Requests](#creating-and-signing-requests)
+**signature** | - | Yes | See [Creating and Signing Requests](#creating-and-signing-requests)
+**nonce** | - | Yes | See [Creating and Signing Requests](#creating-and-signing-requests)
+
+
 
 ### Body Parameters
 
@@ -2654,6 +2674,15 @@ for use in the "Account Creation" endpoint.
 
 `GET https://api.bitso.com/v3/account_required_fields/`
 
+### Authorization Header Parameters
+
+Parameter | Default | Required | Description
+--------- | ------- | -------- | -----------
+**key** | - | Yes | See [Creating and Signing Requests](#creating-and-signing-requests)
+**signature** | - | Yes | See [Creating and Signing Requests](#creating-and-signing-requests)
+**nonce** | - | Yes | See [Creating and Signing Requests](#creating-and-signing-requests)
+
+
 
 ### JSON Response Payload
 
@@ -2689,6 +2718,15 @@ for use in the "Account Creation" endpoint.
 ### HTTP Request
 
 `POST https://api.bitso.com/v3/accounts/`
+
+### Authorization Header Parameters
+
+Parameter | Default | Required | Description
+--------- | ------- | -------- | -----------
+**key** | - | Yes | See [Creating and Signing Requests](#creating-and-signing-requests)
+**signature** | - | Yes | See [Creating and Signing Requests](#creating-and-signing-requests)
+**nonce** | - | Yes | See [Creating and Signing Requests](#creating-and-signing-requests)
+
 
 ### Body Parameters
 All parameters as returned by the [Account Required
