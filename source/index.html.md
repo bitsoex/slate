@@ -1865,7 +1865,7 @@ Field Name | Type | Description | Units
 }
 ```
 
-Triggers an Ethereum withdrawal from the user's account
+Triggers an Ethereum withdrawal from the user's account [**Coming Soon**]
 
 ### HTTP Request
 
@@ -1924,7 +1924,7 @@ Field Name | Type | Description | Units
  
 ```
 
-Triggers a Ripple withdrawal from your account
+Triggers a Ripple withdrawal from your account [**Coming Soon**]
 
 ### HTTP Request
 
