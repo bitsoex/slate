@@ -460,13 +460,13 @@ The two elements you will need to sign requests are:
 # requires:
 # -httpie: https://github.com/jkbrzt/httpie
 
-URL=https://dev.bitso.com/api/v3/balance/
+URL=https://api.bitso.com/v3/balance/
 API_KEY="BITSO_KEY"
 API_SECRET="BITSO_SECRET"
 DNONCE=$(date +%s)
 HTTPmethod=GET
 JSONPayload=""
-RequestPath="/api/v3/balance/"
+RequestPath="/v3/balance/"
 SIGNATURE=$(echo -n $DNONCE$HTTPmethod$RequestPath$JSONPayload | openssl dgst -hex -sha256 -hmac $API_SECRET )
 AUTH_HEADER="Bitso $API_KEY:$DNONCE:$SIGNATURE"
 http GET $URL Authorization:"$AUTH_HEADER"
@@ -479,7 +479,7 @@ var secret = "BITSO API SECRET";
 var nonce = new Date().getTime();
 var http_method="GET";
 var json_payload=""
-var request_path="/api/v3/balance/"
+var request_path="/v3/balance/"
 
 // Create the signature
 var Data = nonce+http_method+request_path+json_payload;
@@ -523,7 +523,7 @@ bitso_key = "BITSO_KEY"
 bitso_secret = "BITSO_SECRET"
 nonce =  str(int(round(time.time() * 1000)))
 http_method = "GET"
-request_path = "/api/v3/balance/"
+request_path = "/v3/balance/"
 json_payload = ""
 
 # Create signature
@@ -553,7 +553,7 @@ bitso_key = "API_KEY"
 bitso_secret = "API_SECRET"
 nonce = DateTime.now.strftime('%Q')
 http_method = "GET"
-request_path = "/api/v3/balance/"
+request_path = "/v3/balance/"
 json_payload = ""
 
 # Create signature
@@ -590,7 +590,7 @@ public class BitsoJavaExample {
     String bitsoSecret = "BITSO API SECRET";
     long nonce = System.currentTimeMillis();
     String HTTPMethod = "GET";
-    String RequestPath = "/api/v3/balance/";
+    String RequestPath = "/v3/balance/";
     String JSONPayload = "";
 
     // Create the signature
@@ -637,7 +637,7 @@ public class BitsoJavaExample {
   $bitsoSecret = 'BITSO_API_SECRET';
   $nonce = round(microtime(true) * 1000);
   $HTTPMethod = "GET";
-  $RequestPath = "/api/v3/balance/";
+  $RequestPath = "/v3/balance/";
   $JSONPayload = "";
 
   // Create signature
