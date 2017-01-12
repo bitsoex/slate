@@ -608,6 +608,7 @@ public class BitsoJavaExample {
     String url = "https://api.bitso.com/v3/balance/";
     URL obj = new URL(url);
     HttpURLConnection con = (HttpURLConnection) obj.openConnection();
+    con.setRequestProperty("User-Agent", "Bitso Java Example");
     con.setRequestMethod("GET");
     con.setRequestProperty("Authorization", authHeader);
 
