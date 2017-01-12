@@ -1522,7 +1522,7 @@ Returns a list of the user's open orders.
 
 ### HTTP Request
 
-`GET https://api.bitso.com/v2/open_orders?book=btc_mxn`
+`GET https://api.bitso.com/v3/open_orders?book=btc_mxn`
 
 ### Authorization Header Parameters
 
@@ -2518,7 +2518,7 @@ The Transfer API is accessible via an API key created for your account. For full
 
 ### HTTP Request
 
-`POST https://api.bitso.com/v2/transfer_quote`
+`POST https://api.bitso.com/v3/transfer_quote`
 
 ### Authorization Header Parameters
 
@@ -2574,7 +2574,7 @@ Parameter | Required | Description
 
 ### HTTP Request
 
-`POST https://api.bitso.com/v2/transfer_create`
+`POST https://api.bitso.com/v3/transfer_create`
 
 ### Authorization Header Parameters
 
@@ -2607,7 +2607,7 @@ Make requests to the transfer review end point at any time to monitor the status
 
 ### HTTP Request
 
-`GET https://api.bitso.com/v2/transfer/<transfer_id>`
+`GET https://api.bitso.com/v3/transfer/<transfer_id>`
 
 ### Response
 
