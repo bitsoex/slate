@@ -1683,15 +1683,17 @@ The response is a list of Order IDs (OIDs) for the canceled orders. Orders may n
     "success": true,
     "payload": {
         "book": "btc_mxn",
-        "amount": "0.01000000",
+        "original_amount": "0.12680000",
+        "unfilled_amount": "0.12680000",
+        "original_value": "507.2",
         "created_at": "2016-04-08T17:52:31.000+00:00",
-        "updated_at": null,
-        "price": "5600.00",
-        "oid": "543cr2v32a1h684430tvcqx1b0vkr93wd694957cg8umhyrlzkgbaedmf976ia3v",
-        "side": "buy",
+        "updated_at": "2016-04-08T17:52:41.000+00:00",
+        "price": "4000.00",
+        "oid": "qlbga6b600n3xta7actori10z19acfb20njbtuhtu5xry7z8jswbaycazlkc0wf1",
+        "side": "sell",
         "status": "open",
         "type": "limit"
-    }
+		}
 }
 ```
 
@@ -1730,13 +1732,17 @@ Field Name | Type | Description | Units
 ---------- | ---- | ----------- | -----
 **oid** | String | The Order ID | -
 **book** | String | Order book symbol | Major_Minor
-**amount** | String | The order's major currency amount | Major
+**original_amount** | String | The order's initial major currency amount | Major
+**unfilled_amount** | String | The order's unfilled major currency amount | Major
+**original_value** | String | The order's initial minor currency amount | Minor
 **created_at** | String | Timestamp at which the order was created |ISO 8601 timestamp
 **updated_at** | String | Timestamp at which the order was updated (can be null) | ISO 8601 timestamp
 **price** | String | The order's price | Minor
 **side** | String | The order side (buy, sell) | -
 **status** | String | The order's status (open, partial-fill, closed) | 
 **type** | String | The order type (market, limit) | -
+
+
 
 
 ## Funding Destination
@@ -2054,11 +2060,11 @@ Field Name | Type | Description | Units
 }
 ```
 
-This endpoint returns codes and bank names to be used in Debit Card WIthdrawal endpoint
+This endpoint returns codes and bank names to be used in the Debit Card WIthdrawal and Phone Number Withdrawal endpoints
 
 ### HTTP Request
 
-`GET https://api.bitso.com/v3/bank_codes/`
+`GET https://api.bitso.com/v3/mx_bank_codes/`
 
 ### Authorization Header Parameters
 
@@ -2783,8 +2789,8 @@ curl --data "email_address=value1&mobile_phone_number=value2&given_names=value3&
 {
 	"success": true,
 	"payload": {
-		"client_id": 1234,
-		"account_level": 0
+		"client_id": "1234",
+		"account_level": "0"
 	}
 }
 ```
