@@ -2108,7 +2108,9 @@ Field Name | Type | Description | Units
 ```
 
 Triggers a Debit Cards withdrawal from your account.
-These **withdrawals are immediate** during banking hours (M-F 9:00AM - 5:00PM Mexico City Time).
+These **withdrawals are immediate** during banking hours for some
+banks (M-F 9:00AM - 5:00PM Mexico City Time), 24 hours for others. 
+
 
 
 ### HTTP Request
@@ -2150,6 +2152,80 @@ Field Name | Type | Description | Units
 **amount** | String | Amount to withdraw | -
 **details** | String | Method specific details for this withdrawal | -
 
+
+## Phone Number Withdrawal 
+
+> The string returned by the API looks like this:
+
+```json
+{
+    "success": true,
+    "payload": {
+        "wid": "p4u8d7f0768ee91d3b33bee6483132i8",
+        "status": "pending",
+        "created_at": "2016-04-08T17:52:31.000+00:00",
+        "currency": "mxn",
+        "method": "SPEI Transfer",
+        "amount": "300.15",
+        "details": {
+            "sender_name": "JUAN ESCUTIA",
+            "receive_clabe": "012610001967722183",
+            "sender_clabe": "646180115400467548",
+            "numeric_reference": "80416",
+            "concepto": "Tacos del viernes",
+            "clave_rastreo": null,
+            "beneficiary_name": "FRANCISCO MARQUEZ"
+        }
+    }
+}
+```
+
+Triggers a withdrawal from your account to a phone number. (Phone
+number must be registered for SPEI Transfers with their corresponding bank)
+These **withdrawals are immediate** during banking hours for some
+banks (M-F 9:00AM - 5:00PM Mexico City Time), 24 hours for
+others. 
+
+
+
+### HTTP Request
+
+`POST https://api.bitso.com/v3/phone_withdrawal/`
+
+### Authorization Header Parameters
+
+Parameter | Default | Required | Description
+--------- | ------- | -------- | -----------
+**key** | - | Yes | See [Creating and Signing Requests](#creating-and-signing-requests)
+**signature** | - | Yes | See [Creating and Signing Requests](#creating-and-signing-requests)
+**nonce** | - | Yes | See [Creating and Signing Requests](#creating-and-signing-requests)
+
+amount, recipient_given_names, recipient_family_names, card_number, bank_code
+### Body Parameters
+
+Parameter | Default | Required | Description
+--------- | ------- | -------- | -----------
+**amount** | - | Yes | The amount of MXN to withdraw from your account
+**recipient_given_names** | - | Yes | The recipient's first and middle name(s)
+**recipient_family_names** | - | Yes | The recipient's last name
+**phone_number** | - | Yes | The phone number associated with the account where the funds will be sent to
+**bank_code** | - | Yes | The bank code for this card's issuer as returned by the "Bank Codes" endpoint
+
+
+
+### JSON Response Payload
+
+Returns a JSON object representing the order:
+
+Field Name | Type | Description | Units
+---------- | ---- | ----------- | -----
+**wid** | String | Unique Withdrawal ID | -
+**status** | String | Status of the withdrawal request (pending, complete) | -
+**created_at** | String | Timestamp at which the withdrawal request was created | ISO 8601 timestamp
+**currency** | String | Currency specified for this withdrawal (MXN) | -
+**method** | String | Method for this withdrawal (Debit Card Withdrawal) | -
+**amount** | String | Amount to withdraw | -
+**details** | String | Method specific details for this withdrawal | -
 
 
 
