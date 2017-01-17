@@ -1228,7 +1228,7 @@ a specific operation type.
         "status": "complete",
         "created_at": "2016-04-08T17:52:31.000+00:00",
         "currency": "mxn",
-        "method": "Debit Card",
+        "method": "SPEI Transfer",
         "amount": "500.00",
         "details": {
             "beneficiary_name": "ALFRED NORTH WHITEHEAD",
@@ -2092,7 +2092,7 @@ Field Name | Type | Description | Units
         "status": "pending",
         "created_at": "2016-04-08T17:52:31.000+00:00",
         "currency": "mxn",
-        "method": "Debit Card Widhrawal",
+        "method": "SPEI Transfer",
         "amount": "300.15",
         "details": {
             "sender_name": "JUAN ESCUTIA",
