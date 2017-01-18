@@ -1682,17 +1682,7 @@ The response is a list of Order IDs (OIDs) for the canceled orders. Orders may n
 {
     "success": true,
     "payload": {
-        "book": "btc_mxn",
-        "original_amount": "0.12680000",
-        "unfilled_amount": "0.12680000",
-        "original_value": "507.2",
-        "created_at": "2016-04-08T17:52:31.000+00:00",
-        "updated_at": "2016-04-08T17:52:41.000+00:00",
-        "price": "4000.00",
-        "oid": "qlbga6b600n3xta7actori10z19acfb20njbtuhtu5xry7z8jswbaycazlkc0wf1",
-        "side": "sell",
-        "status": "open",
-        "type": "limit"
+        "oid": "qlbga6b600n3xta7actori10z19acfb20njbtuhtu5xry7z8jswbaycazlkc0wf1"
 		}
 }
 ```
@@ -2002,7 +1992,7 @@ Please ensure that any subsequent Ripple funding emanates from this address.</b>
 ```
 
 Triggers a SPEI withdrawal from your account.
-These **withdrawals are immediate** during banking hours (M-F 9:00AM - 5:00PM Mexico City Time).
+These withdrawals are immediate during banking hours for some banks (M-F 9:00AM - 5:00PM Mexico City Time), 24 hours for others.
 
 
 ### HTTP Request
