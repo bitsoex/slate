@@ -294,28 +294,28 @@ curl "https://api.bitso.com/v3/order_book/?book=btc_mxn&aggregate=false"
             "book": "btc_mxn",
             "price": "5632.24",
             "amount": "1.34491802",
-			"oid": "19vaqiv72drbphig81d3y1ywri0yg8miihs80ng217drpw7xyl0wmytdhtby2ygk"
+			"oid": "VN5lVpgXf02o6vJ6"
         },{
             "book": "btc_mxn",
             "price": "5633.44",
             "amount": "0.4259",
-			"oid": "27poriv72drbphig81d3y1ywri0yg8miihs80ng217drpw7xyl0wmytdhtby2acb"
+			"oid": "RP8lVpgXf04o6vJ6"
         },{
             "book": "btc_mxn",
             "price": "5642.14",
             "amount": "1.21642",
-			"oid": "46efbiv72drbphig81d3y1ywri0yg8miihs80ng217drpw7xyl0wmytdhtby1puv"
+			"oid": "46efbiv72drbphig"
         }],
         "bids": [{
             "book": "btc_mxn",
             "price": "6123.55",
             "amount": "1.12560000",
-			"oid": "11brtiv72drbphig81d3y1ywri0yg8miihs80ng217drpw7xyl0wmytdhtto4lgh"
+			"oid": "11brtiv72drbphig"
         },{
             "book": "btc_mxn",
             "price": "6121.55",
             "amount": "2.23976",
-			"oid": "96topiv72drbphig81d3y1ywri0yg8miihs80ng217drpw7xyl0wmytdhttp8flo"
+			"oid": "1ywri0yg8miihs80"
         }],
         "updated_at": "2016-04-08T17:52:31.000+00:00",
 		"sequence": "27214"
@@ -1002,7 +1002,7 @@ Field Name | Type | Description | Units
         }],
         "details": {
             "tid": 51756,
-            "oid": "19vaqiv72drbphig81d3y1ywri0yg8miihs80ng217drpw7xyl0wmytdhtby2ygk"
+            "oid": "wri0yg8miihs80ngk"
         }
     }, {
         "eid": "6512bd43d9caa6e02c990b0a82652dca",
@@ -1014,7 +1014,7 @@ Field Name | Type | Description | Units
         }],
         "details": {
             "tid": 51756,
-            "oid": "19vaqiv72drbphig81d3y1ywri0yg8miihs80ng217drpw7xyl0wmytdhtby2ygk"
+            "oid": "19vaqiv72drbphig"
         }
     }, {
         "operation": "trade",
@@ -1028,7 +1028,7 @@ Field Name | Type | Description | Units
         }],
         "details": {
             "tid": 51757,
-            "oid": "19vaqiv72drbphig81d3y1ywri0yg8miihs80ng217drpw7xyl0wmytdhtby2ygk"
+            "oid": "19vaqiv72drbphig"
         }
     }, {
         "eid": "698d51a19d8a121ce581499d7b701668",
@@ -1040,7 +1040,7 @@ Field Name | Type | Description | Units
         }],
         "details": {
             "tid": 51757,
-            "oid": "19vaqiv72drbphig81d3y1ywri0yg8miihs80ng217drpw7xyl0wmytdhtby2ygk"
+            "oid": "19vaqiv72drbphig"
         }
     }, {
         "eid": "b59c67bf196a4758191e42f76670ceba",
@@ -1417,7 +1417,7 @@ curl "https://api.bitso.com/v3/user_trades/?book=btc_mxn"
         "fees_currency": "mxn",
         "price": "4057.45",
         "tid": 51756,
-        "oid": "19vaqiv72drbphig81d3y1ywri0yg8miihs80ng217drpw7xyl0wmytdhtby2ygk",
+        "oid": "g81d3y1ywri0yg8m",
         "side": "sell"
     }, {
         "book": "eth_mxn",
@@ -1428,7 +1428,7 @@ curl "https://api.bitso.com/v3/user_trades/?book=btc_mxn"
         "fees_currency": "btc",
         "price": "127.45",
         "tid": 51757,
-        "oid": "19vaqiv72drbphig81d3y1ywri0yg8miihs80ng217drpw7xyl0wmytdhtby2ygk",
+        "oid": "19vaqiv72drbphig",
         "side": "buy"
     }]
 }
@@ -1486,7 +1486,7 @@ Field Name | Type | Description | Units
         "created_at": "2016-04-08T17:52:31.000+00:00",
         "updated_at": "2016-04-08T17:52:51.000+00:00",
         "price": "5600.00",
-        "oid": "543cr2v32a1h684430tvcqx1b0vkr93wd694957cg8umhyrlzkgbaedmf976ia3v",
+        "oid": "543cr2v32a1h68443",
         "side": "buy",
         "status": "partial-fill",
         "type": "limit"
@@ -1498,7 +1498,7 @@ Field Name | Type | Description | Units
         "created_at": "2016-04-08T17:52:31.000+00:00",
         "updated_at": "2016-04-08T17:52:41.000+00:00",
         "price": "4000.00",
-        "oid": "qlbga6b600n3xta7actori10z19acfb20njbtuhtu5xry7z8jswbaycazlkc0wf1",
+        "oid": "qlbga6b600n3xta7",
         "side": "sell",
         "status": "open",
         "type": "limit"
@@ -1510,7 +1510,7 @@ Field Name | Type | Description | Units
         "created_at": "2016-04-08T17:52:31.000+00:00",
         "updated_at": "2016-04-08T17:52:41.000+00:00",
         "price": "6123.55",
-        "oid": "d71e3xy2lowndkfmde6bwkdsvw62my6058e95cbr08eesu0687i5swyot4rf2yf8",
+        "oid": "d71e3xy2lowndkfm",
         "side": "sell",
         "status": "open",
         "type": "limit"
@@ -1576,7 +1576,7 @@ Field Name | Type | Description | Units
         "created_at": "2016-04-08T17:52:31.000+00:00",
         "updated_at": "2016-04-08T17:52:51.000+00:00",
         "price": "5600.00",
-        "oid": "543cr2v32a1h684430tvcqx1b0vkr93wd694957cg8umhyrlzkgbaedmf976ia3v",
+        "oid": "543cr2v32a1h6844",
         "side": "buy",
         "status": "partial-fill",
         "type": "limit"
@@ -1588,7 +1588,7 @@ Field Name | Type | Description | Units
         "created_at": "2016-04-08T17:52:31.000+00:00",
         "updated_at": "2016-04-08T17:52:41.000+00:00",
         "price": "4000.00",
-        "oid": "qlbga6b600n3xta7actori10z19acfb20njbtuhtu5xry7z8jswbaycazlkc0wf1",
+        "oid": "qlbga6b600n3xta7a",
         "side": "sell",
         "status": "open",
         "type": "limit"
@@ -1682,7 +1682,7 @@ The response is a list of Order IDs (OIDs) for the canceled orders. Orders may n
 {
     "success": true,
     "payload": {
-        "oid": "qlbga6b600n3xta7actori10z19acfb20njbtuhtu5xry7z8jswbaycazlkc0wf1"
+        "oid": "qlbga6b600n3xta7"
 		}
 }
 ```
@@ -2363,7 +2363,8 @@ Field Name | Type | Description | Units
       "r": 7251.1,
       "t": 1,
       "a": 0.29437179,
-      "v": 2134.51
+      "v": 2134.51,
+      "o": 'VM7lVpgXf04o6vJ6'
     }
   ]
 }
@@ -2388,10 +2389,9 @@ Field Name | Type | Description | Units
 **t** | Number | 0 indicates buy 1 indicates sell | -
 **a** | Number | Amount | Major
 **v** | String | Value | Minor
+**o** | String | Order ID | -
 
-## Orders
-
-> Messages on this channel look like this:
+## Orders on this channel look like this:
 
 ```json
 {
