@@ -1709,8 +1709,8 @@ Parameter | Default | Required | Description
 **book** | - | Yes | Specifies which book to use
 **side** | - | Yes | The order side (buy, sell) 
 **type** | - | Yes | The order type (market, limit) |
-**major** | - | No | The amount of major currency for this order. An order could be specified in terms of major or minor, never both.
-**minor** | - | No | The amount of minor currency for this order. An order could be specified in terms of major or minor, never both.
+**major** | - | No | The amount of major currency for this order. An order must be specified in terms of major or minor, never both.
+**minor** | - | No | The amount of minor currency for this order. An order must be specified in terms of major or minor, never both.
 **price** | - | No | Price per unit of major. For use only with limit orders | Minor (MXN)
 
 
