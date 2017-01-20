@@ -2111,7 +2111,7 @@ banks (M-F 9:00AM - 5:00PM Mexico City Time), 24 hours for others.
 
 ### HTTP Request
 
-`POST https://api.bitso.com/v3/card_withdrawal/`
+`POST https://api.bitso.com/v3/debit_card_withdrawal/`
 
 ### Authorization Header Parameters
 
