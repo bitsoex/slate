@@ -47,6 +47,17 @@ For unsuccessful API calls, our JSON response objects look like:
 }
 `
 
+## Developer Testing Server
+
+When working on integrations, we recommend that you use our dev server
+before running your code against production. The URL for this server
+is `https://api-dev.bitso.com/v3/`
+
+You can fund accounts on the dev server with Testnet Bitcoin and
+"Morden" test network Eth.
+
+
+
 
 ## Notations
 
@@ -784,18 +795,17 @@ Parameter | Default | Required | Description
 {
     "success": true,
     "payload": {
-        "client_id": "1234",
         "phone": "5554181042"
     }
 }
 
 ```
 This endpoint is used to register Mobile phone number for
-verification.  [**Coming Soon**]
+verification. 
 
 ### HTTP Request
 
-`POST https://api.bitso.com/v3/phone_numbers/`
+`POST https://api.bitso.com/v3/phone_number/`
 
 ### Authorization Header Parameters
 
@@ -831,14 +841,13 @@ Field Name | Type | Description | Units
 {
     "success": true,
     "payload": {
-        "client_id": "1234",
         "phone": "5554181042"
     }
 }
 
 ```
 This endpoint is used to register Mobile phone number for
-verification. [**Coming Soon**]
+verification.
 
 ### HTTP Request
 
@@ -1862,7 +1871,7 @@ Field Name | Type | Description | Units
 }
 ```
 
-Triggers an Ethereum withdrawal from the user's account [**Coming Soon**]
+Triggers an Ethereum withdrawal from the user's account 
 
 ### HTTP Request
 
@@ -1921,7 +1930,7 @@ Field Name | Type | Description | Units
  
 ```
 
-Triggers a Ripple withdrawal from your account [**Coming Soon**]
+Triggers a Ripple withdrawal from your account 
 
 ### HTTP Request
 
