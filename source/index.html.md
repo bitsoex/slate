@@ -846,8 +846,7 @@ Field Name | Type | Description | Units
 }
 
 ```
-This endpoint is used to register Mobile phone number for
-verification.
+This endpoint is used to verify a registered mobile phone number
 
 ### HTTP Request
 
@@ -2794,8 +2793,7 @@ curl --data "email_address=value1&mobile_phone_number=value2&given_names=value3&
 }
 ```
 
-This endpoint returns a list of required field and their descriptions
-for use in the "Account Creation" endpoint.
+This endpoint creates a new Bitso user account.
 
 ### HTTP Request
 
