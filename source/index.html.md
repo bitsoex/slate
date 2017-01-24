@@ -821,7 +821,7 @@ Parameter | Default | Required | Description
 Parameter | Default | Required | Description
 --------- | ------- | -------- | -----------
 **phone_number** | - | Yes | Mobile phone number to register (10 digits)
-**verification_method** | 'sms' | No | Specifies verification method. Enum of (SMS, Voice)
+
 
 ### JSON Response Payload
 
