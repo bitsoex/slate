@@ -166,7 +166,7 @@ curl "https://api.bitso.com/v3/available_books/"
         "minimum_value": "25.00",
         "maximum_value": "1000000.00"
     }, {
-        "book": "mxn_eth",
+        "book": "eth_mxn",
         "minimum_amount": ".003",
         "maximum_amount": "1000.00",
         "minimum_price": "100.0",
@@ -944,17 +944,13 @@ Field Name | Type | Description | Units
     "success": true,
     "payload": {
         "fees": [{
-            "book": "mxn_btc",
+            "book": "btc_mxn",
             "fee_decimal": "0.0001",
             "fee_percent": "0.01"
         }, {
-            "book": "mxn_eth",
+            "book": eth_mxn",
             "fee_decimal": "0.001",
             "fee_percent": "0.1"
-        }, {
-            "book": "cop_btc",
-            "fee_decimal": "0.01",
-            "fee_percent": "1"
         }]
     }
 }
@@ -2775,7 +2771,7 @@ Field Name | Type | Description
 **field_description** | String | Describes each field
 
 
-## Account Creation
+## Account Creation [Coming Soon]
 
 ```shell
 curl --data "email_address=value1&mobile_phone_number=value2&given_names=value3&family_names=value4" "https://api.bitso.com/v3/accounts/"
@@ -2788,7 +2784,9 @@ curl --data "email_address=value1&mobile_phone_number=value2&given_names=value3&
 	"success": true,
 	"payload": {
 		"client_id": "1234",
-		"account_level": "0"
+		"account_level": "0",
+		"api_key": "mawikCFwrw",
+		"api_secret": "op39fe824f85fb85aexefpw22cbe758921da3"
 	}
 }
 ```
