@@ -2771,7 +2771,7 @@ Field Name | Type | Description
 **field_description** | String | Describes each field
 
 
-## Account Creation [Coming Soon]
+## Account Creation
 
 ```shell
 curl --data "email_address=value1&mobile_phone_number=value2&given_names=value3&family_names=value4" "https://api.bitso.com/v3/accounts/"
