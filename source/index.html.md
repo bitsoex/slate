@@ -2824,7 +2824,8 @@ Field Name | Type | Description | Units
 ---------- | ---- | ----------- | -----
 **client_id** | Long | Designated Bitso User ID | 
 **account_level** | String | Account Verification Level |
-
+**api_key** | String | New Account API Key |
+**api_secret** | String | New Account API Secret |
 
 # Callback API
 
