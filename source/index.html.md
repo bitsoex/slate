@@ -958,7 +958,7 @@ Field Name | Type | Description | Units
             "fee_decimal": "0.0001",
             "fee_percent": "0.01"
         }, {
-            "book": eth_mxn",
+            "book": "eth_mxn",
             "fee_decimal": "0.001",
             "fee_percent": "0.1"
         }]
