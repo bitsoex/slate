@@ -138,10 +138,14 @@ error categories, the last two digits define specific errors.
 The following client libraries will allow you to integrate quickly with our APIs
 
 * [Java](https://github.com/bitsoex/bitso-java)
-* [NodeJS](https://github.com/etiennetatur/bitso-api)
-* [.NET](http://www.nuget.org/packages/Bitso)
 * [Python](https://github.com/bitsoex/bitso-py)
-* [Objective-C](https://github.com/bitsoex/bitso-ios-sdk)
+
+
+
+## Legacy API Docs
+
+Documentation for the v2 API avaialable at [https://bitso.com/api_info/v2](https://bitso.com/api_info/v2)
+
 
 # Public REST API
 
@@ -2808,12 +2812,11 @@ Parameter | Default | Required | Description
 
 ### Body Parameters
 All parameters as returned by the [Account Required
-Fields](#account-required-fields) endpoint in addition to the following optional paramter
+Fields](#account-required-fields) endpoint in addition to the following optional parameter
 
 Parameter | Default | Required | Description
 --------- | ------- | -------- | -----------
-**callback_url** |  | NO | Specifies a url that will be hit on events
-specified in the [Callback API Section](#callback_payloads)
+**webhook_url** |  | NO | Specifies a url that will be hit on events specified in the [Webhooks Section](#webhooks)
 
 
 ### JSON Response Payload
@@ -2827,7 +2830,7 @@ Field Name | Type | Description | Units
 **api_key** | String | New Account API Key |
 **api_secret** | String | New Account API Secret |
 
-# Callback API
+# Webhooks
 
 ## Registering URLs
 
@@ -2846,7 +2849,7 @@ correspding to certain events described below. [**Coming Soon**]
 
 ### HTTP Request
 
-`POST https://api.bitso.com/v3/callbacks/`
+`POST https://api.bitso.com/v3/webhooks/`
 
 ### Authorization Header Parameters
 
@@ -2861,10 +2864,10 @@ Parameter | Default | Required | Description
 
 ## Fundings
 
-Users that register a callback will get a POST payload to that URL
+Users that register a webhook  will get a POST payload to that URL
 with the following fields on SPEI deposits.  [**Coming Soon**]
 
-> The JSON Array posted to the callback URL looks like this
+> The JSON Array posted to the webhook URL looks like this
 
 ```json
 {
