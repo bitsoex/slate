@@ -82,7 +82,7 @@ Error codes consist of four digits, first two digits correspond to
 error categories, the last two digits define specific errors.
 
 ### Unknown Errors: 01 (HTTP 500)
-* 01001: "Unknown Error"
+* 0101: "Unknown Error"
 
 ### Authentication Errors: 02 (HTTP 401)
 * 0201: Invalid Nonce or Invalid Credentials
@@ -110,6 +110,12 @@ error categories, the last two digits define specific errors.
 * 0319: Invalid SPEI notes_ref 
 * 0320: Invalid pagination parameters
 * 0321: Incorrect TID (non-existent)
+* 0322: Not a Valid URL
+* 0323: No associated country code
+* 0324: Number already in use
+* 0325: Phone already verified
+
+
 ### System Limit Errors: 04 (HTTP 400)
 * 0401: Incorrect price, below the minimum
 * 0402: Incorrect price, above than maximum
@@ -144,7 +150,7 @@ The following client libraries will allow you to integrate quickly with our APIs
 
 ## Legacy API Docs
 
-Documentation for the v2 API avaialable at [https://bitso.com/api_info/v2](https://bitso.com/api_info/v2)
+Documentation for the v2 API available at [https://bitso.com/api_info/v2](https://bitso.com/api_info/v2)
 
 
 # Public REST API
