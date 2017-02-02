@@ -1310,8 +1310,6 @@ Parameter | Default | Required | Description
 
 Parameter | Default | Required | Description
 --------- | ------- | -------- | -----------
-**marker** |  | No | Returns objects that are older or newer (depending on 'sort') than the object with this ID
-**sort** | desc | No | Specifies ordering direction of returned objects
 **limit** | 25 | No | Specifies number of objects tu return. (Max is 100)
 
 ### JSON Response Payload
@@ -1392,8 +1390,6 @@ Parameter | Default | Required | Description
 
 Parameter | Default | Required | Description
 --------- | ------- | -------- | -----------
-**marker** |  | No | Returns objects that are older or newer (depending on 'sort') than the object with this ID
-**sort** | desc | No | Specifies ordering direction of returned objects
 **limit** | 25 | No | Specifies number of objects tu return. (Max is 100)
 
 
