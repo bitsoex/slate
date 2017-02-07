@@ -788,7 +788,8 @@ Parameter | Default | Required | Description
 
 ### Body Parameters
 
-
+Body parameters should be JSON encoded and should be exactly the same
+as the JSON payload used to construct the signature.
 
 Parameter | Default | Required | Description
 --------- | ------- | -------- | -----------
@@ -827,6 +828,9 @@ Parameter | Default | Required | Description
 
 
 ### Body Parameters
+
+Body parameters should be JSON encoded and should be exactly the same
+as the JSON payload used to construct the signature.
 
 Parameter | Default | Required | Description
 --------- | ------- | -------- | -----------
@@ -872,6 +876,9 @@ Parameter | Default | Required | Description
 
 
 ### Body Parameters
+
+Body parameters should be JSON encoded and should be exactly the same
+as the JSON payload used to construct the signature.
 
 Parameter | Default | Required | Description
 --------- | ------- | -------- | -----------
@@ -1713,6 +1720,8 @@ Parameter | Default | Required | Description
 
 ### Body Parameters
 
+Body parameters should be JSON encoded and should be exactly the same
+as the JSON payload used to construct the signature.
 
 Parameter | Default | Required | Description
 --------- | ------- | -------- | -----------
@@ -1831,6 +1840,9 @@ Parameter | Default | Required | Description
 
 ### Body Parameters
 
+Body parameters should be JSON encoded and should be exactly the same
+as the JSON payload used to construct the signature.
+
 Parameter | Default | Required | Description
 --------- | ------- | -------- | -----------
 **amount** | - | Yes | The amount of BTC to withdraw from your account
@@ -1887,6 +1899,9 @@ Parameter | Default | Required | Description
 **nonce** | - | Yes | See [Creating and Signing Requests](#creating-and-signing-requests)
 
 ### Body Parameters
+
+Body parameters should be JSON encoded and should be exactly the same
+as the JSON payload used to construct the signature.
 
 Parameter | Default | Required | Description
 --------- | ------- | -------- | -----------
@@ -1946,6 +1961,9 @@ Parameter | Default | Required | Description
 **nonce** | - | Yes | See [Creating and Signing Requests](#creating-and-signing-requests)
 
 ### Body Parameters
+
+Body parameters should be JSON encoded and should be exactly the same
+as the JSON payload used to construct the signature.
 
 Parameter | Default | Required | Description
 --------- | ------- | -------- | -----------
@@ -2018,6 +2036,9 @@ Parameter | Default | Required | Description
 **nonce** | - | Yes | See [Creating and Signing Requests](#creating-and-signing-requests)
 
 ### Body Parameters
+
+Body parameters should be JSON encoded and should be exactly the same
+as the JSON payload used to construct the signature.
 
 Parameter | Default | Required | Description
 --------- | ------- | -------- | -----------
@@ -2131,8 +2152,12 @@ Parameter | Default | Required | Description
 **signature** | - | Yes | See [Creating and Signing Requests](#creating-and-signing-requests)
 **nonce** | - | Yes | See [Creating and Signing Requests](#creating-and-signing-requests)
 
-amount, recipient_given_names, recipient_family_names, card_number, bank_code
+
 ### Body Parameters
+
+Body parameters should be JSON encoded and should be exactly the same
+as the JSON payload used to construct the signature.
+
 
 Parameter | Default | Required | Description
 --------- | ------- | -------- | -----------
@@ -2206,8 +2231,11 @@ Parameter | Default | Required | Description
 **signature** | - | Yes | See [Creating and Signing Requests](#creating-and-signing-requests)
 **nonce** | - | Yes | See [Creating and Signing Requests](#creating-and-signing-requests)
 
-amount, recipient_given_names, recipient_family_names, card_number, bank_code
+
 ### Body Parameters
+
+Body parameters should be JSON encoded and should be exactly the same
+as the JSON payload used to construct the signature.
 
 Parameter | Default | Required | Description
 --------- | ------- | -------- | -----------
@@ -2614,15 +2642,16 @@ Parameter | Default | Required | Description
 
 ### Body Parameters
 
+Body parameters should be JSON encoded and should be exactly the same
+as the JSON payload used to construct the signature.
+
 Parameter | Required | Description
 --------- | -------- | -----------
 **btc_amount** | No | Mutually exclusive with amount. Either this, or amount should be present in the request. The total amount in Bitcoins, as provided by the user. NOTE: The amount is in BTC format (900mbtc = .9 BTC).
 **amount** | No | Mutually exclusive with btc_amount. Either this, or btc_amount should be present in the request. The total amount in Fiat currency. Use this if you prefer specifying amounts in fiat instead of BTC.
 **currency** | Yes | An ISO 4217 fiat currency symbol (ie, “MXN”). If btc_amount is provided instead of amount, this is the currency to which the BTC price will be converted into. Otherwise, if amount is specified instead of btc_amount, this is the currency of the specified amount.
 **full** | No | (optional, defaults to False) - Show the required_fields for each payment outlet as an array of {id, name} objects. This accepts either True or False. When not provided or if the value is False, the required_fields for each Payment Outlet are returned as an array of id strings. For more information about required_fields, please refer to the Payment Outlet Documentation.
-**key** | Yes | API key (see Authentication)
-**signature** | Yes | Signature (see Authentication)
-**nonce** | Yes | nonce (see Authentication)
+
 
 ## Creating a Transfer
 
@@ -2670,6 +2699,9 @@ Parameter | Default | Required | Description
 
 ### Body Parameters
 
+Body parameters should be JSON encoded and should be exactly the same
+as the JSON payload used to construct the signature.
+
 Parameter | Required | Description
 --------- | -------- | -----------
 **btc_amount** | No | Mutually exclusive with amount. Either this, or amount should be present in the request. The total amount in Bitcoins, as provided by the user. NOTE: The amount is in BTC format (900mbtc = .9 BTC).
@@ -2679,9 +2711,6 @@ Parameter | Required | Description
 **payment_outlet** | Yes | The outlet_id as provided by quote method. See below for more information on available outlets.
 **required_field1** | Yes | Each of the other ‘required fields’, as stipulated in the quote method for the chosen payment_outlet.
 **required_field2** | Yes |
-**key** | Yes | API key (see Authentication)
-**signature** | Yes | Signature (see Authentication)
-**nonce** | Yes | nonce (see Authentication)
 
 ## Reviewing a Transfer
 
@@ -2813,6 +2842,10 @@ Parameter | Default | Required | Description
 
 
 ### Body Parameters
+
+Body parameters should be JSON encoded and should be exactly the same
+as the JSON payload used to construct the signature.
+
 All parameters as returned by the [Account Required
 Fields](#account-required-fields) endpoint in addition to the following optional parameter
 
