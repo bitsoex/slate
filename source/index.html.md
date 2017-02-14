@@ -573,9 +573,19 @@ require 'typhoeus'
 bitso_key = "API_KEY"
 bitso_secret = "API_SECRET"
 nonce = DateTime.now.strftime('%Q')
-http_method = "GET"
-request_path = "/v3/balance/"
-json_payload = ""
+http_method = "POST"
+request_path = "/v3/orders/"
+
+
+payload_data = {"book"  => "btc_mxn",
+                "side"  => "buy",
+                "major" => ".01",
+                "price" => "1000",
+                "type"  => "limit"}
+
+
+
+json_payload = payload_data.to_json
 
 # Create signature
 message = nonce+http_method+request_path+json_payload
@@ -584,12 +594,13 @@ signature = OpenSSL::HMAC.hexdigest(OpenSSL::Digest.new('sha256'), bitso_secret,
 # Build the auth header
 auth_header = "Bitso #{bitso_key}:#{nonce}:#{signature}"
 
-
 # Send request
 response = Typhoeus::Request.new(
-  "https://api.bitso.com/v3/balance/",
-  method: "get",
-  headers: {"Authorization" =>  auth_header}
+  "https://api.bitso.com/v3/orders/",
+   method: "POST",
+   body: json_payload,
+   headers: {"Authorization" => auth_header,
+             "Content-Type"  => "application/json"}
 ).run
 
 puts response.body
@@ -655,12 +666,16 @@ public class BitsoJavaExample {
 
 ```php
 <?php
-  $bitsoKey = "BITSO_API_KEY";
-  $bitsoSecret = 'BITSO_API_SECRET';
+  $bitsoKey = "API_KEY";
+  $bitsoSecret = "API_SECRET"
   $nonce = round(microtime(true) * 1000);
-  $HTTPMethod = "GET";
-  $RequestPath = "/v3/balance/";
-  $JSONPayload = "";
+  $HTTPMethod = "POST";
+  $RequestPath = "/v3/orders/";
+  $JSONPayload = json_encode(['book'  => 'btc_mxn',
+                              'side'  => 'buy',
+                              'major' => '.01',
+                              'price' => '1000',
+                              'type'  => 'limit']);
 
   // Create signature
   $message = $nonce . $HTTPMethod . $RequestPath . $JSONPayload;
@@ -673,11 +688,12 @@ public class BitsoJavaExample {
 
   // Send request
   $ch = curl_init();
-  curl_setopt($ch, CURLOPT_URL, 'https://api.bitso.com/v3/balance/');
-  curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "GET");
+  curl_setopt($ch, CURLOPT_URL, 'https://api.bitso.com/v3/orders/');
+  curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
+  curl_setopt($ch, CURLOPT_POSTFIELDS, $JSONPayload);
   curl_setopt($ch, CURLOPT_HTTPHEADER, array(
-      'Authorization: ' .  $authHeader)
-  );
+      'Authorization: ' .  $authHeader,
+      'Content-Type: application/json'));
   $result = curl_exec($ch);
 
   echo $result;
