@@ -2375,9 +2375,9 @@ Use this example native javascript implementation for your reference:
   "payload": [
     {
       "i": 72022,
-      "a": 0.0035,
-      "r": 7190,
-      "v": 25.16
+      "a": "0.0035",
+      "r": "7190",
+      "v": "25.16"
     }
   ]
 }
@@ -2398,7 +2398,7 @@ The payload contains an array with one or more trades of the following form:
 Field Name | Type | Description | Units
 ---------- | ---- | ----------- | -----
 **i** | Number | A unique number identifying the transaction | -
-**a** | Number | Amount | Major
+**a** | String | Amount | Major
 **r** | String | Rate | Minor
 **v** | String | Value | Minor
 
@@ -2414,10 +2414,10 @@ Field Name | Type | Description | Units
   "payload": [
     {
       "d": 1455315979682,
-      "r": 7251.1,
+      "r": "7251.1",
       "t": 1,
-      "a": 0.29437179,
-      "v": 2134.51,
+      "a": "0.29437179",
+      "v": "2134.51",
       "o": 'VM7lVpgXf04o6vJ6'
     }
   ]
@@ -2441,7 +2441,7 @@ Field Name | Type | Description | Units
 **d** | Number | Unix timestamp | Milliseconds
 **r** | String | Rate | Minor
 **t** | Number | 0 indicates buy 1 indicates sell | -
-**a** | Number | Amount | Major
+**a** | String | Amount | Major
 **v** | String | Value | Minor
 **o** | String | Order ID | -
 
@@ -2454,39 +2454,39 @@ Field Name | Type | Description | Units
   "payload": {
     "bids": [
       {
-        "r": 7185,
-        "a": 0.001343,
-        "v": 9.64,
+        "r": "7185",
+        "a": "0.001343",
+        "v": "9.64",
         "t": 1,
         "d": 1455315394039
       },
       {
-        "r": 7183.01,
-        "a": 0.007715,
-        "v": 55.41,
+        "r": "7183.01",
+        "a": "0.007715",
+        "v": "55.41",
         "t": 1,
         "d": 1455314938419
       },
       {
-        "r": 7183,
-        "a": 1.59667303,
-        "v": 11468.9,
+        "r": "7183",
+        "a": "1.59667303",
+        "v": "11468.9",
         "t": 1,
         "d": 1455314894615
       }
     ],
     "asks": [
       {
-        "r": 7251.1,
-        "a": 0.29437179,
-        "v": 2134.51,
+        "r": "7251.1",
+        "a": "0.29437179",
+        "v": "2134.51",
         "t": 0,
         "d": 1455315979682
       },
       {
-        "r": 7251.72,
-        "a": 1.32057812,
-        "v": 9576.46,
+        "r": "7251.72",
+        "a": "1.32057812",
+        "v": "9576.46",
         "t": 0,
         "d": 1455303931277
       }
@@ -2510,7 +2510,7 @@ The payload contains a JSON with two keys, one for the bids and the other for as
 Field Name | Type | Description | Units
 ---------- | ---- | ----------- | -----
 **r** | String | Rate | Minor
-**a** | Number | Amount | Major
+**a** | String | Amount | Major
 **v** | String | Value | Minor
 **t** | Number | 0 indicates buy 1 indicates sell | -
 **d** | Number | Unix timestamp | Milliseconds
