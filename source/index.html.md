@@ -2587,34 +2587,6 @@ The Transfer API is accessible via an API key created for your account. For full
             "available":"1",
             "verification_level_requirement":"0"
          },
-         "rp":{
-            "id":"rp",
-            "name":"Ripple",
-            "required_fields":[
-               "ripple_address"
-            ],
-            "minimum_transaction":"0.00",
-            "maximum_transaction":"10000000.00",
-            "fee":"5.00",
-            "daily_limit":"0.00",
-            "net":"495.00",
-            "available":"1",
-            "verification_level_requirement":"0"
-         },
-         "pm":{
-            "id":"pm",
-            "name":"Pademobile",
-            "required_fields":[
-               "phone_number"
-            ],
-            "minimum_transaction":"1.00",
-            "maximum_transaction":"1000000.00",
-            "fee":"0.00",
-            "daily_limit":"0.00",
-            "net":"500.00",
-            "available":"1",
-            "verification_level_requirement":"0"
-         },
          "bw":{
             "id":"bw",
             "name":"Bank Wire",
@@ -2752,17 +2724,11 @@ All bank accounts in Mexico can be identified by their special 18-digit SPEI acc
 
 Transfers executed via SPEI are typically concluded within a few seconds (within banking hours).
 
-### Pademobile
+### Debit Cards
 
-Pademobile is a popular mobile wallet and payments system in Latin America and beyond. Users running the Pademobile wallet on their cellphone can carry a balance in local currency, and spend it at a variety of locations, including cash-out at stores such as 7-Eleven (this is limited to 300 MXN per day, per location).
-
-Pademobile accounts are identified simply by the user’s phone number. Recipients who do not have smart phones, or who have not installed the wallet app, will receive a text message containing instructions on how to access the received funds.
-
-For more information, please see:  https://www.pademobile.com/en/mx/
-
-### Ripple
-
-As a Ripple Gateway, Bitso is able to issue currencies such as the Mexican Peso directly into the Ripple Network. For more information on Ripple, please see: https://ripple.com/
+Send tansfers directly to debit cards from any mexican bank. Note
+that the "institution_code" is obtained from the
+[bank_codes](#bank-codes) endpoint.
 
 ### Voucher
 
