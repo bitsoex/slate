@@ -74,7 +74,9 @@ We return decimal numbers as strings to preserve full precision across platforms
 
 ## Rate Limits
 
-Rate limits are are based on one minute windows. If you do more than 30 requests in a minute, you get locked out for one minute.
+Rate limits are are based on one minute windows. If you do more than
+60 requests in a minute, you get locked out for one minute. Continuous
+one minute lockouts will result in a 24-hour block.
 
 ## Error Codes
 
