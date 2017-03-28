@@ -1087,7 +1087,7 @@ Field Name | Type | Description | Units
         }],
         "details": {
             "fid": "fc23c28a23905d8614499816c3ade455",
-            "method": "Bitcoin",
+            "method": "btc",
             "funding_address": "18MsnATiNiKLqUHDTRKjurwMg7inCrdNEp"
         }
     }, {
@@ -1100,7 +1100,7 @@ Field Name | Type | Description | Units
         }],
         "details": {
             "fid": "3ef729ccf0cc56079ca546d58083dc12",
-            "method": "SPEI Transfer",
+            "method": "sp",
             "sender_name": "MANUEL OROZCO Y BERRA",
             "sender_bank": "BBVA Bancomer",
             "sender_clabe": "012610001967722183",
@@ -1119,7 +1119,7 @@ Field Name | Type | Description | Units
         }],
         "details": {
             "wid": "c5b8d7f0768ee91d3b33bee648318688",
-            "method": "SPEI Transfer",
+            "method": "sp",
             "beneficiary_name": "DANIEL COSIO VILLEGAS",
             "beneficiary_bank": "BANAMEX",
             "beneficiary_clabe": "5204165009315197",
@@ -1220,7 +1220,7 @@ a specific operation type.
         "status": "complete",
         "created_at": "2016-04-08T17:52:31.000+00:00",
         "currency": "mxn",
-        "method": "SPEI Transfer",
+        "method": "sp",
         "amount": "2612.70",
         "details": {
             "beneficiary_name": "BERTRAND RUSSELL",
@@ -1263,7 +1263,7 @@ a specific operation type.
         "status": "complete",
         "created_at": "2016-04-08T17:52:31.000+00:00",
         "currency": "mxn",
-        "method": "SPEI Transfer",
+        "method": "sp",
         "amount": "500.00",
         "details": {
             "beneficiary_name": "ALFRED NORTH WHITEHEAD",
@@ -1360,7 +1360,7 @@ Field Name | Type | Description | Units
         "status": "pending",
         "created_at": "2016-04-08T17:52:31.000+00:00",
         "currency": "btc",
-        "method": "Bitcoin",
+        "method": "btc",
         "amount": "0.48650929",
         "details": {
             "funding_address": "18MsnATiNiKLqUHDTRKjurwMg7inCrdNEp",
@@ -1371,7 +1371,7 @@ Field Name | Type | Description | Units
         "status": "complete",
         "created_at": "2016-04-08T17:52:31.000+00:00",
         "currency": "mxn",
-        "method": "SPEI Transfer",
+        "method": "sp",
         "amount": "300.15",
         "details": {
             "sender_name": "BERTRAND RUSSELL",
@@ -1828,7 +1828,7 @@ Field Name | Type | Description | Units
         "status": "pending",
         "created_at": "2016-04-08T17:52:31.000+00:00",
         "currency": "btc",
-        "method": "Bitcoin",
+        "method": "btc",
         "amount": "0.48650929",
         "details": {
             "withdrawal_address": "3EW92Ajg6sMT4hxK8ngEc7Ehrqkr9RoDt7",
@@ -1887,8 +1887,8 @@ Field Name | Type | Description | Units
         "wid": "c5b8d7f0768ee91d3b33bee648318698",
         "status": "pending",
         "created_at": "2016-04-08T17:52:31.000+00:00",
-        "currency": "btc",
-        "method": "Ether",
+        "currency": "eth",
+        "method": "eth",
         "amount": "10.00",
         "details": {
             "withdrawal_address": "0x55f03a62acc946dedcf8a0c47f16ec3892b29e6d",
@@ -1950,7 +1950,7 @@ Field Name | Type | Description | Units
         "status": "pending",
         "created_at": "2016-04-08T17:52:31.000+00:00",
         "currency": "mxn",
-        "method": "SPEI Transfer",
+        "method": "sp",
         "amount": "300.15",
         "details": {
             "sender_name": "JUAN ESCUTIA",
@@ -2065,7 +2065,7 @@ Field Name | Type | Description | Units
         "status": "pending",
         "created_at": "2016-04-08T17:52:31.000+00:00",
         "currency": "mxn",
-        "method": "SPEI Transfer",
+        "method": "sp",
         "amount": "300.15",
         "details": {
             "sender_name": "JUAN ESCUTIA",
@@ -2142,7 +2142,7 @@ Field Name | Type | Description | Units
         "status": "pending",
         "created_at": "2016-04-08T17:52:31.000+00:00",
         "currency": "mxn",
-        "method": "SPEI Transfer",
+        "method": "sp",
         "amount": "300.15",
         "details": {
             "sender_name": "JUAN ESCUTIA",
@@ -2826,7 +2826,7 @@ with the following fields on SPEI deposits.  [**Coming Soon**]
         "status": "complete",
         "created_at": "2016-04-08T17:52:31.000+00:00",
         "currency": "mxn",
-        "method": "SPEI Transfer",
+        "method": "sp",
         "amount": "300.15",
         "details": {
             "sender_name": "HUGO HERNANDEZ MANZANO",
