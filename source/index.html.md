@@ -103,8 +103,6 @@ error categories, the last two digits define specific errors.
 * 0313: Selected currency not in (mxn, btc, eth)
 * 0314: Auto-trade not available for selected currencies
 * 0314: Invalid Bitcoin address
-* 0315: Invalid Ripple address
-* 0316: Invalid Ripple currency
 * 0317: Invalid SPEI number
 * 0318: Invalid SPEI numeric_ref
 * 0319: Invalid SPEI notes_ref 
@@ -1939,74 +1937,6 @@ Field Name | Type | Description | Units
 **details** | String | Method specific details for this withdrawal | -
 
 
-## Ripple Withdrawal
-
-> The string returned by the API looks like this:
-
-```json
-{
-    "success": true,
-    "payload": {
-        "wid": "c5b8d7f0768ee91d3b33bee648318688",
-        "status": "pending",
-        "created_at": "2016-04-08T17:52:31.000+00:00",
-        "currency": "btc",
-        "method": "Ripple",
-        "amount": "0.48650929",
-        "details": {
-            "withdrawal_address": "rG1QQv2nh2gr7RCZ1P8YYcBUKCCN633jCn",
-            "tx_id": null
-        }
-    }
-}
- 
-```
-
-Triggers a Ripple withdrawal from your account 
-
-### HTTP Request
-
-`POST https://api.bitso.com/v3/ripple_withdrawal/`
-
-### Authorization Header Parameters
-
-Parameter | Default | Required | Description
---------- | ------- | -------- | -----------
-**key** | - | Yes | See [Creating and Signing Requests](#creating-and-signing-requests)
-**signature** | - | Yes | See [Creating and Signing Requests](#creating-and-signing-requests)
-**nonce** | - | Yes | See [Creating and Signing Requests](#creating-and-signing-requests)
-
-### Body Parameters
-
-Body parameters should be JSON encoded and should be exactly the same
-as the JSON payload used to construct the signature.
-
-Parameter | Default | Required | Description
---------- | ------- | -------- | -----------
-**amount** | - | Yes | The amount of currency to withdraw from your account
-**address** | - | Yes | The ripple address we will send the amount to
-**currency** | - | Yes | The currency to withdraw
-
-### JSON Response Payload
-
-Returns a JSON object representing the order:
-
-Field Name | Type | Description | Units
----------- | ---- | ----------- | -----
-**wid** | String | Unique Withdrawal ID | -
-**status** | String | Status of the withdrawal request (pending, complete) | -
-**created_at** | String | Timestamp at which the withdrawal request was created | ISO 8601 timestamp
-**currency** | String | Currency specified for this withdrawal | -
-**method** | String | Method for this withdrawal | -
-**amount** | String | Amount to withdraw | -
-**details** | String | Method specific details for this withdrawal | -
-
-
-
-<aside class="warning">
-<b>The Ripple address associated to your account for deposits will be updated accordingly!</br>
-Please ensure that any subsequent Ripple funding emanates from this address.</b>
-</aside>
 
 ## SPEI Withdrawal 
 
