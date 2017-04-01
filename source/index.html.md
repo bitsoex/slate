@@ -75,7 +75,7 @@ We return decimal numbers as strings to preserve full precision across platforms
 ## Rate Limits
 
 Rate limits are are based on one minute windows. If you do more than
-60 requests in a minute, you get locked out for one minute. Continuous
+300 requests in five minutes, you get locked out for one minute. Continuous
 one minute lockouts will result in a 24-hour block.
 
 ## Error Codes
@@ -1102,13 +1102,7 @@ Field Name | Type | Description | Units
         }],
         "details": {
             "fid": "3ef729ccf0cc56079ca546d58083dc12",
-            "method": "sp",
-            "sender_name": "MANUEL OROZCO Y BERRA",
-            "sender_bank": "BBVA Bancomer",
-            "sender_clabe": "012610001967722183",
-            "numeric_reference": "80416",
-            "concepto": "Para el regalo",
-            "clave_rastreo": "BNET01001604080002076841"
+            "method": "sp"
         }
  
     }, {
@@ -1121,13 +1115,7 @@ Field Name | Type | Description | Units
         }],
         "details": {
             "wid": "c5b8d7f0768ee91d3b33bee648318688",
-            "method": "sp",
-            "beneficiary_name": "DANIEL COSIO VILLEGAS",
-            "beneficiary_bank": "BANAMEX",
-            "beneficiary_clabe": "5204165009315197",
-            "numeric_reference": "99548",
-            "concepto": "Por los tacos del viernes",
-            "clave_rastreo": "BNET01001604080002076841"
+            "method": "sp"
         }
     }]
 }
