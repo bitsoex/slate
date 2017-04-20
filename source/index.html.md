@@ -2321,6 +2321,9 @@ Field Name | Type | Description | Units
 **a** | String | Amount | Major
 **r** | String | Rate | Minor
 **v** | String | Value | Minor
+**t** | Number | Maker side, 0 indicates buy 1, indicates sell | -
+**mo** | String | Maker Order ID | -
+**to** | String | Taker Order ID | -
 
 ## Diff-Orders
 
