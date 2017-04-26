@@ -1492,6 +1492,77 @@ Field Name | Type | Description | Units
 **oid** | String | Users' Order ID |
 **created_at** | String | Timestamp at which the trade was executed | ISO 8601 timestamp
 
+## Order Trades
+
+```shell
+curl "https://api.bitso.com/v3/order_trades/Jvqrschkgdkc1go3"
+```
+
+> The JSON Array returned by the API looks like this:
+
+```json
+{
+    "success": true,
+    "payload": [{
+        "book": "btc_mxn",
+        "major": "-0.25232073",
+        "created_at": "2016-04-08T17:52:31.000+00:00",
+        "minor": "1013.540958479115",
+        "fees_amount": "-10.237787459385",
+        "fees_currency": "mxn",
+        "price": "4057.45",
+        "tid": 51756,
+        "oid": "Jvqrschkgdkc1go3",
+        "side": "sell"
+    },
+        "book": "btc_mxn",
+        "major": "-0.25",
+        "created_at": "2016-04-08T17:52:31.000+00:00",
+        "minor": "513.540958479115",
+        "fees_amount": "-10.237787459385",
+        "fees_currency": "mxn",
+        "price": "4057.45",
+        "tid": 51755,
+        "oid": "Jvqrschkgdkc1go3",
+        "side": "sell"
+    }]
+}
+```
+
+This endpoint returns a list of the user's trades.
+
+### HTTP Request
+
+
+`GET https://api.bitso.com/v3/order_trades/oid/`
+
+
+### Query Parameters
+
+Parameter | Default | Required | Description
+--------- | ------- | -------- | -----------
+**oid** |   | Yes | Specifies which order to get corresponding trades for
+
+
+### JSON Response Payload
+
+Returns descending JSON Array of transactions. Every element in the array is a JSON object:
+
+Field Name | Type | Description | Units
+---------- | ---- | ----------- | -----
+**book** | String | Order book symbol | Major_Minor
+**major** | String | Major amount traded | Major
+**minor** | String | Minr amount traded | Minor
+**price** | String | Price per unit of major | Minor
+**side** | String | Indicates the user's side for this trade (buy, sell) |
+**fees_currency** | String | Indicates the currency in which the trade fee was charged | -
+**fees_amount** | String | Indicates the amount charged as trade fee |
+**tid** | Long | Trade ID |
+**oid** | String | Users' Order ID |
+**created_at** | String | Timestamp at which the trade was executed | ISO 8601 timestamp
+
+ 
+
 ## Open Orders
 
 > The JSON object returned by the API looks like this:
