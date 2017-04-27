@@ -1980,7 +1980,8 @@ as the JSON payload used to construct the signature.
 
 Parameter | Default | Required | Description
 --------- | ------- | -------- | -----------
-**amount** | - | Yes | The amount of ETH to withdraw from your account
+**amount** | - | Yes | The amount of ETH to send to the destination account. A fixed fee on top of the amount specified will be deducted
+from your balance as specified in the [fees](https://bitso.com/fees?l=en) page. This fee will be used to help cover blockchain network transaction fees.
 **address** | - | Yes | The ETH address to send the amount to
 
 ### JSON Response Payload
