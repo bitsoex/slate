@@ -1502,30 +1502,32 @@ curl "https://api.bitso.com/v3/order_trades/Jvqrschkgdkc1go3"
 
 ```json
 {
-    "success": true,
-    "payload": [{
-        "book": "btc_mxn",
-        "major": "-0.25232073",
-        "created_at": "2016-04-08T17:52:31.000+00:00",
-        "minor": "1013.540958479115",
-        "fees_amount": "-10.237787459385",
-        "fees_currency": "mxn",
-        "price": "4057.45",
-        "tid": 51756,
-        "oid": "Jvqrschkgdkc1go3",
-        "side": "sell"
-    },
-        "book": "btc_mxn",
-        "major": "-0.25",
-        "created_at": "2016-04-08T17:52:31.000+00:00",
-        "minor": "513.540958479115",
-        "fees_amount": "-10.237787459385",
-        "fees_currency": "mxn",
-        "price": "4057.45",
-        "tid": 51755,
-        "oid": "Jvqrschkgdkc1go3",
-        "side": "sell"
-    }]
+	"success": true,
+	"payload": [{
+			"book": "btc_mxn",
+			"major": "-0.25232073",
+			"created_at": "2016-04-08T17:52:31.000+00:00",
+			"minor": "1013.540958479115",
+			"fees_amount": "-10.237787459385",
+			"fees_currency": "mxn",
+			"price": "4057.45",
+			"tid": 51756,
+			"oid": "Jvqrschkgdkc1go3",
+			"side": "sell"
+		},
+		{
+			"book": "btc_mxn",
+			"major": "-0.25",
+			"created_at": "2016-04-08T17:52:31.000+00:00",
+			"minor": "513.540958479115",
+			"fees_amount": "-10.237787459385",
+			"fees_currency": "mxn",
+			"price": "4057.45",
+			"tid": 51755,
+			"oid": "Jvqrschkgdkc1go3",
+			"side": "sell"
+		}
+	]
 }
 ```
 
@@ -1980,8 +1982,7 @@ as the JSON payload used to construct the signature.
 
 Parameter | Default | Required | Description
 --------- | ------- | -------- | -----------
-**amount** | - | Yes | The amount of ETH to send to the destination account. A fixed fee on top of the amount specified will be deducted
-from your balance as specified in the [fees](https://bitso.com/fees?l=en) page. This fee will be used to help cover blockchain network transaction fees.
+**amount** | - | Yes | The amount of ETH to send to the destination account. A fixed fee on top of the amount specified will be deducted from your balance as indicated in the [fees](https://bitso.com/fees?l=en) page. This fee will be used to help cover blockchain network transaction fees.
 **address** | - | Yes | The ETH address to send the amount to
 
 ### JSON Response Payload
