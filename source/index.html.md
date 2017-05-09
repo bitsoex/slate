@@ -85,6 +85,7 @@ error categories, the last two digits define specific errors.
 
 ### Unknown Errors: 01 (HTTP 500)
 * 0101: "Unknown Error"
+* 0102: "Invalid Ripple Withdrawal"
 
 ### Authentication Errors: 02 (HTTP 401)
 * 0201: Invalid Nonce or Invalid Credentials
@@ -104,7 +105,8 @@ error categories, the last two digits define specific errors.
 * 0312: Incorrect OID (non-existent or does not belong to user)
 * 0313: Selected currency not in (mxn, btc, eth)
 * 0314: Auto-trade not available for selected currencies
-* 0314: Invalid Bitcoin address
+* 0315: Invalid address
+* 0316: Invalid Ripple currency
 * 0317: Invalid SPEI number
 * 0318: Invalid SPEI numeric_ref
 * 0319: Invalid SPEI notes_ref 
