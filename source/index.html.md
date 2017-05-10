@@ -729,6 +729,8 @@ the following form:
     "success": true,
     "payload": {
         "client_id": "1234",
+        "first_name": "Claude", 
+        "last_name":  "Shannon",
         "status": "active",
         "daily_limit": "5300.00",
         "monthly_limit": "32000.00",
@@ -766,7 +768,9 @@ Returns a JSON Array. Every element in the array is a JSON object with the follo
 
 Field Name | Type | Description | Units
 ---------- | ---- | ----------- | -----
-**client_id** | String | The user's Client ID | 
+**client_id** | String | The user's Client ID |
+**first_name** | String | The user's first name |
+**last_name** | String | The user's last name |
 **status** | String | Total balance | Enum of (active, inactive)
 **daily_limit** | String | The user's total daily limit  | MXN
 **daily_remaining** | String | Remaining amount of user's total daily limit  | MXN
