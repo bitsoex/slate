@@ -2447,7 +2447,9 @@ Field Name | Type | Description | Units
 **v** | String | Value | Minor
 **o** | String | Order ID | -
 
-## Orders on this channel look like this:
+## Orders
+
+> Messages on this channel look like this:
 
 ```json
 {
