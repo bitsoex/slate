@@ -1339,7 +1339,7 @@ Field Name | Type | Description | Units
 **currency** | String | Currency withdrawn | -
 **method** | String | Method for this withdrawal (MXN, BTC, ETH). | -
 **amount** | String | The withdrawn amount | currency
-**status** | String | The status for this withdrawal (pending, complete, cancelled) | 
+**status** | String | The status for this withdrawal (pending, processing, complete, cancelled) | 
 **created_at** | String | Timestamp at which the withdrawal as created |ISO 8601 timestamp
 **details** | JSON object | Specific withdrawal details | -
 
