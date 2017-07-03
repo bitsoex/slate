@@ -828,7 +828,7 @@ Parameter | Default | Required | Description
 {
     "success": true,
     "payload": {
-        "phone": "5554181042"
+        "phone": "5552525252"
     }
 }
 
@@ -2664,7 +2664,7 @@ Parameter | Required | Description
       "currency_settled":"0",
       "expires_epoch":"2016-04-08T18:02:31.000+00:0",
       "fields":{
-         "phone_number":"5554181042"
+         "phone_number":"5555252525"
       },
       "id":"9b2a431b98597312e99cbff1ba432cbf",
       "payment_outlet_id":"pm",
