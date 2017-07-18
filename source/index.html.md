@@ -980,23 +980,27 @@ Field Name | Type | Description | Units
 
 ```json
 {
-    "success": true,
-    "payload": {
-        "fees": [{
-            "book": "btc_mxn",
-            "fee_decimal": "0.0001",
-            "fee_percent": "0.01"
-        }, {
-            "book": "eth_mxn",
-            "fee_decimal": "0.001",
-            "fee_percent": "0.1"
-        }]
-    }
+	"success": true,
+	"payload": {
+		"fees": [{
+			"book": "btc_mxn",
+			"fee_decimal": "0.0001",
+			"fee_percent": "0.01"
+		}, {
+			"book": "eth_mxn",
+			"fee_decimal": "0.001",
+			"fee_percent": "0.1"
+		}],
+		"withdrawal_fees": {
+			"btc": "0.001",
+			"eth": "0.0025"
+		}
+	}
 }
 ```
 
 This endpoint returns information on customer fees for all available
-order books
+order books, and withdrawal fees for applicable currencies.
 
 ### HTTP Request
 
@@ -1012,8 +1016,9 @@ Parameter | Default | Required | Description
 
 ### JSON Response Payload
 
+Returns a JSON object with keys, **"fees"** and **"withdrawal_fees"**.
 
-Returns a JSON Array. Every element in the array is a JSON object with the following fields.
+**"fees"** contains a JSON Array. Every element in the array is a JSON object with the following fields.
 
 
 Field Name | Type | Description | Units
@@ -1023,6 +1028,8 @@ Field Name | Type | Description | Units
 **fee_percent** | String | Customer trading fee as a percentage | 
 
 
+**"withdrawal_fees"** is an object keyed by each curency and value of
+net amount withdrawal fees denominated in the corresponding currency.
 
 
 ## Ledger
