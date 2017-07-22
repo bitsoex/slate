@@ -777,6 +777,8 @@ Field Name | Type | Description | Units
 **monthly_limit** | String | The user's total monthly limit  | MXN
 **monthly_remaining** | String | Remaining amount of user's total monthly limit  | MXN
 **cellphone_number** | String | Status of user's registered cellphone number | Enum of (unsubmitted, submitted, verified)
+**cellphone_number_stored** | String | user's registered cellphone number | 
+**email_stored** | String | user's registered email |
 **official_id** | String | Status of user's official ID document | Enum of (unsubmitted, submitted, verified, rejected)
 **proof_of_residency** | String | Status of user's 'proof of residency' document | Enum of (unsubmitted, submitted, verified, rejected)
 **signed_contract** | String | Status of user's 'signed contract' document  | Enum of (unsubmitted, submitted, verified, rejected)
