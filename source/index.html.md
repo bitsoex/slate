@@ -737,6 +737,8 @@ the following form:
         "daily_remaining": "3300.00",
         "monthly_remaining": "31000.00",
         "cellphone_number": "verified",
+        "cellphone_number_stored":"+525555555555",
+        "email_stored":"shannon@maxentro.py",
         "official_id": "submitted",
         "proof_of_residency": "submitted",
         "signed_contract": "unsubmitted",
