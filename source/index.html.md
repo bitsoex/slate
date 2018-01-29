@@ -1668,7 +1668,7 @@ Field Name | Type | Description | Units
 **updated_at** | String | Timestamp at which the trade was updated (can be null) | ISO 8601 timestamp
 **price** | String | The order's price | Minor
 **side** | String | The order side (buy, sell) | -
-**status** | String | The order's status (open, partial-fill) | 
+**status** | String | The order's status (queued, open, partial-fill) | 
 **type** | String | The order type (will always be 'limit' for open orders) | -
 
 
@@ -1741,7 +1741,7 @@ Field Name | Type | Description | Units
 **updated_at** | String | Timestamp at which the order was updated (can be null) | ISO 8601 timestamp
 **price** | String | The order's price | Minor
 **side** | String | The order side (buy, sell) | -
-**status** | String | The order's status (open, partial-fill, closed) | 
+**status** | String | The order's status (queued, open, partial-fill, closed) | 
 **type** | String | The order type (market, limit) | -
 
 
@@ -1842,7 +1842,7 @@ Field Name | Type | Description | Units
 **updated_at** | String | Timestamp at which the order was updated (can be null) | ISO 8601 timestamp
 **price** | String | The order's price | Minor
 **side** | String | The order side (buy, sell) | -
-**status** | String | The order's status (open, partial-fill, closed) | 
+**status** | String | The order's status (queued, open, partial-fill, closed) | 
 **type** | String | The order type (market, limit) | -
 
 
