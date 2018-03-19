@@ -2753,6 +2753,364 @@ Bitso offers the ability to issue voucher codes redeemable on Bitso.com, and del
 
 Execute a standard international bank wire via this outlet.
 
+### Cash
+
+Deliver cash for collection by a recipient at any of thousands of cash-out locations across Mexico
+
+# Cash-out API
+
+<aside class="notice">
+Access to this API is available on request, and not enabled by default. Users won't be able to use this API unless Bitso has enabled it on their account.
+</aside>
+
+## General
+
+Using the cash-out API, partners can generate orders for cash pick-up at payment points across teh whole of Mexico. 
+
+### Authentication
+
+The Transfer API is accessible via an API key created for your account. For full details on creating an API key and how to sign your API requests, please refer to:
+[the authentication section](#creating-and-signing-requests)
+
+
+## Cash Remittance (Withdrawal)
+
+> The string returned by the API looks like this:
+
+```json
+{
+    "success": true,
+    "payload": {
+        "wid": "p4u8d7f0768ee91d3b33bee6483132i8",
+        "status": "complete",
+        "created_at": "2016-04-08T17:52:31.000+00:00",
+        "currency": "mxn",
+        "method": "bt",
+        "amount": "300.15",
+        "details": {
+            "reference": "XYZ123"
+        }
+    }
+}
+```
+
+Triggers a withdrawal from your account to create a cash-out order for collection at a specified location.
+
+
+### HTTP Request
+
+`POST https://api.bitso.com/v3/withdrawal_cash_remittance/`
+
+### Authorization Header Parameters
+
+Parameter | Default | Required | Description
+--------- | ------- | -------- | -----------
+**key** | - | Yes | See [Creating and Signing Requests](#creating-and-signing-requests)
+**signature** | - | Yes | See [Creating and Signing Requests](#creating-and-signing-requests)
+**nonce** | - | Yes | See [Creating and Signing Requests](#creating-and-signing-requests)
+
+
+### Body Parameters
+
+Body parameters should be JSON encoded and should be exactly the same
+as the JSON payload used to construct the signature.
+
+Parameter | Default | Required | Description
+--------- | ------- | -------- | -----------
+**amount** | - | Yes | The amount of MXN to withdraw from your account
+**sender_first_name** | - | Yes | The sender's first and middle name(s)
+**sender_last_name** | - | Yes | The sender's family name(s)
+**sender_address** | - | Yes | The sender's address
+**sender_phone** | - | Yes | The sender's phone number
+**sender_countycity** | - | Yes | The sender's county or city
+
+**sender_state** | - | Yes | The sender's state
+**receiver_first_name** | - | Yes | The beneficiary's first and middle name(s)
+**receiver_last_name** | - | Yes | The beneficiary's family name(s)
+**receiver_address** | - | Yes | The beneficiary's address
+**receiver_phone** | - | Yes | The beneficiary's phone number
+**receiver_city** | - | Yes | The beneficiary's city
+**receiver_state** | - | Yes | The beneficiary's state
+**payout_point_id** | - | Yes | The specified payout point ID (taken from the cashout_locations endpoint)
+
+
+
+### JSON Response Payload
+
+Returns a JSON object representing the order:
+
+Field Name | Type | Description | Units
+---------- | ---- | ----------- | -----
+**wid** | String | Unique Withdrawal ID | -
+**status** | String | Status of the withdrawal request (pending, complete) | -
+**created_at** | String | Timestamp at which the withdrawal request was created | ISO 8601 timestamp
+**currency** | String | Currency specified for this withdrawal (MXN) | -
+**method** | String | Method for this withdrawal (Debit Card Withdrawal) | -
+**amount** | String | Amount to withdraw | -
+**details** | String | Contains the reference for cash-out order | -
+
+
+
+
+## Cash Remittance Cancel
+
+> The string returned by the API looks like this:
+
+```json
+{
+    "success": true,
+    "payload": {
+        "reference": "XYZ123"
+    }
+}
+```
+
+Triggers the cancellation of a previously created cash-out order.
+
+
+### HTTP Request
+
+`POST https://api.bitso.com/v3/withdrawal_cash_cancel/`
+
+### Authorization Header Parameters
+
+Parameter | Default | Required | Description
+--------- | ------- | -------- | -----------
+**key** | - | Yes | See [Creating and Signing Requests](#creating-and-signing-requests)
+**signature** | - | Yes | See [Creating and Signing Requests](#creating-and-signing-requests)
+**nonce** | - | Yes | See [Creating and Signing Requests](#creating-and-signing-requests)
+
+
+### Body Parameters
+
+Body parameters should be JSON encoded and should be exactly the same
+as the JSON payload used to construct the signature.
+
+Parameter | Default | Required | Description
+--------- | ------- | -------- | -----------
+**reference** | - | Yes | The reference code for the cash-out order
+**reason** | - | Yes | The reason for cancellation
+
+
+### JSON Response Payload
+
+Returns a JSON object representing the order:
+
+Field Name | Type | Description | Units
+---------- | ---- | ----------- | -----
+**reference** | String | Reference of the order in question | -
+
+
+
+
+## Cash Withdrawal Change Name
+
+> The string returned by the API looks like this:
+
+```json
+{
+    "success": true,
+    "payload": {
+        "reference": "XYZ123"
+    }
+}
+```
+
+Change the beneficiary name of a previously created cash-out order.
+
+
+### HTTP Request
+
+`POST https://api.bitso.com/v3/withdrawal_cash_change_name/`
+
+### Authorization Header Parameters
+
+Parameter | Default | Required | Description
+--------- | ------- | -------- | -----------
+**key** | - | Yes | See [Creating and Signing Requests](#creating-and-signing-requests)
+**signature** | - | Yes | See [Creating and Signing Requests](#creating-and-signing-requests)
+**nonce** | - | Yes | See [Creating and Signing Requests](#creating-and-signing-requests)
+
+
+### Body Parameters
+
+Body parameters should be JSON encoded and should be exactly the same
+as the JSON payload used to construct the signature.
+
+Parameter | Default | Required | Description
+--------- | ------- | -------- | -----------
+**reference** | - | Yes | The reference code for the cash-out order
+**new_name** | - | Yes | The new name for the beneficiary
+**reason** | - | Yes | The reason for change
+
+
+### JSON Response Payload
+
+Returns a JSON object representing the order:
+
+Field Name | Type | Description | Units
+---------- | ---- | ----------- | -----
+**reference** | String | Reference of the order in question | -
+
+
+
+## Cash Withdrawal Change Phone
+
+> The string returned by the API looks like this:
+
+```json
+{
+    "success": true,
+    "payload": {
+        "reference": "XYZ123"
+    }
+}
+```
+
+Change the beneficiary phone number of a previously created cash-out order.
+
+
+### HTTP Request
+
+`POST https://api.bitso.com/v3/withdrawal_cash_change_phone/`
+
+### Authorization Header Parameters
+
+Parameter | Default | Required | Description
+--------- | ------- | -------- | -----------
+**key** | - | Yes | See [Creating and Signing Requests](#creating-and-signing-requests)
+**signature** | - | Yes | See [Creating and Signing Requests](#creating-and-signing-requests)
+**nonce** | - | Yes | See [Creating and Signing Requests](#creating-and-signing-requests)
+
+
+### Body Parameters
+
+Body parameters should be JSON encoded and should be exactly the same
+as the JSON payload used to construct the signature.
+
+Parameter | Default | Required | Description
+--------- | ------- | -------- | -----------
+**reference** | - | Yes | The reference code for the cash-out order
+**new_phone** | - | Yes | The new phone number for the beneficiary
+**reason** | - | Yes | The reason for change
+
+
+### JSON Response Payload
+
+Returns a JSON object representing the order:
+
+Field Name | Type | Description | Units
+---------- | ---- | ----------- | -----
+**reference** | String | Reference of the order in question | -
+
+
+
+
+## Cash Withdrawal Change Sender Name
+
+> The string returned by the API looks like this:
+
+```json
+{
+    "success": true,
+    "payload": {
+        "reference": "XYZ123"
+    }
+}
+```
+
+Change the sender name of a previously created cash-out order.
+
+
+### HTTP Request
+
+`POST https://api.bitso.com/v3/withdrawal_cash_change_sender/`
+
+### Authorization Header Parameters
+
+Parameter | Default | Required | Description
+--------- | ------- | -------- | -----------
+**key** | - | Yes | See [Creating and Signing Requests](#creating-and-signing-requests)
+**signature** | - | Yes | See [Creating and Signing Requests](#creating-and-signing-requests)
+**nonce** | - | Yes | See [Creating and Signing Requests](#creating-and-signing-requests)
+
+
+### Body Parameters
+
+Body parameters should be JSON encoded and should be exactly the same
+as the JSON payload used to construct the signature.
+
+Parameter | Default | Required | Description
+--------- | ------- | -------- | -----------
+**reference** | - | Yes | The reference code for the cash-out order
+**new_name** | - | Yes | The new name for the sender
+**reason** | - | Yes | The reason for change
+
+
+### JSON Response Payload
+
+Returns a JSON object representing the order:
+
+Field Name | Type | Description | Units
+---------- | ---- | ----------- | -----
+**reference** | String | Reference of the order in question | -
+
+
+
+
+## Cash Payout Locations
+
+> The string returned by the API looks like this:
+
+```json
+{
+    "success": true,
+    "payload":
+        [
+          {"ID":1234,"city":"Ciudad de Rafael Lara Grajales","state":"Puebla","payer":"Payer Name","address":"Payer Address","zipCode":"Payer ZIP","reference":"","phoneNumber":"Payer Phone","currency":"PESOS","paymentLimit":300,"monday":"10:00 a 18:00","tuesday":"10:00 a 18:00","wednesday":"10:00 a 18:00","thursday":"10:00 a 18:00","friday":"10:00 a 18:00","saturday":"11:00 a 17:00","sunday":"11:00 a 17:00"},
+          {"ID":1235,"city":"Santa Maria La Alta","state":"Puebla","payer":"Payer Name","address":"Payer Address","zipCode":"Payer ZIP","reference":"","phoneNumber":"Payer Phone","currency":"PESOS","paymentLimit":500,"monday":"09:00 a 18:00","tuesday":"09:00 a 18:00","wednesday":"09:00 a 18:00","thursday":"09:00 a 18:00","friday":"09:00 a 18:00","saturday":"09:00 a 18:00","sunday":"CERRADO"}
+        ]
+}
+```
+
+Get a list of all available cash payout locations.
+
+
+### HTTP Request
+
+`POST https://api.bitso.com/v3/cashout_locations/`
+
+### Authorization Header Parameters
+
+Parameter | Default | Required | Description
+--------- | ------- | -------- | -----------
+**key** | - | Yes | See [Creating and Signing Requests](#creating-and-signing-requests)
+**signature** | - | Yes | See [Creating and Signing Requests](#creating-and-signing-requests)
+**nonce** | - | Yes | See [Creating and Signing Requests](#creating-and-signing-requests)
+
+
+### Body Parameters
+
+Body parameters should be JSON encoded and should be exactly the same
+as the JSON payload used to construct the signature.
+
+Parameter | Default | Required | Description
+--------- | ------- | -------- | -----------
+**state** | - | No | Limit results to a particular state.
+**city** | - | No | Limit results to a particular city.
+**zipcode** | - | No | Limit results to a particular ZIP code.
+
+
+### JSON Response Payload
+
+Returns a JSON array containing all of the available payout locations meeting the criteria:
+
+Field Name | Type | Description | Units
+---------- | ---- | ----------- | -----
+**ID** | String | The unique ID for the payout location for use in specifying a new cash-out order | -
+
+
+
 
 # Account Creation API
 
