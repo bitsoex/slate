@@ -2773,7 +2773,7 @@ The Transfer API is accessible via an API key created for your account. For full
 [the authentication section](#creating-and-signing-requests)
 
 
-## Cash Remittance (Withdrawal)
+## Create Remittance
 
 > The string returned by the API looks like this:
 
@@ -2799,7 +2799,7 @@ Triggers a withdrawal from your account to create a cash-out order for collectio
 
 ### HTTP Request
 
-`POST https://api.bitso.com/v3/withdrawal_cash_remittance/`
+`POST https://api.bitso.com/v3/remittance_create/`
 
 ### Authorization Header Parameters
 
@@ -2869,7 +2869,7 @@ Triggers the cancellation of a previously created cash-out order.
 
 ### HTTP Request
 
-`POST https://api.bitso.com/v3/withdrawal_cash_cancel/`
+`POST https://api.bitso.com/v3/remittance_cancel/`
 
 ### Authorization Header Parameters
 
@@ -2920,7 +2920,7 @@ Change the beneficiary name of a previously created cash-out order.
 
 ### HTTP Request
 
-`POST https://api.bitso.com/v3/withdrawal_cash_change_name/`
+`POST https://api.bitso.com/v3/remittance_change_name/`
 
 ### Authorization Header Parameters
 
@@ -2971,7 +2971,7 @@ Change the beneficiary phone number of a previously created cash-out order.
 
 ### HTTP Request
 
-`POST https://api.bitso.com/v3/withdrawal_cash_change_phone/`
+`POST https://api.bitso.com/v3/remittance_change_phone/`
 
 ### Authorization Header Parameters
 
@@ -3023,7 +3023,7 @@ Change the sender name of a previously created cash-out order.
 
 ### HTTP Request
 
-`POST https://api.bitso.com/v3/withdrawal_cash_change_sender/`
+`POST https://api.bitso.com/v3/remittance_change_sender/`
 
 ### Authorization Header Parameters
 
@@ -3077,7 +3077,7 @@ Get a list of all available cash payout locations.
 
 ### HTTP Request
 
-`POST https://api.bitso.com/v3/cashout_locations/`
+`POST https://api.bitso.com/v3/remittance_locations/`
 
 ### Authorization Header Parameters
 
