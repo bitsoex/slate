@@ -2757,7 +2757,7 @@ Execute a standard international bank wire via this outlet.
 
 Deliver cash for collection by a recipient at any of thousands of cash-out locations across Mexico
 
-# Cash-out API
+# Remittance API
 
 <aside class="notice">
 Access to this API is available on request, and not enabled by default. Users won't be able to use this API unless Bitso has enabled it on their account.
@@ -2765,7 +2765,7 @@ Access to this API is available on request, and not enabled by default. Users wo
 
 ## General
 
-Using the cash-out API, partners can generate orders for cash pick-up at payment points across teh whole of Mexico. 
+Using the Remittance API, partners can generate orders for cash pick-up at payment points across the length and breadth of Mexico. 
 
 ### Authentication
 
@@ -2823,7 +2823,6 @@ Parameter | Default | Required | Description
 **sender_address** | - | Yes | The sender's address
 **sender_phone** | - | Yes | The sender's phone number
 **sender_countycity** | - | Yes | The sender's county or city
-
 **sender_state** | - | Yes | The sender's state
 **receiver_first_name** | - | Yes | The beneficiary's first and middle name(s)
 **receiver_last_name** | - | Yes | The beneficiary's family name(s)
