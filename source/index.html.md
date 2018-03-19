@@ -3077,7 +3077,7 @@ Get a list of all available cash payout locations.
 
 ### HTTP Request
 
-`POST https://api.bitso.com/v3/remittance_locations/`
+`GET https://api.bitso.com/v3/remittance_locations/`
 
 ### Authorization Header Parameters
 
