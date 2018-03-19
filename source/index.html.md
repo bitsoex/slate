@@ -2817,7 +2817,7 @@ as the JSON payload used to construct the signature.
 
 Parameter | Default | Required | Description
 --------- | ------- | -------- | -----------
-**amount** | - | Yes | The amount of MXN to withdraw from your account
+**amount** | - | Yes | The amount of MXN to send for the remittance
 **sender_first_name** | - | Yes | The sender's first and middle name(s)
 **sender_last_name** | - | Yes | The sender's family name(s)
 **sender_address** | - | Yes | The sender's address
@@ -2830,7 +2830,7 @@ Parameter | Default | Required | Description
 **receiver_phone** | - | Yes | The beneficiary's phone number
 **receiver_city** | - | Yes | The beneficiary's city
 **receiver_state** | - | Yes | The beneficiary's state
-**payout_point_id** | - | Yes | The specified payout point ID (taken from the cashout_locations endpoint)
+**payout_point_id** | - | Yes | The specified payout point ID (taken from the remittance_locations endpoint)
 
 
 
