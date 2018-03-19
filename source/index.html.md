@@ -2851,7 +2851,7 @@ Field Name | Type | Description | Units
 
 
 
-## Cash Remittance Cancel
+## Cancel Remittance
 
 > The string returned by the API looks like this:
 
@@ -2902,7 +2902,7 @@ Field Name | Type | Description | Units
 
 
 
-## Cash Withdrawal Change Name
+## Remittance Change Beneficiary Name
 
 > The string returned by the API looks like this:
 
@@ -2953,7 +2953,7 @@ Field Name | Type | Description | Units
 
 
 
-## Cash Withdrawal Change Phone
+## Remittance Change Beneficiary Phone
 
 > The string returned by the API looks like this:
 
@@ -3005,7 +3005,7 @@ Field Name | Type | Description | Units
 
 
 
-## Cash Withdrawal Change Sender Name
+## Remittance Change Sender Name
 
 > The string returned by the API looks like this:
 
@@ -3057,7 +3057,7 @@ Field Name | Type | Description | Units
 
 
 
-## Cash Payout Locations
+## Remittance Payout Locations
 
 > The string returned by the API looks like this:
 
