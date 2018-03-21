@@ -3063,12 +3063,46 @@ Field Name | Type | Description | Units
 
 ```json
 {
-    "success": true,
-    "payload":
-        [
-          {"ID":1234,"city":"Ciudad de Rafael Lara Grajales","state":"Puebla","payer":"Payer Name","address":"Payer Address","zipCode":"Payer ZIP","reference":"","phoneNumber":"Payer Phone","currency":"PESOS","paymentLimit":300,"monday":"10:00 a 18:00","tuesday":"10:00 a 18:00","wednesday":"10:00 a 18:00","thursday":"10:00 a 18:00","friday":"10:00 a 18:00","saturday":"11:00 a 17:00","sunday":"11:00 a 17:00"},
-          {"ID":1235,"city":"Santa Maria La Alta","state":"Puebla","payer":"Payer Name","address":"Payer Address","zipCode":"Payer ZIP","reference":"","phoneNumber":"Payer Phone","currency":"PESOS","paymentLimit":500,"monday":"09:00 a 18:00","tuesday":"09:00 a 18:00","wednesday":"09:00 a 18:00","thursday":"09:00 a 18:00","friday":"09:00 a 18:00","saturday":"09:00 a 18:00","sunday":"CERRADO"}
-        ]
+	"success": true,
+	"payload": [{
+			"ID": 1234,
+			"city": "Ciudad de Rafael Lara Grajales",
+			"state": "Puebla",
+			"payer": "Payer Name",
+			"address": "Payer Address",
+			"zipCode": "Payer ZIP",
+			"reference": "",
+			"phoneNumber": "Payer Phone",
+			"currency": "PESOS",
+			"paymentLimit": 300,
+			"monday": "10:00 a 18:00",
+			"tuesday": "10:00 a 18:00",
+			"wednesday": "10:00 a 18:00",
+			"thursday": "10:00 a 18:00",
+			"friday": "10:00 a 18:00",
+			"saturday": "11:00 a 17:00",
+			"sunday": "11:00 a 17:00"
+		},
+		{
+			"ID": 1235,
+			"city": "Santa Maria La Alta",
+			"state": "Puebla",
+			"payer": "Payer Name",
+			"address": "Payer Address",
+			"zipCode": "Payer ZIP",
+			"reference": "",
+			"phoneNumber": "Payer Phone",
+			"currency": "PESOS",
+			"paymentLimit": 500,
+			"monday": "09:00 a 18:00",
+			"tuesday": "09:00 a 18:00",
+			"wednesday": "09:00 a 18:00",
+			"thursday": "09:00 a 18:00",
+			"friday": "09:00 a 18:00",
+			"saturday": "09:00 a 18:00",
+			"sunday": "CERRADO"
+		}
+	]
 }
 ```
 
