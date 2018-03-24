@@ -1898,7 +1898,7 @@ Field Name | Type | Description | Units
 
 ## Crypto Withdrawals
 
-> The string returned by the API looks like this:
+> The string returned by the API looks like this (example for BTC):
 
 ```json
 {
