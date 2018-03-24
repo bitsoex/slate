@@ -1896,7 +1896,7 @@ Field Name | Type | Description | Units
 
 
 
-## Bitcoin Withdrawal
+## Crypto Withdrawals
 
 > The string returned by the API looks like this:
 
@@ -1918,11 +1918,15 @@ Field Name | Type | Description | Units
 }
 ```
 
-Triggers a bitcoin withdrawal from the user's account
+The following endpoints are available for making a cryptocurrency withdrawal from the user's account:
 
 ### HTTP Request
 
-`POST https://api.bitso.com/v3/bitcoin_withdrawal/`
+`POST https://api.bitso.com/v3/bitcoin_withdrawal/` (btc)
+`POST https://api.bitso.com/v3/ether_withdrawal/` (eth)
+`POST https://api.bitso.com/v3/ripple_withdrawal/` (xrp)
+`POST https://api.bitso.com/v3/bcash_withdrawal/` (bch)
+`POST https://api.bitso.com/v3/litecoin_withdrawal/` (ltc)
 
 ### Authorization Header Parameters
 
@@ -1939,8 +1943,9 @@ as the JSON payload used to construct the signature.
 
 Parameter | Default | Required | Description
 --------- | ------- | -------- | -----------
-**amount** | - | Yes | The amount of BTC to withdraw from your account
-**address** | - | Yes | The Bitcoin address to send the amount to
+**amount** | - | Yes | The amount of the asset to withdraw from your account
+**address** | - | Yes | The address to send that amount to
+**destination_tag** | - | No | Destination Tag (Ripple XRP only, optional)
 
 ### JSON Response Payload
 
@@ -1951,69 +1956,9 @@ Field Name | Type | Description | Units
 **wid** | String | Unique Withdrawal ID | -
 **status** | String | Status of the withdrawal request (pending, complete) | -
 **created_at** | String | Timestamp at which the withdrawal request was created | ISO 8601 timestamp
-**currency** | String | Currency specified for this withdrawal (BTC) | -
-**method** | String | Method for this withdrawal (BTC). | -
-**amount** | String | Amount to withdraw. | BTC
-**details** | String | Method specific details for this withdrawal | -
-
-## Ether Withdrawal
-
-> The string returned by the API looks like this:
-
-```json
-{
-    "success": true,
-    "payload": {
-        "wid": "c5b8d7f0768ee91d3b33bee648318698",
-        "status": "pending",
-        "created_at": "2016-04-08T17:52:31.000+00:00",
-        "currency": "eth",
-        "method": "eth",
-        "amount": "10.00",
-        "details": {
-            "withdrawal_address": "0x55f03a62acc946dedcf8a0c47f16ec3892b29e6d",
-            "tx_hash": null
-        }
-    }
-}
-```
-
-Triggers an Ethereum withdrawal from the user's account 
-
-### HTTP Request
-
-`POST https://api.bitso.com/v3/ether_withdrawal/`
-
-### Authorization Header Parameters
-
-Parameter | Default | Required | Description
---------- | ------- | -------- | -----------
-**key** | - | Yes | See [Creating and Signing Requests](#creating-and-signing-requests)
-**signature** | - | Yes | See [Creating and Signing Requests](#creating-and-signing-requests)
-**nonce** | - | Yes | See [Creating and Signing Requests](#creating-and-signing-requests)
-
-### Body Parameters
-
-Body parameters should be JSON encoded and should be exactly the same
-as the JSON payload used to construct the signature.
-
-Parameter | Default | Required | Description
---------- | ------- | -------- | -----------
-**amount** | - | Yes | The amount of ETH to send to the destination account. A fixed fee on top of the amount specified will be deducted from your balance as indicated in the [fees](https://bitso.com/fees?l=en) page. This fee will be used to help cover blockchain network transaction fees.
-**address** | - | Yes | The ETH address to send the amount to
-
-### JSON Response Payload
-
-Returns a JSON object representing the order:
-
-Field Name | Type | Description | Units
----------- | ---- | ----------- | -----
-**wid** | String | Unique Withdrawal ID | -
-**status** | String | Status of the withdrawal request (pending, complete) | -
-**created_at** | String | Timestamp at which the withdrawal request was created | ISO 8601 timestamp
-**currency** | String | Currency specified for this withdrawal (ETH) | -
-**method** | String | Method for this withdrawal (ETH). | -
-**amount** | String | Amount to withdraw. | ETH
+**currency** | String | Currency specified for this withdrawal (e.g. BTC) | -
+**method** | String | Method for this withdrawal (e.g. BTC). | -
+**amount** | String | Amount to withdraw. | units of e.g. BTC
 **details** | String | Method specific details for this withdrawal | -
 
 
