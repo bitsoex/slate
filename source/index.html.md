@@ -1922,11 +1922,14 @@ The following endpoints are available for making a cryptocurrency withdrawal fro
 
 ### HTTP Request
 
-`POST https://api.bitso.com/v3/bitcoin_withdrawal/` (btc)
-`POST https://api.bitso.com/v3/ether_withdrawal/` (eth)
-`POST https://api.bitso.com/v3/ripple_withdrawal/` (xrp)
-`POST https://api.bitso.com/v3/bcash_withdrawal/` (bch)
-`POST https://api.bitso.com/v3/litecoin_withdrawal/` (ltc)
+
+Asset | Endpoint
+----- | --------
+**btc** | `POST https://api.bitso.com/v3/bitcoin_withdrawal/`
+**eth** | `POST https://api.bitso.com/v3/ether_withdrawal/`
+**xrp** | `POST https://api.bitso.com/v3/ripple_withdrawal/`
+**bch** | `POST https://api.bitso.com/v3/bcash_withdrawal/`
+**ltc** | `POST https://api.bitso.com/v3/litecoin_withdrawal/`
 
 ### Authorization Header Parameters
 
