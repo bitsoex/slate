@@ -2736,7 +2736,8 @@ The Transfer API is accessible via an API key created for your account. For full
         "method": "bt",
         "amount": "300.15",
         "details": {
-            "reference": "XYZ123"
+            "reference": "123451245",
+            "collection_reference": "XXXX123456789"
         }
     }
 }
@@ -2794,8 +2795,7 @@ Field Name | Type | Description | Units
 **currency** | String | Currency specified for this withdrawal (MXN) | -
 **method** | String | Method for this withdrawal (Debit Card Withdrawal) | -
 **amount** | String | Amount to withdraw | -
-**details** | String | Contains the reference for cash-out order | -
-
+**details** | String | Contains the reference (identifier for cash-out order) and collection_reference (reference for recipient to use) | -
 
 
 
