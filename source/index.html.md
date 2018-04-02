@@ -736,6 +736,7 @@ the following form:
         "monthly_limit": "32000.00",
         "daily_remaining": "3300.00",
         "monthly_remaining": "31000.00",
+        "cash_deposit_allowance": "5300.00",
         "cellphone_number": "verified",
         "cellphone_number_stored":"+525555555555",
         "email_stored":"shannon@maxentro.py",
@@ -778,6 +779,7 @@ Field Name | Type | Description | Units
 **daily_remaining** | String | Remaining amount of user's total daily limit  | MXN
 **monthly_limit** | String | The user's total monthly limit  | MXN
 **monthly_remaining** | String | Remaining amount of user's total monthly limit  | MXN
+**cash_deposit_allowance** | String | Remaining cash allowance today | MXN
 **cellphone_number** | String | Status of user's registered cellphone number | Enum of (unsubmitted, submitted, verified)
 **cellphone_number_stored** | String | user's registered cellphone number | 
 **email_stored** | String | user's registered email |
