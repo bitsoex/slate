@@ -37,7 +37,7 @@ For successful API calls, our JSON response objects looks like:
     "payload": {RELEVANT_DATA_HERE}
 }
 `
-	
+
 For unsuccessful API calls, our JSON response objects look like:
 
 `
@@ -109,7 +109,7 @@ error categories, the last two digits define specific errors.
 * 0316: Invalid Ripple currency
 * 0317: Invalid SPEI number
 * 0318: Invalid SPEI numeric_ref
-* 0319: Invalid SPEI notes_ref 
+* 0319: Invalid SPEI notes_ref
 * 0320: Invalid pagination parameters
 * 0321: Incorrect TID (non-existent)
 * 0322: Not a Valid URL
@@ -358,7 +358,7 @@ to false, the response will include the full order book.
 
 ### Query Parameters
 
-Parameter | Default | Required | Description 
+Parameter | Default | Required | Description
 --------- | ------- | -------- | -----------
 **book** |  | YES | Specifies which book to use
 **aggregate** | true  | NO | Specifies if orders should be aggregated by price.
@@ -729,7 +729,7 @@ the following form:
     "success": true,
     "payload": {
         "client_id": "1234",
-        "first_name": "Claude", 
+        "first_name": "Claude",
         "last_name":  "Shannon",
         "status": "active",
         "daily_limit": "5300.00",
@@ -781,7 +781,7 @@ Field Name | Type | Description | Units
 **monthly_remaining** | String | Remaining amount of user's total monthly limit  | MXN
 **cash_deposit_allowance** | String | Remaining cash allowance today | MXN
 **cellphone_number** | String | Status of user's registered cellphone number | Enum of (unsubmitted, submitted, verified)
-**cellphone_number_stored** | String | user's registered cellphone number | 
+**cellphone_number_stored** | String | user's registered cellphone number |
 **email_stored** | String | user's registered email |
 **official_id** | String | Status of user's official ID document | Enum of (unsubmitted, submitted, verified, rejected)
 **proof_of_residency** | String | Status of user's 'proof of residency' document | Enum of (unsubmitted, submitted, verified, rejected)
@@ -796,7 +796,7 @@ Field Name | Type | Description | Units
 
 ```json
 {
-    "success": true 
+    "success": true
 }
 
 ```
@@ -840,7 +840,7 @@ Parameter | Default | Required | Description
 
 ```
 This endpoint is used to register Mobile phone number for
-verification. 
+verification.
 
 ### HTTP Request
 
@@ -872,8 +872,8 @@ Returns a JSON Object with the following fields.
 
 Field Name | Type | Description | Units
 ---------- | ---- | ----------- | -----
-**client_id** | String | User's client ID | 
-**phone** | String | Registered phone number | 
+**client_id** | String | User's client ID |
+**phone** | String | Registered phone number |
 
 ## Mobile Phone Number Verification
 
@@ -920,8 +920,8 @@ Returns a JSON Object with the following fields.
 
 Field Name | Type | Description | Units
 ---------- | ---- | ----------- | -----
-**client_id** | String | User's client ID | 
-**phone** | String | Registered phone number | 
+**client_id** | String | User's client ID |
+**phone** | String | Registered phone number |
 
 
 
@@ -975,7 +975,7 @@ Returns a JSON Array. Every element in the array is a JSON object with the follo
 
 Field Name | Type | Description | Units
 ---------- | ---- | ----------- | -----
-**currency** | String | Currency symbol | 
+**currency** | String | Currency symbol |
 **total** | String | Total balance | Currency
 **locked** | String | Currency balance locked in open orders | Currency
 **available** | String | Currency balance available for use | Currency
@@ -1030,8 +1030,8 @@ Returns a JSON object with keys, **"fees"** and **"withdrawal_fees"**.
 Field Name | Type | Description | Units
 ---------- | ---- | ----------- | -----
 **book** | String | Order book symbol | Major_Minor
-**fee_decimal** | String | Customer trading fee as a decimal | 
-**fee_percent** | String | Customer trading fee as a percentage | 
+**fee_decimal** | String | Customer trading fee as a decimal |
+**fee_percent** | String | Customer trading fee as a percentage |
 
 
 **"withdrawal_fees"** is an object keyed by each curency and value of
@@ -1123,7 +1123,7 @@ net amount withdrawal fees denominated in the corresponding currency.
             "fid": "3ef729ccf0cc56079ca546d58083dc12",
             "method": "sp"
         }
- 
+
     }, {
         "eid": "96e79218965eb72c92a549dd5a330112",
         "operation": "withdrawal",
@@ -1352,7 +1352,7 @@ Field Name | Type | Description | Units
 **currency** | String | Currency withdrawn | -
 **method** | String | Method for this withdrawal (MXN, BTC, ETH). | -
 **amount** | String | The withdrawn amount | currency
-**status** | String | The status for this withdrawal (pending, processing, complete, cancelled) | 
+**status** | String | The status for this withdrawal (pending, processing, complete, failed) | -
 **created_at** | String | Timestamp at which the withdrawal as created |ISO 8601 timestamp
 **details** | JSON object | Specific withdrawal details | -
 
@@ -1433,7 +1433,7 @@ Field Name | Type | Description | Units
 **currency** | String | Currency funded | -
 **method** | String | Method for this funding (MXN, BTC, ETH). | -
 **amount** | String | The funding amount | currency
-**status** | String | The status for this funding (pending, complete, cancelled) | currency
+**status** | String | The status for this funding (pending, complete, failed) | -
 **created_at** | String | Timestamp at which the funding was recieved |ISO 8601 timestamp
 **details** | JSON object | Specific funding details | -
 
@@ -1582,7 +1582,7 @@ Field Name | Type | Description | Units
 **oid** | String | Users' Order ID |
 **created_at** | String | Timestamp at which the trade was executed | ISO 8601 timestamp
 
- 
+
 
 ## Open Orders
 
@@ -1670,7 +1670,7 @@ Field Name | Type | Description | Units
 **updated_at** | String | Timestamp at which the trade was updated (can be null) | ISO 8601 timestamp
 **price** | String | The order's price | Minor
 **side** | String | The order side (buy, sell) | -
-**status** | String | The order's status (queued, open, partial-fill) | 
+**status** | String | The order's status (queued, open, partial-fill) |
 **type** | String | The order type (will always be 'limit' for open orders) | -
 
 
@@ -1743,7 +1743,7 @@ Field Name | Type | Description | Units
 **updated_at** | String | Timestamp at which the order was updated (can be null) | ISO 8601 timestamp
 **price** | String | The order's price | Minor
 **side** | String | The order side (buy, sell) | -
-**status** | String | The order's status (queued, open, partial-fill, closed) | 
+**status** | String | The order's status (queued, open, partial-fill, closed) |
 **type** | String | The order type (market, limit) | -
 
 
@@ -1822,7 +1822,7 @@ as the JSON payload used to construct the signature.
 Parameter | Default | Required | Description
 --------- | ------- | -------- | -----------
 **book** | - | Yes | Specifies which book to use
-**side** | - | Yes | The order side (buy, sell) 
+**side** | - | Yes | The order side (buy, sell)
 **type** | - | Yes | The order type (market, limit) |
 **major** | - | No | The amount of major currency for this order. An order must be specified in terms of major or minor, never both.
 **minor** | - | No | The amount of minor currency for this order. An order must be specified in terms of major or minor, never both.
@@ -1844,7 +1844,7 @@ Field Name | Type | Description | Units
 **updated_at** | String | Timestamp at which the order was updated (can be null) | ISO 8601 timestamp
 **price** | String | The order's price | Minor
 **side** | String | The order side (buy, sell) | -
-**status** | String | The order's status (queued, open, partial-fill, closed) | 
+**status** | String | The order's status (queued, open, partial-fill, closed) |
 **type** | String | The order type (market, limit) | -
 
 
@@ -1968,7 +1968,7 @@ Field Name | Type | Description | Units
 
 
 
-## SPEI Withdrawal 
+## SPEI Withdrawal
 
 > The string returned by the API looks like this:
 
@@ -2079,11 +2079,11 @@ Returns a JSON Array. Every element in the array is a JSON object with the follo
 
 Field Name | Type | Description | Units
 ---------- | ---- | ----------- | -----
-**code** | String | Corresponding bank's code | 
-**name** | String | Corresponding bank's name | 
+**code** | String | Corresponding bank's code |
+**name** | String | Corresponding bank's name |
 
 
-## Debit Card Withdrawal 
+## Debit Card Withdrawal
 
 > The string returned by the API looks like this:
 
@@ -2112,7 +2112,7 @@ Field Name | Type | Description | Units
 
 Triggers a Debit Cards withdrawal from your account.
 These **withdrawals are immediate** during banking hours for some
-banks (M-F 9:00AM - 5:00PM Mexico City Time), 24 hours for others. 
+banks (M-F 9:00AM - 5:00PM Mexico City Time), 24 hours for others.
 
 
 
@@ -2160,7 +2160,7 @@ Field Name | Type | Description | Units
 **details** | String | Method specific details for this withdrawal | -
 
 
-## Phone Number Withdrawal 
+## Phone Number Withdrawal
 
 > The string returned by the API looks like this:
 
@@ -2191,7 +2191,7 @@ Triggers a withdrawal from your account to a phone number. (Phone
 number must be registered for SPEI Transfers with their corresponding bank)
 These **withdrawals are immediate** during banking hours for some
 banks (M-F 9:00AM - 5:00PM Mexico City Time), 24 hours for
-others. 
+others.
 
 
 
@@ -2632,7 +2632,7 @@ Parameter | Required | Description
       "qr_img_uri":"https:\/\/chart.googleapis.com\/chart?chl=bitcoin%3AmgKZfNdFJgztvfvhEaGgMTQRQ2iHCadHGa%3Famount%3D0.14965623&chs=400x400&cht=qr&choe=UTF-8&chld=L%7C0",
       "user_uri":"https:\/\/api.bitso.com\/v2\/transfer\/9b2a431b98597312e99cbff1ba432cbf",
       "wallet_address":"3AmgKZfNdFJgztvfvhEaGgMTQRQ2iHCadHGa"
-   } 
+   }
 }
 ```
 
@@ -2715,7 +2715,7 @@ Access to this API is available on request, and not enabled by default. Users wo
 
 ## General
 
-Using the Remittance API, partners can generate orders for cash pick-up at payment points across the length and breadth of Mexico. 
+Using the Remittance API, partners can generate orders for cash pick-up at payment points across the length and breadth of Mexico.
 
 ### Authentication
 
@@ -3138,8 +3138,8 @@ Parameter | Default | Required | Description
 
 Returns descending JSON Array. Every element in the array is a JSON object with the following fields.
 
-Field Name | Type | Description 
----------- | ---- | ----------- 
+Field Name | Type | Description
+---------- | ---- | -----------
 **field_name** | String |  Field name that will be user for "account_creation" endpoint
 **field_description** | String | Describes each field
 
@@ -3198,7 +3198,7 @@ Returns descending JSON Array. Every element in the array is a JSON object with 
 
 Field Name | Type | Description | Units
 ---------- | ---- | ----------- | -----
-**client_id** | Long | Designated Bitso User ID | 
+**client_id** | Long | Designated Bitso User ID |
 **account_level** | String | Account Verification Level |
 **api_key** | String | New Account API Key |
 **api_secret** | String | New Account API Secret |
@@ -3246,7 +3246,7 @@ with the following fields on SPEI deposits.  [**Coming Soon**]
 {
     "event": "funding",
     "payload":
- 
+
     {
         "fid": "p4u8d7f0768ee91d3b33bee6483132i8",
         "status": "complete",
@@ -3281,4 +3281,3 @@ Field Name | Type | Description | Units
 **status** | String | The status for this funding (pending, complete, cancelled) | currency
 **created_at** | String | Timestamp at which the funding was received |ISO 8601 timestamp
 **details** | JSON object | Specific funding details | -
-
