@@ -2797,7 +2797,7 @@ Field Name | Type | Description | Units
 **currency** | String | Currency specified for this withdrawal (MXN) | -
 **method** | String | Method for this withdrawal (Debit Card Withdrawal) | -
 **amount** | String | Amount to withdraw | -
-**details** | String | Contains the reference (identifier for cash-out order) and collection_reference (reference for recipient to use) | -
+**details** | String | Contains the reference identifier for cash-out order, needed to alter the order and for recipient to collect payment. | -
 
 
 
