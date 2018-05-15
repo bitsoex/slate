@@ -1927,6 +1927,7 @@ The following endpoints are available for making a cryptocurrency withdrawal fro
 
 Asset | Endpoint
 ----- | --------
+**all** | `POST https://api.bitso.com/v3/crypto_withdrawal/`
 **btc** | `POST https://api.bitso.com/v3/bitcoin_withdrawal/`
 **eth** | `POST https://api.bitso.com/v3/ether_withdrawal/`
 **xrp** | `POST https://api.bitso.com/v3/ripple_withdrawal/`
@@ -1948,6 +1949,7 @@ as the JSON payload used to construct the signature.
 
 Parameter | Default | Required | Description
 --------- | ------- | -------- | -----------
+**currency** | - | Yes | The currency to withdraw (only required for `crypto_currency` endpoint)
 **amount** | - | Yes | The amount of the asset to withdraw from your account
 **address** | - | Yes | The address to send that amount to
 **destination_tag** | - | No | Destination Tag (Ripple XRP only, optional)
