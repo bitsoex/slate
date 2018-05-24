@@ -1949,7 +1949,7 @@ as the JSON payload used to construct the signature.
 
 Parameter | Default | Required | Description
 --------- | ------- | -------- | -----------
-**currency** | - | Yes | The currency to withdraw (only required for `crypto_currency` endpoint)
+**currency** | - | Yes | The currency to withdraw (only required for `crypto_withdrawal` endpoint)
 **amount** | - | Yes | The amount of the asset to withdraw from your account
 **address** | - | Yes | The address to send that amount to
 **destination_tag** | - | No | Destination Tag (Ripple XRP only, optional)
