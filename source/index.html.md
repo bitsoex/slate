@@ -298,7 +298,7 @@ curl "https://api.bitso.com/v3/order_book/?book=btc_mxn"
             "amount": "2.23976"
         }],
         "updated_at": "2016-04-08T17:52:31.000+00:00",
-		"sequence": "27214"
+        "sequence": "27214"
     }
 }
 ```
@@ -317,31 +317,31 @@ curl "https://api.bitso.com/v3/order_book/?book=btc_mxn&aggregate=false"
             "book": "btc_mxn",
             "price": "5632.24",
             "amount": "1.34491802",
-			"oid": "VN5lVpgXf02o6vJ6"
+            "oid": "VN5lVpgXf02o6vJ6"
         },{
             "book": "btc_mxn",
             "price": "5633.44",
             "amount": "0.4259",
-			"oid": "RP8lVpgXf04o6vJ6"
+            "oid": "RP8lVpgXf04o6vJ6"
         },{
             "book": "btc_mxn",
             "price": "5642.14",
             "amount": "1.21642",
-			"oid": "46efbiv72drbphig"
+            "oid": "46efbiv72drbphig"
         }],
         "bids": [{
             "book": "btc_mxn",
             "price": "6123.55",
             "amount": "1.12560000",
-			"oid": "11brtiv72drbphig"
+            "oid": "11brtiv72drbphig"
         },{
             "book": "btc_mxn",
             "price": "6121.55",
             "amount": "2.23976",
-			"oid": "1ywri0yg8miihs80"
+            "oid": "1ywri0yg8miihs80"
         }],
         "updated_at": "2016-04-08T17:52:31.000+00:00",
-		"sequence": "27214"
+        "sequence": "27214"
     }
 }
 ```
@@ -1521,32 +1521,32 @@ curl "https://api.bitso.com/v3/order_trades/Jvqrschkgdkc1go3"
 
 ```json
 {
-	"success": true,
-	"payload": [{
-			"book": "btc_mxn",
-			"major": "-0.25232073",
-			"created_at": "2016-04-08T17:52:31.000+00:00",
-			"minor": "1013.540958479115",
-			"fees_amount": "-10.237787459385",
-			"fees_currency": "mxn",
-			"price": "4057.45",
-			"tid": 51756,
-			"oid": "Jvqrschkgdkc1go3",
-			"side": "sell"
-		},
-		{
-			"book": "btc_mxn",
-			"major": "-0.25",
-			"created_at": "2016-04-08T17:52:31.000+00:00",
-			"minor": "513.540958479115",
-			"fees_amount": "-10.237787459385",
-			"fees_currency": "mxn",
-			"price": "4057.45",
-			"tid": 51755,
-			"oid": "Jvqrschkgdkc1go3",
-			"side": "sell"
-		}
-	]
+    "success": true,
+    "payload": [{
+            "book": "btc_mxn",
+            "major": "-0.25232073",
+            "created_at": "2016-04-08T17:52:31.000+00:00",
+            "minor": "1013.540958479115",
+            "fees_amount": "-10.237787459385",
+            "fees_currency": "mxn",
+            "price": "4057.45",
+            "tid": 51756,
+            "oid": "Jvqrschkgdkc1go3",
+            "side": "sell"
+        },
+        {
+            "book": "btc_mxn",
+            "major": "-0.25",
+            "created_at": "2016-04-08T17:52:31.000+00:00",
+            "minor": "513.540958479115",
+            "fees_amount": "-10.237787459385",
+            "fees_currency": "mxn",
+            "price": "4057.45",
+            "tid": 51755,
+            "oid": "Jvqrschkgdkc1go3",
+            "side": "sell"
+        }
+    ]
 }
 ```
 
@@ -1594,8 +1594,8 @@ Field Name | Type | Description | Units
     "payload": [{
         "book": "btc_mxn",
         "original_amount": "0.01000000",
-		"unfilled_amount": "0.00500000",
-		"original_value": "56.0",
+        "unfilled_amount": "0.00500000",
+        "original_value": "56.0",
         "created_at": "2016-04-08T17:52:31.000+00:00",
         "updated_at": "2016-04-08T17:52:51.000+00:00",
         "price": "5600.00",
@@ -1606,8 +1606,8 @@ Field Name | Type | Description | Units
     }, {
         "book": "btc_mxn",
         "original_amount": "0.12680000",
-		"unfilled_amount": "0.12680000",
-		"original_value": "507.2",
+        "unfilled_amount": "0.12680000",
+        "original_value": "507.2",
         "created_at": "2016-04-08T17:52:31.000+00:00",
         "updated_at": "2016-04-08T17:52:41.000+00:00",
         "price": "4000.00",
@@ -1618,8 +1618,8 @@ Field Name | Type | Description | Units
     }, {
         "book": "btc_mxn",
         "original_amount": "1.12560000",
-		"unfilled_amount": "1.12560000",
-		"original_value": "6892.66788",
+        "unfilled_amount": "1.12560000",
+        "original_value": "6892.66788",
         "created_at": "2016-04-08T17:52:31.000+00:00",
         "updated_at": "2016-04-08T17:52:41.000+00:00",
         "price": "6123.55",
@@ -1684,8 +1684,8 @@ Field Name | Type | Description | Units
     "payload": [{
         "book": "btc_mxn",
         "original_amount": "0.01000000",
-		"unfilled_amount": "0.00500000",
-		"original_value": "56.0",
+        "unfilled_amount": "0.00500000",
+        "original_value": "56.0",
         "created_at": "2016-04-08T17:52:31.000+00:00",
         "updated_at": "2016-04-08T17:52:51.000+00:00",
         "price": "5600.00",
@@ -1696,8 +1696,8 @@ Field Name | Type | Description | Units
     }, {
         "book": "btc_mxn",
         "original_amount": "0.12680000",
-		"unfilled_amount": "0.12680000",
-		"original_value": "507.2",
+        "unfilled_amount": "0.12680000",
+        "original_value": "507.2",
         "created_at": "2016-04-08T17:52:31.000+00:00",
         "updated_at": "2016-04-08T17:52:41.000+00:00",
         "price": "4000.00",
@@ -1758,7 +1758,7 @@ Field Name | Type | Description | Units
         "543cr2v32a1h684430tvcqx1b0vkr93wd694957cg8umhyrlzkgbaedmf976ia3v",
         "qlbga6b600n3xta7actori10z19acfb20njbtuhtu5xry7z8jswbaycazlkc0wf1",
         "d71e3xy2lowndkfmde6bwkdsvw62my6058e95cbr08eesu0687i5swyot4rf2yf8"
-		]
+        ]
 }
 ```
 
@@ -1796,7 +1796,7 @@ The response is a list of Order IDs (OIDs) for the canceled orders. Orders may n
     "success": true,
     "payload": {
         "oid": "qlbga6b600n3xta7"
-		}
+        }
 }
 ```
 
@@ -3015,46 +3015,46 @@ Field Name | Type | Description | Units
 
 ```json
 {
-	"success": true,
-	"payload": [{
-			"ID": 1234,
-			"city": "Ciudad de Rafael Lara Grajales",
-			"state": "Puebla",
-			"payer": "Payer Name",
-			"address": "Payer Address",
-			"zipCode": "Payer ZIP",
-			"reference": "",
-			"phoneNumber": "Payer Phone",
-			"currency": "PESOS",
-			"paymentLimit": 300,
-			"monday": "10:00 a 18:00",
-			"tuesday": "10:00 a 18:00",
-			"wednesday": "10:00 a 18:00",
-			"thursday": "10:00 a 18:00",
-			"friday": "10:00 a 18:00",
-			"saturday": "11:00 a 17:00",
-			"sunday": "11:00 a 17:00"
-		},
-		{
-			"ID": 1235,
-			"city": "Santa Maria La Alta",
-			"state": "Puebla",
-			"payer": "Payer Name",
-			"address": "Payer Address",
-			"zipCode": "Payer ZIP",
-			"reference": "",
-			"phoneNumber": "Payer Phone",
-			"currency": "PESOS",
-			"paymentLimit": 500,
-			"monday": "09:00 a 18:00",
-			"tuesday": "09:00 a 18:00",
-			"wednesday": "09:00 a 18:00",
-			"thursday": "09:00 a 18:00",
-			"friday": "09:00 a 18:00",
-			"saturday": "09:00 a 18:00",
-			"sunday": "CERRADO"
-		}
-	]
+    "success": true,
+    "payload": [{
+            "ID": 1234,
+            "city": "Ciudad de Rafael Lara Grajales",
+            "state": "Puebla",
+            "payer": "Payer Name",
+            "address": "Payer Address",
+            "zipCode": "Payer ZIP",
+            "reference": "",
+            "phoneNumber": "Payer Phone",
+            "currency": "PESOS",
+            "paymentLimit": 300,
+            "monday": "10:00 a 18:00",
+            "tuesday": "10:00 a 18:00",
+            "wednesday": "10:00 a 18:00",
+            "thursday": "10:00 a 18:00",
+            "friday": "10:00 a 18:00",
+            "saturday": "11:00 a 17:00",
+            "sunday": "11:00 a 17:00"
+        },
+        {
+            "ID": 1235,
+            "city": "Santa Maria La Alta",
+            "state": "Puebla",
+            "payer": "Payer Name",
+            "address": "Payer Address",
+            "zipCode": "Payer ZIP",
+            "reference": "",
+            "phoneNumber": "Payer Phone",
+            "currency": "PESOS",
+            "paymentLimit": 500,
+            "monday": "09:00 a 18:00",
+            "tuesday": "09:00 a 18:00",
+            "wednesday": "09:00 a 18:00",
+            "thursday": "09:00 a 18:00",
+            "friday": "09:00 a 18:00",
+            "saturday": "09:00 a 18:00",
+            "sunday": "CERRADO"
+        }
+    ]
 }
 ```
 
@@ -3109,13 +3109,13 @@ curl "https://api.bitso.com/v3/account_required_fields/"
 
 ```json
 {
-	"success": true,
-	"payload": [
-		{"field_name": "email_address", "field_description": ""},
-		{"field_name": "mobile_phone_number", "field_description": ""},
-		{"field_name": "given_names", "field_description": ""},
-		{"field_name": "family_names", "field_description": ""}
-	]
+    "success": true,
+    "payload": [
+        {"field_name": "email_address", "field_description": ""},
+        {"field_name": "mobile_phone_number", "field_description": ""},
+        {"field_name": "given_names", "field_description": ""},
+        {"field_name": "family_names", "field_description": ""}
+    ]
 }
 ```
 
@@ -3156,13 +3156,13 @@ curl --data "email_address=value1&mobile_phone_number=value2&given_names=value3&
 
 ```json
 {
-	"success": true,
-	"payload": {
-		"client_id": "1234",
-		"account_level": "0",
-		"api_key": "mawikCFwrw",
-		"api_secret": "op39fe824f85fb85aexefpw22cbe758921da3"
-	}
+    "success": true,
+    "payload": {
+        "client_id": "1234",
+        "account_level": "0",
+        "api_key": "mawikCFwrw",
+        "api_secret": "op39fe824f85fb85aexefpw22cbe758921da3"
+    }
 }
 ```
 
