@@ -986,22 +986,26 @@ Field Name | Type | Description | Units
 
 ```json
 {
-	"success": true,
-	"payload": {
-		"fees": [{
-			"book": "btc_mxn",
-			"fee_decimal": "0.0001",
-			"fee_percent": "0.01"
-		}, {
-			"book": "eth_mxn",
-			"fee_decimal": "0.001",
-			"fee_percent": "0.1"
-		}],
-		"withdrawal_fees": {
-			"btc": "0.001",
-			"eth": "0.0025"
-		}
-	}
+    "success": true,
+    "payload": {
+        "fees": [{
+            "book": "btc_mxn",
+            "taker_fee_decimal": "0.0001",
+            "taker_fee_percent": "0.01",
+            "maker_fee_decimal": "0.0001",
+            "maker_fee_percent": "0.01"
+        }, {
+            "book": "eth_mxn",
+            "taker_fee_decimal": "0.0001",
+            "taker_fee_percent": "0.01",
+            "maker_fee_decimal": "0.0001",
+            "maker_fee_percent": "0.01"
+        }],
+        "withdrawal_fees": {
+            "btc": "0.001",
+            "eth": "0.0025"
+        }
+    }
 }
 ```
 
@@ -1030,8 +1034,12 @@ Returns a JSON object with keys, **"fees"** and **"withdrawal_fees"**.
 Field Name | Type | Description | Units
 ---------- | ---- | ----------- | -----
 **book** | String | Order book symbol | Major_Minor
-**fee_decimal** | String | Customer trading fee as a decimal |
-**fee_percent** | String | Customer trading fee as a percentage |
+**taker_fee_decimal** | String | Customer taker trading fee as a decimal |
+**taker_fee_percent** | String | Customer taker trading fee as a percentage |
+**maker_fee_decimal** | String | Customer maker trading fee as a decimal |
+**maker_fee_percent** | String | Customer maker trading fee as a percentage |
+**fee_decimal** | String | **DEPRECATED** Customer trading fee as a decimal (same as **maker_fee_decimal**). This was the field used before we had a Maker/Taker fee schedule. |
+**fee_percent** | String | **DEPRECATED** Customer trading fee as a percentage (same as **maker_fee_percent**). This was the field used before we had a Maker/Taker fee schedule. |
 
 
 **"withdrawal_fees"** is an object keyed by each curency and value of
