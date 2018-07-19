@@ -2332,7 +2332,7 @@ websocket.onmessage = function(message){
 ### Example Implementation
 
 Use this example native javascript implementation for your reference:
-[https://bitso.com/ws_demo.html](https://bitso.com/ws_demo.html)
+[https://bitso.com/demo_ws.html](https://bitso.com/demo_ws.html)
 
 ## Trades Channel
 
