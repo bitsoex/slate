@@ -3218,7 +3218,7 @@ Field Name | Type | Description | Units
 ## Registering URLs
 
 Users can register a callback url that will get hit with payloads
-correspding to certain events described below.
+corresponding to certain events described below.
 
 > The JSON object returned by the API looks like this:
 
