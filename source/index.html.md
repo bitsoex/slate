@@ -3188,20 +3188,6 @@ Parameter | Default | Required | Description
 **signature** | - | Yes | See [Creating and Signing Requests](#creating-and-signing-requests)
 **nonce** | - | Yes | See [Creating and Signing Requests](#creating-and-signing-requests)
 
-
-### Body Parameters
-
-Body parameters should be JSON encoded and should be exactly the same
-as the JSON payload used to construct the signature.
-
-All parameters as returned by the [Account Required
-Fields](#account-required-fields) endpoint in addition to the following optional parameter
-
-Parameter | Default | Required | Description
---------- | ------- | -------- | -----------
-**webhook_url** |  | NO | Specifies a url that will be hit on events specified in the [Webhooks Section](#webhooks)
-
-
 ### JSON Response Payload
 
 Returns descending JSON Array. Every element in the array is a JSON object with the following fields.
@@ -3228,8 +3214,6 @@ corresponding to certain events described below.
 }
 ```
 
-
-
 ### HTTP Request
 
 `POST https://api.bitso.com/v3/webhooks/`
@@ -3242,8 +3226,14 @@ Parameter | Default | Required | Description
 **signature** | - | Yes | See [Creating and Signing Requests](#creating-and-signing-requests)
 **nonce** | - | Yes | See [Creating and Signing Requests](#creating-and-signing-requests)
 
+### Body Parameters
 
+Body parameters should be JSON encoded and should be exactly the same
+as the JSON payload used to construct the signature.
 
+Parameter | Default | Required | Description
+--------- | ------- | -------- | -----------
+**webhook_url** |  | Yes | Specifies a url that will be hit on events
 
 ## Fundings
 
