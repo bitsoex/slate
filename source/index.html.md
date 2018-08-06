@@ -1835,6 +1835,7 @@ Parameter | Default | Required | Description
 **major** | - | No | The amount of major currency for this order. An order must be specified in terms of major or minor, never both.
 **minor** | - | No | The amount of minor currency for this order. An order must be specified in terms of major or minor, never both.
 **price** | - | No | Price per unit of major. For use only with limit orders | Minor (MXN)
+**stop**  | - | No | Price per unit of major at which to stop and place order. For use only with stop orders.
 
 
 ### JSON Response Payload
