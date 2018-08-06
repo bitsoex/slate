@@ -3241,7 +3241,7 @@ Parameter | Default | Required | Description
 Users that register a webhook will get a POST payload to that URL
 with the following fields on deposits.
 
-> The JSON Array posted to the webhook URL looks like this
+> The JSON Object posted to the webhook URL looks like this
 
 ```json
 {
@@ -3288,7 +3288,7 @@ Field Name | Type | Description | Units
 Users that register a webhook will get a POST payload to that URL
 with the following fields on withdrawals.
 
-> The JSON Array posted to the webhook URL looks like this
+> The JSON Object posted to the webhook URL looks like this
 
 ```json
 {
