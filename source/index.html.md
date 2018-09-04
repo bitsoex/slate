@@ -3189,20 +3189,6 @@ Parameter | Default | Required | Description
 **signature** | - | Yes | See [Creating and Signing Requests](#creating-and-signing-requests)
 **nonce** | - | Yes | See [Creating and Signing Requests](#creating-and-signing-requests)
 
-
-### Body Parameters
-
-Body parameters should be JSON encoded and should be exactly the same
-as the JSON payload used to construct the signature.
-
-All parameters as returned by the [Account Required
-Fields](#account-required-fields) endpoint in addition to the following optional parameter
-
-Parameter | Default | Required | Description
---------- | ------- | -------- | -----------
-**webhook_url** |  | NO | Specifies a url that will be hit on events specified in the [Webhooks Section](#webhooks)
-
-
 ### JSON Response Payload
 
 Returns descending JSON Array. Every element in the array is a JSON object with the following fields.
@@ -3219,7 +3205,7 @@ Field Name | Type | Description | Units
 ## Registering URLs
 
 Users can register a callback url that will get hit with payloads
-correspding to certain events described below. [**Coming Soon**]
+corresponding to certain events described below.
 
 > The JSON object returned by the API looks like this:
 
@@ -3228,8 +3214,6 @@ correspding to certain events described below. [**Coming Soon**]
     "success": true
 }
 ```
-
-
 
 ### HTTP Request
 
@@ -3243,15 +3227,21 @@ Parameter | Default | Required | Description
 **signature** | - | Yes | See [Creating and Signing Requests](#creating-and-signing-requests)
 **nonce** | - | Yes | See [Creating and Signing Requests](#creating-and-signing-requests)
 
+### Body Parameters
 
+Body parameters should be JSON encoded and should be exactly the same
+as the JSON payload used to construct the signature.
 
+Parameter | Default | Required | Description
+--------- | ------- | -------- | -----------
+**webhook_url** |  | Yes | Specifies a url that will be hit on events
 
 ## Fundings
 
-Users that register a webhook  will get a POST payload to that URL
-with the following fields on SPEI deposits.  [**Coming Soon**]
+Users that register a webhook will get a POST payload to that URL
+with the following fields on deposits.
 
-> The JSON Array posted to the webhook URL looks like this
+> The JSON Object posted to the webhook URL looks like this
 
 ```json
 {
@@ -3261,7 +3251,7 @@ with the following fields on SPEI deposits.  [**Coming Soon**]
     {
         "fid": "p4u8d7f0768ee91d3b33bee6483132i8",
         "status": "complete",
-        "created_at": "2016-04-08T17:52:31.000+00:00",
+        "created": "2016-04-08T17:52:31+00:00",
         "currency": "mxn",
         "method": "sp",
         "amount": "300.15",
@@ -3289,6 +3279,48 @@ Field Name | Type | Description | Units
 **currency** | String | Currency funded | -
 **method** | String | Method for this funding (mxn, btc, eth). | -
 **amount** | String | The funding amount | currency
-**status** | String | The status for this funding (pending, complete, cancelled) | currency
-**created_at** | String | Timestamp at which the funding was received |ISO 8601 timestamp
-**details** | JSON object | Specific funding details | -
+**status** | String | The status for this funding (pending, complete, cancelled) | -
+**created** | String | Timestamp at which the funding was received |ISO 8601 timestamp
+**details** | JSON object | Specific funding details, may vary depending on funding method | -
+
+## Withdrawals
+
+Users that register a webhook will get a POST payload to that URL
+with the following fields on withdrawals.
+
+> The JSON Object posted to the webhook URL looks like this
+
+```json
+{
+    "event": "withdrawal",
+    "payload":
+
+    {
+        "wid": "p4u8d7f0768ee91d3b33bee6483132i8",
+        "status": "complete",
+        "created": "2017-07-09T19:22:38+00:00",
+        "currency": "xrp",
+        "method": "rp",
+        "amount": "57",
+        "details": {
+            "address": "r9cZA1mLK5R5Am25ArfXFmqgNwjZgnfk59",
+            "destination_tag": "64136557",
+            "ripple_transaction_hash": "33EA42FC7A06F062A7B843AF4DC7C0AB00D6644DFDF4C5D354A87C035813D321"
+        }
+    }
+}
+```
+
+### JSON  Payload
+
+Returns a JSON object with the follwing fields:
+
+Field Name | Type | Description | Units
+---------- | ---- | ----------- | -----
+**wid** | String | The unique withdrawal ID | -
+**currency** | String | Currency withdrawn | -
+**method** | String | Method for this withdrawal (mxn, btc, eth). | -
+**amount** | String | The withdrawal amount | currency
+**status** | String | The status for this withdrawal (pending, complete, cancelled) | -
+**created** | String | Timestamp at which the withdrawal was received |ISO 8601 timestamp
+**details** | JSON object | Specific withdrawal details, may vary depending on withdrawal method | -
