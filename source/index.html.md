@@ -1442,7 +1442,7 @@ Field Name | Type | Description | Units
 **method** | String | Method for this funding (MXN, BTC, ETH). | -
 **amount** | String | The funding amount | currency
 **status** | String | The status for this funding (pending, complete, failed) | -
-**created_at** | String | Timestamp at which the funding was recieved |ISO 8601 timestamp
+**created_at** | String | Timestamp at which the funding was received |ISO 8601 timestamp
 **details** | JSON object | Specific funding details | -
 
 ## User Trades
