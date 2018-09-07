@@ -3271,7 +3271,7 @@ with the following fields on deposits.
 
 ### JSON  Payload
 
-Returns a JSON object with the follwing fields:
+Returns a JSON object with the following fields:
 
 Field Name | Type | Description | Units
 ---------- | ---- | ----------- | -----
@@ -3319,7 +3319,7 @@ Field Name | Type | Description | Units
 ---------- | ---- | ----------- | -----
 **wid** | String | The unique withdrawal ID | -
 **currency** | String | Currency withdrawn | -
-**method** | String | Method for this withdrawal (mxn, btc, eth). | -
+**method** | String | Method for this withdrawal (btc, eth). | -
 **amount** | String | The withdrawal amount | currency
 **status** | String | The status for this withdrawal (pending, complete, cancelled) | -
 **created** | String | Timestamp at which the withdrawal was received |ISO 8601 timestamp
