@@ -3212,7 +3212,8 @@ corresponding to certain events described below.
 
 ```json
 {
-    "success": true
+    "success": true,
+    "payload": Succesfully registered URL: <callback_url>
 }
 ```
 
@@ -3235,7 +3236,7 @@ as the JSON payload used to construct the signature.
 
 Parameter | Default | Required | Description
 --------- | ------- | -------- | -----------
-**webhook_url** |  | Yes | Specifies a url that will be hit on events
+**callback_url** |  | Yes | Specifies a url that will be hit on events
 
 ## Fundings
 
