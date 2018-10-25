@@ -3213,7 +3213,7 @@ corresponding to certain events described below.
 ```json
 {
     "success": true,
-    "payload": Succesfully registered URL: <callback_url>
+    "payload": "Succesfully registered URL: <callback_url>"
 }
 ```
 
