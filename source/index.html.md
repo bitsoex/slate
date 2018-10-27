@@ -74,7 +74,7 @@ We return decimal numbers as strings to preserve full precision across platforms
 
 ## Rate Limits
 
-Rate limits are are based on one minute windows. For public API requests, the
+Rate limits are based on one minute windows. For public API requests, the
 limit is 60 requests per minute. For private API requests, the limit is 300
 requests per minute. If you exceed these limits, you will get locked out for
 one minute. Continuous one minute lockouts may result in a 24-hour block.
