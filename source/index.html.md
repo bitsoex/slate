@@ -2612,9 +2612,10 @@ as the JSON payload used to construct the signature.
 
 Parameter | Required | Description
 --------- | -------- | -----------
-**btc_amount** | No | Mutually exclusive with amount. Either this, or amount should be present in the request. The total amount in Bitcoins, as provided by the user. NOTE: The amount is in BTC format (900mbtc = .9 BTC).
-**amount** | No | Mutually exclusive with btc_amount. Either this, or btc_amount should be present in the request. The total amount in Fiat currency. Use this if you prefer specifying amounts in fiat instead of BTC.
-**currency** | Yes | An ISO 4217 fiat currency symbol (ie, “MXN”). If btc_amount is provided instead of amount, this is the currency to which the BTC price will be converted into. Otherwise, if amount is specified instead of btc_amount, this is the currency of the specified amount.
+**from_currency** | Yes | The cryptocurrency that you wish to send. This will be converted to the to_currency fiat currency
+**from_amount** | No | Mutually exclusive with to_amount. Either this, or to_amount should be present in the request. The total amount in Crypto, as provided by the user.
+**to_amount** | No | Mutually exclusive with from_amount. Either this, or from_amount should be present in the request. The total amount in Fiat currency. Use this if you prefer specifying amounts in fiat instead of cryptocurrency.
+**to_currency** | Yes | An ISO 4217 fiat currency symbol (ie, “MXN”). This is the resulting currency from the transfer.
 **full** | No | (optional, defaults to False) - Show the required_fields for each payment outlet as an array of {id, name} objects. This accepts either True or False. When not provided or if the value is False, the required_fields for each Payment Outlet are returned as an array of id strings. For more information about required_fields, please refer to the Payment Outlet Documentation.
 
 
@@ -2626,9 +2627,10 @@ Parameter | Required | Description
 {
    "success":true,
    "payload":{
-      "btc_amount":"0.14965623",
-      "btc_pending":"0",
-      "btc_received":"0",
+      "from_currency":"BTC",
+      "from_amount":"0.14965623",
+      "from_pending":"0",
+      "from_received":"0",
       "confirmation_code":"9b2a4",
       "created_at":"2016-04-08T17:52:31.000+00:0",
       "currency":"MXN",
@@ -2641,8 +2643,9 @@ Parameter | Required | Description
       },
       "id":"9b2a431b98597312e99cbff1ba432cbf",
       "payment_outlet_id":"pm",
+      "status":"pending",
       "qr_img_uri":"https:\/\/chart.googleapis.com\/chart?chl=bitcoin%3AmgKZfNdFJgztvfvhEaGgMTQRQ2iHCadHGa%3Famount%3D0.14965623&chs=400x400&cht=qr&choe=UTF-8&chld=L%7C0",
-      "user_uri":"https:\/\/api.bitso.com\/v2\/transfer\/9b2a431b98597312e99cbff1ba432cbf",
+      "user_uri":"https:\/\/api.bitso.com\/v3\/transfer\/9b2a431b98597312e99cbff1ba432cbf",
       "wallet_address":"3AmgKZfNdFJgztvfvhEaGgMTQRQ2iHCadHGa"
    }
 }
@@ -2669,9 +2672,10 @@ as the JSON payload used to construct the signature.
 
 Parameter | Required | Description
 --------- | -------- | -----------
-**btc_amount** | No | Mutually exclusive with amount. Either this, or amount should be present in the request. The total amount in Bitcoins, as provided by the user. NOTE: The amount is in BTC format (900mbtc = .9 BTC).
-**amount** | No | Mutually exclusive with btc_amount. Either this, or btc_amount should be present in the request. The total amount in Fiat currency. Use this if you prefer specifying amounts in fiat instead of BTC.
-**currency** | Yes | An ISO 4217 fiat currency symbol (ie, “MXN”). If btc_amount is provided instead of amount, this is the currency to which the BTC price will be converted into. Otherwise, if amount is specified instead of btc_amount, this is the currency of the specified amount.
+**from_currency** | Yes | The cryptocurrency that you wish to send. This will be converted to the to_currency fiat currency
+**from_amount** | No | Mutually exclusive with to_amount. Either this, or to_amount should be present in the request. The total amount in Crypto, as provided by the user.
+**to_amount** | No | Mutually exclusive with from_amount. Either this, or from_amount should be present in the request. The total amount in Fiat currency. Use this if you prefer specifying amounts in fiat instead of cryptocurrency.
+**to_currency** | Yes | An ISO 4217 fiat currency symbol (ie, “MXN”). This is the resulting currency from the transfer.
 **rate** | Yes | This is the rate (e.g. BTC/MXN), as acquired from the transfer_quote method. You must request a quote in this way before creating a transfer.
 **payment_outlet** | Yes | The outlet_id as provided by quote method. See below for more information on available outlets.
 **required_field1** | Yes | Each of the other ‘required fields’, as stipulated in the quote method for the chosen payment_outlet.
