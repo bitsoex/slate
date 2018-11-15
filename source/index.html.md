@@ -3113,13 +3113,14 @@ Field Name | Type | Description | Units
 ## Registering URLs
 
 Users can register a callback url that will get hit with payloads
-corresponding to certain events described below.
+corresponding to certain events described below. (Callback urls that take more than 10 seconds to respond will timeout)
 
 > The JSON object returned by the API looks like this:
 
 ```json
 {
-    "success": true
+    "success": true,
+    "payload": "Succesfully registered URL: <callback_url>"
 }
 ```
 
@@ -3142,7 +3143,7 @@ as the JSON payload used to construct the signature.
 
 Parameter | Default | Required | Description
 --------- | ------- | -------- | -----------
-**webhook_url** |  | Yes | Specifies a url that will be hit on events
+**callback_url** |  | Yes | Specifies a url that will be hit on events
 
 ## Fundings
 
