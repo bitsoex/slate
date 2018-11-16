@@ -3113,7 +3113,7 @@ Field Name | Type | Description | Units
 ## Registering URLs
 
 Users can register a callback url that will get hit with payloads
-corresponding to certain events described below. (Callback urls that take more than 10 seconds to respond will timeout)
+corresponding to certain events described below. (Callback urls that take more than 5 seconds to respond will timeout)
 
 > The JSON object returned by the API looks like this:
 
