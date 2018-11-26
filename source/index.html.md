@@ -117,6 +117,7 @@ error categories, the last two digits define specific errors.
 * 0323: No associated country code
 * 0324: Number already in use
 * 0325: Phone already verified
+* 0326: Quote is expired or invalid
 
 
 ### System Limit Errors: 04 (HTTP 400)
