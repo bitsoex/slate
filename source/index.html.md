@@ -99,7 +99,7 @@ error categories, the last two digits define specific errors.
 * 0305: Invalid SMS code (would also apply to correct code but not-correct client id)
 * 0306: Order side not in (buy, sell)
 * 0307: Order type not in (limit, market)
-* 0308: Order request included both minor and major
+* 0308: Order request cannot include both minor and major
 * 0309: Order request must include either minor or major
 * 0310: Incorrect WID (non-existent or does not belong to user)
 * 0311: Incorrect FID (non-existent or does not belong to user)
