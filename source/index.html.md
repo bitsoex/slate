@@ -118,7 +118,9 @@ error categories, the last two digits define specific errors.
 * 0324: Number already in use
 * 0325: Phone already verified
 * 0326: Quote is expired or invalid
-
+* 0327: Service unavailable for requesting location
+* 0328: Service unavailable for requesting country
+* 0329: Market order type must be in (maj, min)
 
 ### System Limit Errors: 04 (HTTP 400)
 * 0401: Incorrect price, below the minimum
