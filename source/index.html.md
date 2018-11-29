@@ -90,6 +90,7 @@ error categories, the last two digits define specific errors.
 
 ### Authentication Errors: 02 (HTTP 401)
 * 0201: Invalid Nonce or Invalid Credentials
+* 0202: Your account is currently suspended.
 
 ### Validation Errors: 03 (HTTP 400)
 * 0301: Unknown Order book
