@@ -91,6 +91,8 @@ error categories, the last two digits define specific errors.
 ### Authentication Errors: 02 (HTTP 401)
 * 0201: Invalid Nonce or Invalid Credentials
 * 0202: Your account is currently suspended.
+* 0203: Login token is invalid or expired
+* 0204: Incorrect PIN
 
 ### Validation Errors: 03 (HTTP 400)
 * 0301: Unknown Order book
@@ -122,6 +124,12 @@ error categories, the last two digits define specific errors.
 * 0327: Service unavailable for requesting location
 * 0328: Service unavailable for requesting country
 * 0329: Market order type must be in (maj, min)
+* 0330: Withdrawals locked for this account
+* 0331: Invalid referral code for Bitso Transfer
+* 0332: Empty PIN
+* 0333: PIN locked. Too many attempts
+* 0334: Bitso Transfers need either an email, phone_number, or refcode specified
+* 0335: Invalid SPEI recipient name
 
 ### System Limit Errors: 04 (HTTP 400)
 * 0401: Incorrect price, below the minimum
