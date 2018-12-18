@@ -3172,9 +3172,10 @@ with the following fields on deposits.
     {
         "fid": "p4u8d7f0768ee91d3b33bee6483132i8",
         "status": "complete",
-        "created": "2016-04-08T17:52:31+00:00",
+        "created_at": "2016-04-08T17:52:31+00:00",
         "currency": "mxn",
         "method": "sp",
+        "method_name": "Transferencia SPEI",
         "amount": "300.15",
         "details": {
             "sender_name": "HUGO HERNANDEZ MANZANO",
@@ -3199,9 +3200,10 @@ Field Name | Type | Description | Units
 **fid** | String | The unique funding ID | -
 **currency** | String | Currency funded | -
 **method** | String | Method for this funding (mxn, btc, eth). | -
+**method_name** | String | Long name for the method | -
 **amount** | String | The funding amount | currency
 **status** | String | The status for this funding (pending, complete, cancelled) | -
-**created** | String | Timestamp at which the funding was received |ISO 8601 timestamp
+**created_at** | String | Timestamp at which the funding was received |ISO 8601 timestamp
 **details** | JSON object | Specific funding details, may vary depending on funding method | -
 
 ## Withdrawals
@@ -3219,9 +3221,10 @@ with the following fields on withdrawals.
     {
         "wid": "p4u8d7f0768ee91d3b33bee6483132i8",
         "status": "complete",
-        "created": "2017-07-09T19:22:38+00:00",
+        "created_at": "2017-07-09T19:22:38+00:00",
         "currency": "xrp",
         "method": "rp",
+        "method_name": "Ripple",
         "amount": "57",
         "details": {
             "address": "r9cZA1mLK5R5Am25ArfXFmqgNwjZgnfk59",
@@ -3241,7 +3244,8 @@ Field Name | Type | Description | Units
 **wid** | String | The unique withdrawal ID | -
 **currency** | String | Currency withdrawn | -
 **method** | String | Method for this withdrawal (btc, eth). | -
+**method_name** | String | Long name for the method | -
 **amount** | String | The withdrawal amount | currency
 **status** | String | The status for this withdrawal (pending, complete, cancelled) | -
-**created** | String | Timestamp at which the withdrawal was received |ISO 8601 timestamp
+**created_at** | String | Timestamp at which the withdrawal was received |ISO 8601 timestamp
 **details** | JSON object | Specific withdrawal details, may vary depending on withdrawal method | -
