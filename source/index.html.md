@@ -131,7 +131,8 @@ error categories, the last two digits define specific errors.
 * 0334: Bitso Transfers need either an email, phone_number, or refcode specified
 * 0335: Invalid SPEI recipient name
 * 0336: No data found for CURP
-* 0337: No unique CURP found for data
+* 0337: No CURP found for data
+* 0338: Multiple CURPs found for data
 
 ### System Limit Errors: 04 (HTTP 400)
 * 0401: Incorrect price, below the minimum
