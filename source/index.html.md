@@ -151,6 +151,10 @@ error categories, the last two digits define specific errors.
 * 0601: Not enough btc funds
 * 0602: Not enough mxn funds
 
+### Errors related to an account: 07 (HTTP 400)
+* 0701: Action not permitted for unverified account
+* 0702: Action not permitted for unverified business account
+
 ### Throttling Errors: 08 (HTTP 420)
 * 0801: You have hit the request rate-limit
 
