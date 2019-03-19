@@ -134,6 +134,8 @@ error categories, the last two digits define specific errors.
 * 0337: No CURP found for data
 * 0338: Multiple CURPs found for data
 * 0339: Email is already in use
+* 0340: Not supported country
+* 0341: Invalid postal code
 
 ### System Limit Errors: 04 (HTTP 400)
 * 0401: Incorrect price, below the minimum
