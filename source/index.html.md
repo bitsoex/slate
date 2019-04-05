@@ -159,6 +159,7 @@ error categories, the last two digits define specific errors.
 
 ### Throttling Errors: 08 (HTTP 420)
 * 0801: You have hit the request rate-limit
+* 0802: Too many attempts to perform an operation
 
 ### Unsupported HTTP method (400 error)
 * 0901: Unsupported HTTP method
