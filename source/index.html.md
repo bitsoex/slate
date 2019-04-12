@@ -1373,6 +1373,9 @@ Parameter | Default | Required | Description
 Parameter | Default | Required | Description
 --------- | ------- | -------- | -----------
 **limit** | 25 | No | Specifies number of objects to return. (Max is 100)
+**marker** | - | No | Returns objects that are older than the object with this WID (for pagination)
+**status** | - | No | Restricts the withdrawals to those of the specified status (pending, processing, complete, failed)
+**method** | - | No | Restricts the withdrawals to those of the specified method (SP, BTC, ETH, ...)
 
 ### JSON Response Payload
 
@@ -1381,8 +1384,8 @@ Returns a JSON Array of open orders. Every element in the array is a JSON object
 Field Name | Type | Description | Units
 ---------- | ---- | ----------- | -----
 **wid** | String | The unique withdrawal ID | -
-**currency** | String | Currency withdrawn | -
-**method** | String | Method for this withdrawal (MXN, BTC, ETH). | -
+**currency** | String | Currency of the withdrawal | -
+**method** | String | Method for this withdrawal (SP, BTC, ETH, ...). | -
 **amount** | String | The withdrawn amount | currency
 **status** | String | The status for this withdrawal (pending, processing, complete, failed) | -
 **created_at** | String | Timestamp at which the withdrawal as created |ISO 8601 timestamp
