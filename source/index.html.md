@@ -1456,6 +1456,9 @@ Parameter | Default | Required | Description
 Parameter | Default | Required | Description
 --------- | ------- | -------- | -----------
 **limit** | 25 | No | Specifies number of objects to return. (Max is 100)
+**marker** | - | No | Returns objects that are older than the object with this FID (for pagination)
+**status** | - | No | Restricts the fundings to those of the specified status (pending, in_progress, complete, failed)
+**method** | - | No | Restricts the fundings to those of the specified method (SP, BTC, ETH, ...)
 
 
 ### JSON Response Payload
