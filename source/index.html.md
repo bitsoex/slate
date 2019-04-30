@@ -136,6 +136,7 @@ error categories, the last two digits define specific errors.
 * 0339: Email is already in use
 * 0340: Not supported country
 * 0341: Invalid postal code
+* 0342: Invalid setting identifier
 
 ### System Limit Errors: 04 (HTTP 400)
 * 0401: Incorrect price, below the minimum
