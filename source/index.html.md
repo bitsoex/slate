@@ -136,7 +136,11 @@ error categories, the last two digits define specific errors.
 * 0339: Email is already in use
 * 0340: Not supported country
 * 0341: Invalid postal code
-* 0342: Invalid setting identifier
+* 0342: Invalid CVU
+* 0343: Incorrect amount
+* 0344: Invalid BIND recipient name
+* 0345: Error processing Bind Transfer request
+* 0346: Invalid setting identifier
 
 ### System Limit Errors: 04 (HTTP 400)
 * 0401: Incorrect price, below the minimum
