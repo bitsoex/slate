@@ -140,6 +140,7 @@ error categories, the last two digits define specific errors.
 * 0343: Incorrect amount
 * 0344: Invalid BIND recipient name
 * 0345: Error processing Bind Transfer request
+* 0346: Invalid setting identifier
 
 ### System Limit Errors: 04 (HTTP 400)
 * 0401: Incorrect price, below the minimum
