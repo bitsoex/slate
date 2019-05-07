@@ -144,6 +144,7 @@ error categories, the last two digits define specific errors.
 * 0347: Too many attempts to validate CURP
 * 0348: CURP data did not match with user data
 * 0349: Already in use
+* 0350: Cannot disable a currency with positive balance
 
 ### System Limit Errors: 04 (HTTP 400)
 * 0401: Incorrect price, below the minimum
