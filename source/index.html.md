@@ -145,6 +145,7 @@ error categories, the last two digits define specific errors.
 * 0348: CURP data did not match with user data
 * 0349: Already in use
 * 0350: Cannot disable a currency with positive balance
+* 0351: Unable to generate CVU for user
 
 ### System Limit Errors: 04 (HTTP 400)
 * 0401: Incorrect price, below the minimum
