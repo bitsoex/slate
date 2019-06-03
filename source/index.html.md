@@ -147,6 +147,7 @@ error categories, the last two digits define specific errors.
 * 0350: Cannot disable a currency with positive balance
 * 0351: Unable to generate CVU for user
 * 0352: Disposable email not allowed
+* 0353: Current withdrawal fee is higher than specified maximum
 
 ### System Limit Errors: 04 (HTTP 400)
 * 0401: Incorrect price, below the minimum
@@ -2002,6 +2003,7 @@ Parameter | Default | Required | Description
 **currency** | - | Yes | The currency to withdraw (only required for `crypto_withdrawal` endpoint)
 **amount** | - | Yes | The amount of the asset to withdraw from your account
 **address** | - | Yes | The address to send that amount to
+**max_fee** | - | No | The maximum withdrawal you are willing to pay
 **destination_tag** | - | No | Destination Tag (Ripple XRP only, optional)
 
 ### JSON Response Payload
