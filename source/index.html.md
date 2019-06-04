@@ -159,6 +159,7 @@ error categories, the last two digits define specific errors.
 
 ### User Limit Error: 05 (HTTP 400)
 * 0501: Exceeds user limit for withdrawals
+* 0502: Exceeds user limit for deposits
 
 ### Funds Error: 06 (HTTP 400)
 * 0601: Not enough btc funds
