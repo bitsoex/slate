@@ -139,6 +139,7 @@ error categories, the last two digits define specific errors.
 * 0343: Incorrect amount
 * 0344: Invalid BIND recipient name
 * 0345: Error processing Bind Transfer request
+* 0346: You need to agree to the new terms and condition
 * 0347: Too many attempts to validate CURP
 * 0348: CURP data did not match with user data
 * 0349: Already in use
