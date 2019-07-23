@@ -148,6 +148,7 @@ error categories, the last two digits define specific errors.
 * 0352: Disposable email not allowed
 * 0353: Current withdrawal fee is higher than specified maximum
 * 0354: No defined legal operation entity
+* 0355: For your protection, your withdrawal ability has been suspended
 
 ### System Limit Errors: 04 (HTTP 400)
 * 0401: Incorrect price, below the minimum
@@ -161,6 +162,8 @@ error categories, the last two digits define specific errors.
 ### User Limit Error: 05 (HTTP 400)
 * 0501: Exceeds user limit for withdrawals
 * 0502: Exceeds user limit for deposits
+* 0503: Exceeds destination user limit for deposits
+* 0504: Exceeds cashout withdrawal limit for phone number
 
 ### Funds Error: 06 (HTTP 400)
 * 0601: Not enough btc funds
