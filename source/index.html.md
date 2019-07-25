@@ -148,7 +148,6 @@ error categories, the last two digits define specific errors.
 * 0352: Disposable email not allowed
 * 0353: Current withdrawal fee is higher than specified maximum
 * 0354: No defined legal operation entity
-* 0355: For your protection, your withdrawal ability has been suspended
 
 ### System Limit Errors: 04 (HTTP 400)
 * 0401: Incorrect price, below the minimum
@@ -172,6 +171,7 @@ error categories, the last two digits define specific errors.
 ### Errors related to an account: 07 (HTTP 400)
 * 0701: Action not permitted for unverified account
 * 0702: Action not permitted for unverified business account
+* 0703: For your protection, your withdrawal ability has been suspended
 
 ### Throttling Errors: 08 (HTTP 420)
 * 0801: You have hit the request rate-limit
