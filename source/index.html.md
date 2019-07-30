@@ -177,6 +177,9 @@ error categories, the last two digits define specific errors.
 * 0801: You have hit the request rate-limit
 * 0802: Too many attempts to perform an operation
 
+### Other Errors: 09 (HTTP 420)
+* 0900: Not found users lookup hash
+
 ### Unsupported HTTP method (400 error)
 * 0901: Unsupported HTTP method
 
