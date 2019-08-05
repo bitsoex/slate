@@ -148,6 +148,7 @@ error categories, the last two digits define specific errors.
 * 0352: Disposable email not allowed
 * 0353: Current withdrawal fee is higher than specified maximum
 * 0354: No defined legal operation entity
+* 0355: Incorrect hash (non-existent or does not belong to user)
 
 ### System Limit Errors: 04 (HTTP 400)
 * 0401: Incorrect price, below the minimum
@@ -176,9 +177,6 @@ error categories, the last two digits define specific errors.
 ### Throttling Errors: 08 (HTTP 420)
 * 0801: You have hit the request rate-limit
 * 0802: Too many attempts to perform an operation
-
-### Other Errors: 09 (HTTP 420)
-* 0900: Not found users lookup hash
 
 ### Unsupported HTTP method (400 error)
 * 0901: Unsupported HTTP method
