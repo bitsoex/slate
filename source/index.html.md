@@ -148,6 +148,7 @@ error categories, the last two digits define specific errors.
 * 0352: Disposable email not allowed
 * 0353: Current withdrawal fee is higher than specified maximum
 * 0354: No defined legal operation entity
+* 0355: Incorrect hash (non-existent or does not belong to user)
 
 ### System Limit Errors: 04 (HTTP 400)
 * 0401: Incorrect price, below the minimum
