@@ -1883,7 +1883,7 @@ Parameter | Default | Required | Description
 **minor** | - | No | The amount of minor currency for this order. An order must be specified in terms of major or minor, never both.
 **price** | - | No | Price per unit of major. For use only with limit orders | Minor (MXN)
 **stop**  | - | No | Price per unit of major at which to stop and place order. For use only with stop orders.
-**time_in_force**  | - | No | Indicate how long an order will remain active before it is executed or expires (goodtillcancelled, fillorkill, immediateorcancel)
+**time_in_force**  | - | No | Indicates how long a limit order will remain active before it is executed or expires (goodtillcancelled, fillorkill, immediateorcancel)
 
 
 ### JSON Response Payload
