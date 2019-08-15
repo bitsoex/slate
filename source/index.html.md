@@ -76,7 +76,7 @@ We return decimal numbers as strings to preserve full precision across platforms
 
 Rate limits are based on one minute windows. For public API requests, the limit is by IP address and allows 60 requests per minute. For private API requests, the limit is by user and allows 300
 requests per minute. If you exceed these limits, you will get locked out for
-one minute. Continuous one minute lockouts may result in a 24-hour block.
+one minute. Continuous one minute lockouts may result in a 24-hour block. Order cancellations aren’t subject to API rate limiting.
 
 ## Error Codes
 
@@ -1867,7 +1867,7 @@ Parameter | Default | Required | Description
 --------- | ------- | -------- | -----------
 **key** | - | Yes | See [Creating and Signing Requests](#creating-and-signing-requests)
 **signature** | - | Yes | See [Creating and Signing Requests](#creating-and-signing-requests)
-**nonce** | - | Yes | See [Creating and Signing Requests](#creating-and-signing-
+**nonce** | - | Yes | See [Creating and Signing Requests](#creating-and-signing-requests)
 
 ### Body Parameters
 
@@ -1883,6 +1883,7 @@ Parameter | Default | Required | Description
 **minor** | - | No | The amount of minor currency for this order. An order must be specified in terms of major or minor, never both.
 **price** | - | No | Price per unit of major. For use only with limit orders | Minor (MXN)
 **stop**  | - | No | Price per unit of major at which to stop and place order. For use only with stop orders.
+**time_in_force**  | - | No | Indicates how long a limit order will remain active before it is executed or expires (goodtillcancelled, fillorkill, immediateorcancel)
 
 
 ### JSON Response Payload
