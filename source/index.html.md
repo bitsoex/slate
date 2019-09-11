@@ -148,6 +148,7 @@ error categories, the last two digits define specific errors.
 * 0353: Current withdrawal fee is higher than specified maximum
 * 0354: No defined legal operation entity
 * 0355: Incorrect hash (non-existent or does not belong to user)
+* 0356: Duplicate client id provided
 
 ### System Limit Errors: 04 (HTTP 400)
 * 0401: Incorrect price, below the minimum
@@ -1609,7 +1610,9 @@ This endpoint returns a list of the user's trades.
 ### HTTP Request
 
 
-`GET https://api.bitso.com/v3/order_trades/oid/`
+`GET https://api.bitso.com/v3/order_trades/<oid>/`
+
+`GET https://api.bitso.com/v3/order_trades/client_id/<client_id>/`
 
 
 ### Query Parameters
@@ -1617,6 +1620,7 @@ This endpoint returns a list of the user's trades.
 Parameter | Default | Required | Description
 --------- | ------- | -------- | -----------
 **oid** |   | Yes | Specifies which order to get corresponding trades for
+**client_id* |   | Yes | Specifies which order to get corresponding trades for (by client_id)
 
 
 ### JSON Response Payload
@@ -1771,6 +1775,8 @@ Returns a list of details for 1 or more orders
 
 `GET https://api.bitso.com/v3/orders/<oid>-<oid>-<oid>/`
 
+`GET https://api.bitso.com/v3/orders/client_id/<client_id>-<client_id>-<client_id>/`
+
 
 ### Authorization Header Parameters
 
@@ -1797,8 +1803,12 @@ Field Name | Type | Description | Units
 **updated_at** | String | Timestamp at which the order was updated (can be null) | ISO 8601 timestamp
 **price** | String | The order's price | Minor
 **side** | String | The order side (buy, sell) | -
-**status** | String | The order's status (queued, open, partial-fill, closed) |
+**status** | String | The order's status (queued, open, partial-fill, closed) | -
 **type** | String | The order type (market, limit) | -
+**client_id** | String | The client_id if any | -
+**time_in_force** | String | The time in force paramater for limit orders | -
+**stop** | String | The stop price for Stop orders | - | Major
+**triggered_at** | String | Timestamp at which a stop order was triggered | ISO 8601 timestamp
 
 
 ## Cancel Order
@@ -1809,10 +1819,10 @@ Field Name | Type | Description | Units
 {
     "success": true,
     "payload":[
-        "543cr2v32a1h684430tvcqx1b0vkr93wd694957cg8umhyrlzkgbaedmf976ia3v",
-        "qlbga6b600n3xta7actori10z19acfb20njbtuhtu5xry7z8jswbaycazlkc0wf1",
-        "d71e3xy2lowndkfmde6bwkdsvw62my6058e95cbr08eesu0687i5swyot4rf2yf8"
-        ]
+        "cME2F7uZKJcMKXqU",
+        "FwllxXRKvcgJmyFy",
+        "zhDI9iBRglW9s9Vu"
+    ]
 }
 ```
 
@@ -1823,6 +1833,8 @@ Cancels open order(s)
 `DELETE https://api.bitso.com/v3/orders/<oid>/`
 
 `DELETE https://api.bitso.com/v3/orders/<oid>-<oid>-<oid>/`
+
+`DELETE https://api.bitso.com/v3/orders/client_id/<client_id>-<client_id>-<client_id>/`
 
 `DELETE https://api.bitso.com/v3/orders/all/`
 
@@ -1850,7 +1862,7 @@ The response is a list of Order IDs (OIDs) for the canceled orders. Orders may n
     "success": true,
     "payload": {
         "oid": "qlbga6b600n3xta7"
-        }
+    }
 }
 ```
 
@@ -1882,7 +1894,8 @@ Parameter | Default | Required | Description
 **minor** | - | No | The amount of minor currency for this order. An order must be specified in terms of major or minor, never both.
 **price** | - | No | Price per unit of major. For use only with limit orders | Minor (MXN)
 **stop**  | - | No | Price per unit of major at which to stop and place order. For use only with stop orders.
-**time_in_force**  | - | No | Indicates how long a limit order will remain active before it is executed or expires (goodtillcancelled, fillorkill, immediateorcancel)
+**time_in_force**  | - | No | Indicates how long a limit order will remain active before it is executed or expires (goodtillcancelled, fillorkill, immediateorcancel, postonly)
+**client_id** | - | No | Client supplied unique ID. Can be used to lookup and cancel orders
 
 
 ### JSON Response Payload
@@ -1892,18 +1905,6 @@ Returns a JSON object representing the order:
 Field Name | Type | Description | Units
 ---------- | ---- | ----------- | -----
 **oid** | String | The Order ID | -
-**book** | String | Order book symbol | Major_Minor
-**original_amount** | String | The order's initial major currency amount | Major
-**unfilled_amount** | String | The order's unfilled major currency amount | Major
-**original_value** | String | The order's initial minor currency amount | Minor
-**created_at** | String | Timestamp at which the order was created |ISO 8601 timestamp
-**updated_at** | String | Timestamp at which the order was updated (can be null) | ISO 8601 timestamp
-**price** | String | The order's price | Minor
-**side** | String | The order side (buy, sell) | -
-**status** | String | The order's status (queued, open, partial-fill, closed) |
-**type** | String | The order type (market, limit) | -
-
-
 
 
 ## Funding Destination
