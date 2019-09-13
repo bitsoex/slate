@@ -1620,7 +1620,7 @@ This endpoint returns a list of the user's trades.
 Parameter | Default | Required | Description
 --------- | ------- | -------- | -----------
 **oid** |   | Yes | Specifies which order to get corresponding trades for
-**client_id* |   | Yes | Specifies which order to get corresponding trades for (by client_id)
+**client_id** |   | Yes | Specifies which order to get corresponding trades for (by client_id)
 
 
 ### JSON Response Payload
