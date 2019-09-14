@@ -554,21 +554,20 @@ var auth_header = "Bitso "+key+":" +nonce+":"+signature;
 
 
 var options = {
-  host: 'bitso.lan',
-  port: 80,
+  host: 'api.bitso.com',
   path: '/v3/balance/',
   method: 'GET',
   headers: {
-        'Authorization': auth_header
-    }
+    'Authorization': auth_header
+  }
 };
 
 // Send request
 var http = require('https');
 var req = http.request(options, function(res) {
-    res.on('data', function (chunk) {
-        console.log("body: " + chunk);
-    });
+  res.on('data', function (chunk) {
+    console.log("body: " + chunk);
+  });
 });
 req.end();
 ```
