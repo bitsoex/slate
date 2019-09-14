@@ -541,8 +541,8 @@ http GET $URL Authorization:"$AUTH_HEADER"
 var key = "BITSO API KEY";
 var secret = "BITSO API SECRET";
 var http_method="GET";  // Change to POST if endpoint requires data
-var json_payload={};    // Needed for POST endpoints requiring data
 var request_path="/v3/balance/"
+var json_payload={};    // Needed for POST endpoints requiring data
 
 // Create the signature
 var nonce = new Date().getTime();
@@ -593,17 +593,20 @@ import time
 import hmac
 import hashlib
 import requests
+import json
 
 
 bitso_key = "BITSO_KEY"
 bitso_secret = "BITSO_SECRET"
-nonce =  str(int(round(time.time() * 1000)))
-http_method = "GET"
+http_method = "GET" # Change to POST if endpoint requires data
 request_path = "/v3/balance/"
-json_payload = ""
+parameters = {}     # Needed for POST endpoints requiring data
 
 # Create signature
-message = nonce+http_method+request_path+json_payload
+nonce =  str(int(round(time.time() * 1000)))
+message = nonce+http_method+request_path
+if (http_method == "POST"):
+  message += json.dumps(parameters)
 signature = hmac.new(bitso_secret.encode('utf-8'),
                                             message.encode('utf-8'),
                                             hashlib.sha256).hexdigest()
@@ -612,9 +615,13 @@ signature = hmac.new(bitso_secret.encode('utf-8'),
 auth_header = 'Bitso %s:%s:%s' % (bitso_key, nonce, signature)
 
 # Send request
-response = requests.get("https://api.bitso.com/v3/balance/", headers={"Authorization": auth_header})
+if (http_method == "GET"):
+  response = requests.get("https://api.bitso.com" + request_path, headers={"Authorization": auth_header})
+elif (http_method == "POST"):
+  response = requests.post("https://api.bitso.com" + request_path, json = parameters, headers={"Authorization": auth_header})
 
 print response.content
+
 ```
 
 
