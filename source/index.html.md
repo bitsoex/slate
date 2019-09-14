@@ -537,39 +537,53 @@ http GET $URL Authorization:"$AUTH_HEADER"
 
 
 ```javascript
+// Define your request
 var key = "BITSO API KEY";
 var secret = "BITSO API SECRET";
-var nonce = new Date().getTime();
-var http_method="GET";
-var json_payload=""
+var http_method="GET";  // Change to POST if endpoint requires data
+var json_payload={};    // Needed for POST endpoints requiring data
 var request_path="/v3/balance/"
 
 // Create the signature
-var Data = nonce+http_method+request_path+json_payload;
+var nonce = new Date().getTime();
+var message = nonce+http_method+request_path;
+var payload = JSON.stringify(json_payload)
+if (http_method == "POST")
+  message += payload;
 var crypto = require('crypto');
-var signature = crypto.createHmac('sha256', secret).update(Data).digest('hex');
+var signature = crypto.createHmac('sha256', secret).update(message).digest('hex');
 
 // Build the auth header
 var auth_header = "Bitso "+key+":" +nonce+":"+signature;
 
-
+// Send request
 var options = {
   host: 'api.bitso.com',
-  path: '/v3/balance/',
-  method: 'GET',
+  path: request_path,
+  method: http_method,
   headers: {
-    'Authorization': auth_header
+    'Authorization': auth_header,
+    'Content-Type': 'application/json'
   }
 };
 
 // Send request
 var http = require('https');
 var req = http.request(options, function(res) {
+  console.log(`statusCode: ${res.statusCode}`);
+  console.log(`statusMessage: ${res.statusMessage}`);
   res.on('data', function (chunk) {
-    console.log("body: " + chunk);
+    console.log(`body: ${chunk}`);
   });
 });
+req.on('error', (error) => {
+  console.error(error)
+})
+if (http_method == "POST") {
+  req.write(payload);
+}
 req.end();
+
 ```
 
 ```python
