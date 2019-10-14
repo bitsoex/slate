@@ -2107,7 +2107,7 @@ Parameter | Default | Required | Description
 **recipient_given_names** | - | Yes | The recipient's first and middle name(s)
 **recipient_family_names** | - | Yes | The recipient's last name
 **clabe** | - | Yes | The [CLABE](https://en.wikipedia.org/wiki/CLABE) number where the funds will be sent to
-**notes_ref** | - | No | The alpha-numeric reference number for this SPEI
+**notes_ref** | - | No | The alpha-numeric reference number for this SPEI (max. 40 characters)
 **numeric_ref** | - | No | The numeric reference for this SPEI (max. 7 digits)
 
 
