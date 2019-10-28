@@ -173,6 +173,7 @@ error categories, the last two digits define specific errors.
 * 0701: Action not permitted for unverified account
 * 0702: Action not permitted for unverified business account
 * 0703: For your protection, your withdrawal ability has been suspended
+* 0704: A specific feature is disabled as the user has decided to opt-out
 
 ### Throttling Errors: 08 (HTTP 420)
 * 0801: You have hit the request rate-limit
