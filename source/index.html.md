@@ -190,13 +190,6 @@ The following client libraries will allow you to integrate quickly with our APIs
 * [Java](https://github.com/bitsoex/bitso-java)
 * [Python](https://github.com/bitsoex/bitso-py)
 
-
-
-## Legacy API Docs
-
-Documentation for the v2 API available at [https://bitso.com/api_info/v2](https://bitso.com/api_info/v2)
-
-
 # Public REST API
 
 
