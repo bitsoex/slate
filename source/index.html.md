@@ -149,6 +149,7 @@ error categories, the last two digits define specific errors.
 * 0354: No defined legal operation entity
 * 0355: Incorrect hash (non-existent or does not belong to user)
 * 0356: Duplicate client id provided
+* 0357: Incorrect origin id (non-existent or does not belong to user)
 
 ### System Limit Errors: 04 (HTTP 400)
 * 0401: Incorrect price, below the minimum
