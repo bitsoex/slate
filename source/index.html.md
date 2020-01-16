@@ -137,7 +137,6 @@ error categories, the last two digits define specific errors.
 * 0342: Invalid CVU
 * 0343: Incorrect amount
 * 0344: Invalid BIND recipient name
-* 0345: Error processing Bind Transfer request
 * 0346: You need to agree to the new terms and condition
 * 0347: Too many attempts to validate CURP
 * 0348: CURP data did not match with user data
@@ -148,7 +147,7 @@ error categories, the last two digits define specific errors.
 * 0353: Current withdrawal fee is higher than specified maximum
 * 0354: No defined legal operation entity
 * 0355: Incorrect hash (non-existent or does not belong to user)
-* 0356: Duplicate client id provided
+* 0356: Duplicate origin id provided
 * 0357: Incorrect origin id (non-existent or does not belong to user)
 
 ### System Limit Errors: 04 (HTTP 400)
@@ -182,6 +181,9 @@ error categories, the last two digits define specific errors.
 
 ### Unsupported HTTP method (400 error)
 * 0901: Unsupported HTTP method
+
+### Withdrawals error codes
+* 1000: "Error processing the withdrawal"
 
 
 ## Client Libraries
