@@ -158,6 +158,7 @@ error categories, the last two digits define specific errors.
 * 0405: Incorrect minor, below the minimum
 * 0406: Incorrect minor, above the maximum
 * 0407: Invalid precision
+* 0408: Incorrect amount value, it must be a non-zero positive value.
 
 ### User Limit Error: 05 (HTTP 400)
 * 0501: Exceeds user limit for withdrawals
