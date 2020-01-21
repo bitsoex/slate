@@ -2322,7 +2322,7 @@ Field Name | Type | Description | Units
 
 ## General
 
-The **Trades channel** send a message whenver a new trade is executed in the corresponding order book.
+The **Trades channel** send a message whenever a new trade is executed in the corresponding order book.
 
 The **Orders channel** maintains an up-to-date list of the top 20 asks and the top 20 bids, new messages are sent across the channel whenever there is a change in either top 20.
 
