@@ -1581,7 +1581,7 @@ Field Name | Type | Description | Units
 **fees_amount** | String | Indicates the amount charged as trade fee |
 **tid** | Long | Trade ID |
 **oid** | String | Users' Order ID |
-**client_id** | String | Users' Order 'client_id' (if any) |
+**origin_id** | String | Users' Order 'origin_id' (if any) |
 **created_at** | String | Timestamp at which the trade was executed | ISO 8601 timestamp
 
 ## Order Trades
@@ -1605,7 +1605,7 @@ curl "https://api.bitso.com/v3/order_trades/Jvqrschkgdkc1go3"
             "price": "4057.45",
             "tid": 51756,
             "oid": "Jvqrschkgdkc1go3",
-            "client_id": "client_id1",
+            "origin_id": "origin_id1",
             "side": "sell"
         },
         {
@@ -1618,7 +1618,7 @@ curl "https://api.bitso.com/v3/order_trades/Jvqrschkgdkc1go3"
             "price": "4057.45",
             "tid": 51755,
             "oid": "Jvqrschkgdkc1go3",
-            "client_id": "client_id1",
+            "origin_id": "origin_id1",
             "side": "sell"
         }
     ]
@@ -1658,7 +1658,7 @@ Field Name | Type | Description | Units
 **fees_amount** | String | Indicates the amount charged as trade fee |
 **tid** | Long | Trade ID |
 **oid** | String | Users' Order ID |
-**client_id** | String | Users' Order 'client_id' (if any) |
+**origin_id** | String | Users' Order 'origin_id' (if any) |
 **created_at** | String | Timestamp at which the trade was executed | ISO 8601 timestamp
 
 
@@ -1679,7 +1679,7 @@ Field Name | Type | Description | Units
         "updated_at": "2016-04-08T17:52:51.000+00:00",
         "price": "5600.00",
         "oid": "543cr2v32a1h68443",
-        "client_id": "client_id2",
+        "origin_id": "origin_id1",
         "side": "buy",
         "status": "partial-fill",
         "type": "limit"
@@ -1827,7 +1827,7 @@ Field Name | Type | Description | Units
 **side** | String | The order side (buy, sell) | -
 **status** | String | The order's status (queued, open, partial-fill, closed) | -
 **type** | String | The order type (market, limit) | -
-**client_id** | String | The client_id if any | -
+**origin_id** | String | The origin_id if any | -
 **time_in_force** | String | The time in force paramater for limit orders | -
 **stop** | String | The stop price for Stop orders | - | Major
 **triggered_at** | String | Timestamp at which a stop order was triggered | ISO 8601 timestamp
@@ -1917,7 +1917,7 @@ Parameter | Default | Required | Description
 **price** | - | No | Price per unit of major. For use only with limit orders | Minor (MXN)
 **stop**  | - | No | Price per unit of major at which to stop and place order. For use only with stop orders.
 **time_in_force**  | - | No | Indicates how long a limit order will remain active before it is executed or expires (goodtillcancelled, fillorkill, immediateorcancel, postonly)
-**client_id** | - | No | Client supplied unique ID. Can be used to lookup and cancel orders
+**origin_id** | - | No | Client supplied unique ID. Can be used to lookup and cancel orders
 
 
 ### JSON Response Payload
