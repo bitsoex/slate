@@ -149,6 +149,8 @@ error categories, the last two digits define specific errors.
 * 0354: No defined legal operation entity
 * 0355: Incorrect hash (non-existent or does not belong to user)
 * 0356: Duplicate client id provided
+* 0358: The password must have at least 8 characters
+* 0359: The password is too long
 
 ### System Limit Errors: 04 (HTTP 400)
 * 0401: Incorrect price, below the minimum
