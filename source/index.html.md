@@ -182,10 +182,6 @@ error categories, the last two digits define specific errors.
 ### Unsupported HTTP method (400 error)
 * 0901: Unsupported HTTP method
 
-### Withdrawals error codes
-* 1000: "Error processing the withdrawal"
-
-
 ## Client Libraries
 
 The following client libraries will allow you to integrate quickly with our APIs
