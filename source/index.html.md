@@ -185,6 +185,9 @@ error categories, the last two digits define specific errors.
 ### Unsupported HTTP method (400 error)
 * 0901: Unsupported HTTP method
 
+### Miscellaneous Errors: 10 (400 error)
+* 1000: API temporarily disabled (More info in error message)
+
 
 ## Client Libraries
 
