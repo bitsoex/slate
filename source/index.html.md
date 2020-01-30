@@ -2322,8 +2322,6 @@ Field Name | Type | Description | Units
 **amount** | String | Amount to withdraw | -
 **details** | String | Method specific details for this withdrawal | -
 
-
-
 # WebSocket API
 
 ## General
@@ -2356,8 +2354,6 @@ number below or equal to the one from the REST orderbook.
 structure.
 6. Apply real-time messages to your local orderbook as they come in
    trough the stream.
-
-
 
 An order's timestamp field is immutable. Even if the amount field is mutated, or the order removed, the timestamp field remains as it was when the order was created. Note that a timestamp is not unique. Different orders can have the same timestamp.
 
@@ -2402,6 +2398,12 @@ websocket.onmessage = function(message){
 
                 }
             };
+```
+
+> Keep alive messages look like this:
+
+```blab
+{"type":"ka"}
 ```
 
 ### Example Implementation
