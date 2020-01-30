@@ -1605,7 +1605,7 @@ curl "https://api.bitso.com/v3/order_trades/Jvqrschkgdkc1go3"
             "price": "4057.45",
             "tid": 51756,
             "oid": "Jvqrschkgdkc1go3",
-            "client_id": "client_id1",
+            "origin_id": "origin_id",
             "side": "sell"
         },
         {
@@ -1618,7 +1618,7 @@ curl "https://api.bitso.com/v3/order_trades/Jvqrschkgdkc1go3"
             "price": "4057.45",
             "tid": 51755,
             "oid": "Jvqrschkgdkc1go3",
-            "client_id": "client_id1",
+            "origin_id": "origin_id1",
             "side": "sell"
         }
     ]
@@ -1632,16 +1632,14 @@ This endpoint returns a list of the user's trades.
 
 `GET https://api.bitso.com/v3/order_trades/<oid>/`
 
-`GET https://api.bitso.com/v3/order_trades/client_id/<client_id>/`
-
+`GET https://api.bitso.com/v3/order_trades/origin_id/<origin_id>/`
 
 ### Query Parameters
 
 Parameter | Default | Required | Description
 --------- | ------- | -------- | -----------
 **oid** |   | Yes | Specifies which order to get corresponding trades for
-**client_id** |   | Yes | Specifies which order to get corresponding trades for (by client_id)
-
+**origin_id** |   | Yes | Specifies which order to get corresponding trades for (by origin_id)
 
 ### JSON Response Payload
 
@@ -1797,18 +1795,14 @@ Returns a list of details for 1 or more orders
 
 `GET https://api.bitso.com/v3/orders/<oid>-<oid>-<oid>/`
 
-`GET https://api.bitso.com/v3/orders/client_id/<client_id>-<client_id>-<client_id>/`
+`GET https://api.bitso.com/v3/orders/origin_id/<origin_id>-<origin_id>-<origin_id>/`
 
-
-### Authorization Header Parameters
+### Query Parameters
 
 Parameter | Default | Required | Description
 --------- | ------- | -------- | -----------
-**key** | - | Yes | See [Creating and Signing Requests](#creating-and-signing-requests)
-**signature** | - | Yes | See [Creating and Signing Requests](#creating-and-signing-requests)
-**nonce** | - | Yes | See [Creating and Signing Requests](#creating-and-signing-requests)
-
-
+**oid** |   | Yes | Specifies which order to get corresponding trades for
+**origin_id** |   | Yes | Specifies which order to get corresponding trades for (by origin_id)
 
 ### JSON Response Payload
 
@@ -1831,7 +1825,6 @@ Field Name | Type | Description | Units
 **time_in_force** | String | The time in force paramater for limit orders | -
 **stop** | String | The stop price for Stop orders | - | Major
 **triggered_at** | String | Timestamp at which a stop order was triggered | ISO 8601 timestamp
-
 
 ## Cancel Order
 
@@ -1856,20 +1849,16 @@ Cancels open order(s)
 
 `DELETE https://api.bitso.com/v3/orders/<oid>-<oid>-<oid>/`
 
-`DELETE https://api.bitso.com/v3/orders/client_id/<client_id>-<client_id>-<client_id>/`
+`DELETE https://api.bitso.com/v3/orders/origin_id/<origin_id>-<origin_id>-<origin_id>/`
 
 `DELETE https://api.bitso.com/v3/orders/all/`
 
-
-
-### Authorization Header Parameters
+### Query Parameters
 
 Parameter | Default | Required | Description
 --------- | ------- | -------- | -----------
-**key** | - | Yes | See [Creating and Signing Requests](#creating-and-signing-requests)
-**signature** | - | Yes | See [Creating and Signing Requests](#creating-and-signing-requests)
-**nonce** | - | Yes | See [Creating and Signing Requests](#creating-and-signing-requests)
-
+**oid** |   | Yes | Specifies which order to get corresponding trades for
+**origin_id** |   | Yes | Specifies which order to get corresponding trades for (by origin_id)
 
 ### JSON Response Payload
 
