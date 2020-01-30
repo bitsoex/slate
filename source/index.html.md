@@ -149,6 +149,8 @@ error categories, the last two digits define specific errors.
 * 0355: Incorrect hash (non-existent or does not belong to user)
 * 0356: Duplicate origin id provided
 * 0357: Incorrect origin id (non-existent or does not belong to user)
+* 0358: The password must have at least 8 characters
+* 0359: The password is too long
 
 ### System Limit Errors: 04 (HTTP 400)
 * 0401: Incorrect price, below the minimum
@@ -158,6 +160,7 @@ error categories, the last two digits define specific errors.
 * 0405: Incorrect minor, below the minimum
 * 0406: Incorrect minor, above the maximum
 * 0407: Invalid precision
+* 0408: Incorrect amount value, it must be a non-zero positive value.
 
 ### User Limit Error: 05 (HTTP 400)
 * 0501: Exceeds user limit for withdrawals
@@ -181,6 +184,9 @@ error categories, the last two digits define specific errors.
 
 ### Unsupported HTTP method (400 error)
 * 0901: Unsupported HTTP method
+
+### Miscellaneous Errors: 10 (400 error)
+* 1000: API temporarily disabled (More info in error message)
 
 ## Client Libraries
 
@@ -2321,7 +2327,7 @@ Field Name | Type | Description | Units
 
 ## General
 
-The **Trades channel** send a message whenver a new trade is executed in the corresponding order book.
+The **Trades channel** send a message whenever a new trade is executed in the corresponding order book.
 
 The **Orders channel** maintains an up-to-date list of the top 20 asks and the top 20 bids, new messages are sent across the channel whenever there is a change in either top 20.
 
