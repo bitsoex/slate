@@ -187,6 +187,8 @@ error categories, the last two digits define specific errors.
 
 ### Miscellaneous Errors: 10 (400 error)
 * 1000: API temporarily disabled (More info in error message)
+* 1001: Too many open orders
+* 1002: Unable to process order
 
 
 ## Client Libraries
