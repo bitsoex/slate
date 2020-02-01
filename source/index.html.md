@@ -88,9 +88,10 @@ error categories, the last two digits define specific errors.
 
 ### Authentication Errors: 02 (HTTP 401)
 * 0201: Invalid Nonce or Invalid Credentials
-* 0202: Used API key is not authorized to execute the requested method
+* 0202: API key is not authorized to execute the requested method
 * 0203: Login token is invalid or expired
 * 0204: Incorrect PIN
+* 0205: API key is not active
 
 ### Validation Errors: 03 (HTTP 400)
 * 0301: Unknown Order book
