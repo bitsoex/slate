@@ -92,6 +92,8 @@ error categories, the last two digits define specific errors.
 * 0203: Login token is invalid or expired
 * 0204: Incorrect PIN
 * 0205: API key is not active
+* 0206: Invalid nonce type
+* 0207: Invalid nonce value
 
 ### Validation Errors: 03 (HTTP 400)
 * 0301: Unknown Order book
