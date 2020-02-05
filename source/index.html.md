@@ -88,9 +88,12 @@ error categories, the last two digits define specific errors.
 
 ### Authentication Errors: 02 (HTTP 401)
 * 0201: Invalid Nonce or Invalid Credentials
-* 0202: Your account is currently suspended.
+* 0202: API key is not authorized to execute the requested method
 * 0203: Login token is invalid or expired
 * 0204: Incorrect PIN
+* 0205: API key is not active
+* 0206: Invalid nonce type
+* 0207: Invalid nonce value
 
 ### Validation Errors: 03 (HTTP 400)
 * 0301: Unknown Order book
@@ -177,6 +180,8 @@ error categories, the last two digits define specific errors.
 * 0702: Action not permitted for unverified business account
 * 0703: For your protection, your withdrawal ability has been suspended
 * 0704: A specific feature is disabled as the user has decided to opt-out
+* 0705: Your account is currently suspended
+* 0706: You must accept the Terms of service
 
 ### Throttling Errors: 08 (HTTP 420)
 * 0801: You have hit the request rate-limit
@@ -184,6 +189,11 @@ error categories, the last two digits define specific errors.
 
 ### Unsupported HTTP method (400 error)
 * 0901: Unsupported HTTP method
+
+### Miscellaneous Errors: 10 (400 error)
+* 1000: API temporarily disabled (More info in error message)
+* 1001: Too many open orders
+* 1002: Unable to process order
 
 
 ## Client Libraries
@@ -2308,8 +2318,6 @@ Field Name | Type | Description | Units
 **amount** | String | Amount to withdraw | -
 **details** | String | Method specific details for this withdrawal | -
 
-
-
 # WebSocket API
 
 ## General
@@ -2342,8 +2350,6 @@ number below or equal to the one from the REST orderbook.
 structure.
 6. Apply real-time messages to your local orderbook as they come in
    trough the stream.
-
-
 
 An order's timestamp field is immutable. Even if the amount field is mutated, or the order removed, the timestamp field remains as it was when the order was created. Note that a timestamp is not unique. Different orders can have the same timestamp.
 
@@ -2388,6 +2394,12 @@ websocket.onmessage = function(message){
 
                 }
             };
+```
+
+> Keep alive messages look like this:
+
+```blab
+{"type":"ka"}
 ```
 
 ### Example Implementation
