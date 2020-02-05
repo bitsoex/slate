@@ -140,7 +140,6 @@ error categories, the last two digits define specific errors.
 * 0342: Invalid CVU
 * 0343: Incorrect amount
 * 0344: Invalid BIND recipient name
-* 0345: Error processing Bind Transfer request
 * 0346: You need to agree to the new terms and condition
 * 0347: Too many attempts to validate CURP
 * 0348: CURP data did not match with user data
@@ -151,7 +150,8 @@ error categories, the last two digits define specific errors.
 * 0353: Current withdrawal fee is higher than specified maximum
 * 0354: No defined legal operation entity
 * 0355: Incorrect hash (non-existent or does not belong to user)
-* 0356: Duplicate client id provided
+* 0356: Duplicate origin id provided
+* 0357: Incorrect origin id (non-existent or does not belong to user)
 * 0358: The password must have at least 8 characters
 * 0359: The password is too long
 * 0360: At least one field is required but none was submitted
@@ -196,7 +196,6 @@ error categories, the last two digits define specific errors.
 * 1000: API temporarily disabled (More info in error message)
 * 1001: Too many open orders
 * 1002: Unable to process order
-
 
 ## Client Libraries
 
@@ -1593,7 +1592,7 @@ Field Name | Type | Description | Units
 **fees_amount** | String | Indicates the amount charged as trade fee |
 **tid** | Long | Trade ID |
 **oid** | String | Users' Order ID |
-**client_id** | String | Users' Order 'client_id' (if any) |
+**origin_id** | String | Users' Order 'origin_id' (if any) |
 **created_at** | String | Timestamp at which the trade was executed | ISO 8601 timestamp
 
 ## Order Trades
@@ -1617,7 +1616,7 @@ curl "https://api.bitso.com/v3/order_trades/Jvqrschkgdkc1go3"
             "price": "4057.45",
             "tid": 51756,
             "oid": "Jvqrschkgdkc1go3",
-            "origin_id": "origin_id",
+            "origin_id": "origin_id1",
             "side": "sell"
         },
         {
@@ -1668,7 +1667,7 @@ Field Name | Type | Description | Units
 **fees_amount** | String | Indicates the amount charged as trade fee |
 **tid** | Long | Trade ID |
 **oid** | String | Users' Order ID |
-**client_id** | String | Users' Order 'client_id' (if any) |
+**origin_id** | String | Users' Order 'origin_id' (if any) |
 **created_at** | String | Timestamp at which the trade was executed | ISO 8601 timestamp
 
 
@@ -1689,7 +1688,7 @@ Field Name | Type | Description | Units
         "updated_at": "2016-04-08T17:52:51.000+00:00",
         "price": "5600.00",
         "oid": "543cr2v32a1h68443",
-        "client_id": "client_id2",
+        "origin_id": "origin_id1",
         "side": "buy",
         "status": "partial-fill",
         "type": "limit"
@@ -1833,7 +1832,7 @@ Field Name | Type | Description | Units
 **side** | String | The order side (buy, sell) | -
 **status** | String | The order's status (queued, open, partial-fill, closed) | -
 **type** | String | The order type (market, limit) | -
-**client_id** | String | The client_id if any | -
+**origin_id** | String | The origin_id if any | -
 **time_in_force** | String | The time in force paramater for limit orders | -
 **stop** | String | The stop price for Stop orders | - | Major
 **triggered_at** | String | Timestamp at which a stop order was triggered | ISO 8601 timestamp
@@ -1918,7 +1917,7 @@ Parameter | Default | Required | Description
 **price** | - | No | Price per unit of major. For use only with limit orders | Minor (MXN)
 **stop**  | - | No | Price per unit of major at which to stop and place order. For use only with stop orders.
 **time_in_force**  | - | No | Indicates how long a limit order will remain active before it is executed or expires (goodtillcancelled, fillorkill, immediateorcancel, postonly)
-**client_id** | - | No | Client supplied unique ID. Can be used to lookup and cancel orders
+**origin_id** | - | No | Client supplied unique ID. Can be used to lookup and cancel orders
 
 
 ### JSON Response Payload
