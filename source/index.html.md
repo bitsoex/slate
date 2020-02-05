@@ -154,6 +154,8 @@ error categories, the last two digits define specific errors.
 * 0356: Duplicate client id provided
 * 0358: The password must have at least 8 characters
 * 0359: The password is too long
+* 0360: At least one field is required but none was submitted
+* 0361: Two or more fields were submitted when only one is required
 
 ### System Limit Errors: 04 (HTTP 400)
 * 0401: Incorrect price, below the minimum
