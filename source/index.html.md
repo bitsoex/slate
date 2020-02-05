@@ -1643,14 +1643,14 @@ This endpoint returns a list of the user's trades.
 
 `GET https://api.bitso.com/v3/order_trades/<oid>/`
 
-`GET https://api.bitso.com/v3/order_trades/origin_id/<origin_id>/`
+`GET https://api.bitso.com/v3/order_trades/?origin_id=<origin_id>`
 
 ### Query Parameters
 
 Parameter | Default | Required | Description
 --------- | ------- | -------- | -----------
-**oid** |   | Yes | Specifies which order to get corresponding trades for
-**origin_id** |   | Yes | Specifies which order to get corresponding trades for (by origin_id)
+**oid** |   | No | Specifies which order to get corresponding trades for
+**origin_id** |   | No | Specifies which order to get corresponding trades for (by origin_id)
 
 ### JSON Response Payload
 
@@ -1669,8 +1669,6 @@ Field Name | Type | Description | Units
 **oid** | String | Users' Order ID |
 **origin_id** | String | Users' Order 'origin_id' (if any) |
 **created_at** | String | Timestamp at which the trade was executed | ISO 8601 timestamp
-
-
 
 ## Open Orders
 
@@ -1804,16 +1802,17 @@ Returns a list of details for 1 or more orders
 
 `GET https://api.bitso.com/v3/orders/<oid>/`
 
-`GET https://api.bitso.com/v3/orders/<oid>-<oid>-<oid>/`
+`GET https://api.bitso.com/v3/orders/?order_ids=<oid>-<oid>-<oid>`
 
-`GET https://api.bitso.com/v3/orders/origin_id/<origin_id>-<origin_id>-<origin_id>/`
+`GET https://api.bitso.com/v3/orders/?origin_ids=<origin_id>-<origin_id>-<origin_id>`
 
 ### Query Parameters
 
 Parameter | Default | Required | Description
 --------- | ------- | -------- | -----------
-**oid** |   | Yes | Specifies which order to get corresponding trades for
-**origin_id** |   | Yes | Specifies which order to get corresponding trades for (by origin_id)
+**oid** |   | No | Specifies which order to obtain
+**order_ids** |   | No | Specifies which order to obtain (by order_id)
+**origin_ids** |   | No | Specifies which order to obtain (by origin_id)
 
 ### JSON Response Payload
 
@@ -1858,18 +1857,20 @@ Cancels open order(s)
 
 `DELETE https://api.bitso.com/v3/orders/<oid>/`
 
-`DELETE https://api.bitso.com/v3/orders/<oid>-<oid>-<oid>/`
+`DELETE https://api.bitso.com/v3/orders/?order_ids=<oid>-<oid>-<oid>`
 
-`DELETE https://api.bitso.com/v3/orders/origin_id/<origin_id>-<origin_id>-<origin_id>/`
+`DELETE https://api.bitso.com/v3/orders/?origin_ids=<origin_id>-<origin_id>-<orgin_id>`
 
-`DELETE https://api.bitso.com/v3/orders/all/`
+`DELETE https://api.bitso.com/v3/orders/all`
 
 ### Query Parameters
 
 Parameter | Default | Required | Description
 --------- | ------- | -------- | -----------
-**oid** |   | Yes | Specifies which order to get corresponding trades for
-**origin_id** |   | Yes | Specifies which order to get corresponding trades for (by origin_id)
+**oid** |   | No | Specifies the order that should be cancelled
+**order_ids** |   | No | Specifies which orders should be cancelled (by order_id)
+**origin_ids** |   | No | Specifies which orders should be cancelled (by origin_id)
+**all** |   | No | Cancells all the open orders of the user
 
 ### JSON Response Payload
 
