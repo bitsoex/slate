@@ -195,6 +195,9 @@ error categories, the last two digits define specific errors.
 * 1001: Too many open orders
 * 1002: Unable to process order
 
+### Operation Errors: 11 (500 error)
+* 1101: Error when processing the withdrawal
+
 ## Client Libraries
 
 The following client libraries will allow you to integrate quickly with our APIs
