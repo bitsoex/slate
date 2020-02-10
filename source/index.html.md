@@ -91,7 +91,6 @@ error categories, the last two digits define specific errors.
 * 0202: API key is not authorized to execute the requested method
 * 0203: Login token is invalid or expired
 * 0204: Incorrect PIN
-* 0205: API key is not active
 * 0206: Invalid nonce type
 * 0207: Invalid nonce value
 
@@ -121,7 +120,7 @@ error categories, the last two digits define specific errors.
 * 0323: No associated country code
 * 0324: Number already in use
 * 0325: Phone already verified
-* 0326: Quote is expired or invalid
+* 0326: API key is not active
 * 0327: Service unavailable for requesting location
 * 0328: Service unavailable for requesting country
 * 0329: Market order type must be in (maj, min)
@@ -140,6 +139,7 @@ error categories, the last two digits define specific errors.
 * 0342: Invalid CVU
 * 0343: Incorrect amount
 * 0344: Invalid BIND recipient name
+* 0345: Quote is expired or invalid
 * 0346: You need to agree to the new terms and condition
 * 0347: Too many attempts to validate CURP
 * 0348: CURP data did not match with user data
@@ -156,6 +156,7 @@ error categories, the last two digits define specific errors.
 * 0359: The password is too long
 * 0360: At least one field is required but none was submitted
 * 0361: Two or more fields were submitted when only one is required
+* 0362: Invalid callback URL
 
 ### System Limit Errors: 04 (HTTP 400)
 * 0401: Incorrect price, below the minimum
@@ -196,6 +197,10 @@ error categories, the last two digits define specific errors.
 * 1000: API temporarily disabled (More info in error message)
 * 1001: Too many open orders
 * 1002: Unable to process order
+
+### Operation Errors: 11 (500 error)
+* 1101: Error when processing the withdrawal
+* 1102: Error registering callback URL
 
 ## Client Libraries
 
