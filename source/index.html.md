@@ -154,6 +154,7 @@ error categories, the last two digits define specific errors.
 * 0357: Incorrect origin id (non-existent or does not belong to user)
 * 0358: The password must have at least 8 characters
 * 0359: The password is too long
+* 0362: Invalid callback URL
 
 ### System Limit Errors: 04 (HTTP 400)
 * 0401: Incorrect price, below the minimum
@@ -194,6 +195,10 @@ error categories, the last two digits define specific errors.
 * 1000: API temporarily disabled (More info in error message)
 * 1001: Too many open orders
 * 1002: Unable to process order
+
+### Operation Errors: 11 (500 error)
+* 1101: Error when processing the withdrawal
+* 1102: Error registering callback URL
 
 ## Client Libraries
 
