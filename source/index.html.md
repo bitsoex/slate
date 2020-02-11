@@ -2575,7 +2575,7 @@ Field Name | Type | Description | Units
 **r** | String | Rate | Minor
 **a** | String | Amount | Major
 **v** | String | Value | Minor
-**t** | Number | 0 indicates buy 1 indicates sell | -
+**t** | Number | 0 indicates sell 1 indicates buy | -
 **d** | Number | Unix timestamp | Milliseconds
 
 # Transfer API
