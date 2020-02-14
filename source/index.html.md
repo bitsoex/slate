@@ -1404,17 +1404,17 @@ Returns detailed info on a user's fund withdrawals.
 
 `GET https://api.bitso.com/v3/withdrawals/wid/`
 
-`GET https://api.bitso.com/v3/withdrawals/wid-wid-wid/`
+`GET https://api.bitso.com/v3/withdrawals/?wids=<wid>-<wid>-<wid>`
 
-### Authorization Header Parameters
+`GET https://api.bitso.com/v3/withdrawals/?origin_ids=<origin_id>-<origin_id>-<origin_id>`
+
+### Query Parameters
 
 Parameter | Default | Required | Description
 --------- | ------- | -------- | -----------
-**key** | - | Yes | See [Creating and Signing Requests](#creating-and-signing-requests)
-**signature** | - | Yes | See [Creating and Signing Requests](#creating-and-signing-requests)
-**nonce** | - | Yes | See [Creating and Signing Requests](#creating-and-signing-requests)
-
-
+**wid** |   | No | Specifies which withdrawal to obtain
+**wids** |   | No | Specifies which withdrawals to obtain (by wid)
+**origin_ids** |   | No | Specifies which withdrawals to obtain (by origin_id)
 
 ### Query Parameters
 
