@@ -1593,7 +1593,7 @@ Field Name | Type | Description | Units
 **minor** | String | Minor amount traded | Minor
 **price** | String | Price per unit of major | Minor
 **side** | String | Indicates the user's side for this trade (buy, sell) |
-**maker_side** | String | Indicates the maker's side for this trade (buy, sell) |
+**maker_side** | String | Indicates the maker's side for this trade (buy, sell), if it matches with `side` you're maker |
 **fees_currency** | String | Indicates the currency in which the trade fee was charged | -
 **fees_amount** | String | Indicates the amount charged as trade fee |
 **tid** | Long | Trade ID |
@@ -1673,7 +1673,7 @@ Field Name | Type | Description | Units
 **minor** | String | Minr amount traded | Minor
 **price** | String | Price per unit of major | Minor
 **side** | String | Indicates the user's side for this trade (buy, sell) |
-**maker_side** | String | Indicates the maker's side for this trade (buy, sell) |
+**maker_side** | String | Indicates the maker's side for this trade (buy, sell), if it matches with `side` you're maker | |
 **fees_currency** | String | Indicates the currency in which the trade fee was charged | -
 **fees_amount** | String | Indicates the amount charged as trade fee |
 **tid** | Long | Trade ID |
