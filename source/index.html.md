@@ -1544,7 +1544,8 @@ curl "https://api.bitso.com/v3/user_trades/?book=btc_mxn"
         "price": "4057.45",
         "tid": 51756,
         "oid": "g81d3y1ywri0yg8m",
-        "side": "sell"
+        "side": "sell",
+        "make_side": "sell"
     }, {
         "book": "eth_mxn",
         "major": "4.86859395",
@@ -1555,7 +1556,8 @@ curl "https://api.bitso.com/v3/user_trades/?book=btc_mxn"
         "price": "127.45",
         "tid": 51757,
         "oid": "19vaqiv72drbphig",
-        "side": "buy"
+        "side": "buy",
+        "make_side": "sell"
     }]
 }
 ```
@@ -1588,9 +1590,10 @@ Field Name | Type | Description | Units
 ---------- | ---- | ----------- | -----
 **book** | String | Order book symbol | Major_Minor
 **major** | String | Major amount traded | Major
-**minor** | String | Minr amount traded | Minor
+**minor** | String | Minor amount traded | Minor
 **price** | String | Price per unit of major | Minor
 **side** | String | Indicates the user's side for this trade (buy, sell) |
+**maker_side** | String | Indicates the maker's side for this trade (buy, sell), if it matches with `side` you're maker |
 **fees_currency** | String | Indicates the currency in which the trade fee was charged | -
 **fees_amount** | String | Indicates the amount charged as trade fee |
 **tid** | Long | Trade ID |
@@ -1620,7 +1623,8 @@ curl "https://api.bitso.com/v3/order_trades/Jvqrschkgdkc1go3"
             "tid": 51756,
             "oid": "Jvqrschkgdkc1go3",
             "origin_id": "origin_id1",
-            "side": "sell"
+            "side": "sell",
+            "make_side": "sell"
         },
         {
             "book": "btc_mxn",
@@ -1633,7 +1637,8 @@ curl "https://api.bitso.com/v3/order_trades/Jvqrschkgdkc1go3"
             "tid": 51755,
             "oid": "Jvqrschkgdkc1go3",
             "origin_id": "origin_id1",
-            "side": "sell"
+            "side": "sell",
+            "make_side": "sell"
         }
     ]
 }
@@ -1668,6 +1673,7 @@ Field Name | Type | Description | Units
 **minor** | String | Minr amount traded | Minor
 **price** | String | Price per unit of major | Minor
 **side** | String | Indicates the user's side for this trade (buy, sell) |
+**maker_side** | String | Indicates the maker's side for this trade (buy, sell), if it matches with `side` you're maker | |
 **fees_currency** | String | Indicates the currency in which the trade fee was charged | -
 **fees_amount** | String | Indicates the amount charged as trade fee |
 **tid** | Long | Trade ID |
