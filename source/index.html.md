@@ -155,7 +155,8 @@ error categories, the last two digits define specific errors.
 * 0358: The password must have at least 8 characters
 * 0359: The password is too long
 * 0362: Invalid callback URL
-* 0363: Password doesn't meet security requirements
+* 0363: Invalid Transaction ID (Either non-existent or does not belong to the user)
+* 0364: Password doesn't meet security requirements
 
 ### System Limit Errors: 04 (HTTP 400)
 * 0401: Incorrect price, below the minimum
