@@ -155,6 +155,14 @@ error categories, the last two digits define specific errors.
 * 0358: The password must have at least 8 characters
 * 0359: The password is too long
 * 0362: Invalid callback URL
+* 0363: The password cannot contain the user identifier
+* 0364: The password cannot contain the site name
+* 0365: The password must contain at least one lowercase letter
+* 0366: The password must contain at least one uppercase letter
+* 0367: The password must contain at least one number
+* 0368: The password must contain at least one special character
+* 0369: The password cannot contain more than three times the same character subsequently
+* 0370: The password cannot contain more than three sequential characters
 
 ### System Limit Errors: 04 (HTTP 400)
 * 0401: Incorrect price, below the minimum
