@@ -1271,7 +1271,7 @@ Field Name | Type | Description | Units
 Field Name | Type | Description | Units
 ---------- | ---- | ----------- | -----
 **currency** | String | Currency for this balance update | -
-**balance** | String | Amount added or subtracted to user balance | Currency
+**amount** | String | Amount added or subtracted to user balance | Currency
 
 
 ### Filter Ledger by operation type
