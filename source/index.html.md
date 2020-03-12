@@ -199,11 +199,11 @@ error categories, the last two digits define specific errors.
 * 1000: API temporarily disabled (More info in error message)
 * 1001: Too many open orders
 * 1002: Unable to process order
+* 1003: Deprecated functionality
 
 ### Operation Errors: 11 (500 error)
 * 1101: Error when processing the withdrawal
 * 1102: Error registering callback URL
-* 1103: Deprecated functionality
 
 ## Client Libraries
 
