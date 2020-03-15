@@ -93,6 +93,7 @@ error categories, the last two digits define specific errors.
 * 0204: Incorrect PIN
 * 0206: Invalid nonce type
 * 0207: Invalid nonce value
+* 0208: Two Factor authentication required
 
 ### Validation Errors: 03 (HTTP 400)
 * 0301: Unknown Order book
