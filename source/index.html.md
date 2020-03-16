@@ -91,6 +91,7 @@ error categories, the last two digits define specific errors.
 * 0202: API key is not authorized to execute the requested method
 * 0203: Login token is invalid or expired
 * 0204: Incorrect PIN
+* 0205: Too many login attempts 
 * 0206: Invalid nonce type
 * 0207: Invalid nonce value
 * 0209: Two Factor authentication required
