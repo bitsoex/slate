@@ -96,6 +96,7 @@ error categories, the last two digits define specific errors.
 * 0207: Invalid nonce value
 * 0209: Two Factor authentication required
 * 0210: Device authentication required
+* 0211: Device authentication failed (Invalid IP or expired Token)
 
 ### Validation Errors: 03 (HTTP 400)
 * 0301: Unknown Order book
