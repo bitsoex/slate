@@ -190,6 +190,8 @@ error categories, the last two digits define specific errors.
 * 0704: A specific feature is disabled as the user has decided to opt-out
 * 0705: Your account is currently suspended
 * 0706: You must accept the Terms of service
+* 0707: 2FA Locked
+* 0708: Max attempts reached to perform operation
 
 ### Throttling Errors: 08 (HTTP 420)
 * 0801: You have hit the request rate-limit
