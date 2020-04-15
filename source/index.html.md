@@ -94,6 +94,7 @@ error categories, the last two digits define specific errors.
 * 0205: Too many login attempts 
 * 0206: Invalid nonce type
 * 0207: Invalid nonce value
+* 0208: Authentication is required to execute requested operation
 * 0209: Two Factor authentication required
 
 ### Validation Errors: 03 (HTTP 400)
@@ -159,6 +160,8 @@ error categories, the last two digits define specific errors.
 * 0362: Invalid callback URL
 * 0363: Invalid Transaction ID (Either non-existent or does not belong to the user)
 * 0364: Password doesn't meet security requirements
+* 0365: Two factor authentication method is already enabled
+* 0366: Two factor authentication method is not enabled
 
 ### System Limit Errors: 04 (HTTP 400)
 * 0401: Incorrect price, below the minimum
@@ -187,6 +190,8 @@ error categories, the last two digits define specific errors.
 * 0704: A specific feature is disabled as the user has decided to opt-out
 * 0705: Your account is currently suspended
 * 0706: You must accept the Terms of service
+* 0707: 2FA Locked
+* 0708: Max attempts reached to perform operation
 
 ### Throttling Errors: 08 (HTTP 420)
 * 0801: You have hit the request rate-limit
@@ -200,6 +205,7 @@ error categories, the last two digits define specific errors.
 * 1001: Too many open orders
 * 1002: Unable to process order
 * 1003: Operation timeout
+* 1004: Deprecated functionality
 
 ### Operation Errors: 11 (500 error)
 * 1101: Error when processing the withdrawal
