@@ -210,7 +210,7 @@ error categories, the last two digits define specific errors.
 ### Operation Errors: 11 (500 error)
 * 1101: Error when processing the withdrawal
 * 1102: Error registering callback URL
-* 1103: System wide method is disabled
+* 1103: System-wide method disabled
 
 ## Client Libraries
 
