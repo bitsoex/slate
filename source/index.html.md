@@ -194,6 +194,8 @@ error categories, the last two digits define specific errors.
 * 0706: You must accept the Terms of service
 * 0707: 2FA Locked
 * 0708: Max attempts reached to perform operation
+* 0710: There was an error trying to save the users business persons
+* 0711: There was an error trying to fetch the users business persons
 
 ### Throttling Errors: 08 (HTTP 420)
 * 0801: You have hit the request rate-limit
