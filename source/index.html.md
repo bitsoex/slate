@@ -221,6 +221,13 @@ The following client libraries will allow you to integrate quickly with our APIs
 * [Java](https://github.com/bitsoex/bitso-java)
 * [Python](https://github.com/bitsoex/bitso-py)
 
+## Language detection
+
+The initial phase of the detection if you are using API keys is the language you have on your settings. (This defaults depending on your country)
+To force this to a specific language we then use `Accept-Language` header on the request to override this setting.
+If none of these settings are set the default is `es`.
+
+
 # Public REST API
 
 
