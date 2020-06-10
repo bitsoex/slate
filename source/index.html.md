@@ -16,6 +16,16 @@ toc_footers:
 search: true
 ---
 
+# Change Log
+
+### 2020-06-09
+
+Deprecate `/v3/<api_method>/client_id/<client_id>`.
+
+* `GET /v3/order_trades/client_id/<client_id>`
+* `GET /v3/orders/client_id/<client_id>-<client_id>-<client_id>/`
+* `DELETE https://api.bitso.com/v3/orders/client_id/<client_id>-<client_id>-<client_id>/`
+
 # Introduction
 
 The Bitso API allows you to integrate the Bitso trading platform
@@ -24,7 +34,6 @@ point of sale systems, and much more. Below you will find details on how the
 system functions, along with examples in common programming languages.
 
 # General
-
 
 ## HTTP API Responses
 
