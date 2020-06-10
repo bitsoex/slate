@@ -30,7 +30,7 @@ Deprecate `/v3/<api_method>/client_id/<client_id>`.
 
 Add the ability to query a withdrawal by it's origin id
 
-* `GET /v3/withdrawals?wids=<wid>,<wid>,<wid>`
+* `GET /v3/withdrawals?origin_ids=<origin_id>,<origin_id>,<origin_id>`
 
 # Introduction
 
