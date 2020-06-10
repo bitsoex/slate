@@ -1418,9 +1418,9 @@ Returns detailed info on a user's fund withdrawals.
 
 `GET https://api.bitso.com/v3/withdrawals/wid/`
 
-`GET https://api.bitso.com/v3/withdrawals/?wids=<wid>-<wid>-<wid>`
+`GET https://api.bitso.com/v3/withdrawals/?wids=<wid>,<wid>,<wid>`
 
-`GET https://api.bitso.com/v3/withdrawals/?origin_ids=<origin_id>-<origin_id>-<origin_id>`
+`GET https://api.bitso.com/v3/withdrawals/?origin_ids=<origin_id>,<origin_id>,<origin_id>`
 
 ### Query Parameters
 
