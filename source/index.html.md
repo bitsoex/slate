@@ -26,6 +26,12 @@ Deprecate `/v3/<api_method>/client_id/<client_id>`.
 * `GET /v3/orders/client_id/<client_id>-<client_id>-<client_id>/`
 * `DELETE /v3/orders/client_id/<client_id>-<client_id>-<client_id>/`
 
+### 2020-06-10
+
+Add the ability to query a withdrawal by it's origin id
+
+* `GET /v3/withdrawals?wids=<wid>,<wid>,<wid>`
+
 # Introduction
 
 The Bitso API allows you to integrate the Bitso trading platform
@@ -1429,9 +1435,9 @@ Returns detailed info on a user's fund withdrawals.
 
 `GET https://api.bitso.com/v3/withdrawals/wid/`
 
-`GET https://api.bitso.com/v3/withdrawals/?wids=<wid>,<wid>,<wid>`
+`GET https://api.bitso.com/v3/withdrawals?wids=<wid>,<wid>,<wid>`
 
-`GET https://api.bitso.com/v3/withdrawals/?origin_ids=<origin_id>,<origin_id>,<origin_id>`
+`GET https://api.bitso.com/v3/withdrawals?origin_ids=<origin_id>,<origin_id>,<origin_id>`
 
 ### Query Parameters
 
