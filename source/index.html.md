@@ -23,8 +23,23 @@ with third party applications, such as trading applications, charting programs,
 point of sale systems, and much more. Below you will find details on how the
 system functions, along with examples in common programming languages.
 
-# General
+# Change Log
 
+### 2020-06-09
+
+Deprecate `/v3/<api_method>/client_id/<client_id>`.
+
+* `GET /v3/order_trades/client_id/<client_id>`
+* `GET /v3/orders/client_id/<client_id>-<client_id>-<client_id>/`
+* `DELETE /v3/orders/client_id/<client_id>-<client_id>-<client_id>/`
+
+### 2020-06-10
+
+Add the ability to query a withdrawal by it's origin id
+
+* `GET /v3/withdrawals?origin_ids=<origin_id>,<origin_id>,<origin_id>`
+
+# General
 
 ## HTTP API Responses
 
@@ -159,6 +174,8 @@ error categories, the last two digits define specific errors.
 * 0357: Incorrect origin id (non-existent or does not belong to user)
 * 0358: The password must have at least 8 characters
 * 0359: The password is too long
+* 0360: At least one field is required but none was submitted
+* 0361: Two or more fields were submitted when only one is required
 * 0362: Invalid callback URL
 * 0363: Invalid Transaction ID (Either non-existent or does not belong to the user)
 * 0364: Password doesn't meet security requirements
@@ -194,6 +211,7 @@ error categories, the last two digits define specific errors.
 * 0706: You must accept the Terms of service
 * 0707: 2FA Locked
 * 0708: Max attempts reached to perform operation
+* 0709: Action not permitted for missing KYC data
 * 0710: There was an error trying to save the users business persons
 * 0711: There was an error trying to fetch the users business persons
 
@@ -1420,17 +1438,17 @@ Returns detailed info on a user's fund withdrawals.
 
 `GET https://api.bitso.com/v3/withdrawals/wid/`
 
-`GET https://api.bitso.com/v3/withdrawals/wid-wid-wid/`
+`GET https://api.bitso.com/v3/withdrawals?wids=<wid>,<wid>,<wid>`
 
-### Authorization Header Parameters
+`GET https://api.bitso.com/v3/withdrawals?origin_ids=<origin_id>,<origin_id>,<origin_id>`
+
+### Query Parameters
 
 Parameter | Default | Required | Description
 --------- | ------- | -------- | -----------
-**key** | - | Yes | See [Creating and Signing Requests](#creating-and-signing-requests)
-**signature** | - | Yes | See [Creating and Signing Requests](#creating-and-signing-requests)
-**nonce** | - | Yes | See [Creating and Signing Requests](#creating-and-signing-requests)
-
-
+**wid** |   | No | Specifies which withdrawal to obtain
+**wids** |   | No | Specifies which withdrawals to obtain (by wid)
+**origin_ids** |   | No | Specifies which withdrawals to obtain (by origin_id)
 
 ### Query Parameters
 
@@ -1667,16 +1685,14 @@ This endpoint returns a list of the user's trades.
 
 `GET https://api.bitso.com/v3/order_trades/<oid>/`
 
-`GET https://api.bitso.com/v3/order_trades/client_id/<client_id>/`
-
+`GET https://api.bitso.com/v3/order_trades?origin_id=<origin_id>`
 
 ### Query Parameters
 
 Parameter | Default | Required | Description
 --------- | ------- | -------- | -----------
-**oid** |   | Yes | Specifies which order to get corresponding trades for
-**client_id** |   | Yes | Specifies which order to get corresponding trades for (by client_id)
-
+**oid** |   | No | Specifies which order to get corresponding trades for
+**origin_id** |   | No | Specifies which order to get corresponding trades for (by origin_id)
 
 ### JSON Response Payload
 
@@ -1696,8 +1712,6 @@ Field Name | Type | Description | Units
 **oid** | String | Users' Order ID |
 **origin_id** | String | Users' Order 'origin_id' (if any) |
 **created_at** | String | Timestamp at which the trade was executed | ISO 8601 timestamp
-
-
 
 ## Open Orders
 
@@ -1831,20 +1845,17 @@ Returns a list of details for 1 or more orders
 
 `GET https://api.bitso.com/v3/orders/<oid>/`
 
-`GET https://api.bitso.com/v3/orders/<oid>-<oid>-<oid>/`
+`GET https://api.bitso.com/v3/orders?oids=<oid>,<oid>,<oid>`
 
-`GET https://api.bitso.com/v3/orders/client_id/<client_id>-<client_id>-<client_id>/`
+`GET https://api.bitso.com/v3/orders?origin_ids=<origin_id>,<origin_id>,<origin_id>`
 
-
-### Authorization Header Parameters
+### Query Parameters
 
 Parameter | Default | Required | Description
 --------- | ------- | -------- | -----------
-**key** | - | Yes | See [Creating and Signing Requests](#creating-and-signing-requests)
-**signature** | - | Yes | See [Creating and Signing Requests](#creating-and-signing-requests)
-**nonce** | - | Yes | See [Creating and Signing Requests](#creating-and-signing-requests)
-
-
+**oid** |   | No | Specifies which order to obtain
+**oids** |   | No | Specifies which order to obtain (by order_id)
+**origin_ids** |   | No | Specifies which order to obtain (by origin_id)
 
 ### JSON Response Payload
 
@@ -1868,7 +1879,6 @@ Field Name | Type | Description | Units
 **stop** | String | The stop price for Stop orders | - | Major
 **triggered_at** | String | Timestamp at which a stop order was triggered | ISO 8601 timestamp
 
-
 ## Cancel Order
 
 > The string returned by the API looks like this:
@@ -1890,22 +1900,20 @@ Cancels open order(s)
 
 `DELETE https://api.bitso.com/v3/orders/<oid>/`
 
-`DELETE https://api.bitso.com/v3/orders/<oid>-<oid>-<oid>/`
+`DELETE https://api.bitso.com/v3/orders?oids=<oid>,<oid>,<oid>`
 
-`DELETE https://api.bitso.com/v3/orders/client_id/<client_id>-<client_id>-<client_id>/`
+`DELETE https://api.bitso.com/v3/orders?origin_ids=<origin_id>,<origin_id>,<orgin_id>`
 
-`DELETE https://api.bitso.com/v3/orders/all/`
+`DELETE https://api.bitso.com/v3/orders/all`
 
-
-
-### Authorization Header Parameters
+### Query Parameters
 
 Parameter | Default | Required | Description
 --------- | ------- | -------- | -----------
-**key** | - | Yes | See [Creating and Signing Requests](#creating-and-signing-requests)
-**signature** | - | Yes | See [Creating and Signing Requests](#creating-and-signing-requests)
-**nonce** | - | Yes | See [Creating and Signing Requests](#creating-and-signing-requests)
-
+**oid** |   | No | Specifies the order that should be cancelled
+**oids** |   | No | Specifies which orders should be cancelled (by order_id)
+**origin_ids** |   | No | Specifies which orders should be cancelled (by origin_id)
+**all** |   | No | Cancells all the open orders of the user
 
 ### JSON Response Payload
 
