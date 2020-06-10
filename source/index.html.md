@@ -211,6 +211,7 @@ error categories, the last two digits define specific errors.
 * 0706: You must accept the Terms of service
 * 0707: 2FA Locked
 * 0708: Max attempts reached to perform operation
+* 0709: Action not permitted for missing KYC data
 
 ### Throttling Errors: 08 (HTTP 420)
 * 0801: You have hit the request rate-limit
