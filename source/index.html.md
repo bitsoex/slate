@@ -91,8 +91,13 @@ error categories, the last two digits define specific errors.
 * 0202: API key is not authorized to execute the requested method
 * 0203: Login token is invalid or expired
 * 0204: Incorrect PIN
+* 0205: Too many login attempts 
 * 0206: Invalid nonce type
 * 0207: Invalid nonce value
+* 0208: Authentication is required to execute requested operation
+* 0209: Two Factor authentication required
+* 0210: Device authentication required
+* 0211: Device authentication failed (Invalid IP or expired Token)
 
 ### Validation Errors: 03 (HTTP 400)
 * 0301: Unknown Order book
@@ -155,6 +160,10 @@ error categories, the last two digits define specific errors.
 * 0358: The password must have at least 8 characters
 * 0359: The password is too long
 * 0362: Invalid callback URL
+* 0363: Invalid Transaction ID (Either non-existent or does not belong to the user)
+* 0364: Password doesn't meet security requirements
+* 0365: Two factor authentication method is already enabled
+* 0366: Two factor authentication method is not enabled
 
 ### System Limit Errors: 04 (HTTP 400)
 * 0401: Incorrect price, below the minimum
@@ -183,6 +192,8 @@ error categories, the last two digits define specific errors.
 * 0704: A specific feature is disabled as the user has decided to opt-out
 * 0705: Your account is currently suspended
 * 0706: You must accept the Terms of service
+* 0707: 2FA Locked
+* 0708: Max attempts reached to perform operation
 
 ### Throttling Errors: 08 (HTTP 420)
 * 0801: You have hit the request rate-limit
@@ -195,10 +206,13 @@ error categories, the last two digits define specific errors.
 * 1000: API temporarily disabled (More info in error message)
 * 1001: Too many open orders
 * 1002: Unable to process order
+* 1003: Operation timeout
+* 1004: Deprecated functionality
 
 ### Operation Errors: 11 (500 error)
 * 1101: Error when processing the withdrawal
 * 1102: Error registering callback URL
+* 1103: System-wide method disabled
 
 ## Client Libraries
 
@@ -1270,7 +1284,7 @@ Field Name | Type | Description | Units
 Field Name | Type | Description | Units
 ---------- | ---- | ----------- | -----
 **currency** | String | Currency for this balance update | -
-**balance** | String | Amount added or subtracted to user balance | Currency
+**amount** | String | Amount added or subtracted to user balance | Currency
 
 
 ### Filter Ledger by operation type
@@ -1544,7 +1558,8 @@ curl "https://api.bitso.com/v3/user_trades/?book=btc_mxn"
         "price": "4057.45",
         "tid": 51756,
         "oid": "g81d3y1ywri0yg8m",
-        "side": "sell"
+        "side": "sell",
+        "make_side": "sell"
     }, {
         "book": "eth_mxn",
         "major": "4.86859395",
@@ -1555,7 +1570,8 @@ curl "https://api.bitso.com/v3/user_trades/?book=btc_mxn"
         "price": "127.45",
         "tid": 51757,
         "oid": "19vaqiv72drbphig",
-        "side": "buy"
+        "side": "buy",
+        "make_side": "sell"
     }]
 }
 ```
@@ -1588,9 +1604,10 @@ Field Name | Type | Description | Units
 ---------- | ---- | ----------- | -----
 **book** | String | Order book symbol | Major_Minor
 **major** | String | Major amount traded | Major
-**minor** | String | Minr amount traded | Minor
+**minor** | String | Minor amount traded | Minor
 **price** | String | Price per unit of major | Minor
 **side** | String | Indicates the user's side for this trade (buy, sell) |
+**maker_side** | String | Indicates the maker's side for this trade (buy, sell), if it matches with `side` you're maker |
 **fees_currency** | String | Indicates the currency in which the trade fee was charged | -
 **fees_amount** | String | Indicates the amount charged as trade fee |
 **tid** | Long | Trade ID |
@@ -1620,7 +1637,8 @@ curl "https://api.bitso.com/v3/order_trades/Jvqrschkgdkc1go3"
             "tid": 51756,
             "oid": "Jvqrschkgdkc1go3",
             "origin_id": "origin_id1",
-            "side": "sell"
+            "side": "sell",
+            "make_side": "sell"
         },
         {
             "book": "btc_mxn",
@@ -1633,7 +1651,8 @@ curl "https://api.bitso.com/v3/order_trades/Jvqrschkgdkc1go3"
             "tid": 51755,
             "oid": "Jvqrschkgdkc1go3",
             "origin_id": "origin_id1",
-            "side": "sell"
+            "side": "sell",
+            "make_side": "sell"
         }
     ]
 }
@@ -1668,6 +1687,7 @@ Field Name | Type | Description | Units
 **minor** | String | Minr amount traded | Minor
 **price** | String | Price per unit of major | Minor
 **side** | String | Indicates the user's side for this trade (buy, sell) |
+**maker_side** | String | Indicates the maker's side for this trade (buy, sell), if it matches with `side` you're maker | |
 **fees_currency** | String | Indicates the currency in which the trade fee was charged | -
 **fees_amount** | String | Indicates the amount charged as trade fee |
 **tid** | Long | Trade ID |
