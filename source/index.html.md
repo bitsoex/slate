@@ -24,7 +24,7 @@ Deprecate `/v3/<api_method>/client_id/<client_id>`.
 
 * `GET /v3/order_trades/client_id/<client_id>`
 * `GET /v3/orders/client_id/<client_id>-<client_id>-<client_id>/`
-* `DELETE https://api.bitso.com/v3/orders/client_id/<client_id>-<client_id>-<client_id>/`
+* `DELETE /v3/orders/client_id/<client_id>-<client_id>-<client_id>/`
 
 # Introduction
 
