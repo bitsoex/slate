@@ -1827,9 +1827,9 @@ Returns a list of details for 1 or more orders
 
 `GET https://api.bitso.com/v3/orders/<oid>/`
 
-`GET https://api.bitso.com/v3/orders/?oids=<oid>-<oid>-<oid>`
+`GET https://api.bitso.com/v3/orders/?oids=<oid>,<oid>,<oid>`
 
-`GET https://api.bitso.com/v3/orders/?origin_ids=<origin_id>-<origin_id>-<origin_id>`
+`GET https://api.bitso.com/v3/orders/?origin_ids=<origin_id>,<origin_id>,<origin_id>`
 
 ### Query Parameters
 
@@ -1882,9 +1882,9 @@ Cancels open order(s)
 
 `DELETE https://api.bitso.com/v3/orders/<oid>/`
 
-`DELETE https://api.bitso.com/v3/orders/?oids=<oid>-<oid>-<oid>`
+`DELETE https://api.bitso.com/v3/orders/?oids=<oid>,<oid>,<oid>`
 
-`DELETE https://api.bitso.com/v3/orders/?origin_ids=<origin_id>-<origin_id>-<orgin_id>`
+`DELETE https://api.bitso.com/v3/orders/?origin_ids=<origin_id>,<origin_id>,<orgin_id>`
 
 `DELETE https://api.bitso.com/v3/orders/all`
 
