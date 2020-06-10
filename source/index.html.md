@@ -16,6 +16,13 @@ toc_footers:
 search: true
 ---
 
+# Introduction
+
+The Bitso API allows you to integrate the Bitso trading platform
+with third party applications, such as trading applications, charting programs,
+point of sale systems, and much more. Below you will find details on how the
+system functions, along with examples in common programming languages.
+
 # Change Log
 
 ### 2020-06-09
@@ -31,13 +38,6 @@ Deprecate `/v3/<api_method>/client_id/<client_id>`.
 Add the ability to query a withdrawal by it's origin id
 
 * `GET /v3/withdrawals?origin_ids=<origin_id>,<origin_id>,<origin_id>`
-
-# Introduction
-
-The Bitso API allows you to integrate the Bitso trading platform
-with third party applications, such as trading applications, charting programs,
-point of sale systems, and much more. Below you will find details on how the
-system functions, along with examples in common programming languages.
 
 # General
 
