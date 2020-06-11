@@ -181,6 +181,7 @@ error categories, the last two digits define specific errors.
 * 0364: Password doesn't meet security requirements
 * 0365: Two factor authentication method is already enabled
 * 0366: Two factor authentication method is not enabled
+* 0367: Unable to generate quote at the present time
 
 ### System Limit Errors: 04 (HTTP 400)
 * 0401: Incorrect price, below the minimum
