@@ -23,7 +23,17 @@ with third party applications, such as trading applications, charting programs,
 point of sale systems, and much more. Below you will find details on how the
 system functions, along with examples in common programming languages.
 
-# Change Log
+# Changelog
+
+### 2020-06-11
+
+Notification of deprecation of the WS orders channel scheduled to happen on September 1st, 2020
+
+### 2020-06-10
+
+Add the ability to query a withdrawal by its origin id
+
+* `GET /v3/withdrawals?origin_ids=<origin_id>,<origin_id>,<origin_id>`
 
 ### 2020-06-09
 
@@ -32,12 +42,6 @@ Deprecate `/v3/<api_method>/client_id/<client_id>`.
 * `GET /v3/order_trades/client_id/<client_id>`
 * `GET /v3/orders/client_id/<client_id>-<client_id>-<client_id>/`
 * `DELETE /v3/orders/client_id/<client_id>-<client_id>-<client_id>/`
-
-### 2020-06-10
-
-Add the ability to query a withdrawal by it's origin id
-
-* `GET /v3/withdrawals?origin_ids=<origin_id>,<origin_id>,<origin_id>`
 
 # General
 
