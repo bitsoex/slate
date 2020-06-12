@@ -23,7 +23,17 @@ with third party applications, such as trading applications, charting programs,
 point of sale systems, and much more. Below you will find details on how the
 system functions, along with examples in common programming languages.
 
-# Change Log
+# Changelog
+
+### 2020-06-11
+
+Notification of deprecation of the WS orders channel scheduled to happen on September 1st, 2020
+
+### 2020-06-10
+
+Add the ability to query a withdrawal by its origin id
+
+* `GET /v3/withdrawals?origin_ids=<origin_id>,<origin_id>,<origin_id>`
 
 ### 2020-06-09
 
@@ -32,12 +42,6 @@ Deprecate `/v3/<api_method>/client_id/<client_id>`.
 * `GET /v3/order_trades/client_id/<client_id>`
 * `GET /v3/orders/client_id/<client_id>-<client_id>-<client_id>/`
 * `DELETE /v3/orders/client_id/<client_id>-<client_id>-<client_id>/`
-
-### 2020-06-10
-
-Add the ability to query a withdrawal by it's origin id
-
-* `GET /v3/withdrawals?origin_ids=<origin_id>,<origin_id>,<origin_id>`
 
 # General
 
@@ -2368,6 +2372,7 @@ Field Name | Type | Description | Units
 The **Trades channel** send a message whenever a new trade is executed in the corresponding order book.
 
 The **Orders channel** maintains an up-to-date list of the top 20 asks and the top 20 bids, new messages are sent across the channel whenever there is a change in either top 20.
+**This channel will be deprecated from September 1st, 2020.**
 
 The **Diff-Orders** channel will send across any modifications to the
 order book. Specifically, any state changes in existing orders
@@ -2383,6 +2388,8 @@ you need to update the order book to get to correct state. In theory,
 you can get a copy of the full order book via REST once, and keep it
 up to date by using the diff-orders channel with the following
 algorithm:
+
+### Algorithm
 
 1. Subscribe to the diff-orders channel.
 2. Queue any message that come in to this channel.
@@ -2535,6 +2542,10 @@ Field Name | Type | Description | Units
 **o** | String | Order ID | -
 
 ## Orders
+
+<aside class="warning">
+The Orders channel will be deprecated from September 1st, 2020. Please refer to these [instructions](#algorithm) to pull the order book and keep it updated.
+</aside>
 
 > Messages on this channel look like this:
 
