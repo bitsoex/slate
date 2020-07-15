@@ -129,6 +129,30 @@ with third party applications, such as trading applications, charting programs,
 point of sale systems, and much more. Below you will find details on how the
 system functions, along with examples in common programming languages.</p>
 
+<h1 id="changelog">Changelog</h1>
+
+<h3 id="2020-06-11">2020-06-11</h3>
+
+<p>Notification of deprecation of the WS orders channel scheduled to happen on September 1st, 2020</p>
+
+<h3 id="2020-06-10">2020-06-10</h3>
+
+<p>Add the ability to query a withdrawal by its origin id</p>
+
+<ul>
+<li><code class="prettyprint">GET /v3/withdrawals?origin_ids=&lt;origin_id&gt;,&lt;origin_id&gt;,&lt;origin_id&gt;</code></li>
+</ul>
+
+<h3 id="2020-06-09">2020-06-09</h3>
+
+<p>Deprecate <code class="prettyprint">/v3/&lt;api_method&gt;/client_id/&lt;client_id&gt;</code>.</p>
+
+<ul>
+<li><code class="prettyprint">GET /v3/order_trades/client_id/&lt;client_id&gt;</code></li>
+<li><code class="prettyprint">GET /v3/orders/client_id/&lt;client_id&gt;-&lt;client_id&gt;-&lt;client_id&gt;/</code></li>
+<li><code class="prettyprint">DELETE /v3/orders/client_id/&lt;client_id&gt;-&lt;client_id&gt;-&lt;client_id&gt;/</code></li>
+</ul>
+
 <h1 id="general">General</h1>
 
 <h2 id="http-api-responses">HTTP API Responses</h2>
@@ -194,9 +218,16 @@ error categories, the last two digits define specific errors.</p>
 
 <ul>
 <li>0201: Invalid Nonce or Invalid Credentials</li>
-<li>0202: Your account is currently suspended.</li>
+<li>0202: API key is not authorized to execute the requested method</li>
 <li>0203: Login token is invalid or expired</li>
 <li>0204: Incorrect PIN</li>
+<li>0205: Too many login attempts </li>
+<li>0206: Invalid nonce type</li>
+<li>0207: Invalid nonce value</li>
+<li>0208: Authentication is required to execute requested operation</li>
+<li>0209: Two Factor authentication required</li>
+<li>0210: Device authentication required</li>
+<li>0211: Device authentication failed (Invalid IP or expired Token)</li>
 </ul>
 
 <h3 id="validation-errors-03-http-400">Validation Errors: 03 (HTTP 400)</h3>
@@ -227,7 +258,7 @@ error categories, the last two digits define specific errors.</p>
 <li>0323: No associated country code</li>
 <li>0324: Number already in use</li>
 <li>0325: Phone already verified</li>
-<li>0326: Quote is expired or invalid</li>
+<li>0326: API key is not active</li>
 <li>0327: Service unavailable for requesting location</li>
 <li>0328: Service unavailable for requesting country</li>
 <li>0329: Market order type must be in (maj, min)</li>
@@ -246,7 +277,7 @@ error categories, the last two digits define specific errors.</p>
 <li>0342: Invalid CVU</li>
 <li>0343: Incorrect amount</li>
 <li>0344: Invalid BIND recipient name</li>
-<li>0345: Error processing Bind Transfer request</li>
+<li>0345: Quote is expired or invalid</li>
 <li>0346: You need to agree to the new terms and condition</li>
 <li>0347: Too many attempts to validate CURP</li>
 <li>0348: CURP data did not match with user data</li>
@@ -257,6 +288,18 @@ error categories, the last two digits define specific errors.</p>
 <li>0353: Current withdrawal fee is higher than specified maximum</li>
 <li>0354: No defined legal operation entity</li>
 <li>0355: Incorrect hash (non-existent or does not belong to user)</li>
+<li>0356: Duplicate origin id provided</li>
+<li>0357: Incorrect origin id (non-existent or does not belong to user)</li>
+<li>0358: The password must have at least 8 characters</li>
+<li>0359: The password is too long</li>
+<li>0360: At least one field is required but none was submitted</li>
+<li>0361: Two or more fields were submitted when only one is required</li>
+<li>0362: Invalid callback URL</li>
+<li>0363: Invalid Transaction ID (Either non-existent or does not belong to the user)</li>
+<li>0364: Password doesn&rsquo;t meet security requirements</li>
+<li>0365: Two factor authentication method is already enabled</li>
+<li>0366: Two factor authentication method is not enabled</li>
+<li>0367: Unable to generate quote at the present time</li>
 </ul>
 
 <h3 id="system-limit-errors-04-http-400">System Limit Errors: 04 (HTTP 400)</h3>
@@ -269,6 +312,7 @@ error categories, the last two digits define specific errors.</p>
 <li>0405: Incorrect minor, below the minimum</li>
 <li>0406: Incorrect minor, above the maximum</li>
 <li>0407: Invalid precision</li>
+<li>0408: Incorrect amount value, it must be a non-zero positive value.</li>
 </ul>
 
 <h3 id="user-limit-error-05-http-400">User Limit Error: 05 (HTTP 400)</h3>
@@ -293,6 +337,12 @@ error categories, the last two digits define specific errors.</p>
 <li>0701: Action not permitted for unverified account</li>
 <li>0702: Action not permitted for unverified business account</li>
 <li>0703: For your protection, your withdrawal ability has been suspended</li>
+<li>0704: A specific feature is disabled as the user has decided to opt-out</li>
+<li>0705: Your account is currently suspended</li>
+<li>0706: You must accept the Terms of service</li>
+<li>0707: 2FA Locked</li>
+<li>0708: Max attempts reached to perform operation</li>
+<li>0709: Action not permitted for missing KYC data</li>
 </ul>
 
 <h3 id="throttling-errors-08-http-420">Throttling Errors: 08 (HTTP 420)</h3>
@@ -308,6 +358,24 @@ error categories, the last two digits define specific errors.</p>
 <li>0901: Unsupported HTTP method</li>
 </ul>
 
+<h3 id="miscellaneous-errors-10-400-error">Miscellaneous Errors: 10 (400 error)</h3>
+
+<ul>
+<li>1000: API temporarily disabled (More info in error message)</li>
+<li>1001: Too many open orders</li>
+<li>1002: Unable to process order</li>
+<li>1003: Operation timeout</li>
+<li>1004: Deprecated functionality</li>
+</ul>
+
+<h3 id="operation-errors-11-500-error">Operation Errors: 11 (500 error)</h3>
+
+<ul>
+<li>1101: Error when processing the withdrawal</li>
+<li>1102: Error registering callback URL</li>
+<li>1103: System-wide method disabled</li>
+</ul>
+
 <h2 id="client-libraries">Client Libraries</h2>
 
 <p>The following client libraries will allow you to integrate quickly with our APIs</p>
@@ -317,9 +385,11 @@ error categories, the last two digits define specific errors.</p>
 <li><a href="https://github.com/bitsoex/bitso-py">Python</a></li>
 </ul>
 
-<h2 id="legacy-api-docs">Legacy API Docs</h2>
+<h2 id="language-detection">Language detection</h2>
 
-<p>Documentation for the v2 API available at <a href="https://bitso.com/api_info/v2">https://bitso.com/api_info/v2</a></p>
+<p>The initial phase of the detection if you are using API keys is the language you have on your settings. (This defaults depending on your country of residence the moment you sign up)
+To force this to a specific language we then use <code class="prettyprint">Accept-Language</code> header on the request to override this setting.
+If none of these settings are set the default is <code class="prettyprint">en</code>.</p>
 
 <h1 id="public-rest-api">Public REST API</h1>
 
@@ -2051,7 +2121,7 @@ net amount withdrawal fees denominated in the corresponding currency.</p>
 <td>-</td>
 </tr>
 <tr>
-<td><strong>balance</strong></td>
+<td><strong>amount</strong></td>
 <td>String</td>
 <td>Amount added or subtracted to user balance</td>
 <td>Currency</td>
@@ -2188,9 +2258,11 @@ a specific operation type.</p>
 
 <p><code class="prettyprint">GET https://api.bitso.com/v3/withdrawals/wid/</code></p>
 
-<p><code class="prettyprint">GET https://api.bitso.com/v3/withdrawals/wid-wid-wid/</code></p>
+<p><code class="prettyprint">GET https://api.bitso.com/v3/withdrawals?wids=&lt;wid&gt;,&lt;wid&gt;,&lt;wid&gt;</code></p>
 
-<h3 id="authorization-header-parameters">Authorization Header Parameters</h3>
+<p><code class="prettyprint">GET https://api.bitso.com/v3/withdrawals?origin_ids=&lt;origin_id&gt;,&lt;origin_id&gt;,&lt;origin_id&gt;</code></p>
+
+<h3 id="query-parameters">Query Parameters</h3>
 
 <table><thead>
 <tr>
@@ -2201,22 +2273,22 @@ a specific operation type.</p>
 </tr>
 </thead><tbody>
 <tr>
-<td><strong>key</strong></td>
-<td>-</td>
-<td>Yes</td>
-<td>See <a href="#creating-and-signing-requests">Creating and Signing Requests</a></td>
+<td><strong>wid</strong></td>
+<td></td>
+<td>No</td>
+<td>Specifies which withdrawal to obtain</td>
 </tr>
 <tr>
-<td><strong>signature</strong></td>
-<td>-</td>
-<td>Yes</td>
-<td>See <a href="#creating-and-signing-requests">Creating and Signing Requests</a></td>
+<td><strong>wids</strong></td>
+<td></td>
+<td>No</td>
+<td>Specifies which withdrawals to obtain (by wid)</td>
 </tr>
 <tr>
-<td><strong>nonce</strong></td>
-<td>-</td>
-<td>Yes</td>
-<td>See <a href="#creating-and-signing-requests">Creating and Signing Requests</a></td>
+<td><strong>origin_ids</strong></td>
+<td></td>
+<td>No</td>
+<td>Specifies which withdrawals to obtain (by origin_id)</td>
 </tr>
 </tbody></table>
 
@@ -2502,7 +2574,8 @@ a specific operation type.</p>
         </span><span class="nt">"price"</span><span class="p">:</span><span class="w"> </span><span class="s2">"4057.45"</span><span class="p">,</span><span class="w">
         </span><span class="nt">"tid"</span><span class="p">:</span><span class="w"> </span><span class="mi">51756</span><span class="p">,</span><span class="w">
         </span><span class="nt">"oid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"g81d3y1ywri0yg8m"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"side"</span><span class="p">:</span><span class="w"> </span><span class="s2">"sell"</span><span class="w">
+        </span><span class="nt">"side"</span><span class="p">:</span><span class="w"> </span><span class="s2">"sell"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"make_side"</span><span class="p">:</span><span class="w"> </span><span class="s2">"sell"</span><span class="w">
     </span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="nt">"book"</span><span class="p">:</span><span class="w"> </span><span class="s2">"eth_mxn"</span><span class="p">,</span><span class="w">
         </span><span class="nt">"major"</span><span class="p">:</span><span class="w"> </span><span class="s2">"4.86859395"</span><span class="p">,</span><span class="w">
@@ -2513,7 +2586,8 @@ a specific operation type.</p>
         </span><span class="nt">"price"</span><span class="p">:</span><span class="w"> </span><span class="s2">"127.45"</span><span class="p">,</span><span class="w">
         </span><span class="nt">"tid"</span><span class="p">:</span><span class="w"> </span><span class="mi">51757</span><span class="p">,</span><span class="w">
         </span><span class="nt">"oid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"19vaqiv72drbphig"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"side"</span><span class="p">:</span><span class="w"> </span><span class="s2">"buy"</span><span class="w">
+        </span><span class="nt">"side"</span><span class="p">:</span><span class="w"> </span><span class="s2">"buy"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"make_side"</span><span class="p">:</span><span class="w"> </span><span class="s2">"sell"</span><span class="w">
     </span><span class="p">}]</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
@@ -2591,7 +2665,7 @@ a specific operation type.</p>
 <tr>
 <td><strong>minor</strong></td>
 <td>String</td>
-<td>Minr amount traded</td>
+<td>Minor amount traded</td>
 <td>Minor</td>
 </tr>
 <tr>
@@ -2604,6 +2678,12 @@ a specific operation type.</p>
 <td><strong>side</strong></td>
 <td>String</td>
 <td>Indicates the user&rsquo;s side for this trade (buy, sell)</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>maker_side</strong></td>
+<td>String</td>
+<td>Indicates the maker&rsquo;s side for this trade (buy, sell), if it matches with <code class="prettyprint">side</code> you&rsquo;re maker</td>
 <td></td>
 </tr>
 <tr>
@@ -2628,6 +2708,12 @@ a specific operation type.</p>
 <td><strong>oid</strong></td>
 <td>String</td>
 <td>Users&rsquo; Order ID</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>origin_id</strong></td>
+<td>String</td>
+<td>Users&rsquo; Order &#39;origin_id&rsquo; (if any)</td>
 <td></td>
 </tr>
 <tr>
@@ -2657,7 +2743,9 @@ a specific operation type.</p>
             </span><span class="nt">"price"</span><span class="p">:</span><span class="w"> </span><span class="s2">"4057.45"</span><span class="p">,</span><span class="w">
             </span><span class="nt">"tid"</span><span class="p">:</span><span class="w"> </span><span class="mi">51756</span><span class="p">,</span><span class="w">
             </span><span class="nt">"oid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Jvqrschkgdkc1go3"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"side"</span><span class="p">:</span><span class="w"> </span><span class="s2">"sell"</span><span class="w">
+            </span><span class="nt">"origin_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"origin_id1"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"side"</span><span class="p">:</span><span class="w"> </span><span class="s2">"sell"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"make_side"</span><span class="p">:</span><span class="w"> </span><span class="s2">"sell"</span><span class="w">
         </span><span class="p">},</span><span class="w">
         </span><span class="p">{</span><span class="w">
             </span><span class="nt">"book"</span><span class="p">:</span><span class="w"> </span><span class="s2">"btc_mxn"</span><span class="p">,</span><span class="w">
@@ -2669,7 +2757,9 @@ a specific operation type.</p>
             </span><span class="nt">"price"</span><span class="p">:</span><span class="w"> </span><span class="s2">"4057.45"</span><span class="p">,</span><span class="w">
             </span><span class="nt">"tid"</span><span class="p">:</span><span class="w"> </span><span class="mi">51755</span><span class="p">,</span><span class="w">
             </span><span class="nt">"oid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Jvqrschkgdkc1go3"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"side"</span><span class="p">:</span><span class="w"> </span><span class="s2">"sell"</span><span class="w">
+            </span><span class="nt">"origin_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"origin_id1"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"side"</span><span class="p">:</span><span class="w"> </span><span class="s2">"sell"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"make_side"</span><span class="p">:</span><span class="w"> </span><span class="s2">"sell"</span><span class="w">
         </span><span class="p">}</span><span class="w">
     </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
@@ -2679,7 +2769,9 @@ a specific operation type.</p>
 
 <h3 id="http-request">HTTP Request</h3>
 
-<p><code class="prettyprint">GET https://api.bitso.com/v3/order_trades/oid/</code></p>
+<p><code class="prettyprint">GET https://api.bitso.com/v3/order_trades/&lt;oid&gt;/</code></p>
+
+<p><code class="prettyprint">GET https://api.bitso.com/v3/order_trades?origin_id=&lt;origin_id&gt;</code></p>
 
 <h3 id="query-parameters">Query Parameters</h3>
 
@@ -2694,8 +2786,14 @@ a specific operation type.</p>
 <tr>
 <td><strong>oid</strong></td>
 <td></td>
-<td>Yes</td>
+<td>No</td>
 <td>Specifies which order to get corresponding trades for</td>
+</tr>
+<tr>
+<td><strong>origin_id</strong></td>
+<td></td>
+<td>No</td>
+<td>Specifies which order to get corresponding trades for (by origin_id)</td>
 </tr>
 </tbody></table>
 
@@ -2742,6 +2840,12 @@ a specific operation type.</p>
 <td></td>
 </tr>
 <tr>
+<td><strong>maker_side</strong></td>
+<td>String</td>
+<td>Indicates the maker&rsquo;s side for this trade (buy, sell), if it matches with <code class="prettyprint">side</code> you&rsquo;re maker</td>
+<td></td>
+</tr>
+<tr>
 <td><strong>fees_currency</strong></td>
 <td>String</td>
 <td>Indicates the currency in which the trade fee was charged</td>
@@ -2763,6 +2867,12 @@ a specific operation type.</p>
 <td><strong>oid</strong></td>
 <td>String</td>
 <td>Users&rsquo; Order ID</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>origin_id</strong></td>
+<td>String</td>
+<td>Users&rsquo; Order &#39;origin_id&rsquo; (if any)</td>
 <td></td>
 </tr>
 <tr>
@@ -2789,6 +2899,7 @@ a specific operation type.</p>
         </span><span class="nt">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-04-08T17:52:51.000+00:00"</span><span class="p">,</span><span class="w">
         </span><span class="nt">"price"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5600.00"</span><span class="p">,</span><span class="w">
         </span><span class="nt">"oid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"543cr2v32a1h68443"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"origin_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"origin_id1"</span><span class="p">,</span><span class="w">
         </span><span class="nt">"side"</span><span class="p">:</span><span class="w"> </span><span class="s2">"buy"</span><span class="p">,</span><span class="w">
         </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"partial-fill"</span><span class="p">,</span><span class="w">
         </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"limit"</span><span class="w">
@@ -3013,9 +3124,11 @@ a specific operation type.</p>
 
 <p><code class="prettyprint">GET https://api.bitso.com/v3/orders/&lt;oid&gt;/</code></p>
 
-<p><code class="prettyprint">GET https://api.bitso.com/v3/orders/&lt;oid&gt;-&lt;oid&gt;-&lt;oid&gt;/</code></p>
+<p><code class="prettyprint">GET https://api.bitso.com/v3/orders?oids=&lt;oid&gt;,&lt;oid&gt;,&lt;oid&gt;</code></p>
 
-<h3 id="authorization-header-parameters">Authorization Header Parameters</h3>
+<p><code class="prettyprint">GET https://api.bitso.com/v3/orders?origin_ids=&lt;origin_id&gt;,&lt;origin_id&gt;,&lt;origin_id&gt;</code></p>
+
+<h3 id="query-parameters">Query Parameters</h3>
 
 <table><thead>
 <tr>
@@ -3026,22 +3139,22 @@ a specific operation type.</p>
 </tr>
 </thead><tbody>
 <tr>
-<td><strong>key</strong></td>
-<td>-</td>
-<td>Yes</td>
-<td>See <a href="#creating-and-signing-requests">Creating and Signing Requests</a></td>
+<td><strong>oid</strong></td>
+<td></td>
+<td>No</td>
+<td>Specifies which order to obtain</td>
 </tr>
 <tr>
-<td><strong>signature</strong></td>
-<td>-</td>
-<td>Yes</td>
-<td>See <a href="#creating-and-signing-requests">Creating and Signing Requests</a></td>
+<td><strong>oids</strong></td>
+<td></td>
+<td>No</td>
+<td>Specifies which order to obtain (by order_id)</td>
 </tr>
 <tr>
-<td><strong>nonce</strong></td>
-<td>-</td>
-<td>Yes</td>
-<td>See <a href="#creating-and-signing-requests">Creating and Signing Requests</a></td>
+<td><strong>origin_ids</strong></td>
+<td></td>
+<td>No</td>
+<td>Specifies which order to obtain (by origin_id)</td>
 </tr>
 </tbody></table>
 
@@ -3115,13 +3228,37 @@ a specific operation type.</p>
 <td><strong>status</strong></td>
 <td>String</td>
 <td>The order&rsquo;s status (queued, open, partial-fill, closed)</td>
-<td></td>
+<td>-</td>
 </tr>
 <tr>
 <td><strong>type</strong></td>
 <td>String</td>
 <td>The order type (market, limit)</td>
 <td>-</td>
+</tr>
+<tr>
+<td><strong>origin_id</strong></td>
+<td>String</td>
+<td>The origin_id if any</td>
+<td>-</td>
+</tr>
+<tr>
+<td><strong>time_in_force</strong></td>
+<td>String</td>
+<td>The time in force paramater for limit orders</td>
+<td>-</td>
+</tr>
+<tr>
+<td><strong>stop</strong></td>
+<td>String</td>
+<td>The stop price for Stop orders</td>
+<td>-</td>
+</tr>
+<tr>
+<td><strong>triggered_at</strong></td>
+<td>String</td>
+<td>Timestamp at which a stop order was triggered</td>
+<td>ISO 8601 timestamp</td>
 </tr>
 </tbody></table>
 
@@ -3133,10 +3270,10 @@ a specific operation type.</p>
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
     </span><span class="nt">"success"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
     </span><span class="nt">"payload"</span><span class="p">:[</span><span class="w">
-        </span><span class="s2">"543cr2v32a1h684430tvcqx1b0vkr93wd694957cg8umhyrlzkgbaedmf976ia3v"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"qlbga6b600n3xta7actori10z19acfb20njbtuhtu5xry7z8jswbaycazlkc0wf1"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"d71e3xy2lowndkfmde6bwkdsvw62my6058e95cbr08eesu0687i5swyot4rf2yf8"</span><span class="w">
-        </span><span class="p">]</span><span class="w">
+        </span><span class="s2">"cME2F7uZKJcMKXqU"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"FwllxXRKvcgJmyFy"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"zhDI9iBRglW9s9Vu"</span><span class="w">
+    </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
@@ -3146,11 +3283,13 @@ a specific operation type.</p>
 
 <p><code class="prettyprint">DELETE https://api.bitso.com/v3/orders/&lt;oid&gt;/</code></p>
 
-<p><code class="prettyprint">DELETE https://api.bitso.com/v3/orders/&lt;oid&gt;-&lt;oid&gt;-&lt;oid&gt;/</code></p>
+<p><code class="prettyprint">DELETE https://api.bitso.com/v3/orders?oids=&lt;oid&gt;,&lt;oid&gt;,&lt;oid&gt;</code></p>
 
-<p><code class="prettyprint">DELETE https://api.bitso.com/v3/orders/all/</code></p>
+<p><code class="prettyprint">DELETE https://api.bitso.com/v3/orders?origin_ids=&lt;origin_id&gt;,&lt;origin_id&gt;,&lt;orgin_id&gt;</code></p>
 
-<h3 id="authorization-header-parameters">Authorization Header Parameters</h3>
+<p><code class="prettyprint">DELETE https://api.bitso.com/v3/orders/all</code></p>
+
+<h3 id="query-parameters">Query Parameters</h3>
 
 <table><thead>
 <tr>
@@ -3161,22 +3300,28 @@ a specific operation type.</p>
 </tr>
 </thead><tbody>
 <tr>
-<td><strong>key</strong></td>
-<td>-</td>
-<td>Yes</td>
-<td>See <a href="#creating-and-signing-requests">Creating and Signing Requests</a></td>
+<td><strong>oid</strong></td>
+<td></td>
+<td>No</td>
+<td>Specifies the order that should be cancelled</td>
 </tr>
 <tr>
-<td><strong>signature</strong></td>
-<td>-</td>
-<td>Yes</td>
-<td>See <a href="#creating-and-signing-requests">Creating and Signing Requests</a></td>
+<td><strong>oids</strong></td>
+<td></td>
+<td>No</td>
+<td>Specifies which orders should be cancelled (by order_id)</td>
 </tr>
 <tr>
-<td><strong>nonce</strong></td>
-<td>-</td>
-<td>Yes</td>
-<td>See <a href="#creating-and-signing-requests">Creating and Signing Requests</a></td>
+<td><strong>origin_ids</strong></td>
+<td></td>
+<td>No</td>
+<td>Specifies which orders should be cancelled (by origin_id)</td>
+</tr>
+<tr>
+<td><strong>all</strong></td>
+<td></td>
+<td>No</td>
+<td>Cancells all the open orders of the user</td>
 </tr>
 </tbody></table>
 
@@ -3193,7 +3338,7 @@ a specific operation type.</p>
     </span><span class="nt">"success"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
     </span><span class="nt">"payload"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="nt">"oid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"qlbga6b600n3xta7"</span><span class="w">
-        </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
@@ -3292,7 +3437,13 @@ as the JSON payload used to construct the signature.</p>
 <td><strong>time_in_force</strong></td>
 <td>-</td>
 <td>No</td>
-<td>Indicates how long a limit order will remain active before it is executed or expires (goodtillcancelled, fillorkill, immediateorcancel)</td>
+<td>Indicates how long a limit order will remain active before it is executed or expires (goodtillcancelled, fillorkill, immediateorcancel, postonly)</td>
+</tr>
+<tr>
+<td><strong>origin_id</strong></td>
+<td>-</td>
+<td>No</td>
+<td>Client supplied unique ID. Can be used to lookup and cancel orders</td>
 </tr>
 </tbody></table>
 
@@ -3312,66 +3463,6 @@ as the JSON payload used to construct the signature.</p>
 <td><strong>oid</strong></td>
 <td>String</td>
 <td>The Order ID</td>
-<td>-</td>
-</tr>
-<tr>
-<td><strong>book</strong></td>
-<td>String</td>
-<td>Order book symbol</td>
-<td>Major_Minor</td>
-</tr>
-<tr>
-<td><strong>original_amount</strong></td>
-<td>String</td>
-<td>The order&rsquo;s initial major currency amount</td>
-<td>Major</td>
-</tr>
-<tr>
-<td><strong>unfilled_amount</strong></td>
-<td>String</td>
-<td>The order&rsquo;s unfilled major currency amount</td>
-<td>Major</td>
-</tr>
-<tr>
-<td><strong>original_value</strong></td>
-<td>String</td>
-<td>The order&rsquo;s initial minor currency amount</td>
-<td>Minor</td>
-</tr>
-<tr>
-<td><strong>created_at</strong></td>
-<td>String</td>
-<td>Timestamp at which the order was created</td>
-<td>ISO 8601 timestamp</td>
-</tr>
-<tr>
-<td><strong>updated_at</strong></td>
-<td>String</td>
-<td>Timestamp at which the order was updated (can be null)</td>
-<td>ISO 8601 timestamp</td>
-</tr>
-<tr>
-<td><strong>price</strong></td>
-<td>String</td>
-<td>The order&rsquo;s price</td>
-<td>Minor</td>
-</tr>
-<tr>
-<td><strong>side</strong></td>
-<td>String</td>
-<td>The order side (buy, sell)</td>
-<td>-</td>
-</tr>
-<tr>
-<td><strong>status</strong></td>
-<td>String</td>
-<td>The order&rsquo;s status (queued, open, partial-fill, closed)</td>
-<td></td>
-</tr>
-<tr>
-<td><strong>type</strong></td>
-<td>String</td>
-<td>The order type (market, limit)</td>
 <td>-</td>
 </tr>
 </tbody></table>
@@ -3764,7 +3855,7 @@ as the JSON payload used to construct the signature.</p>
 <td><strong>notes_ref</strong></td>
 <td>-</td>
 <td>No</td>
-<td>The alpha-numeric reference number for this SPEI</td>
+<td>The alpha-numeric reference number for this SPEI (max. 40 characters)</td>
 </tr>
 <tr>
 <td><strong>numeric_ref</strong></td>
@@ -4247,9 +4338,10 @@ as the JSON payload used to construct the signature.</p>
 
 <h2 id="general">General</h2>
 
-<p>The <strong>Trades channel</strong> send a message whenver a new trade is executed in the corresponding order book.</p>
+<p>The <strong>Trades channel</strong> send a message whenever a new trade is executed in the corresponding order book.</p>
 
-<p>The <strong>Orders channel</strong> maintains an up-to-date list of the top 20 asks and the top 20 bids, new messages are sent across the channel whenever there is a change in either top 20.</p>
+<p>The <strong>Orders channel</strong> maintains an up-to-date list of the top 20 asks and the top 20 bids, new messages are sent across the channel whenever there is a change in either top 20.
+<strong>This channel will be deprecated from September 1st, 2020.</strong></p>
 
 <p>The <strong>Diff-Orders</strong> channel will send across any modifications to the
 order book. Specifically, any state changes in existing orders
@@ -4265,6 +4357,8 @@ you need to update the order book to get to correct state. In theory,
 you can get a copy of the full order book via REST once, and keep it
 up to date by using the diff-orders channel with the following
 algorithm:</p>
+
+<h3 id="algorithm">Algorithm</h3>
 
 <ol>
 <li>Subscribe to the diff-orders channel.</li>
@@ -4321,6 +4415,12 @@ will be acknowledged in the following manner:</p>
 
                 }
             };
+</code></pre>
+
+<blockquote>
+<p>Keep alive messages look like this:</p>
+</blockquote>
+<pre class="highlight plaintext"><code>{"type":"ka"}
 </code></pre>
 
 <h3 id="example-implementation">Example Implementation</h3>
@@ -4492,6 +4592,10 @@ will be acknowledged in the following manner:</p>
 </tbody></table>
 
 <h2 id="orders">Orders</h2>
+
+<aside class="warning">
+The Orders channel will be deprecated from September 1st, 2020. Please refer to these [instructions](#algorithm) to pull the order book and keep it updated.
+</aside>
 
 <blockquote>
 <p>Messages on this channel look like this:</p>
