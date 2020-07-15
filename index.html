@@ -376,6 +376,14 @@ error categories, the last two digits define specific errors.</p>
 <li>1103: System-wide method disabled</li>
 </ul>
 
+<h3 id="phone-related-errors-12-400-error">Phone related errors: 12 (400 error)</h3>
+
+<ul>
+<li>1201: The number provided is not a mobile number</li>
+<li>1202: We cannot send an SMS to the number provided (out of jurisdiction)</li>
+<li>1299: Unexpected error when trying to send SMS</li>
+</ul>
+
 <h2 id="client-libraries">Client Libraries</h2>
 
 <p>The following client libraries will allow you to integrate quickly with our APIs</p>
@@ -4341,7 +4349,7 @@ as the JSON payload used to construct the signature.</p>
 <p>The <strong>Trades channel</strong> send a message whenever a new trade is executed in the corresponding order book.</p>
 
 <p>The <strong>Orders channel</strong> maintains an up-to-date list of the top 20 asks and the top 20 bids, new messages are sent across the channel whenever there is a change in either top 20.
-<strong>This channel will be deprecated from September 1st, 2020.</strong></p>
+<strong>This channel will be deprecated from October 1st, 2020.</strong></p>
 
 <p>The <strong>Diff-Orders</strong> channel will send across any modifications to the
 order book. Specifically, any state changes in existing orders
