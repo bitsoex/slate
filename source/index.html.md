@@ -237,6 +237,11 @@ error categories, the last two digits define specific errors.
 * 1102: Error registering callback URL
 * 1103: System-wide method disabled
 
+### Phone related errors: 12 (400 error)
+* 1201: The number provided is not a mobile number
+* 1202: We cannot send an SMS to the number provided (out of jurisdiction)
+* 1299: Unexpected error when trying to send SMS
+
 ## Client Libraries
 
 The following client libraries will allow you to integrate quickly with our APIs
