@@ -232,6 +232,7 @@ error categories, the last two digits define specific errors.
 * 1002: Unable to process order
 * 1003: Operation timeout
 * 1004: Deprecated functionality
+* 1005: Invalid operation
 
 ### Operation Errors: 11 (500 error)
 * 1101: Error when processing the withdrawal
