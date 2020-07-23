@@ -1558,11 +1558,11 @@ Parameter | Default | Required | Description
 **marker** | - | No | Returns objects that are older than the object with this FID (for pagination)
 **status** | - | No | Restricts the fundings to those of the specified status (pending, in_progress, complete, failed)
 **method** | - | No | Restricts the fundings to those of the specified method (SP, BTC, ETH, ...)
-
+**txids** | - | No | Allows lookups of specific Transaction IDs - comma delimited list possible. **Please note** that all other parameters will be ignored
 
 ### JSON Response Payload
 
-Returns a JSON Array of open orders. Every element in the array is a JSON object:
+Returns a JSON Array of fundings. Every element in the array is a JSON object:
 
 Field Name | Type | Description | Units
 ---------- | ---- | ----------- | -----
