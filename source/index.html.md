@@ -218,6 +218,7 @@ error categories, the last two digits define specific errors.
 * 0707: 2FA Locked
 * 0708: Max attempts reached to perform operation
 * 0709: Action not permitted for missing KYC data
+* 0710: Password must be updated
 * 0712: There was an error trying to save an user beneficiary
 * 0713: There was an error trying to fetch the user beneficiaries 
 * 0714: Invalid data for user beneficiary
@@ -235,6 +236,7 @@ error categories, the last two digits define specific errors.
 * 1002: Unable to process order
 * 1003: Operation timeout
 * 1004: Deprecated functionality
+* 1005: Invalid operation
 
 ### Operation Errors: 11 (500 error)
 * 1101: Error when processing the withdrawal
@@ -1560,11 +1562,11 @@ Parameter | Default | Required | Description
 **marker** | - | No | Returns objects that are older than the object with this FID (for pagination)
 **status** | - | No | Restricts the fundings to those of the specified status (pending, in_progress, complete, failed)
 **method** | - | No | Restricts the fundings to those of the specified method (SP, BTC, ETH, ...)
-
+**txids** | - | No | Allows lookups of specific Transaction IDs - comma delimited list possible. **Please note** that all other parameters will be ignored
 
 ### JSON Response Payload
 
-Returns a JSON Array of open orders. Every element in the array is a JSON object:
+Returns a JSON Array of fundings. Every element in the array is a JSON object:
 
 Field Name | Type | Description | Units
 ---------- | ---- | ----------- | -----
