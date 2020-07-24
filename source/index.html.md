@@ -23,7 +23,17 @@ with third party applications, such as trading applications, charting programs,
 point of sale systems, and much more. Below you will find details on how the
 system functions, along with examples in common programming languages.
 
-# Change Log
+# Changelog
+
+### 2020-06-11
+
+Notification of deprecation of the WS orders channel scheduled to happen on September 1st, 2020
+
+### 2020-06-10
+
+Add the ability to query a withdrawal by its origin id
+
+* `GET /v3/withdrawals?origin_ids=<origin_id>,<origin_id>,<origin_id>`
 
 ### 2020-06-09
 
@@ -32,12 +42,6 @@ Deprecate `/v3/<api_method>/client_id/<client_id>`.
 * `GET /v3/order_trades/client_id/<client_id>`
 * `GET /v3/orders/client_id/<client_id>-<client_id>-<client_id>/`
 * `DELETE /v3/orders/client_id/<client_id>-<client_id>-<client_id>/`
-
-### 2020-06-10
-
-Add the ability to query a withdrawal by it's origin id
-
-* `GET /v3/withdrawals?origin_ids=<origin_id>,<origin_id>,<origin_id>`
 
 # General
 
@@ -181,6 +185,8 @@ error categories, the last two digits define specific errors.
 * 0364: Password doesn't meet security requirements
 * 0365: Two factor authentication method is already enabled
 * 0366: Two factor authentication method is not enabled
+* 0367: Unable to generate quote at the present time
+* 0368: Rejected withdrawal to restricted address
 
 ### System Limit Errors: 04 (HTTP 400)
 * 0401: Incorrect price, below the minimum
@@ -212,8 +218,9 @@ error categories, the last two digits define specific errors.
 * 0707: 2FA Locked
 * 0708: Max attempts reached to perform operation
 * 0709: Action not permitted for missing KYC data
-* 0710: There was an error trying to save the users business persons
-* 0711: There was an error trying to fetch the users business persons
+* 0710: Password must be updated
+* 0711: There was an error trying to save the users business persons
+* 0712: There was an error trying to fetch the users business persons
 
 ### Throttling Errors: 08 (HTTP 420)
 * 0801: You have hit the request rate-limit
@@ -228,11 +235,17 @@ error categories, the last two digits define specific errors.
 * 1002: Unable to process order
 * 1003: Operation timeout
 * 1004: Deprecated functionality
+* 1005: Invalid operation
 
 ### Operation Errors: 11 (500 error)
 * 1101: Error when processing the withdrawal
 * 1102: Error registering callback URL
 * 1103: System-wide method disabled
+
+### Phone related errors: 12 (400 error)
+* 1201: The number provided is not a mobile number
+* 1202: We cannot send an SMS to the number provided (out of jurisdiction)
+* 1299: Unexpected error when trying to send SMS
 
 ## Client Libraries
 
@@ -240,6 +253,13 @@ The following client libraries will allow you to integrate quickly with our APIs
 
 * [Java](https://github.com/bitsoex/bitso-java)
 * [Python](https://github.com/bitsoex/bitso-py)
+
+## Language detection
+
+The initial phase of the detection if you are using API keys is the language you have on your settings. (This defaults depending on your country of residence the moment you sign up)
+To force this to a specific language we then use `Accept-Language` header on the request to override this setting.
+If none of these settings are set the default is `en`.
+
 
 # Public REST API
 
@@ -1541,11 +1561,11 @@ Parameter | Default | Required | Description
 **marker** | - | No | Returns objects that are older than the object with this FID (for pagination)
 **status** | - | No | Restricts the fundings to those of the specified status (pending, in_progress, complete, failed)
 **method** | - | No | Restricts the fundings to those of the specified method (SP, BTC, ETH, ...)
-
+**txids** | - | No | Allows lookups of specific Transaction IDs - comma delimited list possible. **Please note** that all other parameters will be ignored
 
 ### JSON Response Payload
 
-Returns a JSON Array of open orders. Every element in the array is a JSON object:
+Returns a JSON Array of fundings. Every element in the array is a JSON object:
 
 Field Name | Type | Description | Units
 ---------- | ---- | ----------- | -----
@@ -2370,6 +2390,7 @@ Field Name | Type | Description | Units
 The **Trades channel** send a message whenever a new trade is executed in the corresponding order book.
 
 The **Orders channel** maintains an up-to-date list of the top 20 asks and the top 20 bids, new messages are sent across the channel whenever there is a change in either top 20.
+**This channel will be deprecated from October 1st, 2020.**
 
 The **Diff-Orders** channel will send across any modifications to the
 order book. Specifically, any state changes in existing orders
@@ -2385,6 +2406,8 @@ you need to update the order book to get to correct state. In theory,
 you can get a copy of the full order book via REST once, and keep it
 up to date by using the diff-orders channel with the following
 algorithm:
+
+### Algorithm
 
 1. Subscribe to the diff-orders channel.
 2. Queue any message that come in to this channel.
@@ -2537,6 +2560,10 @@ Field Name | Type | Description | Units
 **o** | String | Order ID | -
 
 ## Orders
+
+<aside class="warning">
+The Orders channel will be deprecated from September 1st, 2020. Please refer to these [instructions](#algorithm) to pull the order book and keep it updated.
+</aside>
 
 > Messages on this channel look like this:
 
