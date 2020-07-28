@@ -219,8 +219,8 @@ error categories, the last two digits define specific errors.
 * 0708: Max attempts reached to perform operation
 * 0709: Action not permitted for missing KYC data
 * 0710: Password must be updated
-* 0711: There was an error trying to save the users business persons
-* 0712: There was an error trying to fetch the users business persons
+* 0715: There was an error trying to save the users business persons
+* 0716: There was an error trying to fetch the users business persons
 
 ### Throttling Errors: 08 (HTTP 420)
 * 0801: You have hit the request rate-limit
