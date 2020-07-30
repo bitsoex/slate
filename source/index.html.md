@@ -219,6 +219,7 @@ error categories, the last two digits define specific errors.
 * 0708: Max attempts reached to perform operation
 * 0709: Action not permitted for missing KYC data
 * 0710: Password must be updated
+* 0711: Verification completed. No missing requirements to fill
 * 0712: Error saving user beneficiary
 * 0713: Error fetching user beneficiaries
 * 0714: Invalid data for user beneficiary
