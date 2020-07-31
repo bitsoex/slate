@@ -27,7 +27,7 @@ system functions, along with examples in common programming languages.
 
 ### 2020-06-11
 
-Notification of deprecation of the WS orders channel scheduled to happen on September 1st, 2020
+Notification of deprecation of the WS orders channel scheduled to happen on October 1st, 2020
 
 ### 2020-06-10
 
