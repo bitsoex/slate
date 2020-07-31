@@ -133,7 +133,7 @@ system functions, along with examples in common programming languages.</p>
 
 <h3 id="2020-06-11">2020-06-11</h3>
 
-<p>Notification of deprecation of the WS orders channel scheduled to happen on September 1st, 2020</p>
+<p>Notification of deprecation of the WS orders channel scheduled to happen on October 1st, 2020</p>
 
 <h3 id="2020-06-10">2020-06-10</h3>
 
@@ -300,6 +300,7 @@ error categories, the last two digits define specific errors.</p>
 <li>0365: Two factor authentication method is already enabled</li>
 <li>0366: Two factor authentication method is not enabled</li>
 <li>0367: Unable to generate quote at the present time</li>
+<li>0368: Rejected withdrawal to restricted address</li>
 </ul>
 
 <h3 id="system-limit-errors-04-http-400">System Limit Errors: 04 (HTTP 400)</h3>
@@ -343,6 +344,11 @@ error categories, the last two digits define specific errors.</p>
 <li>0707: 2FA Locked</li>
 <li>0708: Max attempts reached to perform operation</li>
 <li>0709: Action not permitted for missing KYC data</li>
+<li>0710: Password must be updated</li>
+<li>0711: Verification completed. No missing requirements to fill</li>
+<li>0712: Error saving user beneficiary</li>
+<li>0713: Error fetching user beneficiaries</li>
+<li>0714: Invalid data for user beneficiary</li>
 </ul>
 
 <h3 id="throttling-errors-08-http-420">Throttling Errors: 08 (HTTP 420)</h3>
@@ -366,6 +372,7 @@ error categories, the last two digits define specific errors.</p>
 <li>1002: Unable to process order</li>
 <li>1003: Operation timeout</li>
 <li>1004: Deprecated functionality</li>
+<li>1005: Invalid operation</li>
 </ul>
 
 <h3 id="operation-errors-11-500-error">Operation Errors: 11 (500 error)</h3>
@@ -2505,11 +2512,17 @@ a specific operation type.</p>
 <td>No</td>
 <td>Restricts the fundings to those of the specified method (SP, BTC, ETH, &hellip;)</td>
 </tr>
+<tr>
+<td><strong>txids</strong></td>
+<td>-</td>
+<td>No</td>
+<td>Allows lookups of specific Transaction IDs - comma delimited list possible. <strong>Please note</strong> that all other parameters will be ignored</td>
+</tr>
 </tbody></table>
 
 <h3 id="json-response-payload">JSON Response Payload</h3>
 
-<p>Returns a JSON Array of open orders. Every element in the array is a JSON object:</p>
+<p>Returns a JSON Array of fundings. Every element in the array is a JSON object:</p>
 
 <table><thead>
 <tr>
