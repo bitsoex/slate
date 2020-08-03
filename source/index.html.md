@@ -1511,7 +1511,6 @@ Field Name | Type | Description | Units
         "method": "btc",
         "amount": "0.48650929",
         "details": {
-            "funding_address": "18MsnATiNiKLqUHDTRKjurwMg7inCrdNEp",
             "tx_hash": "d4f28394693e9fb5fffcaf730c11f32d1922e5837f76ca82189d3bfe30ded433"
         }
     }, {
