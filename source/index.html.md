@@ -222,8 +222,8 @@ error categories, the last two digits define specific errors.
 * 0712: Error saving user beneficiary
 * 0713: Error fetching user beneficiaries
 * 0714: Invalid data for user beneficiary
-* 0715: There was an error trying to save the users business persons
-* 0716: There was an error trying to fetch the users business persons
+* 0715: Error saving users business person(s)
+* 0716: Error fetching users business person(s)
 
 ### Throttling Errors: 08 (HTTP 420)
 * 0801: You have hit the request rate-limit
