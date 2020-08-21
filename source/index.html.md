@@ -25,6 +25,19 @@ system functions, along with examples in common programming languages.
 
 # Changelog
 
+### 2020-08-21
+
+Deleted some old API errors from v2 and migrating to v3 errors for some cases:
+
+* 20 to 0301: Unknown Order book, if book is not valid
+* 22 to 0408: Incorrect amount value, it must be a non-zero positive value.
+* 0410 is documented now: Trading not enabled
+* 0411 is documented now: Trading not enabled for market orders
+* 22 to 0302: Incorrect time frame (not ‘hour’ or 'minute’), when the time_in_force parameter is not valid
+* 22 to 0407: Invalid precision, when price parameter is not present
+* 22 to 0407: Invalid precision, when tick_size is not valid
+* 20 to 0201: Invalid Nonce or Invalid Credentials when used_id isn't present
+
 ### 2020-06-11
 
 Notification of deprecation of the WS orders channel scheduled to happen on October 1st, 2020
