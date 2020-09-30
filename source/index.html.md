@@ -200,6 +200,9 @@ error categories, the last two digits define specific errors.
 * 0366: Two factor authentication method is not enabled
 * 0367: Unable to generate quote at the present time
 * 0368: Rejected withdrawal to restricted address
+* 0369: File type not allowed
+* 0370: File size limit exceeded
+
 
 ### System Limit Errors: 04 (HTTP 400)
 * 0401: Incorrect price, below the minimum
