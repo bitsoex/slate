@@ -203,6 +203,7 @@ error categories, the last two digits define specific errors.
 * 0369: Incorrect device id
 * 0370: File type not allowed
 * 0371: File size limit exceeded
+* 0372: Incorrect value type for field
 
 
 ### System Limit Errors: 04 (HTTP 400)
@@ -245,6 +246,8 @@ error categories, the last two digits define specific errors.
 * 0714: Invalid data for user beneficiary
 * 0715: Error saving users business person(s)
 * 0716: Error fetching users business person(s)
+* 0717: Incorrect value for users business persons(s) types
+* 0718: User business person doesn't belongs to the user
 
 ### Throttling Errors: 08 (HTTP 420)
 * 0801: You have hit the request rate-limit
