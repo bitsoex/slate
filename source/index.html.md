@@ -130,6 +130,7 @@ error categories, the last two digits define specific errors.
 * 0209: Two Factor authentication required
 * 0210: Device authentication required
 * 0211: Device authentication failed (Invalid IP or expired Token)
+* 0212: Needs special permissions for this request
 
 ### Validation Errors: 03 (HTTP 400)
 * 0301: Unknown Order book
