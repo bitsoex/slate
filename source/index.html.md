@@ -217,6 +217,8 @@ error categories, the last two digits define specific errors.
 * 0408: Incorrect amount value, it must be a non-zero positive value.
 * 0410: Trading not enabled
 * 0411: Trading not enabled for market orders
+* 0412: Incorrect stop, below the minimum
+* 0413: Incorrect stop, above the maximum
 
 
 ### User Limit Error: 05 (HTTP 400)
