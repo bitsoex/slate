@@ -25,6 +25,10 @@ system functions, along with examples in common programming languages.
 
 # Changelog
 
+### 2020-10-09
+
+The Websocket `orders` channel has now been deprecated and an error will be returned when trying to subscribe to it
+
 ### 2020-08-21
 
 Deleted some old API errors from v2 and migrating to v3 errors for some cases:
@@ -2417,9 +2421,6 @@ Field Name | Type | Description | Units
 
 The **Trades channel** send a message whenever a new trade is executed in the corresponding order book.
 
-The **Orders channel** maintains an up-to-date list of the top 20 asks and the top 20 bids, new messages are sent across the channel whenever there is a change in either top 20.
-**This channel will be deprecated from October 1st, 2020.**
-
 The **Diff-Orders** channel will send across any modifications to the
 order book. Specifically, any state changes in existing orders
 (including orders not in the top 20), and any new orders. An order
@@ -2437,7 +2438,7 @@ algorithm:
 
 ### Algorithm
 
-1. Subscribe to the diff-orders channel.
+1. Subscribe to the `diff-orders` channel.
 2. Queue any message that come in to this channel.
 3. Get the full orderbook from the REST orderbook endpoint.
 4. Playback the queued message, discarding the ones with sequence
@@ -2463,7 +2464,6 @@ websocket = new WebSocket('wss://ws.bitso.com');
 websocket.onopen = function() {
     websocket.send(JSON.stringify({ action: 'subscribe', book: 'btc_mxn', type: 'trades' }));
     websocket.send(JSON.stringify({ action: 'subscribe', book: 'btc_mxn', type: 'diff-orders' }));
-    websocket.send(JSON.stringify({ action: 'subscribe', book: 'btc_mxn', type: 'orders' }));
 };
 ```
 
@@ -2484,9 +2484,6 @@ websocket.onmessage = function(message){
 
                 }
                 else if (data.type == 'diff-orders' && data.payload) {
-
-                }
-                else if (data.type == 'orders' && data.payload) {
 
                 }
             };
@@ -2586,82 +2583,6 @@ Field Name | Type | Description | Units
 **a** | String | Amount | Major
 **v** | String | Value | Minor
 **o** | String | Order ID | -
-
-## Orders
-
-<aside class="warning">
-The Orders channel will be deprecated from September 1st, 2020. Please refer to these [instructions](#algorithm) to pull the order book and keep it updated.
-</aside>
-
-> Messages on this channel look like this:
-
-```json
-{
-  "type": "orders",
-  "book": "btc_mxn",
-  "payload": {
-    "bids": [
-      {
-        "r": "7185",
-        "a": "0.001343",
-        "v": "9.64",
-        "t": 1,
-        "d": 1455315394039
-      },
-      {
-        "r": "7183.01",
-        "a": "0.007715",
-        "v": "55.41",
-        "t": 1,
-        "d": 1455314938419
-      },
-      {
-        "r": "7183",
-        "a": "1.59667303",
-        "v": "11468.9",
-        "t": 1,
-        "d": 1455314894615
-      }
-    ],
-    "asks": [
-      {
-        "r": "7251.1",
-        "a": "0.29437179",
-        "v": "2134.51",
-        "t": 0,
-        "d": 1455315979682
-      },
-      {
-        "r": "7251.72",
-        "a": "1.32057812",
-        "v": "9576.46",
-        "t": 0,
-        "d": 1455303931277
-      }
-    ]
-  }
-}
-```
-
-### Client Subscription message
-
-`{ websocket.send(JSON.stringify({ action: 'subscribe', book: 'btc_mxn', type: 'orders' }));`
-
-### Server subscription response message
-
-`{action: "subscribe", response: "ok", time: 1455831538048, type: "orders"}`
-
-### Server JSON message
-
-The payload contains a JSON with two keys, one for the bids and the other for asks on the order book. Both bids and asks contain orders of the following form:
-
-Field Name | Type | Description | Units
----------- | ---- | ----------- | -----
-**r** | String | Rate | Minor
-**a** | String | Amount | Major
-**v** | String | Value | Minor
-**t** | Number | 0 indicates buy 1 indicates sell | -
-**d** | Number | Unix timestamp | Milliseconds
 
 # Transfer API
 
