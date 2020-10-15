@@ -625,7 +625,7 @@ DNONCE=$(date +%s)
 HTTPmethod=GET
 JSONPayload=""
 RequestPath="/v3/balance/"
-SIGNATURE=$(echo -n $DNONCE$HTTPmethod$RequestPath$JSONPayload | openssl dgst -hex -sha256 -hmac $API_SECRET )
+SIGNATURE=$(echo -n $DNONCE$HTTPmethod$RequestPath$JSONPayload | openssl dgst -binary -sha256 -hmac $API_SECRET | xxd -p -c 256 )
 AUTH_HEADER="Bitso $API_KEY:$DNONCE:$SIGNATURE"
 http GET $URL Authorization:"$AUTH_HEADER"
 ```
