@@ -38,10 +38,6 @@ Deleted some old API errors from v2 and migrating to v3 errors for some cases:
 * 22 to 0407: Invalid precision, when tick_size is not valid
 * 20 to 0201: Invalid Nonce or Invalid Credentials when used_id isn't present
 
-### 2020-06-11
-
-Notification of deprecation of the WS orders channel scheduled to happen on October 1st, 2020
-
 ### 2020-06-10
 
 Add the ability to query a withdrawal by its origin id
@@ -2418,7 +2414,6 @@ Field Name | Type | Description | Units
 The **Trades channel** send a message whenever a new trade is executed in the corresponding order book.
 
 The **Orders channel** maintains an up-to-date list of the top 20 asks and the top 20 bids, new messages are sent across the channel whenever there is a change in either top 20.
-**This channel will be deprecated from October 1st, 2020.**
 
 The **Diff-Orders** channel will send across any modifications to the
 order book. Specifically, any state changes in existing orders
@@ -2588,10 +2583,6 @@ Field Name | Type | Description | Units
 **o** | String | Order ID | -
 
 ## Orders
-
-<aside class="warning">
-The Orders channel will be deprecated from September 1st, 2020. Please refer to these [instructions](#algorithm) to pull the order book and keep it updated.
-</aside>
 
 > Messages on this channel look like this:
 
