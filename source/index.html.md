@@ -246,6 +246,7 @@ error categories, the last two digits define specific errors.
 * 0716: Error fetching users business person(s)
 * 0717: Incorrect value for users business persons(s) types
 * 0718: User business person doesn't belongs to the user
+* 0719: User's PGP key not found
 
 ### Throttling Errors: 08 (HTTP 420)
 * 0801: You have hit the request rate-limit
