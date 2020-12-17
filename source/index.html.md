@@ -262,6 +262,7 @@ error categories, the last two digits define specific errors.
 * 1003: Operation timeout
 * 1004: Deprecated functionality
 * 1005: Invalid operation
+* 1006: No content for given mobile client name (204 code)
 
 ### Operation Errors: 11 (500 error)
 * 1101: Error when processing the withdrawal
@@ -272,6 +273,7 @@ error categories, the last two digits define specific errors.
 * 1201: The number provided is not a mobile number
 * 1202: We cannot send an SMS to the number provided (out of jurisdiction)
 * 1299: Unexpected error when trying to send SMS
+
 
 ## Client Libraries
 
