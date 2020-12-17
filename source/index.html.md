@@ -273,6 +273,9 @@ error categories, the last two digits define specific errors.
 * 1202: We cannot send an SMS to the number provided (out of jurisdiction)
 * 1299: Unexpected error when trying to send SMS
 
+### App Recall Errors: 13 (204 error)
+* 1301: No content for given mobile client name
+
 ## Client Libraries
 
 The following client libraries will allow you to integrate quickly with our APIs
