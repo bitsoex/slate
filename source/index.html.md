@@ -119,7 +119,7 @@ error categories, the last two digits define specific errors.
 * 0202: API key is not authorized to execute the requested method
 * 0203: Login token is invalid or expired
 * 0204: Incorrect PIN
-* 0205: Too many login attempts 
+* 0205: Too many login attempts
 * 0206: Invalid nonce type
 * 0207: Invalid nonce value
 * 0208: Authentication is required to execute requested operation
@@ -247,6 +247,7 @@ error categories, the last two digits define specific errors.
 * 0717: Incorrect value for users business persons(s) types
 * 0718: User business person doesn't belongs to the user
 * 0719: User's PGP key not found
+* 0720: The maximum number of paired devices has been reached
 
 ### Throttling Errors: 08 (HTTP 420)
 * 0801: You have hit the request rate-limit
