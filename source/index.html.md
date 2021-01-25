@@ -200,6 +200,7 @@ error categories, the last two digits define specific errors.
 * 0370: File type not allowed
 * 0371: File size limit exceeded
 * 0372: Incorrect value type for field
+* 0373: Request has expired
 
 
 ### System Limit Errors: 04 (HTTP 400)
