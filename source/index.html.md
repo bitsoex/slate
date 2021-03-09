@@ -175,7 +175,7 @@ error categories, the last two digits define specific errors.
 * 0345: Quote is expired or invalid
 * 0346: You need to agree to the new terms and condition
 * 0347: Too many attempts to validate CURP
-* 0348: CURP data did not match with user data
+* 0348: KYC data did not match with user data. (CURP-México, CUIL-Argentina, CPF-Brasil)
 * 0349: Already in use
 * 0350: Cannot disable a currency with positive balance
 * 0351: Unable to generate CVU for user
