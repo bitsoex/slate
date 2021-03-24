@@ -250,6 +250,7 @@ error categories, the last two digits define specific errors.
 * 0719: User's PGP key not found
 * 0720: The maximum number of paired devices has been reached
 * 0721: Error when performing a security action (i.e. block withdrawals)
+* 0722: Error deleting user beneficiary
 
 ### Throttling Errors: 08 (HTTP 420)
 * 0801: You have hit the request rate-limit
