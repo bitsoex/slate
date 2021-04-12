@@ -163,9 +163,9 @@ error categories, the last two digits define specific errors.
 * 0333: PIN locked. Too many attempts
 * 0334: Bitso Transfers need either an email, phone_number, or refcode specified
 * 0335: Invalid SPEI recipient name
-* 0336: No data found for CURP
-* 0337: No CURP found for data
-* 0338: Multiple CURPs found for data
+* 0336: No data found for KYC (CURP-México, CUIL-Argentina, CPF-Brasil)
+* 0337: No KYC found for data (CURP-México, CUIL-Argentina, CPF-Brasil)
+* 0338: Multiple KYCs found for data (CURP-México, CUIL-Argentina, CPF-Brasil)
 * 0339: Email is already in use
 * 0340: Not supported country
 * 0341: Invalid postal code
@@ -174,7 +174,7 @@ error categories, the last two digits define specific errors.
 * 0344: Invalid BIND recipient name
 * 0345: Quote is expired or invalid
 * 0346: You need to agree to the new terms and condition
-* 0347: Too many attempts to validate CURP
+* 0347: Too many attempts to validate KYC (CURP-México, CUIL-Argentina, CPF-Brasil)
 * 0348: KYC data did not match with user data. (CURP-México, CUIL-Argentina, CPF-Brasil)
 * 0349: Already in use
 * 0350: Cannot disable a currency with positive balance
