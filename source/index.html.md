@@ -174,7 +174,7 @@ error categories, the last two digits define specific errors.
 * 0344: Invalid BIND recipient name
 * 0345: Quote is expired or invalid
 * 0346: You need to agree to the new terms and condition
-* 0347: Too many attempts to validate KYC (CURP-Méeico, CUIL-Argentina, CPF-Brazil)
+* 0347: Too many attempts to validate KYC (CURP-Mexico, CUIL-Argentina, CPF-Brazil)
 * 0348: KYC data did not match with user data. (CURP-Mexico, CUIL-Argentina, CPF-Brazil)
 * 0349: Already in use
 * 0350: Cannot disable a currency with positive balance
