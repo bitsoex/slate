@@ -245,12 +245,15 @@ error categories, the last two digits define specific errors.
 * 0714: Invalid data for user beneficiary
 * 0715: Error saving users business person(s)
 * 0716: Error fetching users business person(s)
-* 0717: Incorrect value for users business persons(s) types
+* 0717: Incorrect value for users business persons(s) type
 * 0718: User business person doesn't belongs to the user
 * 0719: User's PGP key not found
 * 0720: The maximum number of paired devices has been reached
 * 0721: Error when performing a security action (i.e. block withdrawals)
 * 0722: Error deleting user beneficiary
+* 0723: Action restricted by country regulation
+* 0724: No funding methods available
+* 0725: No withdrawal methods available
 
 ### Throttling Errors: 08 (HTTP 420)
 * 0801: You have hit the request rate-limit
