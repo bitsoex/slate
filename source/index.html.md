@@ -251,6 +251,9 @@ error categories, the last two digits define specific errors.
 * 0720: The maximum number of paired devices has been reached
 * 0721: Error when performing a security action (i.e. block withdrawals)
 * 0722: Error deleting user beneficiary
+* 0723: Action restricted by country regulation
+* 0724: No funding methods available
+* 0725: No withdrawal methods available
 
 ### Throttling Errors: 08 (HTTP 420)
 * 0801: You have hit the request rate-limit
