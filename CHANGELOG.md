@@ -1,5 +1,14 @@
 # Changelog
 
+## Version 1.3.3
+
+*June 24, 2021*
+
+There was an inconsistency for Diff-Orders and for Orders API. The "t" field was being described as number 0 for selling
+and 1 for buying, but the implementation of this api is validating the opposite. 
+To make the documentation consistent with the code, the field was updated to number 0 for buying and number 1 for selling.
+More details can be found in this task on Jira: https://bitsomx.atlassian.net/browse/AS2-51
+
 ## Version 1.3.2
 
 *February 3, 2016*
