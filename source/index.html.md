@@ -2590,7 +2590,7 @@ Field Name | Type | Description | Units
 ---------- | ---- | ----------- | -----
 **d** | Number | Unix timestamp | Milliseconds
 **r** | String | Rate | Minor
-**t** | Number | 0 indicates buy 1 indicates sell | -
+**t** | Number | 0 indicates sell 1 indicates buy | -
 **a** | String | Amount | Major
 **v** | String | Value | Minor
 **o** | String | Order ID | -
@@ -2664,7 +2664,7 @@ Field Name | Type | Description | Units
 **r** | String | Rate | Minor
 **a** | String | Amount | Major
 **v** | String | Value | Minor
-**t** | Number | 0 indicates buy 1 indicates sell | -
+**t** | Number | 0 indicates sell 1 indicates buy | -
 **d** | Number | Unix timestamp | Milliseconds
 
 # Webhooks
