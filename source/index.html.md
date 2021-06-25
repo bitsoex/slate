@@ -25,6 +25,13 @@ system functions, along with examples in common programming languages.
 
 # Changelog
 
+### 2021-06-25
+
+There was an inconsistency for Diff-Orders and for Orders API. The "t" field was being described as number 0 for selling
+and 1 for buying, but the correct implementation is the opposite. To make the documentation consistent with its 
+implementation, the field was updated to number 0 for buying and number 1 for selling. 
+This update was for documentation only, nothing changes in the consumer side. 
+
 ### 2020-08-21
 
 Deleted some old API errors from v2 and migrating to v3 errors for some cases:
