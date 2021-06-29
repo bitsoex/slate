@@ -31,7 +31,6 @@ Fixed documentation inconsistency between REST Api service and the implementatio
 * in user_trades service documentation, now 'book' is required.
 * in order_trades service documentation the field 'make_side' have changed to 'maker_side'
 * also in the same service the 'created_at' field format have been upgraded from2021-06-11T09:25:05+0000 to 2021-06-11T09:25:05.000+00:00
- 
 
 ### 2020-08-21
 

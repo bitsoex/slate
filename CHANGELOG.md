@@ -4,7 +4,7 @@
 
 *June 24, 2021*
 
-A documentation fix regarding some fields in user_trades and order_trades.
+A documentation fix in user_trades and order_trades.
 
 *February 3, 2016*
 
