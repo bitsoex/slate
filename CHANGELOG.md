@@ -2,6 +2,10 @@
 
 ## Version 1.3.2
 
+*June 24, 2021*
+
+A documentation fix regarding some fields in user_trades and order_trades.
+
 *February 3, 2016*
 
 A small bugfix for slightly incorrect background colors on code samples in some cases.

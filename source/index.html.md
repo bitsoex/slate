@@ -25,6 +25,14 @@ system functions, along with examples in common programming languages.
 
 # Changelog
 
+### 2021-06-24
+
+Fixed documentation inconsistency between REST Api service and the implementation:
+* in user_trades service documentation, now 'book' is required.
+* in order_trades service documentation the field 'make_side' have changed to 'maker_side'
+* also in the same service the 'created_at' field format have been upgraded from2021-06-11T09:25:05+0000 to 2021-06-11T09:25:05.000+00:00
+ 
+
 ### 2020-08-21
 
 Deleted some old API errors from v2 and migrating to v3 errors for some cases:
@@ -1628,7 +1636,7 @@ curl "https://api.bitso.com/v3/user_trades/?book=btc_mxn"
     "payload": [{
         "book": "btc_mxn",
         "major": "-0.25232073",
-        "created_at": "2016-04-08T17:52:31.000+00:00",
+        "created_at": "2021-06-11T09:25:05.000+00:00",
         "minor": "1013.540958479115",
         "fees_amount": "-10.237787459385",
         "fees_currency": "mxn",
@@ -1636,11 +1644,11 @@ curl "https://api.bitso.com/v3/user_trades/?book=btc_mxn"
         "tid": 51756,
         "oid": "g81d3y1ywri0yg8m",
         "side": "sell",
-        "make_side": "sell"
+        "maker_side": "sell"
     }, {
         "book": "eth_mxn",
         "major": "4.86859395",
-        "created_at": "2016-04-08T17:52:31.000+00:00",
+        "created_at": "2021-06-11T09:25:05.000+00:00",
         "minor": "-626.77",
         "fees_amount": "-0.04917771",
         "fees_currency": "btc",
@@ -1648,7 +1656,7 @@ curl "https://api.bitso.com/v3/user_trades/?book=btc_mxn"
         "tid": 51757,
         "oid": "19vaqiv72drbphig",
         "side": "buy",
-        "make_side": "sell"
+        "maker_side": "sell"
     }]
 }
 ```
@@ -1706,7 +1714,7 @@ curl "https://api.bitso.com/v3/order_trades/Jvqrschkgdkc1go3"
     "payload": [{
             "book": "btc_mxn",
             "major": "-0.25232073",
-            "created_at": "2016-04-08T17:52:31.000+00:00",
+            "created_at": "2021-06-11T09:25:05.000+00:00",
             "minor": "1013.540958479115",
             "fees_amount": "-10.237787459385",
             "fees_currency": "mxn",
@@ -1715,12 +1723,12 @@ curl "https://api.bitso.com/v3/order_trades/Jvqrschkgdkc1go3"
             "oid": "Jvqrschkgdkc1go3",
             "origin_id": "origin_id1",
             "side": "sell",
-            "make_side": "sell"
+            "maker_side": "sell"
         },
         {
             "book": "btc_mxn",
             "major": "-0.25",
-            "created_at": "2016-04-08T17:52:31.000+00:00",
+            "created_at": "2021-06-11T09:25:05.000+00:00",
             "minor": "513.540958479115",
             "fees_amount": "-10.237787459385",
             "fees_currency": "mxn",
@@ -1729,7 +1737,7 @@ curl "https://api.bitso.com/v3/order_trades/Jvqrschkgdkc1go3"
             "oid": "Jvqrschkgdkc1go3",
             "origin_id": "origin_id1",
             "side": "sell",
-            "make_side": "sell"
+            "maker_side": "sell"
         }
     ]
 }
