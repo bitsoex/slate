@@ -32,6 +32,13 @@ Fixed documentation inconsistency between REST Api service and the implementatio
 * in order_trades service documentation the field 'make_side' have changed to 'maker_side'
 * also in the same service the 'created_at' field format have been upgraded from 2021-06-11T09:25:05+0000 to 2021-06-11T09:25:05.000+00:00
 
+### 2021-06-25
+
+There was an inconsistency for Diff-Orders and for Orders API. The "t" field was being described as number 0 for selling
+and 1 for buying, but the correct implementation is the opposite. To make the documentation consistent with its 
+implementation, the field was updated to number 0 for buying and number 1 for selling. 
+This update was for documentation only, nothing changes in the consumer side. 
+
 ### 2020-08-21
 
 Deleted some old API errors from v2 and migrating to v3 errors for some cases:
@@ -2597,7 +2604,7 @@ Field Name | Type | Description | Units
 ---------- | ---- | ----------- | -----
 **d** | Number | Unix timestamp | Milliseconds
 **r** | String | Rate | Minor
-**t** | Number | 0 indicates buy 1 indicates sell | -
+**t** | Number | 0 indicates sell 1 indicates buy | -
 **a** | String | Amount | Major
 **v** | String | Value | Minor
 **o** | String | Order ID | -
@@ -2671,7 +2678,7 @@ Field Name | Type | Description | Units
 **r** | String | Rate | Minor
 **a** | String | Amount | Major
 **v** | String | Value | Minor
-**t** | Number | 0 indicates buy 1 indicates sell | -
+**t** | Number | 0 indicates sell 1 indicates buy | -
 **d** | Number | Unix timestamp | Milliseconds
 
 # Webhooks
