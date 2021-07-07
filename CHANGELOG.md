@@ -1,8 +1,24 @@
 # Changelog
 
+## Version 2.0.0
+
+*July 7, 2021*
+
+Project dependencies were updated along with javascript, css and layout code in order to be up to date with slate's latest version. 
+This was necessary to deploy slate without errors or missing parts, such as table of contents.
+
+## Version 1.3.4
+
+*June 26, 2021*
+
+Fixed documentation inconsistency between REST Api service and the implementation:
+* in user_trades service documentation, now 'book' is required.
+* in order_trades service documentation the field 'make_side' have changed to 'maker_side'
+* also in the same service the 'created_at' field format have been upgraded from 2021-06-11T09:25:05+0000 to 2021-06-11T09:25:05.000+00:00
+
 ## Version 1.3.3
 
-*June 24, 2021*
+*June 25, 2021*
 
 There was an inconsistency for Diff-Orders and for Orders API. The "t" field was being described as number 0 for selling
 and 1 for buying, but the implementation of this api is validating the opposite. 
