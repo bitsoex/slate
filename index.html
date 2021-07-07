@@ -1,3 +1,4 @@
+
 <!doctype html>
 <html>
   <head>
@@ -6,103 +7,296 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <title>Bitso API Reference</title>
 
-    <style>
+    <style media="screen">
       .highlight table td { padding: 5px; }
 .highlight table pre { margin: 0; }
-.highlight, .highlight .w {
-  color: #f8f8f2;
-  background-color: #272822;
+.highlight .gh {
+  color: #999999;
 }
-.highlight .err {
-  color: #272822;
-  background-color: #f92672;
+.highlight .sr {
+  color: #f6aa11;
 }
-.highlight .c, .highlight .ch, .highlight .cd, .highlight .cm, .highlight .cpf, .highlight .c1, .highlight .cs {
+.highlight .go {
+  color: #888888;
+}
+.highlight .gp {
+  color: #555555;
+}
+.highlight .gs {
+}
+.highlight .gu {
+  color: #aaaaaa;
+}
+.highlight .nb {
+  color: #f6aa11;
+}
+.highlight .cm {
   color: #75715e;
 }
 .highlight .cp {
-  color: #f4bf75;
+  color: #75715e;
 }
-.highlight .nt {
-  color: #f4bf75;
+.highlight .c1 {
+  color: #75715e;
 }
-.highlight .o, .highlight .ow {
-  color: #f8f8f2;
+.highlight .cs {
+  color: #75715e;
 }
-.highlight .p, .highlight .pi {
-  color: #f8f8f2;
+.highlight .c, .highlight .ch, .highlight .cd, .highlight .cpf {
+  color: #75715e;
 }
-.highlight .gi {
-  color: #a6e22e;
+.highlight .err {
+  color: #960050;
+}
+.highlight .gr {
+  color: #960050;
+}
+.highlight .gt {
+  color: #960050;
 }
 .highlight .gd {
+  color: #49483e;
+}
+.highlight .gi {
+  color: #49483e;
+}
+.highlight .ge {
+  color: #49483e;
+}
+.highlight .kc {
+  color: #66d9ef;
+}
+.highlight .kd {
+  color: #66d9ef;
+}
+.highlight .kr {
+  color: #66d9ef;
+}
+.highlight .no {
+  color: #66d9ef;
+}
+.highlight .kt {
+  color: #66d9ef;
+}
+.highlight .mf {
+  color: #ae81ff;
+}
+.highlight .mh {
+  color: #ae81ff;
+}
+.highlight .il {
+  color: #ae81ff;
+}
+.highlight .mi {
+  color: #ae81ff;
+}
+.highlight .mo {
+  color: #ae81ff;
+}
+.highlight .m, .highlight .mb, .highlight .mx {
+  color: #ae81ff;
+}
+.highlight .sc {
+  color: #ae81ff;
+}
+.highlight .se {
+  color: #ae81ff;
+}
+.highlight .ss {
+  color: #ae81ff;
+}
+.highlight .sd {
+  color: #e6db74;
+}
+.highlight .s2 {
+  color: #e6db74;
+}
+.highlight .sb {
+  color: #e6db74;
+}
+.highlight .sh {
+  color: #e6db74;
+}
+.highlight .si {
+  color: #e6db74;
+}
+.highlight .sx {
+  color: #e6db74;
+}
+.highlight .s1 {
+  color: #e6db74;
+}
+.highlight .s, .highlight .sa, .highlight .dl {
+  color: #e6db74;
+}
+.highlight .na {
+  color: #a6e22e;
+}
+.highlight .nc {
+  color: #a6e22e;
+}
+.highlight .nd {
+  color: #a6e22e;
+}
+.highlight .ne {
+  color: #a6e22e;
+}
+.highlight .nf, .highlight .fm {
+  color: #a6e22e;
+}
+.highlight .vc {
+  color: #ffffff;
+}
+.highlight .nn {
+  color: #ffffff;
+}
+.highlight .ni {
+  color: #ffffff;
+}
+.highlight .bp {
+  color: #ffffff;
+}
+.highlight .vg {
+  color: #ffffff;
+}
+.highlight .vi {
+  color: #ffffff;
+}
+.highlight .nv, .highlight .vm {
+  color: #ffffff;
+}
+.highlight .w {
+  color: #ffffff;
+}
+.highlight {
+  color: #ffffff;
+}
+.highlight .n, .highlight .py, .highlight .nx {
+  color: #ffffff;
+}
+.highlight .nl {
   color: #f92672;
 }
+.highlight .ow {
+  color: #f92672;
+}
+.highlight .nt {
+  color: #f92672;
+}
+.highlight .k, .highlight .kv {
+  color: #f92672;
+}
+.highlight .kn {
+  color: #f92672;
+}
+.highlight .kp {
+  color: #f92672;
+}
+.highlight .o {
+  color: #f92672;
+}
+    </style>
+    <style media="print">
+      * {
+        -webkit-transition:none!important;
+        transition:none!important;
+      }
+      .highlight table td { padding: 5px; }
+.highlight table pre { margin: 0; }
+.highlight, .highlight .w {
+  color: #586e75;
+}
+.highlight .err {
+  color: #002b36;
+  background-color: #dc322f;
+}
+.highlight .c, .highlight .ch, .highlight .cd, .highlight .cm, .highlight .cpf, .highlight .c1, .highlight .cs {
+  color: #657b83;
+}
+.highlight .cp {
+  color: #b58900;
+}
+.highlight .nt {
+  color: #b58900;
+}
+.highlight .o, .highlight .ow {
+  color: #93a1a1;
+}
+.highlight .p, .highlight .pi {
+  color: #93a1a1;
+}
+.highlight .gi {
+  color: #859900;
+}
+.highlight .gd {
+  color: #dc322f;
+}
 .highlight .gh {
-  color: #66d9ef;
-  background-color: #272822;
+  color: #268bd2;
+  background-color: #002b36;
   font-weight: bold;
 }
 .highlight .k, .highlight .kn, .highlight .kp, .highlight .kr, .highlight .kv {
-  color: #ae81ff;
+  color: #6c71c4;
 }
 .highlight .kc {
-  color: #fd971f;
+  color: #cb4b16;
 }
 .highlight .kt {
-  color: #fd971f;
+  color: #cb4b16;
 }
 .highlight .kd {
-  color: #fd971f;
+  color: #cb4b16;
 }
 .highlight .s, .highlight .sb, .highlight .sc, .highlight .dl, .highlight .sd, .highlight .s2, .highlight .sh, .highlight .sx, .highlight .s1 {
-  color: #a6e22e;
+  color: #859900;
 }
 .highlight .sa {
-  color: #ae81ff;
+  color: #6c71c4;
 }
 .highlight .sr {
-  color: #a1efe4;
+  color: #2aa198;
 }
 .highlight .si {
-  color: #cc6633;
+  color: #d33682;
 }
 .highlight .se {
-  color: #cc6633;
+  color: #d33682;
 }
 .highlight .nn {
-  color: #f4bf75;
+  color: #b58900;
 }
 .highlight .nc {
-  color: #f4bf75;
+  color: #b58900;
 }
 .highlight .no {
-  color: #f4bf75;
+  color: #b58900;
 }
 .highlight .na {
-  color: #66d9ef;
+  color: #268bd2;
 }
 .highlight .m, .highlight .mb, .highlight .mf, .highlight .mh, .highlight .mi, .highlight .il, .highlight .mo, .highlight .mx {
-  color: #a6e22e;
+  color: #859900;
 }
 .highlight .ss {
-  color: #a6e22e;
+  color: #859900;
 }
     </style>
-    <link href="stylesheets/screen.css" rel="stylesheet" media="screen" />
-    <link href="stylesheets/print.css" rel="stylesheet" media="print" />
-      <script src="javascripts/all.js"></script>
+    <link href="stylesheets/screen-798b4431.css" rel="stylesheet" media="screen" />
+    <link href="stylesheets/print-19a72a7e.css" rel="stylesheet" media="print" />
+      <script src="javascripts/all-a9fde460.js"></script>
+
   </head>
 
   <body class="index" data-languages="[&quot;shell&quot;,&quot;javascript&quot;,&quot;python&quot;,&quot;ruby&quot;,&quot;java&quot;,&quot;php&quot;]">
     <a href="#" id="nav-button">
       <span>
         NAV
-        <img src="images/navbar.png" alt="" />
+        <img src="images/navbar-cad8cdcb.png" alt="" />
       </span>
     </a>
-    <div class="tocify-wrapper">
-      <img src="images/logo.png" alt="" />
+    <div class="toc-wrapper">
+      <img src="images/logo.png" class="logo" alt="" />
         <div class="lang-selector">
               <a href="#" data-language-name="shell">Shell</a>
               <a href="#" data-language-name="javascript">NodeJS</a>
@@ -115,8 +309,182 @@
           <input type="text" class="search" id="input-search" placeholder="Search">
         </div>
         <ul class="search-results"></ul>
-      <div id="toc">
-      </div>
+      <ul id="toc" class="toc-list-h1">
+          <li>
+            <a href="#introduction" class="toc-h1 toc-link" data-title="Introduction">Introduction</a>
+          </li>
+          <li>
+            <a href="#changelog" class="toc-h1 toc-link" data-title="Changelog">Changelog</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#2021-06-26" class="toc-h2 toc-link" data-title="2021-06-26">2021-06-26</a>
+                  </li>
+                  <li>
+                    <a href="#2021-06-25" class="toc-h2 toc-link" data-title="2021-06-25">2021-06-25</a>
+                  </li>
+                  <li>
+                    <a href="#2020-08-21" class="toc-h2 toc-link" data-title="2020-08-21">2020-08-21</a>
+                  </li>
+                  <li>
+                    <a href="#2020-06-10" class="toc-h2 toc-link" data-title="2020-06-10">2020-06-10</a>
+                  </li>
+                  <li>
+                    <a href="#2020-06-09" class="toc-h2 toc-link" data-title="2020-06-09">2020-06-09</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#general" class="toc-h1 toc-link" data-title="General">General</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#http-api-responses" class="toc-h2 toc-link" data-title="HTTP API Responses">HTTP API Responses</a>
+                  </li>
+                  <li>
+                    <a href="#developer-testing-server" class="toc-h2 toc-link" data-title="Developer Testing Server">Developer Testing Server</a>
+                  </li>
+                  <li>
+                    <a href="#notations" class="toc-h2 toc-link" data-title="Notations">Notations</a>
+                  </li>
+                  <li>
+                    <a href="#precision" class="toc-h2 toc-link" data-title="Precision">Precision</a>
+                  </li>
+                  <li>
+                    <a href="#rate-limits" class="toc-h2 toc-link" data-title="Rate Limits">Rate Limits</a>
+                  </li>
+                  <li>
+                    <a href="#error-codes" class="toc-h2 toc-link" data-title="Error Codes">Error Codes</a>
+                  </li>
+                  <li>
+                    <a href="#client-libraries" class="toc-h2 toc-link" data-title="Client Libraries">Client Libraries</a>
+                  </li>
+                  <li>
+                    <a href="#language-detection" class="toc-h2 toc-link" data-title="Language detection">Language detection</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#public-rest-api" class="toc-h1 toc-link" data-title="Public REST API">Public REST API</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#available-books" class="toc-h2 toc-link" data-title="Available Books">Available Books</a>
+                  </li>
+                  <li>
+                    <a href="#ticker" class="toc-h2 toc-link" data-title="Ticker">Ticker</a>
+                  </li>
+                  <li>
+                    <a href="#order-book" class="toc-h2 toc-link" data-title="Order Book">Order Book</a>
+                  </li>
+                  <li>
+                    <a href="#trades" class="toc-h2 toc-link" data-title="Trades">Trades</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#private-rest-api" class="toc-h1 toc-link" data-title="Private REST API">Private REST API</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#generating-api-keys" class="toc-h2 toc-link" data-title="Generating API Keys">Generating API Keys</a>
+                  </li>
+                  <li>
+                    <a href="#creating-and-signing-requests" class="toc-h2 toc-link" data-title="Creating and Signing Requests">Creating and Signing Requests</a>
+                  </li>
+                  <li>
+                    <a href="#account-status" class="toc-h2 toc-link" data-title="Account Status">Account Status</a>
+                  </li>
+                  <li>
+                    <a href="#document-upload" class="toc-h2 toc-link" data-title="Document Upload">Document Upload</a>
+                  </li>
+                  <li>
+                    <a href="#mobile-phone-number-registration" class="toc-h2 toc-link" data-title="Mobile Phone Number Registration">Mobile Phone Number Registration</a>
+                  </li>
+                  <li>
+                    <a href="#mobile-phone-number-verification" class="toc-h2 toc-link" data-title="Mobile Phone Number Verification">Mobile Phone Number Verification</a>
+                  </li>
+                  <li>
+                    <a href="#account-balance" class="toc-h2 toc-link" data-title="Account Balance">Account Balance</a>
+                  </li>
+                  <li>
+                    <a href="#fees" class="toc-h2 toc-link" data-title="Fees">Fees</a>
+                  </li>
+                  <li>
+                    <a href="#ledger" class="toc-h2 toc-link" data-title="Ledger">Ledger</a>
+                  </li>
+                  <li>
+                    <a href="#withdrawals" class="toc-h2 toc-link" data-title="Withdrawals">Withdrawals</a>
+                  </li>
+                  <li>
+                    <a href="#fundings" class="toc-h2 toc-link" data-title="Fundings">Fundings</a>
+                  </li>
+                  <li>
+                    <a href="#user-trades" class="toc-h2 toc-link" data-title="User Trades">User Trades</a>
+                  </li>
+                  <li>
+                    <a href="#order-trades" class="toc-h2 toc-link" data-title="Order Trades">Order Trades</a>
+                  </li>
+                  <li>
+                    <a href="#open-orders" class="toc-h2 toc-link" data-title="Open Orders">Open Orders</a>
+                  </li>
+                  <li>
+                    <a href="#lookup-orders" class="toc-h2 toc-link" data-title="Lookup Orders">Lookup Orders</a>
+                  </li>
+                  <li>
+                    <a href="#cancel-order" class="toc-h2 toc-link" data-title="Cancel Order">Cancel Order</a>
+                  </li>
+                  <li>
+                    <a href="#place-an-order" class="toc-h2 toc-link" data-title="Place an Order">Place an Order</a>
+                  </li>
+                  <li>
+                    <a href="#funding-destination" class="toc-h2 toc-link" data-title="Funding Destination">Funding Destination</a>
+                  </li>
+                  <li>
+                    <a href="#crypto-withdrawals" class="toc-h2 toc-link" data-title="Crypto Withdrawals">Crypto Withdrawals</a>
+                  </li>
+                  <li>
+                    <a href="#spei-withdrawal" class="toc-h2 toc-link" data-title="SPEI Withdrawal">SPEI Withdrawal</a>
+                  </li>
+                  <li>
+                    <a href="#bank-codes" class="toc-h2 toc-link" data-title="Bank Codes">Bank Codes</a>
+                  </li>
+                  <li>
+                    <a href="#debit-card-withdrawal" class="toc-h2 toc-link" data-title="Debit Card Withdrawal">Debit Card Withdrawal</a>
+                  </li>
+                  <li>
+                    <a href="#phone-number-withdrawal" class="toc-h2 toc-link" data-title="Phone Number Withdrawal">Phone Number Withdrawal</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#websocket-api" class="toc-h1 toc-link" data-title="WebSocket API">WebSocket API</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#general-2" class="toc-h2 toc-link" data-title="General">General</a>
+                  </li>
+                  <li>
+                    <a href="#trades-channel" class="toc-h2 toc-link" data-title="Trades Channel">Trades Channel</a>
+                  </li>
+                  <li>
+                    <a href="#diff-orders" class="toc-h2 toc-link" data-title="Diff-Orders">Diff-Orders</a>
+                  </li>
+                  <li>
+                    <a href="#orders" class="toc-h2 toc-link" data-title="Orders">Orders</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#webhooks" class="toc-h1 toc-link" data-title="Webhooks">Webhooks</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#registering-urls" class="toc-h2 toc-link" data-title="Registering URLs">Registering URLs</a>
+                  </li>
+                  <li>
+                    <a href="#fundings-2" class="toc-h2 toc-link" data-title="Fundings">Fundings</a>
+                  </li>
+                  <li>
+                    <a href="#withdrawals-2" class="toc-h2 toc-link" data-title="Withdrawals">Withdrawals</a>
+                  </li>
+              </ul>
+          </li>
+      </ul>
         <ul class="toc-footer">
             <li><a href='https://bitso.com/api_setup'>Sign Up for a Bitso Developer Key</a></li>
             <li><a href='http://github.com/tripit/slate'>Documentation Powered by Slate</a></li>
@@ -125,31 +493,22 @@
     <div class="page-wrapper">
       <div class="dark-box"></div>
       <div class="content">
-        <h1 id="introduction">Introduction</h1>
-
+        <h1 id='introduction'>Introduction</h1>
 <p>The Bitso API allows you to integrate the Bitso trading platform
 with third party applications, such as trading applications, charting programs,
 point of sale systems, and much more. Below you will find details on how the
 system functions, along with examples in common programming languages.</p>
-
-<h1 id="changelog">Changelog</h1>
-
-<h3 id="2021-06-24">2021-06-24</h3>
-
+<h1 id='changelog'>Changelog</h1><h3 id='2021-06-26'>2021-06-26</h3>
 <p>Fixed documentation inconsistency between REST Api service and the implementation:
-*  in user_trades service documentation, now &lsquo;book&rsquo; is required.
-* in order_trades service documentation the field &lsquo;make_side&rsquo; have changed to &lsquo;maker_side&rsquo;
-* also in the same service the &lsquo;created_at&rsquo; field format have been upgraded from 2021-06-11T09:25:05+0000 to 2021-06-11T09:25:05.000+00:00</p>
-
-<h3 id="2021-06-25">2021-06-25</h3>
-
-<p>There was an inconsistency for Diff-Orders and for Orders API. The &ldquo;t&rdquo; field was being described as number 0 for selling
+* in user_trades service documentation, now &#39;book&#39; is required.
+* in order_trades service documentation the field &#39;make_side&#39; have changed to &#39;maker_side&#39;
+* also in the same service the &#39;created_at&#39; field format have been upgraded from 2021-06-11T09:25:05+0000 to 2021-06-11T09:25:05.000+00:00</p>
+<h3 id='2021-06-25'>2021-06-25</h3>
+<p>There was an inconsistency for Diff-Orders and for Orders API. The &quot;t&quot; field was being described as number 0 for selling
 and 1 for buying, but the correct implementation is the opposite. To make the documentation consistent with its 
 implementation, the field was updated to number 0 for buying and number 1 for selling. 
 This update was for documentation only, nothing changes in the consumer side. </p>
-
-<h3 id="2020-08-21">2020-08-21</h3>
-
+<h3 id='2020-08-21'>2020-08-21</h3>
 <p>Deleted some old API errors from v2 and migrating to v3 errors for some cases:</p>
 
 <ul>
@@ -157,39 +516,31 @@ This update was for documentation only, nothing changes in the consumer side. </
 <li>22 to 0408: Incorrect amount value, it must be a non-zero positive value.</li>
 <li>0410 is documented now: Trading not enabled</li>
 <li>0411 is documented now: Trading not enabled for market orders</li>
-<li>22 to 0302: Incorrect time frame (not ‘hour’ or &lsquo;minute’), when the time_in_force parameter is not valid</li>
+<li>22 to 0302: Incorrect time frame (not ‘hour’ or &#39;minute’), when the time_in_force parameter is not valid</li>
 <li>22 to 0407: Invalid precision, when price parameter is not present</li>
 <li>22 to 0407: Invalid precision, when tick_size is not valid</li>
-<li>20 to 0201: Invalid Nonce or Invalid Credentials when used_id isn&rsquo;t present</li>
+<li>20 to 0201: Invalid Nonce or Invalid Credentials when used_id isn&#39;t present</li>
 </ul>
-
-<h3 id="2020-06-10">2020-06-10</h3>
-
+<h3 id='2020-06-10'>2020-06-10</h3>
 <p>Add the ability to query a withdrawal by its origin id</p>
 
 <ul>
-<li><code class="prettyprint">GET /v3/withdrawals?origin_ids=&lt;origin_id&gt;,&lt;origin_id&gt;,&lt;origin_id&gt;</code></li>
+<li><code>GET /v3/withdrawals?origin_ids=&lt;origin_id&gt;,&lt;origin_id&gt;,&lt;origin_id&gt;</code></li>
 </ul>
-
-<h3 id="2020-06-09">2020-06-09</h3>
-
-<p>Deprecate <code class="prettyprint">/v3/&lt;api_method&gt;/client_id/&lt;client_id&gt;</code>.</p>
+<h3 id='2020-06-09'>2020-06-09</h3>
+<p>Deprecate <code>/v3/&lt;api_method&gt;/client_id/&lt;client_id&gt;</code>.</p>
 
 <ul>
-<li><code class="prettyprint">GET /v3/order_trades/client_id/&lt;client_id&gt;</code></li>
-<li><code class="prettyprint">GET /v3/orders/client_id/&lt;client_id&gt;-&lt;client_id&gt;-&lt;client_id&gt;/</code></li>
-<li><code class="prettyprint">DELETE /v3/orders/client_id/&lt;client_id&gt;-&lt;client_id&gt;-&lt;client_id&gt;/</code></li>
+<li><code>GET /v3/order_trades/client_id/&lt;client_id&gt;</code></li>
+<li><code>GET /v3/orders/client_id/&lt;client_id&gt;-&lt;client_id&gt;-&lt;client_id&gt;/</code></li>
+<li><code>DELETE /v3/orders/client_id/&lt;client_id&gt;-&lt;client_id&gt;-&lt;client_id&gt;/</code></li>
 </ul>
-
-<h1 id="general">General</h1>
-
-<h2 id="http-api-responses">HTTP API Responses</h2>
-
+<h1 id='general'>General</h1><h2 id='http-api-responses'>HTTP API Responses</h2>
 <p>Our REST-like APIs will always return a JSON Object.</p>
 
 <p>For successful API calls, our JSON response objects looks like:</p>
 
-<p><code class="prettyprint">
+<p><code>
 {   &quot;success&quot;: true,
     &quot;payload&quot;: {RELEVANT_DATA_HERE}
 }
@@ -197,53 +548,39 @@ This update was for documentation only, nothing changes in the consumer side. </
 
 <p>For unsuccessful API calls, our JSON response objects look like:</p>
 
-<p><code class="prettyprint">
+<p><code>
 {
     &quot;success&quot;: false,
     &quot;error&quot;: {&quot;message&quot;: ERROR_MESSAGE, &quot;code&quot;: ERROR_CODE}
 }
 </code></p>
-
-<h2 id="developer-testing-server">Developer Testing Server</h2>
-
+<h2 id='developer-testing-server'>Developer Testing Server</h2>
 <p>When working on integrations, we recommend that you use our dev server
 before running your code against production. The URL for this server
-is <code class="prettyprint">https://api-dev.bitso.com/v3/</code></p>
+is <code>https://api-dev.bitso.com/v3/</code></p>
 
 <p>You can fund accounts on the dev server with Testnet Bitcoin and
-&ldquo;Morden&rdquo; test network Eth.</p>
-
-<h2 id="notations">Notations</h2>
-
+&quot;Morden&quot; test network Eth.</p>
+<h2 id='notations'>Notations</h2>
 <p><strong>Major</strong> denotes the cryptocurrency, in our case Bitcoin (BTC) or Ether (ETH).</p>
 
 <p><strong>Minor</strong> denotes fiat currencies, in our case Mexican Peso (MXN)</p>
 
-<p>An order book is always referred to in the API as &ldquo;Major_Minor&rdquo;. For example: &ldquo;<strong>btc_mxn</strong>&rdquo;</p>
-
-<h2 id="precision">Precision</h2>
-
+<p>An order book is always referred to in the API as &quot;Major_Minor&quot;. For example: &quot;<strong>btc_mxn</strong>&quot;</p>
+<h2 id='precision'>Precision</h2>
 <p>We return decimal numbers as strings to preserve full precision across platforms. We recommend you also convert your numbers to string in order to avoid undesired consequences from precision and truncation errors.</p>
-
-<h2 id="rate-limits">Rate Limits</h2>
-
+<h2 id='rate-limits'>Rate Limits</h2>
 <p>Rate limits are based on one minute windows. For public API requests, the limit is by IP address and allows 60 requests per minute. For private API requests, the limit is by user and allows 300
 requests per minute. If you exceed these limits, you will get locked out for one minute. Continuous one minute lockouts may result in a 24-hour block. Order cancellations aren’t subject to API rate limiting.</p>
-
-<h2 id="error-codes">Error Codes</h2>
-
+<h2 id='error-codes'>Error Codes</h2>
 <p>Error codes consist of four digits, first two digits correspond to
 error categories, the last two digits define specific errors.</p>
-
-<h3 id="unknown-errors-01-http-500">Unknown Errors: 01 (HTTP 500)</h3>
-
+<h3 id='unknown-errors-01-http-500'>Unknown Errors: 01 (HTTP 500)</h3>
 <ul>
-<li>0101: &ldquo;Unknown Error&rdquo;</li>
-<li>0102: &ldquo;Invalid Ripple Withdrawal&rdquo;</li>
+<li>0101: &quot;Unknown Error&quot;</li>
+<li>0102: &quot;Invalid Ripple Withdrawal&quot;</li>
 </ul>
-
-<h3 id="authentication-errors-02-http-401">Authentication Errors: 02 (HTTP 401)</h3>
-
+<h3 id='authentication-errors-02-http-401'>Authentication Errors: 02 (HTTP 401)</h3>
 <ul>
 <li>0201: Invalid Nonce or Invalid Credentials</li>
 <li>0202: API key is not authorized to execute the requested method</li>
@@ -257,12 +594,10 @@ error categories, the last two digits define specific errors.</p>
 <li>0210: Device authentication required</li>
 <li>0211: Device authentication failed (Invalid IP or expired Token)</li>
 </ul>
-
-<h3 id="validation-errors-03-http-400">Validation Errors: 03 (HTTP 400)</h3>
-
+<h3 id='validation-errors-03-http-400'>Validation Errors: 03 (HTTP 400)</h3>
 <ul>
 <li>0301: Unknown Order book</li>
-<li>0302: Incorrect time frame (not &#39;hour&rsquo; or &lsquo;minute&rsquo;)</li>
+<li>0302: Incorrect time frame (not &#39;hour&#39; or &#39;minute&#39;)</li>
 <li>0303: Required field missing</li>
 <li>0304: Required field not valid (email, phone_number)</li>
 <li>0305: Invalid SMS code (would also apply to correct code but not-correct client id)</li>
@@ -324,7 +659,7 @@ error categories, the last two digits define specific errors.</p>
 <li>0361: Two or more fields were submitted when only one is required</li>
 <li>0362: Invalid callback URL</li>
 <li>0363: Invalid Transaction ID (Either non-existent or does not belong to the user)</li>
-<li>0364: Password doesn&rsquo;t meet security requirements</li>
+<li>0364: Password doesn&#39;t meet security requirements</li>
 <li>0365: Two factor authentication method is already enabled</li>
 <li>0366: Two factor authentication method is not enabled</li>
 <li>0367: Unable to generate quote at the present time</li>
@@ -336,9 +671,7 @@ error categories, the last two digits define specific errors.</p>
 <li>0373: Request has expired</li>
 <li>0374: Invalid 2FA recovery code</li>
 </ul>
-
-<h3 id="system-limit-errors-04-http-400">System Limit Errors: 04 (HTTP 400)</h3>
-
+<h3 id='system-limit-errors-04-http-400'>System Limit Errors: 04 (HTTP 400)</h3>
 <ul>
 <li>0401: Incorrect price, below the minimum</li>
 <li>0402: Incorrect price, above than maximum</li>
@@ -353,25 +686,19 @@ error categories, the last two digits define specific errors.</p>
 <li>0412: Incorrect stop, below the minimum</li>
 <li>0413: Incorrect stop, above the maximum</li>
 </ul>
-
-<h3 id="user-limit-error-05-http-400">User Limit Error: 05 (HTTP 400)</h3>
-
+<h3 id='user-limit-error-05-http-400'>User Limit Error: 05 (HTTP 400)</h3>
 <ul>
 <li>0501: Exceeds user limit for withdrawals</li>
 <li>0502: Exceeds user limit for deposits</li>
 <li>0503: Exceeds destination user limit for deposits</li>
 <li>0504: Exceeds cashout withdrawal limit for phone number</li>
 </ul>
-
-<h3 id="funds-error-06-http-400">Funds Error: 06 (HTTP 400)</h3>
-
+<h3 id='funds-error-06-http-400'>Funds Error: 06 (HTTP 400)</h3>
 <ul>
 <li>0601: Not enough btc funds</li>
 <li>0602: Not enough mxn funds</li>
 </ul>
-
-<h3 id="errors-related-to-an-account-07-http-400">Errors related to an account: 07 (HTTP 400)</h3>
-
+<h3 id='errors-related-to-an-account-07-http-400'>Errors related to an account: 07 (HTTP 400)</h3>
 <ul>
 <li>0701: Action not permitted for unverified account</li>
 <li>0702: Action not permitted for unverified business account</li>
@@ -390,8 +717,8 @@ error categories, the last two digits define specific errors.</p>
 <li>0715: Error saving users business person(s)</li>
 <li>0716: Error fetching users business person(s)</li>
 <li>0717: Incorrect value for users business persons(s) types</li>
-<li>0718: User business person doesn&rsquo;t belongs to the user</li>
-<li>0719: User&rsquo;s PGP key not found</li>
+<li>0718: User business person doesn&#39;t belongs to the user</li>
+<li>0719: User&#39;s PGP key not found</li>
 <li>0720: The maximum number of paired devices has been reached</li>
 <li>0721: Error when performing a security action (i.e. block withdrawals)</li>
 <li>0722: Error deleting user beneficiary</li>
@@ -399,22 +726,16 @@ error categories, the last two digits define specific errors.</p>
 <li>0724: No funding methods available</li>
 <li>0725: No withdrawal methods available</li>
 </ul>
-
-<h3 id="throttling-errors-08-http-420">Throttling Errors: 08 (HTTP 420)</h3>
-
+<h3 id='throttling-errors-08-http-420'>Throttling Errors: 08 (HTTP 420)</h3>
 <ul>
 <li>0801: You have hit the request rate-limit</li>
 <li>0802: Too many attempts to perform an operation</li>
 </ul>
-
-<h3 id="unsupported-http-method-400-error">Unsupported HTTP method (400 error)</h3>
-
+<h3 id='unsupported-http-method-400-error'>Unsupported HTTP method (400 error)</h3>
 <ul>
 <li>0901: Unsupported HTTP method</li>
 </ul>
-
-<h3 id="miscellaneous-errors-10-400-error">Miscellaneous Errors: 10 (400 error)</h3>
-
+<h3 id='miscellaneous-errors-10-400-error'>Miscellaneous Errors: 10 (400 error)</h3>
 <ul>
 <li>1000: API temporarily disabled (More info in error message)</li>
 <li>1001: Too many open orders</li>
@@ -424,9 +745,7 @@ error categories, the last two digits define specific errors.</p>
 <li>1005: Invalid operation</li>
 <li>1006: No content for given mobile client name (204 code)</li>
 </ul>
-
-<h3 id="operation-errors-11-500-error">Operation Errors: 11 (500 error)</h3>
-
+<h3 id='operation-errors-11-500-error'>Operation Errors: 11 (500 error)</h3>
 <ul>
 <li>1101: Error when processing the withdrawal</li>
 <li>1102: Error registering callback URL</li>
@@ -434,39 +753,29 @@ error categories, the last two digits define specific errors.</p>
 <li>1104: Multiple accounts are associated with a device</li>
 <li>1105: Account creation limit has been reached on a device.</li>
 </ul>
-
-<h3 id="phone-related-errors-12-400-error">Phone related errors: 12 (400 error)</h3>
-
+<h3 id='phone-related-errors-12-400-error'>Phone related errors: 12 (400 error)</h3>
 <ul>
 <li>1201: The number provided is not a mobile number</li>
 <li>1202: We cannot send an SMS to the number provided (out of jurisdiction)</li>
 <li>1299: Unexpected error when trying to send SMS</li>
 </ul>
-
-<h2 id="client-libraries">Client Libraries</h2>
-
+<h2 id='client-libraries'>Client Libraries</h2>
 <p>The following client libraries will allow you to integrate quickly with our APIs</p>
 
 <ul>
 <li><a href="https://github.com/bitsoex/bitso-java">Java</a></li>
 <li><a href="https://github.com/bitsoex/bitso-py">Python</a></li>
 </ul>
-
-<h2 id="language-detection">Language detection</h2>
-
+<h2 id='language-detection'>Language detection</h2>
 <p>The initial phase of the detection if you are using API keys is the language you have on your settings. (This defaults depending on your country of residence the moment you sign up)
-To force this to a specific language we then use <code class="prettyprint">Accept-Language</code> header on the request to override this setting.
-If none of these settings are set the default is <code class="prettyprint">en</code>.</p>
-
-<h1 id="public-rest-api">Public REST API</h1>
-
-<h2 id="available-books">Available Books</h2>
-<div class="highlight"><pre class="highlight shell"><code>curl <span class="s2">"https://api.bitso.com/v3/available_books/"</span>
+To force this to a specific language we then use <code>Accept-Language</code> header on the request to override this setting.
+If none of these settings are set the default is <code>en</code>.</p>
+<h1 id='public-rest-api'>Public REST API</h1><h2 id='available-books'>Available Books</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.bitso.com/v3/available_books/"</span>
 </code></pre></div>
 <blockquote>
 <p>The JSON object returned by the API looks like this:</p>
 </blockquote>
-<div class="highlight"><pre class="highlight json"><code><span class="p">{</span><span class="w">
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"success"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
     </span><span class="nl">"payload"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
         </span><span class="nl">"book"</span><span class="p">:</span><span class="w"> </span><span class="s2">"btc_mxn"</span><span class="p">,</span><span class="w">
@@ -489,13 +798,9 @@ If none of these settings are set the default is <code class="prettyprint">en</c
 </span></code></pre></div>
 <p>This endpoint returns a list of existing exchange order books and
 their respective order placement limits.</p>
-
-<h3 id="http-request">HTTP Request</h3>
-
-<p><code class="prettyprint">GET https://api.bitso.com/v3/available_books/</code></p>
-
-<h3 id="json-response-payload">JSON Response Payload</h3>
-
+<h3 id='http-request'>HTTP Request</h3>
+<p><code>GET https://api.bitso.com/v3/available_books/</code></p>
+<h3 id='json-response-payload'>JSON Response Payload</h3>
 <table><thead>
 <tr>
 <th>Field Name</th>
@@ -547,14 +852,12 @@ their respective order placement limits.</p>
 <td>Minor</td>
 </tr>
 </tbody></table>
-
-<h2 id="ticker">Ticker</h2>
-<div class="highlight"><pre class="highlight shell"><code>curl <span class="s2">"https://api.bitso.com/v3/ticker/?book=btc_mxn"</span>
+<h2 id='ticker'>Ticker</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.bitso.com/v3/ticker/?book=btc_mxn"</span>
 </code></pre></div>
 <blockquote>
 <p>The JSON object returned by the API looks like this:</p>
 </blockquote>
-<div class="highlight"><pre class="highlight json"><code><span class="p">{</span><span class="w">
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"success"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
     </span><span class="nl">"payload"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="nl">"book"</span><span class="p">:</span><span class="w"> </span><span class="s2">"btc_mxn"</span><span class="p">,</span><span class="w">
@@ -570,13 +873,9 @@ their respective order placement limits.</p>
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <p>This endpoint returns trading information from the specified book.</p>
-
-<h3 id="http-request">HTTP Request</h3>
-
-<p><code class="prettyprint">GET https://api.bitso.com/v3/ticker/</code></p>
-
-<h3 id="query-parameters">Query Parameters</h3>
-
+<h3 id='http-request-2'>HTTP Request</h3>
+<p><code>GET https://api.bitso.com/v3/ticker/</code></p>
+<h3 id='query-parameters'>Query Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -592,9 +891,7 @@ their respective order placement limits.</p>
 <td>Specifies which book to use</td>
 </tr>
 </tbody></table>
-
-<h3 id="json-response-payload">JSON Response Payload</h3>
-
+<h3 id='json-response-payload-2'>JSON Response Payload</h3>
 <table><thead>
 <tr>
 <th>Field Name</th>
@@ -658,14 +955,12 @@ their respective order placement limits.</p>
 <td>ISO 8601 timestamp</td>
 </tr>
 </tbody></table>
-
-<h2 id="order-book">Order Book</h2>
-<div class="highlight"><pre class="highlight shell"><code>curl <span class="s2">"https://api.bitso.com/v3/order_book/?book=btc_mxn"</span>
+<h2 id='order-book'>Order Book</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.bitso.com/v3/order_book/?book=btc_mxn"</span>
 </code></pre></div>
 <blockquote>
 <p>The JSON object returned by the API looks like this:</p>
 </blockquote>
-<div class="highlight"><pre class="highlight json"><code><span class="p">{</span><span class="w">
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"success"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
     </span><span class="nl">"payload"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="nl">"asks"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
@@ -694,12 +989,12 @@ their respective order placement limits.</p>
         </span><span class="nl">"sequence"</span><span class="p">:</span><span class="w"> </span><span class="s2">"27214"</span><span class="w">
     </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre></div><div class="highlight"><pre class="highlight shell"><code>curl <span class="s2">"https://api.bitso.com/v3/order_book/?book=btc_mxn&amp;aggregate=false"</span>
+</span></code></pre></div><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.bitso.com/v3/order_book/?book=btc_mxn&amp;aggregate=false"</span>
 </code></pre></div>
 <blockquote>
 <p>The JSON object returned by the API looks like this:</p>
 </blockquote>
-<div class="highlight"><pre class="highlight json"><code><span class="p">{</span><span class="w">
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"success"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
     </span><span class="nl">"payload"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="nl">"asks"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
@@ -739,13 +1034,9 @@ book. If the <em>aggregate</em> parameter is set to true, orders will be
 aggregated by price, and the response will only include the top 50
 orders for each side of the book. If the <em>aggregate</em> parameter is set
 to false, the response will include the full order book.</p>
-
-<h3 id="http-request">HTTP Request</h3>
-
-<p><code class="prettyprint">GET https://api.bitso.com/v3/order_book/</code></p>
-
-<h3 id="query-parameters">Query Parameters</h3>
-
+<h3 id='http-request-3'>HTTP Request</h3>
+<p><code>GET https://api.bitso.com/v3/order_book/</code></p>
+<h3 id='query-parameters-2'>Query Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -767,10 +1058,8 @@ to false, the response will include the full order book.</p>
 <td>Specifies if orders should be aggregated by price.</td>
 </tr>
 </tbody></table>
-
-<h3 id="json-response-payload">JSON Response Payload</h3>
-
-<p>Returns JSON object with &ldquo;bids&rdquo; and &ldquo;asks&rdquo;. Each is a JSON Array
+<h3 id='json-response-payload-3'>JSON Response Payload</h3>
+<p>Returns JSON object with &quot;bids&quot; and &quot;asks&quot;. Each is a JSON Array
 of open orders and each open order is represented as a JSON object</p>
 
 <table><thead>
@@ -867,14 +1156,12 @@ of open orders and each open order is represented as a JSON object</p>
 <td></td>
 </tr>
 </tbody></table>
-
-<h2 id="trades">Trades</h2>
-<div class="highlight"><pre class="highlight shell"><code>curl <span class="s2">"https://api.bitso.com/v3/trades/?book=btc_mxn"</span>
+<h2 id='trades'>Trades</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.bitso.com/v3/trades/?book=btc_mxn"</span>
 </code></pre></div>
 <blockquote>
 <p>The JSON Array returned by the API looks like this:</p>
 </blockquote>
-<div class="highlight"><pre class="highlight json"><code><span class="p">{</span><span class="w">
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"success"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
     </span><span class="nl">"payload"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
         </span><span class="nl">"book"</span><span class="p">:</span><span class="w"> </span><span class="s2">"btc_mxn"</span><span class="p">,</span><span class="w">
@@ -894,13 +1181,9 @@ of open orders and each open order is represented as a JSON object</p>
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <p>This endpoint returns a list of recent trades from the specified book.</p>
-
-<h3 id="http-request">HTTP Request</h3>
-
-<p><code class="prettyprint">GET https://api.bitso.com/v3/trades/</code></p>
-
-<h3 id="query-parameters">Query Parameters</h3>
-
+<h3 id='http-request-4'>HTTP Request</h3>
+<p><code>GET https://api.bitso.com/v3/trades/</code></p>
+<h3 id='query-parameters-3'>Query Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -919,13 +1202,13 @@ of open orders and each open order is represented as a JSON object</p>
 <td><strong>marker</strong></td>
 <td></td>
 <td>No</td>
-<td>Returns objects that are older or newer (depending on &lsquo;sort&rsquo;) than the object with this ID</td>
+<td>Returns objects that are older or newer (depending on &#39;sort&#39;) than the object with this ID</td>
 </tr>
 <tr>
 <td><strong>sort</strong></td>
 <td>desc</td>
 <td>No</td>
-<td>Specifies ordering direction of returned objects (&lsquo;asc&rsquo;, &lsquo;desc&rsquo;)</td>
+<td>Specifies ordering direction of returned objects (&#39;asc&#39;, &#39;desc&#39;)</td>
 </tr>
 <tr>
 <td><strong>limit</strong></td>
@@ -934,9 +1217,7 @@ of open orders and each open order is represented as a JSON object</p>
 <td>Specifies number of objects to return. (Max is 100)</td>
 </tr>
 </tbody></table>
-
-<h3 id="json-response-payload">JSON Response Payload</h3>
-
+<h3 id='json-response-payload-4'>JSON Response Payload</h3>
 <p>Returns descending JSON Array of transactions. Every element in the array is a JSON object:</p>
 
 <table><thead>
@@ -984,17 +1265,13 @@ of open orders and each open order is represented as a JSON object</p>
 <td></td>
 </tr>
 </tbody></table>
-
-<h1 id="private-rest-api">Private REST API</h1>
-
+<h1 id='private-rest-api'>Private REST API</h1>
 <p>The Private REST API is used to manage your account and your orders. These requests must be signed (more on this below).</p>
 
 <aside class="notice">
 Private endpoints require API Keys. Make sure you read more about obtaining your private keys <a href="#generating-api-keys">here</a>
 </aside>
-
-<h2 id="generating-api-keys">Generating API Keys</h2>
-
+<h2 id='generating-api-keys'>Generating API Keys</h2>
 <p>Bitso uses <strong>API Keys</strong> to allow access to the API.
 You can register a new Bitso API key at our <a href="https://bitso.com/api_setup">developer portal</a>.</p>
 
@@ -1008,9 +1285,7 @@ You have the option of adding a <strong>Withdrawal Bitcoin Address</strong>, whi
 <li>Bitso API Key</li>
 <li>Bitso API Secret</li>
 </ul>
-
-<h2 id="creating-and-signing-requests">Creating and Signing Requests</h2>
-<div class="highlight"><pre class="highlight shell"><code><span class="c">#!/bin/bash</span>
+<h2 id='creating-and-signing-requests'>Creating and Signing Requests</h2><div class="highlight"><pre class="highlight shell tab-shell"><code><span class="c">#!/bin/bash</span>
 <span class="c"># requires:</span>
 <span class="c"># -httpie: https://github.com/jkbrzt/httpie</span>
 
@@ -1024,7 +1299,7 @@ You have the option of adding a <strong>Withdrawal Bitcoin Address</strong>, whi
 <span class="nv">SIGNATURE</span><span class="o">=</span><span class="si">$(</span><span class="nb">echo</span> <span class="nt">-n</span> <span class="nv">$DNONCE$HTTPmethod$RequestPath$JSONPayload</span> | openssl dgst <span class="nt">-binary</span> <span class="nt">-sha256</span> <span class="nt">-hmac</span> <span class="nv">$API_SECRET</span> | xxd <span class="nt">-p</span> <span class="nt">-c</span> 256 <span class="si">)</span>
 <span class="nv">AUTH_HEADER</span><span class="o">=</span><span class="s2">"Bitso </span><span class="nv">$API_KEY</span><span class="s2">:</span><span class="nv">$DNONCE</span><span class="s2">:</span><span class="nv">$SIGNATURE</span><span class="s2">"</span>
 http GET <span class="nv">$URL</span> Authorization:<span class="s2">"</span><span class="nv">$AUTH_HEADER</span><span class="s2">"</span>
-</code></pre></div><div class="highlight"><pre class="highlight javascript"><code><span class="c1">// Define your request</span>
+</code></pre></div><div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="c1">// Define your request</span>
 <span class="kd">var</span> <span class="nx">key</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">BITSO API KEY</span><span class="dl">"</span><span class="p">;</span>
 <span class="kd">var</span> <span class="nx">secret</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">BITSO API SECRET</span><span class="dl">"</span><span class="p">;</span>
 <span class="kd">var</span> <span class="nx">http_method</span><span class="o">=</span><span class="dl">"</span><span class="s2">GET</span><span class="dl">"</span><span class="p">;</span>  <span class="c1">// Change to POST if endpoint requires data</span>
@@ -1071,7 +1346,7 @@ http GET <span class="nv">$URL</span> Authorization:<span class="s2">"</span><sp
 <span class="p">}</span>
 <span class="nx">req</span><span class="p">.</span><span class="nx">end</span><span class="p">();</span>
 
-</code></pre></div><div class="highlight"><pre class="highlight python"><code><span class="c1">#!/usr/bin/python
+</code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code><span class="c1">#!/usr/bin/python
 </span>
 <span class="kn">import</span> <span class="nn">time</span>
 <span class="kn">import</span> <span class="nn">hmac</span>
@@ -1106,7 +1381,7 @@ http GET <span class="nv">$URL</span> Authorization:<span class="s2">"</span><sp
 
 <span class="k">print</span> <span class="n">response</span><span class="p">.</span><span class="n">content</span>
 
-</code></pre></div><div class="highlight"><pre class="highlight ruby"><code><span class="c1">#!/usr/bin/ruby</span>
+</code></pre></div><div class="highlight"><pre class="highlight ruby tab-ruby"><code><span class="c1">#!/usr/bin/ruby</span>
 <span class="nb">require</span> <span class="s1">'date'</span>
 <span class="nb">require</span> <span class="s1">'json'</span>
 <span class="nb">require</span> <span class="s1">'openssl'</span>
@@ -1146,7 +1421,7 @@ http GET <span class="nv">$URL</span> Authorization:<span class="s2">"</span><sp
 <span class="p">).</span><span class="nf">run</span>
 
 <span class="nb">puts</span> <span class="n">response</span><span class="p">.</span><span class="nf">body</span>
-</code></pre></div><div class="highlight"><pre class="highlight java"><code>
+</code></pre></div><div class="highlight"><pre class="highlight java tab-java"><code>
 <span class="kn">import</span> <span class="nn">java.io.BufferedReader</span><span class="o">;</span>
 <span class="kn">import</span> <span class="nn">java.io.InputStreamReader</span><span class="o">;</span>
 <span class="kn">import</span> <span class="nn">java.math.BigInteger</span><span class="o">;</span>
@@ -1201,7 +1476,7 @@ http GET <span class="nv">$URL</span> Authorization:<span class="s2">"</span><sp
 <span class="o">}</span>
 
 
-</code></pre></div><div class="highlight"><pre class="highlight php"><code><span class="cp">&lt;?php</span>
+</code></pre></div><div class="highlight"><pre class="highlight php tab-php"><code><span class="cp">&lt;?php</span>
   <span class="nv">$bitsoKey</span> <span class="o">=</span> <span class="s2">"API_KEY"</span><span class="p">;</span>
   <span class="nv">$bitsoSecret</span> <span class="o">=</span> <span class="s2">"API_SECRET"</span>
   <span class="nv">$nonce</span> <span class="o">=</span> <span class="nb">round</span><span class="p">(</span><span class="nb">microtime</span><span class="p">(</span><span class="kc">true</span><span class="p">)</span> <span class="o">*</span> <span class="mi">1000</span><span class="p">);</span>
@@ -1236,31 +1511,25 @@ http GET <span class="nv">$URL</span> Authorization:<span class="s2">"</span><sp
 <span class="cp">?&gt;</span>
 </code></pre></div>
 <p>All REST requests should be valid JSON. You must include 3 fields as a
-payload in the &ldquo;Authorization&rdquo; header for all Private API Endpoints in order to perform authentication:</p>
+payload in the &quot;Authorization&quot; header for all Private API Endpoints in order to perform authentication:</p>
 
 <ul>
 <li><strong>key</strong> – The API Key you generated</li>
 <li><strong>nonce</strong> – An integer that must be unique and increasing for each API call (we recommend using a UNIX timestamp)</li>
 <li><strong>signature</strong> – See below</li>
 </ul>
-
-<h3 id="signature">Signature</h3>
-
+<h3 id='signature'>Signature</h3>
 <p>The signature is generated by creating a SHA256 HMAC using the <strong>Bitso API Secret</strong> on the concatenation of <strong>nonce</strong> + <strong>HTTP method</strong> + <strong>requestPath</strong> + <strong>JSON payload</strong> (no ’+’ signs in the concatenated string) and hex encode the output. The <strong>nonce</strong> value should be the same as the <strong>nonce</strong> field in the Authorization header. The <strong>requestPath</strong> and <strong>JSON payload</strong> must, of course, be exactly as the ones used in the request.</p>
-
-<h3 id="authorization-header">Authorization Header</h3>
-
+<h3 id='authorization-header'>Authorization Header</h3>
 <p>The header should be constructed, using the fields described above, in
 the following form:</p>
 
 <p><strong>Authorization: Bitso &lt;key&gt;:&lt;nonce&gt;:&lt;signature&gt;</strong></p>
-
-<h2 id="account-status">Account Status</h2>
-
+<h2 id='account-status'>Account Status</h2>
 <blockquote>
 <p>The JSON object returned by the API looks like this:</p>
 </blockquote>
-<div class="highlight"><pre class="highlight json"><code><span class="p">{</span><span class="w">
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"success"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
     </span><span class="nl">"payload"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="nl">"client_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1234"</span><span class="p">,</span><span class="w">
@@ -1283,15 +1552,11 @@ the following form:</p>
 </span><span class="p">}</span><span class="w">
 
 </span></code></pre></div>
-<p>This endpoint returns information concerning the user&rsquo;s account
+<p>This endpoint returns information concerning the user&#39;s account
 status, documents uploaded, and transaction limits.</p>
-
-<h3 id="http-request">HTTP Request</h3>
-
-<p><code class="prettyprint">GET https://api.bitso.com/v3/account_status/</code></p>
-
-<h3 id="authorization-header-parameters">Authorization Header Parameters</h3>
-
+<h3 id='http-request-5'>HTTP Request</h3>
+<p><code>GET https://api.bitso.com/v3/account_status/</code></p>
+<h3 id='authorization-header-parameters'>Authorization Header Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -1319,9 +1584,7 @@ status, documents uploaded, and transaction limits.</p>
 <td>See <a href="#creating-and-signing-requests">Creating and Signing Requests</a></td>
 </tr>
 </tbody></table>
-
-<h3 id="json-response-payload">JSON Response Payload</h3>
-
+<h3 id='json-response-payload-5'>JSON Response Payload</h3>
 <p>Returns a JSON Array. Every element in the array is a JSON object with the following fields.</p>
 
 <table><thead>
@@ -1335,19 +1598,19 @@ status, documents uploaded, and transaction limits.</p>
 <tr>
 <td><strong>client_id</strong></td>
 <td>String</td>
-<td>The user&rsquo;s Client ID</td>
+<td>The user&#39;s Client ID</td>
 <td></td>
 </tr>
 <tr>
 <td><strong>first_name</strong></td>
 <td>String</td>
-<td>The user&rsquo;s first name</td>
+<td>The user&#39;s first name</td>
 <td></td>
 </tr>
 <tr>
 <td><strong>last_name</strong></td>
 <td>String</td>
-<td>The user&rsquo;s last name</td>
+<td>The user&#39;s last name</td>
 <td></td>
 </tr>
 <tr>
@@ -1359,25 +1622,25 @@ status, documents uploaded, and transaction limits.</p>
 <tr>
 <td><strong>daily_limit</strong></td>
 <td>String</td>
-<td>The user&rsquo;s total daily limit</td>
+<td>The user&#39;s total daily limit</td>
 <td>MXN</td>
 </tr>
 <tr>
 <td><strong>daily_remaining</strong></td>
 <td>String</td>
-<td>Remaining amount of user&rsquo;s total daily limit</td>
+<td>Remaining amount of user&#39;s total daily limit</td>
 <td>MXN</td>
 </tr>
 <tr>
 <td><strong>monthly_limit</strong></td>
 <td>String</td>
-<td>The user&rsquo;s total monthly limit</td>
+<td>The user&#39;s total monthly limit</td>
 <td>MXN</td>
 </tr>
 <tr>
 <td><strong>monthly_remaining</strong></td>
 <td>String</td>
-<td>Remaining amount of user&rsquo;s total monthly limit</td>
+<td>Remaining amount of user&#39;s total monthly limit</td>
 <td>MXN</td>
 </tr>
 <tr>
@@ -1389,65 +1652,59 @@ status, documents uploaded, and transaction limits.</p>
 <tr>
 <td><strong>cellphone_number</strong></td>
 <td>String</td>
-<td>Status of user&rsquo;s registered cellphone number</td>
+<td>Status of user&#39;s registered cellphone number</td>
 <td>Enum of (unsubmitted, submitted, verified)</td>
 </tr>
 <tr>
 <td><strong>cellphone_number_stored</strong></td>
 <td>String</td>
-<td>user&rsquo;s registered cellphone number</td>
+<td>user&#39;s registered cellphone number</td>
 <td></td>
 </tr>
 <tr>
 <td><strong>email_stored</strong></td>
 <td>String</td>
-<td>user&rsquo;s registered email</td>
+<td>user&#39;s registered email</td>
 <td></td>
 </tr>
 <tr>
 <td><strong>official_id</strong></td>
 <td>String</td>
-<td>Status of user&rsquo;s official ID document</td>
+<td>Status of user&#39;s official ID document</td>
 <td>Enum of (unsubmitted, submitted, verified, rejected)</td>
 </tr>
 <tr>
 <td><strong>proof_of_residency</strong></td>
 <td>String</td>
-<td>Status of user&rsquo;s &lsquo;proof of residency&rsquo; document</td>
+<td>Status of user&#39;s &#39;proof of residency&#39; document</td>
 <td>Enum of (unsubmitted, submitted, verified, rejected)</td>
 </tr>
 <tr>
 <td><strong>signed_contract</strong></td>
 <td>String</td>
-<td>Status of user&rsquo;s &lsquo;signed contract&rsquo; document</td>
+<td>Status of user&#39;s &#39;signed contract&#39; document</td>
 <td>Enum of (unsubmitted, submitted, verified, rejected)</td>
 </tr>
 <tr>
 <td><strong>origin_of_funds</strong></td>
 <td>String</td>
-<td>Status of user&rsquo;s &lsquo;origin of funds&rsquo; document</td>
+<td>Status of user&#39;s &#39;origin of funds&#39; document</td>
 <td>Enum of (unsubmitted, submitted, verified, rejected)</td>
 </tr>
 </tbody></table>
-
-<h2 id="document-upload">Document Upload</h2>
-
+<h2 id='document-upload'>Document Upload</h2>
 <blockquote>
 <p>The JSON object returned by the API looks like this:</p>
 </blockquote>
-<div class="highlight"><pre class="highlight json"><code><span class="p">{</span><span class="w">
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"success"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
 </span><span class="p">}</span><span class="w">
 
 </span></code></pre></div>
 <p>This endpoint is used to upload KYC documents for verification. [<strong>Coming Soon</strong>]</p>
-
-<h3 id="http-request">HTTP Request</h3>
-
-<p><code class="prettyprint">GET https://api.bitso.com/v3/kyc_documents/</code></p>
-
-<h3 id="authorization-header-parameters">Authorization Header Parameters</h3>
-
+<h3 id='http-request-6'>HTTP Request</h3>
+<p><code>GET https://api.bitso.com/v3/kyc_documents/</code></p>
+<h3 id='authorization-header-parameters-2'>Authorization Header Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -1475,9 +1732,7 @@ status, documents uploaded, and transaction limits.</p>
 <td>See <a href="#creating-and-signing-requests">Creating and Signing Requests</a></td>
 </tr>
 </tbody></table>
-
-<h3 id="body-parameters">Body Parameters</h3>
-
+<h3 id='body-parameters'>Body Parameters</h3>
 <p>Body parameters should be JSON encoded and should be exactly the same
 as the JSON payload used to construct the signature.</p>
 
@@ -1508,13 +1763,11 @@ as the JSON payload used to construct the signature.</p>
 <td>Base64 encoded binary file. Max size is 7.5MB</td>
 </tr>
 </tbody></table>
-
-<h2 id="mobile-phone-number-registration">Mobile Phone Number Registration</h2>
-
+<h2 id='mobile-phone-number-registration'>Mobile Phone Number Registration</h2>
 <blockquote>
 <p>The JSON object returned by the API looks like this:</p>
 </blockquote>
-<div class="highlight"><pre class="highlight json"><code><span class="p">{</span><span class="w">
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"success"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
     </span><span class="nl">"payload"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="nl">"phone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5552525252"</span><span class="w">
@@ -1524,13 +1777,9 @@ as the JSON payload used to construct the signature.</p>
 </span></code></pre></div>
 <p>This endpoint is used to register Mobile phone number for
 verification.</p>
-
-<h3 id="http-request">HTTP Request</h3>
-
-<p><code class="prettyprint">POST https://api.bitso.com/v3/phone_number/</code></p>
-
-<h3 id="authorization-header-parameters">Authorization Header Parameters</h3>
-
+<h3 id='http-request-7'>HTTP Request</h3>
+<p><code>POST https://api.bitso.com/v3/phone_number/</code></p>
+<h3 id='authorization-header-parameters-3'>Authorization Header Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -1558,9 +1807,7 @@ verification.</p>
 <td>See <a href="#creating-and-signing-requests">Creating and Signing Requests</a></td>
 </tr>
 </tbody></table>
-
-<h3 id="body-parameters">Body Parameters</h3>
-
+<h3 id='body-parameters-2'>Body Parameters</h3>
 <p>Body parameters should be JSON encoded and should be exactly the same
 as the JSON payload used to construct the signature.</p>
 
@@ -1579,9 +1826,7 @@ as the JSON payload used to construct the signature.</p>
 <td>Mobile phone number to register (10 digits)</td>
 </tr>
 </tbody></table>
-
-<h3 id="json-response-payload">JSON Response Payload</h3>
-
+<h3 id='json-response-payload-6'>JSON Response Payload</h3>
 <p>Returns a JSON Object with the following fields.</p>
 
 <table><thead>
@@ -1595,7 +1840,7 @@ as the JSON payload used to construct the signature.</p>
 <tr>
 <td><strong>client_id</strong></td>
 <td>String</td>
-<td>User&rsquo;s client ID</td>
+<td>User&#39;s client ID</td>
 <td></td>
 </tr>
 <tr>
@@ -1605,13 +1850,11 @@ as the JSON payload used to construct the signature.</p>
 <td></td>
 </tr>
 </tbody></table>
-
-<h2 id="mobile-phone-number-verification">Mobile Phone Number Verification</h2>
-
+<h2 id='mobile-phone-number-verification'>Mobile Phone Number Verification</h2>
 <blockquote>
 <p>The JSON object returned by the API looks like this:</p>
 </blockquote>
-<div class="highlight"><pre class="highlight json"><code><span class="p">{</span><span class="w">
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"success"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
     </span><span class="nl">"payload"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="nl">"phone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5554181042"</span><span class="w">
@@ -1620,13 +1863,9 @@ as the JSON payload used to construct the signature.</p>
 
 </span></code></pre></div>
 <p>This endpoint is used to verify a registered mobile phone number</p>
-
-<h3 id="http-request">HTTP Request</h3>
-
-<p><code class="prettyprint">POST https://api.bitso.com/v3/phone_verification/</code></p>
-
-<h3 id="authorization-header-parameters">Authorization Header Parameters</h3>
-
+<h3 id='http-request-8'>HTTP Request</h3>
+<p><code>POST https://api.bitso.com/v3/phone_verification/</code></p>
+<h3 id='authorization-header-parameters-4'>Authorization Header Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -1654,9 +1893,7 @@ as the JSON payload used to construct the signature.</p>
 <td>See <a href="#creating-and-signing-requests">Creating and Signing Requests</a></td>
 </tr>
 </tbody></table>
-
-<h3 id="body-parameters">Body Parameters</h3>
-
+<h3 id='body-parameters-3'>Body Parameters</h3>
 <p>Body parameters should be JSON encoded and should be exactly the same
 as the JSON payload used to construct the signature.</p>
 
@@ -1675,9 +1912,7 @@ as the JSON payload used to construct the signature.</p>
 <td>Verification code sent to registered mobile number</td>
 </tr>
 </tbody></table>
-
-<h3 id="json-response-payload">JSON Response Payload</h3>
-
+<h3 id='json-response-payload-7'>JSON Response Payload</h3>
 <p>Returns a JSON Object with the following fields.</p>
 
 <table><thead>
@@ -1691,7 +1926,7 @@ as the JSON payload used to construct the signature.</p>
 <tr>
 <td><strong>client_id</strong></td>
 <td>String</td>
-<td>User&rsquo;s client ID</td>
+<td>User&#39;s client ID</td>
 <td></td>
 </tr>
 <tr>
@@ -1701,13 +1936,11 @@ as the JSON payload used to construct the signature.</p>
 <td></td>
 </tr>
 </tbody></table>
-
-<h2 id="account-balance">Account Balance</h2>
-
+<h2 id='account-balance'>Account Balance</h2>
 <blockquote>
 <p>The JSON object returned by the API looks like this:</p>
 </blockquote>
-<div class="highlight"><pre class="highlight json"><code><span class="p">{</span><span class="w">
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"success"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
     </span><span class="nl">"payload"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="nl">"balances"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
@@ -1729,14 +1962,10 @@ as the JSON payload used to construct the signature.</p>
     </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
-<p>This endpoint returns information concerning the user&rsquo;s balances for all supported currencies.</p>
-
-<h3 id="http-request">HTTP Request</h3>
-
-<p><code class="prettyprint">GET https://api.bitso.com/v3/balance/</code></p>
-
-<h3 id="authorization-header-parameters">Authorization Header Parameters</h3>
-
+<p>This endpoint returns information concerning the user&#39;s balances for all supported currencies.</p>
+<h3 id='http-request-9'>HTTP Request</h3>
+<p><code>GET https://api.bitso.com/v3/balance/</code></p>
+<h3 id='authorization-header-parameters-5'>Authorization Header Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -1764,9 +1993,7 @@ as the JSON payload used to construct the signature.</p>
 <td>See <a href="#creating-and-signing-requests">Creating and Signing Requests</a></td>
 </tr>
 </tbody></table>
-
-<h3 id="json-response-payload">JSON Response Payload</h3>
-
+<h3 id='json-response-payload-8'>JSON Response Payload</h3>
 <p>Returns a JSON Array. Every element in the array is a JSON object with the following fields.</p>
 
 <table><thead>
@@ -1802,13 +2029,11 @@ as the JSON payload used to construct the signature.</p>
 <td>Currency</td>
 </tr>
 </tbody></table>
-
-<h2 id="fees">Fees</h2>
-
+<h2 id='fees'>Fees</h2>
 <blockquote>
 <p>The JSON object returned by the API looks like this:</p>
 </blockquote>
-<div class="highlight"><pre class="highlight json"><code><span class="p">{</span><span class="w">
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"success"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
     </span><span class="nl">"payload"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="nl">"fees"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
@@ -1833,13 +2058,9 @@ as the JSON payload used to construct the signature.</p>
 </span></code></pre></div>
 <p>This endpoint returns information on customer fees for all available
 order books, and withdrawal fees for applicable currencies.</p>
-
-<h3 id="http-request">HTTP Request</h3>
-
-<p><code class="prettyprint">GET https://api.bitso.com/v3/fees/</code></p>
-
-<h3 id="authorization-header-parameters">Authorization Header Parameters</h3>
-
+<h3 id='http-request-10'>HTTP Request</h3>
+<p><code>GET https://api.bitso.com/v3/fees/</code></p>
+<h3 id='authorization-header-parameters-6'>Authorization Header Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -1867,12 +2088,10 @@ order books, and withdrawal fees for applicable currencies.</p>
 <td>See <a href="#creating-and-signing-requests">Creating and Signing Requests</a></td>
 </tr>
 </tbody></table>
+<h3 id='json-response-payload-9'>JSON Response Payload</h3>
+<p>Returns a JSON object with keys, <strong>&quot;fees&quot;</strong> and <strong>&quot;withdrawal_fees&quot;</strong>.</p>
 
-<h3 id="json-response-payload">JSON Response Payload</h3>
-
-<p>Returns a JSON object with keys, <strong>&ldquo;fees&rdquo;</strong> and <strong>&ldquo;withdrawal_fees&rdquo;</strong>.</p>
-
-<p><strong>&ldquo;fees&rdquo;</strong> contains a JSON Array. Every element in the array is a JSON object with the following fields.</p>
+<p><strong>&quot;fees&quot;</strong> contains a JSON Array. Every element in the array is a JSON object with the following fields.</p>
 
 <table><thead>
 <tr>
@@ -1926,15 +2145,13 @@ order books, and withdrawal fees for applicable currencies.</p>
 </tr>
 </tbody></table>
 
-<p><strong>&ldquo;withdrawal_fees&rdquo;</strong> is an object keyed by each curency and value of
+<p><strong>&quot;withdrawal_fees&quot;</strong> is an object keyed by each curency and value of
 net amount withdrawal fees denominated in the corresponding currency.</p>
-
-<h2 id="ledger">Ledger</h2>
-
+<h2 id='ledger'>Ledger</h2>
 <blockquote>
 <p>The JSON object returned by the API looks like this:</p>
 </blockquote>
-<div class="highlight"><pre class="highlight json"><code><span class="p">{</span><span class="w">
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"success"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
     </span><span class="nl">"payload"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
         </span><span class="nl">"eid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"c4ca4238a0b923820dcc509a6f75849b"</span><span class="p">,</span><span class="w">
@@ -2030,22 +2247,18 @@ net amount withdrawal fees denominated in the corresponding currency.</p>
     </span><span class="p">}]</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
-<p>Returns a list of all the user&rsquo;s registered operations.</p>
+<p>Returns a list of all the user&#39;s registered operations.</p>
+<h3 id='http-request-11'>HTTP Request</h3>
+<p><code>GET https://api.bitso.com/v3/ledger/</code></p>
 
-<h3 id="http-request">HTTP Request</h3>
+<p><code>GET https://api.bitso.com/v3/ledger/trades/</code></p>
 
-<p><code class="prettyprint">GET https://api.bitso.com/v3/ledger/</code></p>
+<p><code>GET https://api.bitso.com/v3/ledger/fees/</code></p>
 
-<p><code class="prettyprint">GET https://api.bitso.com/v3/ledger/trades/</code></p>
+<p><code>GET https://api.bitso.com/v3/ledger/fundings/</code></p>
 
-<p><code class="prettyprint">GET https://api.bitso.com/v3/ledger/fees/</code></p>
-
-<p><code class="prettyprint">GET https://api.bitso.com/v3/ledger/fundings/</code></p>
-
-<p><code class="prettyprint">GET https://api.bitso.com/v3/ledger/withdrawals/</code></p>
-
-<h3 id="authorization-header-parameters">Authorization Header Parameters</h3>
-
+<p><code>GET https://api.bitso.com/v3/ledger/withdrawals/</code></p>
+<h3 id='authorization-header-parameters-7'>Authorization Header Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -2073,9 +2286,7 @@ net amount withdrawal fees denominated in the corresponding currency.</p>
 <td>See <a href="#creating-and-signing-requests">Creating and Signing Requests</a></td>
 </tr>
 </tbody></table>
-
-<h3 id="query-parameters">Query Parameters</h3>
-
+<h3 id='query-parameters-4'>Query Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -2088,7 +2299,7 @@ net amount withdrawal fees denominated in the corresponding currency.</p>
 <td><strong>marker</strong></td>
 <td></td>
 <td>No</td>
-<td>Returns objects that are older or newer (depending on &lsquo;sort&rsquo;) than the object with this ID</td>
+<td>Returns objects that are older or newer (depending on &#39;sort&#39;) than the object with this ID</td>
 </tr>
 <tr>
 <td><strong>sort</strong></td>
@@ -2103,9 +2314,7 @@ net amount withdrawal fees denominated in the corresponding currency.</p>
 <td>Specifies number of objects to return. (Max is 100)</td>
 </tr>
 </tbody></table>
-
-<h3 id="json-response-payload">JSON Response Payload</h3>
-
+<h3 id='json-response-payload-10'>JSON Response Payload</h3>
 <p>Returns a descending JSON Array of transactions. Every element in the array is a JSON object:</p>
 
 <table><thead>
@@ -2147,9 +2356,7 @@ net amount withdrawal fees denominated in the corresponding currency.</p>
 <td>-</td>
 </tr>
 </tbody></table>
-
-<h3 id="json-object-for-balance_updates">JSON Object for balance_updates</h3>
-
+<h3 id='json-object-for-balance_updates'>JSON Object for balance_updates</h3>
 <table><thead>
 <tr>
 <th>Field Name</th>
@@ -2171,26 +2378,22 @@ net amount withdrawal fees denominated in the corresponding currency.</p>
 <td>Currency</td>
 </tr>
 </tbody></table>
-
-<h3 id="filter-ledger-by-operation-type">Filter Ledger by operation type</h3>
-
+<h3 id='filter-ledger-by-operation-type'>Filter Ledger by operation type</h3>
 <p>You can specify that the ledger endpoint return only objects that are
 a specific operation type.</p>
 
-<p><code class="prettyprint">GET https://api.bitso.com/v3/ledger/trades/</code></p>
+<p><code>GET https://api.bitso.com/v3/ledger/trades/</code></p>
 
-<p><code class="prettyprint">GET https://api.bitso.com/v3/ledger/fundings/</code></p>
+<p><code>GET https://api.bitso.com/v3/ledger/fundings/</code></p>
 
-<p><code class="prettyprint">GET https://api.bitso.com/v3/ledger/withdrawals/</code></p>
+<p><code>GET https://api.bitso.com/v3/ledger/withdrawals/</code></p>
 
-<p><code class="prettyprint">GET https://api.bitso.com/v3/ledger/fees/</code></p>
-
-<h2 id="withdrawals">Withdrawals</h2>
-
+<p><code>GET https://api.bitso.com/v3/ledger/fees/</code></p>
+<h2 id='withdrawals'>Withdrawals</h2>
 <blockquote>
 <p>The JSON object returned by the API looks like this:</p>
 </blockquote>
-<div class="highlight"><pre class="highlight json"><code><span class="p">{</span><span class="w">
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"success"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
     </span><span class="nl">"payload"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
         </span><span class="nl">"wid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"c5b8d7f0768ee91d3b33bee648318688"</span><span class="p">,</span><span class="w">
@@ -2293,20 +2496,16 @@ a specific operation type.</p>
     </span><span class="p">}]</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
-<p>Returns detailed info on a user&rsquo;s fund withdrawals.</p>
+<p>Returns detailed info on a user&#39;s fund withdrawals.</p>
+<h3 id='http-request-12'>HTTP Request</h3>
+<p><code>GET https://api.bitso.com/v3/withdrawals/</code></p>
 
-<h3 id="http-request">HTTP Request</h3>
+<p><code>GET https://api.bitso.com/v3/withdrawals/wid/</code></p>
 
-<p><code class="prettyprint">GET https://api.bitso.com/v3/withdrawals/</code></p>
+<p><code>GET https://api.bitso.com/v3/withdrawals?wids=&lt;wid&gt;,&lt;wid&gt;,&lt;wid&gt;</code></p>
 
-<p><code class="prettyprint">GET https://api.bitso.com/v3/withdrawals/wid/</code></p>
-
-<p><code class="prettyprint">GET https://api.bitso.com/v3/withdrawals?wids=&lt;wid&gt;,&lt;wid&gt;,&lt;wid&gt;</code></p>
-
-<p><code class="prettyprint">GET https://api.bitso.com/v3/withdrawals?origin_ids=&lt;origin_id&gt;,&lt;origin_id&gt;,&lt;origin_id&gt;</code></p>
-
-<h3 id="query-parameters">Query Parameters</h3>
-
+<p><code>GET https://api.bitso.com/v3/withdrawals?origin_ids=&lt;origin_id&gt;,&lt;origin_id&gt;,&lt;origin_id&gt;</code></p>
+<h3 id='query-parameters-5'>Query Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -2334,9 +2533,7 @@ a specific operation type.</p>
 <td>Specifies which withdrawals to obtain (by origin_id)</td>
 </tr>
 </tbody></table>
-
-<h3 id="query-parameters">Query Parameters</h3>
-
+<h3 id='query-parameters-6'>Query Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -2367,12 +2564,10 @@ a specific operation type.</p>
 <td><strong>method</strong></td>
 <td>-</td>
 <td>No</td>
-<td>Restricts the withdrawals to those of the specified method (SP, BTC, ETH, &hellip;)</td>
+<td>Restricts the withdrawals to those of the specified method (SP, BTC, ETH, ...)</td>
 </tr>
 </tbody></table>
-
-<h3 id="json-response-payload">JSON Response Payload</h3>
-
+<h3 id='json-response-payload-11'>JSON Response Payload</h3>
 <p>Returns a JSON Array of open orders. Every element in the array is a JSON object:</p>
 
 <table><thead>
@@ -2398,7 +2593,7 @@ a specific operation type.</p>
 <tr>
 <td><strong>method</strong></td>
 <td>String</td>
-<td>Method for this withdrawal (SP, BTC, ETH, &hellip;).</td>
+<td>Method for this withdrawal (SP, BTC, ETH, ...).</td>
 <td>-</td>
 </tr>
 <tr>
@@ -2426,13 +2621,11 @@ a specific operation type.</p>
 <td>-</td>
 </tr>
 </tbody></table>
-
-<h2 id="fundings">Fundings</h2>
-
+<h2 id='fundings'>Fundings</h2>
 <blockquote>
 <p>The JSON object returned by the API looks like this:</p>
 </blockquote>
-<div class="highlight"><pre class="highlight json"><code><span class="p">{</span><span class="w">
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"success"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
     </span><span class="nl">"payload"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
         </span><span class="nl">"fid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"c5b8d7f0768ee91d3b33bee648318688"</span><span class="p">,</span><span class="w">
@@ -2464,18 +2657,14 @@ a specific operation type.</p>
     </span><span class="p">}]</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
-<p>Returns detailed info on a user&rsquo;s fundings.</p>
+<p>Returns detailed info on a user&#39;s fundings.</p>
+<h3 id='http-request-13'>HTTP Request</h3>
+<p><code>GET https://api.bitso.com/v3/fundings/</code></p>
 
-<h3 id="http-request">HTTP Request</h3>
+<p><code>GET https://api.bitso.com/v3/fundings/fid/</code></p>
 
-<p><code class="prettyprint">GET https://api.bitso.com/v3/fundings/</code></p>
-
-<p><code class="prettyprint">GET https://api.bitso.com/v3/fundings/fid/</code></p>
-
-<p><code class="prettyprint">GET https://api.bitso.com/v3/fundings/fid-fid-fid/</code></p>
-
-<h3 id="authorization-header-parameters">Authorization Header Parameters</h3>
-
+<p><code>GET https://api.bitso.com/v3/fundings/fid-fid-fid/</code></p>
+<h3 id='authorization-header-parameters-8'>Authorization Header Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -2503,9 +2692,7 @@ a specific operation type.</p>
 <td>See <a href="#creating-and-signing-requests">Creating and Signing Requests</a></td>
 </tr>
 </tbody></table>
-
-<h3 id="query-parameters">Query Parameters</h3>
-
+<h3 id='query-parameters-7'>Query Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -2536,7 +2723,7 @@ a specific operation type.</p>
 <td><strong>method</strong></td>
 <td>-</td>
 <td>No</td>
-<td>Restricts the fundings to those of the specified method (SP, BTC, ETH, &hellip;)</td>
+<td>Restricts the fundings to those of the specified method (SP, BTC, ETH, ...)</td>
 </tr>
 <tr>
 <td><strong>txids</strong></td>
@@ -2545,9 +2732,7 @@ a specific operation type.</p>
 <td>Allows lookups of specific Transaction IDs - comma delimited list possible. <strong>Please note</strong> that all other parameters will be ignored</td>
 </tr>
 </tbody></table>
-
-<h3 id="json-response-payload">JSON Response Payload</h3>
-
+<h3 id='json-response-payload-12'>JSON Response Payload</h3>
 <p>Returns a JSON Array of fundings. Every element in the array is a JSON object:</p>
 
 <table><thead>
@@ -2601,14 +2786,12 @@ a specific operation type.</p>
 <td>-</td>
 </tr>
 </tbody></table>
-
-<h2 id="user-trades">User Trades</h2>
-<div class="highlight"><pre class="highlight shell"><code>curl <span class="s2">"https://api.bitso.com/v3/user_trades/?book=btc_mxn"</span>
+<h2 id='user-trades'>User Trades</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.bitso.com/v3/user_trades/?book=btc_mxn"</span>
 </code></pre></div>
 <blockquote>
 <p>The JSON Array returned by the API looks like this:</p>
 </blockquote>
-<div class="highlight"><pre class="highlight json"><code><span class="p">{</span><span class="w">
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"success"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
     </span><span class="nl">"payload"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
         </span><span class="nl">"book"</span><span class="p">:</span><span class="w"> </span><span class="s2">"btc_mxn"</span><span class="p">,</span><span class="w">
@@ -2637,18 +2820,14 @@ a specific operation type.</p>
     </span><span class="p">}]</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
-<p>This endpoint returns a list of the user&rsquo;s trades.</p>
+<p>This endpoint returns a list of the user&#39;s trades.</p>
+<h3 id='http-request-14'>HTTP Request</h3>
+<p><code>GET https://api.bitso.com/v3/user_trades/</code></p>
 
-<h3 id="http-request">HTTP Request</h3>
+<p><code>GET https://api.bitso.com/v3/user_trades/tid/</code></p>
 
-<p><code class="prettyprint">GET https://api.bitso.com/v3/user_trades/</code></p>
-
-<p><code class="prettyprint">GET https://api.bitso.com/v3/user_trades/tid/</code></p>
-
-<p><code class="prettyprint">GET https://api.bitso.com/v3/user_trades/tid-tid-tid/</code></p>
-
-<h3 id="query-parameters">Query Parameters</h3>
-
+<p><code>GET https://api.bitso.com/v3/user_trades/tid-tid-tid/</code></p>
+<h3 id='query-parameters-8'>Query Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -2667,7 +2846,7 @@ a specific operation type.</p>
 <td><strong>marker</strong></td>
 <td></td>
 <td>No</td>
-<td>Returns objects that are older or newer (depending on &lsquo;sort&rsquo;) than the object with this ID</td>
+<td>Returns objects that are older or newer (depending on &#39;sort&#39;) than the object with this ID</td>
 </tr>
 <tr>
 <td><strong>sort</strong></td>
@@ -2682,9 +2861,7 @@ a specific operation type.</p>
 <td>Specifies number of objects to return. (Max is 100)</td>
 </tr>
 </tbody></table>
-
-<h3 id="json-response-payload">JSON Response Payload</h3>
-
+<h3 id='json-response-payload-13'>JSON Response Payload</h3>
 <p>Returns descending JSON Array of transactions. Every element in the array is a JSON object:</p>
 
 <table><thead>
@@ -2722,13 +2899,13 @@ a specific operation type.</p>
 <tr>
 <td><strong>side</strong></td>
 <td>String</td>
-<td>Indicates the user&rsquo;s side for this trade (buy, sell)</td>
+<td>Indicates the user&#39;s side for this trade (buy, sell)</td>
 <td></td>
 </tr>
 <tr>
 <td><strong>maker_side</strong></td>
 <td>String</td>
-<td>Indicates the maker&rsquo;s side for this trade (buy, sell), if it matches with <code class="prettyprint">side</code> you&rsquo;re maker</td>
+<td>Indicates the maker&#39;s side for this trade (buy, sell), if it matches with <code>side</code> you&#39;re maker</td>
 <td></td>
 </tr>
 <tr>
@@ -2752,13 +2929,13 @@ a specific operation type.</p>
 <tr>
 <td><strong>oid</strong></td>
 <td>String</td>
-<td>Users&rsquo; Order ID</td>
+<td>Users&#39; Order ID</td>
 <td></td>
 </tr>
 <tr>
 <td><strong>origin_id</strong></td>
 <td>String</td>
-<td>Users&rsquo; Order &lsquo;origin_id&rsquo; (if any)</td>
+<td>Users&#39; Order &#39;origin_id&#39; (if any)</td>
 <td></td>
 </tr>
 <tr>
@@ -2768,14 +2945,12 @@ a specific operation type.</p>
 <td>ISO 8601 timestamp</td>
 </tr>
 </tbody></table>
-
-<h2 id="order-trades">Order Trades</h2>
-<div class="highlight"><pre class="highlight shell"><code>curl <span class="s2">"https://api.bitso.com/v3/order_trades/Jvqrschkgdkc1go3"</span>
+<h2 id='order-trades'>Order Trades</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.bitso.com/v3/order_trades/Jvqrschkgdkc1go3"</span>
 </code></pre></div>
 <blockquote>
 <p>The JSON Array returned by the API looks like this:</p>
 </blockquote>
-<div class="highlight"><pre class="highlight json"><code><span class="p">{</span><span class="w">
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"success"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
     </span><span class="nl">"payload"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
             </span><span class="nl">"book"</span><span class="p">:</span><span class="w"> </span><span class="s2">"btc_mxn"</span><span class="p">,</span><span class="w">
@@ -2808,16 +2983,12 @@ a specific operation type.</p>
     </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
-<p>This endpoint returns a list of the user&rsquo;s trades.</p>
+<p>This endpoint returns a list of the user&#39;s trades.</p>
+<h3 id='http-request-15'>HTTP Request</h3>
+<p><code>GET https://api.bitso.com/v3/order_trades/&lt;oid&gt;/</code></p>
 
-<h3 id="http-request">HTTP Request</h3>
-
-<p><code class="prettyprint">GET https://api.bitso.com/v3/order_trades/&lt;oid&gt;/</code></p>
-
-<p><code class="prettyprint">GET https://api.bitso.com/v3/order_trades?origin_id=&lt;origin_id&gt;</code></p>
-
-<h3 id="query-parameters">Query Parameters</h3>
-
+<p><code>GET https://api.bitso.com/v3/order_trades?origin_id=&lt;origin_id&gt;</code></p>
+<h3 id='query-parameters-9'>Query Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -2839,9 +3010,7 @@ a specific operation type.</p>
 <td>Specifies which order to get corresponding trades for (by origin_id)</td>
 </tr>
 </tbody></table>
-
-<h3 id="json-response-payload">JSON Response Payload</h3>
-
+<h3 id='json-response-payload-14'>JSON Response Payload</h3>
 <p>Returns descending JSON Array of transactions. Every element in the array is a JSON object:</p>
 
 <table><thead>
@@ -2879,13 +3048,13 @@ a specific operation type.</p>
 <tr>
 <td><strong>side</strong></td>
 <td>String</td>
-<td>Indicates the user&rsquo;s side for this trade (buy, sell)</td>
+<td>Indicates the user&#39;s side for this trade (buy, sell)</td>
 <td></td>
 </tr>
 <tr>
 <td><strong>maker_side</strong></td>
 <td>String</td>
-<td>Indicates the maker&rsquo;s side for this trade (buy, sell), if it matches with <code class="prettyprint">side</code> you&rsquo;re maker</td>
+<td>Indicates the maker&#39;s side for this trade (buy, sell), if it matches with <code>side</code> you&#39;re maker</td>
 <td></td>
 </tr>
 <tr>
@@ -2909,13 +3078,13 @@ a specific operation type.</p>
 <tr>
 <td><strong>oid</strong></td>
 <td>String</td>
-<td>Users&rsquo; Order ID</td>
+<td>Users&#39; Order ID</td>
 <td></td>
 </tr>
 <tr>
 <td><strong>origin_id</strong></td>
 <td>String</td>
-<td>Users&rsquo; Order &lsquo;origin_id&rsquo; (if any)</td>
+<td>Users&#39; Order &#39;origin_id&#39; (if any)</td>
 <td></td>
 </tr>
 <tr>
@@ -2925,13 +3094,11 @@ a specific operation type.</p>
 <td>ISO 8601 timestamp</td>
 </tr>
 </tbody></table>
-
-<h2 id="open-orders">Open Orders</h2>
-
+<h2 id='open-orders'>Open Orders</h2>
 <blockquote>
 <p>The JSON object returned by the API looks like this:</p>
 </blockquote>
-<div class="highlight"><pre class="highlight json"><code><span class="p">{</span><span class="w">
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"success"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
     </span><span class="nl">"payload"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
         </span><span class="nl">"book"</span><span class="p">:</span><span class="w"> </span><span class="s2">"btc_mxn"</span><span class="p">,</span><span class="w">
@@ -2973,14 +3140,10 @@ a specific operation type.</p>
     </span><span class="p">}]</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
-<p>Returns a list of the user&rsquo;s open orders.</p>
-
-<h3 id="http-request">HTTP Request</h3>
-
-<p><code class="prettyprint">GET https://api.bitso.com/v3/open_orders?book=btc_mxn</code></p>
-
-<h3 id="authorization-header-parameters">Authorization Header Parameters</h3>
-
+<p>Returns a list of the user&#39;s open orders.</p>
+<h3 id='http-request-16'>HTTP Request</h3>
+<p><code>GET https://api.bitso.com/v3/open_orders?book=btc_mxn</code></p>
+<h3 id='authorization-header-parameters-9'>Authorization Header Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -3008,9 +3171,7 @@ a specific operation type.</p>
 <td>See <a href="#creating-and-signing-requests">Creating and Signing Requests</a></td>
 </tr>
 </tbody></table>
-
-<h3 id="query-parameters">Query Parameters</h3>
-
+<h3 id='query-parameters-10'>Query Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -3029,7 +3190,7 @@ a specific operation type.</p>
 <td><strong>marker</strong></td>
 <td></td>
 <td>No</td>
-<td>Returns objects that are older or newer (depending on &lsquo;sort&rsquo;) than the object with this ID</td>
+<td>Returns objects that are older or newer (depending on &#39;sort&#39;) than the object with this ID</td>
 </tr>
 <tr>
 <td><strong>sort</strong></td>
@@ -3044,9 +3205,7 @@ a specific operation type.</p>
 <td>Specifies number of objects to return. (Max is 100)</td>
 </tr>
 </tbody></table>
-
-<h3 id="json-response-payload">JSON Response Payload</h3>
-
+<h3 id='json-response-payload-15'>JSON Response Payload</h3>
 <p>Returns a JSON Array of open orders. Every element in the array is a JSON object:</p>
 
 <table><thead>
@@ -3072,19 +3231,19 @@ a specific operation type.</p>
 <tr>
 <td><strong>original_amount</strong></td>
 <td>String</td>
-<td>The order&rsquo;s initial major currency amount</td>
+<td>The order&#39;s initial major currency amount</td>
 <td>Major</td>
 </tr>
 <tr>
 <td><strong>unfilled_amount</strong></td>
 <td>String</td>
-<td>The order&rsquo;s unfilled major currency amount</td>
+<td>The order&#39;s unfilled major currency amount</td>
 <td>Major</td>
 </tr>
 <tr>
 <td><strong>original_value</strong></td>
 <td>String</td>
-<td>The order&rsquo;s initial minor currency amount</td>
+<td>The order&#39;s initial minor currency amount</td>
 <td>Minor</td>
 </tr>
 <tr>
@@ -3102,7 +3261,7 @@ a specific operation type.</p>
 <tr>
 <td><strong>price</strong></td>
 <td>String</td>
-<td>The order&rsquo;s price</td>
+<td>The order&#39;s price</td>
 <td>Minor</td>
 </tr>
 <tr>
@@ -3114,23 +3273,21 @@ a specific operation type.</p>
 <tr>
 <td><strong>status</strong></td>
 <td>String</td>
-<td>The order&rsquo;s status (queued, open, partial-fill)</td>
+<td>The order&#39;s status (queued, open, partial-fill)</td>
 <td></td>
 </tr>
 <tr>
 <td><strong>type</strong></td>
 <td>String</td>
-<td>The order type (will always be &lsquo;limit&rsquo; for open orders)</td>
+<td>The order type (will always be &#39;limit&#39; for open orders)</td>
 <td>-</td>
 </tr>
 </tbody></table>
-
-<h2 id="lookup-orders">Lookup Orders</h2>
-
+<h2 id='lookup-orders'>Lookup Orders</h2>
 <blockquote>
 <p>The JSON object returned by the API looks like this:</p>
 </blockquote>
-<div class="highlight"><pre class="highlight json"><code><span class="p">{</span><span class="w">
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"success"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
     </span><span class="nl">"payload"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
         </span><span class="nl">"book"</span><span class="p">:</span><span class="w"> </span><span class="s2">"btc_mxn"</span><span class="p">,</span><span class="w">
@@ -3160,17 +3317,13 @@ a specific operation type.</p>
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <p>Returns a list of details for 1 or more orders</p>
+<h3 id='http-request-17'>HTTP Request</h3>
+<p><code>GET https://api.bitso.com/v3/orders/&lt;oid&gt;/</code></p>
 
-<h3 id="http-request">HTTP Request</h3>
+<p><code>GET https://api.bitso.com/v3/orders?oids=&lt;oid&gt;,&lt;oid&gt;,&lt;oid&gt;</code></p>
 
-<p><code class="prettyprint">GET https://api.bitso.com/v3/orders/&lt;oid&gt;/</code></p>
-
-<p><code class="prettyprint">GET https://api.bitso.com/v3/orders?oids=&lt;oid&gt;,&lt;oid&gt;,&lt;oid&gt;</code></p>
-
-<p><code class="prettyprint">GET https://api.bitso.com/v3/orders?origin_ids=&lt;origin_id&gt;,&lt;origin_id&gt;,&lt;origin_id&gt;</code></p>
-
-<h3 id="query-parameters">Query Parameters</h3>
-
+<p><code>GET https://api.bitso.com/v3/orders?origin_ids=&lt;origin_id&gt;,&lt;origin_id&gt;,&lt;origin_id&gt;</code></p>
+<h3 id='query-parameters-11'>Query Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -3198,9 +3351,7 @@ a specific operation type.</p>
 <td>Specifies which order to obtain (by origin_id)</td>
 </tr>
 </tbody></table>
-
-<h3 id="json-response-payload">JSON Response Payload</h3>
-
+<h3 id='json-response-payload-16'>JSON Response Payload</h3>
 <p>Returns a JSON Array of open orders. Every element in the array is a JSON object:</p>
 
 <table><thead>
@@ -3226,19 +3377,19 @@ a specific operation type.</p>
 <tr>
 <td><strong>original_amount</strong></td>
 <td>String</td>
-<td>The order&rsquo;s initial major currency amount</td>
+<td>The order&#39;s initial major currency amount</td>
 <td>Major</td>
 </tr>
 <tr>
 <td><strong>unfilled_amount</strong></td>
 <td>String</td>
-<td>The order&rsquo;s unfilled major currency amount</td>
+<td>The order&#39;s unfilled major currency amount</td>
 <td>Major</td>
 </tr>
 <tr>
 <td><strong>original_value</strong></td>
 <td>String</td>
-<td>The order&rsquo;s initial minor currency amount</td>
+<td>The order&#39;s initial minor currency amount</td>
 <td>Minor</td>
 </tr>
 <tr>
@@ -3256,7 +3407,7 @@ a specific operation type.</p>
 <tr>
 <td><strong>price</strong></td>
 <td>String</td>
-<td>The order&rsquo;s price</td>
+<td>The order&#39;s price</td>
 <td>Minor</td>
 </tr>
 <tr>
@@ -3268,7 +3419,7 @@ a specific operation type.</p>
 <tr>
 <td><strong>status</strong></td>
 <td>String</td>
-<td>The order&rsquo;s status (queued, open, partial-fill, closed)</td>
+<td>The order&#39;s status (queued, open, partial-fill, closed)</td>
 <td>-</td>
 </tr>
 <tr>
@@ -3302,13 +3453,11 @@ a specific operation type.</p>
 <td>ISO 8601 timestamp</td>
 </tr>
 </tbody></table>
-
-<h2 id="cancel-order">Cancel Order</h2>
-
+<h2 id='cancel-order'>Cancel Order</h2>
 <blockquote>
 <p>The string returned by the API looks like this:</p>
 </blockquote>
-<div class="highlight"><pre class="highlight json"><code><span class="p">{</span><span class="w">
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"success"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
     </span><span class="nl">"payload"</span><span class="p">:[</span><span class="w">
         </span><span class="s2">"cME2F7uZKJcMKXqU"</span><span class="p">,</span><span class="w">
@@ -3318,19 +3467,15 @@ a specific operation type.</p>
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <p>Cancels open order(s)</p>
+<h3 id='http-request-18'>HTTP Request</h3>
+<p><code>DELETE https://api.bitso.com/v3/orders/&lt;oid&gt;/</code></p>
 
-<h3 id="http-request">HTTP Request</h3>
+<p><code>DELETE https://api.bitso.com/v3/orders?oids=&lt;oid&gt;,&lt;oid&gt;,&lt;oid&gt;</code></p>
 
-<p><code class="prettyprint">DELETE https://api.bitso.com/v3/orders/&lt;oid&gt;/</code></p>
+<p><code>DELETE https://api.bitso.com/v3/orders?origin_ids=&lt;origin_id&gt;,&lt;origin_id&gt;,&lt;orgin_id&gt;</code></p>
 
-<p><code class="prettyprint">DELETE https://api.bitso.com/v3/orders?oids=&lt;oid&gt;,&lt;oid&gt;,&lt;oid&gt;</code></p>
-
-<p><code class="prettyprint">DELETE https://api.bitso.com/v3/orders?origin_ids=&lt;origin_id&gt;,&lt;origin_id&gt;,&lt;orgin_id&gt;</code></p>
-
-<p><code class="prettyprint">DELETE https://api.bitso.com/v3/orders/all</code></p>
-
-<h3 id="query-parameters">Query Parameters</h3>
-
+<p><code>DELETE https://api.bitso.com/v3/orders/all</code></p>
+<h3 id='query-parameters-12'>Query Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -3364,17 +3509,13 @@ a specific operation type.</p>
 <td>Cancells all the open orders of the user</td>
 </tr>
 </tbody></table>
-
-<h3 id="json-response-payload">JSON Response Payload</h3>
-
+<h3 id='json-response-payload-17'>JSON Response Payload</h3>
 <p>The response is a list of Order IDs (OIDs) for the canceled orders. Orders may not be successfully cancelled if they have been filled, have been already cancelled, or the OIDs are incorrect.</p>
-
-<h2 id="place-an-order">Place an Order</h2>
-
+<h2 id='place-an-order'>Place an Order</h2>
 <blockquote>
 <p>The JSON object returned by the API looks like this:</p>
 </blockquote>
-<div class="highlight"><pre class="highlight json"><code><span class="p">{</span><span class="w">
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"success"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
     </span><span class="nl">"payload"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="nl">"oid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"qlbga6b600n3xta7"</span><span class="w">
@@ -3382,13 +3523,9 @@ a specific operation type.</p>
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <p>Places a buy or sell order (both limit and market orders are available)</p>
-
-<h3 id="http-request">HTTP Request</h3>
-
-<p><code class="prettyprint">POST https://api.bitso.com/v3/orders/</code></p>
-
-<h3 id="authorization-header-parameters">Authorization Header Parameters</h3>
-
+<h3 id='http-request-19'>HTTP Request</h3>
+<p><code>POST https://api.bitso.com/v3/orders/</code></p>
+<h3 id='authorization-header-parameters-10'>Authorization Header Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -3416,9 +3553,7 @@ a specific operation type.</p>
 <td>See <a href="#creating-and-signing-requests">Creating and Signing Requests</a></td>
 </tr>
 </tbody></table>
-
-<h3 id="body-parameters">Body Parameters</h3>
-
+<h3 id='body-parameters-4'>Body Parameters</h3>
 <p>Body parameters should be JSON encoded and should be exactly the same
 as the JSON payload used to construct the signature.</p>
 
@@ -3485,9 +3620,7 @@ as the JSON payload used to construct the signature.</p>
 <td>Client supplied unique ID. Can be used to lookup and cancel orders</td>
 </tr>
 </tbody></table>
-
-<h3 id="json-response-payload">JSON Response Payload</h3>
-
+<h3 id='json-response-payload-18'>JSON Response Payload</h3>
 <p>Returns a JSON object representing the order:</p>
 
 <table><thead>
@@ -3505,13 +3638,11 @@ as the JSON payload used to construct the signature.</p>
 <td>-</td>
 </tr>
 </tbody></table>
-
-<h2 id="funding-destination">Funding Destination</h2>
-
+<h2 id='funding-destination'>Funding Destination</h2>
 <blockquote>
 <p>The JSON object returned by the API looks like this:</p>
 </blockquote>
-<div class="highlight"><pre class="highlight json"><code><span class="p">{</span><span class="w">
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"success"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
     </span><span class="nl">"payload"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="nl">"account_identifier_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SPEI CLABE"</span><span class="p">,</span><span class="w">
@@ -3520,13 +3651,9 @@ as the JSON payload used to construct the signature.</p>
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <p>Returns account funding information for specified currencies.</p>
-
-<h3 id="http-request">HTTP Request</h3>
-
-<p><code class="prettyprint">GET https://api.bitso.com/v3/funding_destination/</code></p>
-
-<h3 id="authorization-header-parameters">Authorization Header Parameters</h3>
-
+<h3 id='http-request-20'>HTTP Request</h3>
+<p><code>GET https://api.bitso.com/v3/funding_destination/</code></p>
+<h3 id='authorization-header-parameters-11'>Authorization Header Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -3554,9 +3681,7 @@ as the JSON payload used to construct the signature.</p>
 <td>See <a href="#creating-and-signing-requests">Creating and Signing Requests</a></td>
 </tr>
 </tbody></table>
-
-<h3 id="query-parameters">Query Parameters</h3>
-
+<h3 id='query-parameters-13'>Query Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -3572,9 +3697,7 @@ as the JSON payload used to construct the signature.</p>
 <td>Specifies which currency to fund with.</td>
 </tr>
 </tbody></table>
-
-<h3 id="json-response-payload">JSON Response Payload</h3>
-
+<h3 id='json-response-payload-19'>JSON Response Payload</h3>
 <p>Returns a JSON object representing the order:</p>
 
 <table><thead>
@@ -3598,13 +3721,11 @@ as the JSON payload used to construct the signature.</p>
 <td>-</td>
 </tr>
 </tbody></table>
-
-<h2 id="crypto-withdrawals">Crypto Withdrawals</h2>
-
+<h2 id='crypto-withdrawals'>Crypto Withdrawals</h2>
 <blockquote>
 <p>The string returned by the API looks like this (example for BTC):</p>
 </blockquote>
-<div class="highlight"><pre class="highlight json"><code><span class="p">{</span><span class="w">
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"success"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
     </span><span class="nl">"payload"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="nl">"wid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"c5b8d7f0768ee91d3b33bee648318688"</span><span class="p">,</span><span class="w">
@@ -3620,10 +3741,8 @@ as the JSON payload used to construct the signature.</p>
     </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
-<p>The following endpoints are available for making a cryptocurrency withdrawal from the user&rsquo;s account:</p>
-
-<h3 id="http-request">HTTP Request</h3>
-
+<p>The following endpoints are available for making a cryptocurrency withdrawal from the user&#39;s account:</p>
+<h3 id='http-request-21'>HTTP Request</h3>
 <table><thead>
 <tr>
 <th>Asset</th>
@@ -3632,32 +3751,30 @@ as the JSON payload used to construct the signature.</p>
 </thead><tbody>
 <tr>
 <td><strong>all</strong></td>
-<td><code class="prettyprint">POST https://api.bitso.com/v3/crypto_withdrawal/</code></td>
+<td><code>POST https://api.bitso.com/v3/crypto_withdrawal/</code></td>
 </tr>
 <tr>
 <td><strong>btc</strong></td>
-<td><code class="prettyprint">POST https://api.bitso.com/v3/bitcoin_withdrawal/</code></td>
+<td><code>POST https://api.bitso.com/v3/bitcoin_withdrawal/</code></td>
 </tr>
 <tr>
 <td><strong>eth</strong></td>
-<td><code class="prettyprint">POST https://api.bitso.com/v3/ether_withdrawal/</code></td>
+<td><code>POST https://api.bitso.com/v3/ether_withdrawal/</code></td>
 </tr>
 <tr>
 <td><strong>xrp</strong></td>
-<td><code class="prettyprint">POST https://api.bitso.com/v3/ripple_withdrawal/</code></td>
+<td><code>POST https://api.bitso.com/v3/ripple_withdrawal/</code></td>
 </tr>
 <tr>
 <td><strong>bch</strong></td>
-<td><code class="prettyprint">POST https://api.bitso.com/v3/bcash_withdrawal/</code></td>
+<td><code>POST https://api.bitso.com/v3/bcash_withdrawal/</code></td>
 </tr>
 <tr>
 <td><strong>ltc</strong></td>
-<td><code class="prettyprint">POST https://api.bitso.com/v3/litecoin_withdrawal/</code></td>
+<td><code>POST https://api.bitso.com/v3/litecoin_withdrawal/</code></td>
 </tr>
 </tbody></table>
-
-<h3 id="authorization-header-parameters">Authorization Header Parameters</h3>
-
+<h3 id='authorization-header-parameters-12'>Authorization Header Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -3685,9 +3802,7 @@ as the JSON payload used to construct the signature.</p>
 <td>See <a href="#creating-and-signing-requests">Creating and Signing Requests</a></td>
 </tr>
 </tbody></table>
-
-<h3 id="body-parameters">Body Parameters</h3>
-
+<h3 id='body-parameters-5'>Body Parameters</h3>
 <p>Body parameters should be JSON encoded and should be exactly the same
 as the JSON payload used to construct the signature.</p>
 
@@ -3703,7 +3818,7 @@ as the JSON payload used to construct the signature.</p>
 <td><strong>currency</strong></td>
 <td>-</td>
 <td>Yes</td>
-<td>The currency to withdraw (only required for <code class="prettyprint">crypto_withdrawal</code> endpoint)</td>
+<td>The currency to withdraw (only required for <code>crypto_withdrawal</code> endpoint)</td>
 </tr>
 <tr>
 <td><strong>amount</strong></td>
@@ -3730,9 +3845,7 @@ as the JSON payload used to construct the signature.</p>
 <td>Destination Tag (Ripple XRP only, optional)</td>
 </tr>
 </tbody></table>
-
-<h3 id="json-response-payload">JSON Response Payload</h3>
-
+<h3 id='json-response-payload-20'>JSON Response Payload</h3>
 <p>Returns a JSON object representing the order:</p>
 
 <table><thead>
@@ -3786,13 +3899,11 @@ as the JSON payload used to construct the signature.</p>
 <td>-</td>
 </tr>
 </tbody></table>
-
-<h2 id="spei-withdrawal">SPEI Withdrawal</h2>
-
+<h2 id='spei-withdrawal'>SPEI Withdrawal</h2>
 <blockquote>
 <p>The string returned by the API looks like this:</p>
 </blockquote>
-<div class="highlight"><pre class="highlight json"><code><span class="p">{</span><span class="w">
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"success"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
     </span><span class="nl">"payload"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="nl">"wid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"p4u8d7f0768ee91d3b33bee6483132i8"</span><span class="p">,</span><span class="w">
@@ -3815,13 +3926,9 @@ as the JSON payload used to construct the signature.</p>
 </span></code></pre></div>
 <p>Triggers a SPEI withdrawal from your account.
 These withdrawals are immediate during banking hours for some banks (M-F 9:00AM - 5:00PM Mexico City Time), 24 hours for others.</p>
-
-<h3 id="http-request">HTTP Request</h3>
-
-<p><code class="prettyprint">POST https://api.bitso.com/v3/spei_withdrawal/</code></p>
-
-<h3 id="authorization-header-parameters">Authorization Header Parameters</h3>
-
+<h3 id='http-request-22'>HTTP Request</h3>
+<p><code>POST https://api.bitso.com/v3/spei_withdrawal/</code></p>
+<h3 id='authorization-header-parameters-13'>Authorization Header Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -3849,9 +3956,7 @@ These withdrawals are immediate during banking hours for some banks (M-F 9:00AM 
 <td>See <a href="#creating-and-signing-requests">Creating and Signing Requests</a></td>
 </tr>
 </tbody></table>
-
-<h3 id="body-parameters">Body Parameters</h3>
-
+<h3 id='body-parameters-6'>Body Parameters</h3>
 <p>Body parameters should be JSON encoded and should be exactly the same
 as the JSON payload used to construct the signature.</p>
 
@@ -3873,13 +3978,13 @@ as the JSON payload used to construct the signature.</p>
 <td><strong>recipient_given_names</strong></td>
 <td>-</td>
 <td>Yes</td>
-<td>The recipient&rsquo;s first and middle name(s)</td>
+<td>The recipient&#39;s first and middle name(s)</td>
 </tr>
 <tr>
 <td><strong>recipient_family_names</strong></td>
 <td>-</td>
 <td>Yes</td>
-<td>The recipient&rsquo;s last name</td>
+<td>The recipient&#39;s last name</td>
 </tr>
 <tr>
 <td><strong>clabe</strong></td>
@@ -3900,9 +4005,7 @@ as the JSON payload used to construct the signature.</p>
 <td>The numeric reference for this SPEI (max. 7 digits)</td>
 </tr>
 </tbody></table>
-
-<h3 id="json-response-payload">JSON Response Payload</h3>
-
+<h3 id='json-response-payload-21'>JSON Response Payload</h3>
 <p>Returns a JSON object representing the order:</p>
 
 <table><thead>
@@ -3956,13 +4059,11 @@ as the JSON payload used to construct the signature.</p>
 <td>-</td>
 </tr>
 </tbody></table>
-
-<h2 id="bank-codes">Bank Codes</h2>
-
+<h2 id='bank-codes'>Bank Codes</h2>
 <blockquote>
 <p>The JSON object returned by the API looks like this:</p>
 </blockquote>
-<div class="highlight"><pre class="highlight json"><code><span class="p">{</span><span class="w">
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"success"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
     </span><span class="nl">"payload"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
         </span><span class="nl">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"01"</span><span class="p">,</span><span class="w">
@@ -3974,13 +4075,9 @@ as the JSON payload used to construct the signature.</p>
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <p>This endpoint returns codes and bank names to be used in the Debit Card WIthdrawal and Phone Number Withdrawal endpoints</p>
-
-<h3 id="http-request">HTTP Request</h3>
-
-<p><code class="prettyprint">GET https://api.bitso.com/v3/mx_bank_codes/</code></p>
-
-<h3 id="authorization-header-parameters">Authorization Header Parameters</h3>
-
+<h3 id='http-request-23'>HTTP Request</h3>
+<p><code>GET https://api.bitso.com/v3/mx_bank_codes/</code></p>
+<h3 id='authorization-header-parameters-14'>Authorization Header Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -4008,9 +4105,7 @@ as the JSON payload used to construct the signature.</p>
 <td>See <a href="#creating-and-signing-requests">Creating and Signing Requests</a></td>
 </tr>
 </tbody></table>
-
-<h3 id="json-response-payload">JSON Response Payload</h3>
-
+<h3 id='json-response-payload-22'>JSON Response Payload</h3>
 <p>Returns a JSON Array. Every element in the array is a JSON object with the following fields.</p>
 
 <table><thead>
@@ -4024,23 +4119,21 @@ as the JSON payload used to construct the signature.</p>
 <tr>
 <td><strong>code</strong></td>
 <td>String</td>
-<td>Corresponding bank&rsquo;s code</td>
+<td>Corresponding bank&#39;s code</td>
 <td></td>
 </tr>
 <tr>
 <td><strong>name</strong></td>
 <td>String</td>
-<td>Corresponding bank&rsquo;s name</td>
+<td>Corresponding bank&#39;s name</td>
 <td></td>
 </tr>
 </tbody></table>
-
-<h2 id="debit-card-withdrawal">Debit Card Withdrawal</h2>
-
+<h2 id='debit-card-withdrawal'>Debit Card Withdrawal</h2>
 <blockquote>
 <p>The string returned by the API looks like this:</p>
 </blockquote>
-<div class="highlight"><pre class="highlight json"><code><span class="p">{</span><span class="w">
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"success"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
     </span><span class="nl">"payload"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="nl">"wid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"p4u8d7f0768ee91d3b33bee6483132i8"</span><span class="p">,</span><span class="w">
@@ -4064,13 +4157,9 @@ as the JSON payload used to construct the signature.</p>
 <p>Triggers a Debit Cards withdrawal from your account.
 These <strong>withdrawals are immediate</strong> during banking hours for some
 banks (M-F 9:00AM - 5:00PM Mexico City Time), 24 hours for others.</p>
-
-<h3 id="http-request">HTTP Request</h3>
-
-<p><code class="prettyprint">POST https://api.bitso.com/v3/debit_card_withdrawal/</code></p>
-
-<h3 id="authorization-header-parameters">Authorization Header Parameters</h3>
-
+<h3 id='http-request-24'>HTTP Request</h3>
+<p><code>POST https://api.bitso.com/v3/debit_card_withdrawal/</code></p>
+<h3 id='authorization-header-parameters-15'>Authorization Header Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -4098,9 +4187,7 @@ banks (M-F 9:00AM - 5:00PM Mexico City Time), 24 hours for others.</p>
 <td>See <a href="#creating-and-signing-requests">Creating and Signing Requests</a></td>
 </tr>
 </tbody></table>
-
-<h3 id="body-parameters">Body Parameters</h3>
-
+<h3 id='body-parameters-7'>Body Parameters</h3>
 <p>Body parameters should be JSON encoded and should be exactly the same
 as the JSON payload used to construct the signature.</p>
 
@@ -4122,13 +4209,13 @@ as the JSON payload used to construct the signature.</p>
 <td><strong>recipient_given_names</strong></td>
 <td>-</td>
 <td>Yes</td>
-<td>The recipient&rsquo;s first and middle name(s)</td>
+<td>The recipient&#39;s first and middle name(s)</td>
 </tr>
 <tr>
 <td><strong>recipient_family_names</strong></td>
 <td>-</td>
 <td>Yes</td>
-<td>The recipient&rsquo;s last name</td>
+<td>The recipient&#39;s last name</td>
 </tr>
 <tr>
 <td><strong>card_number</strong></td>
@@ -4140,12 +4227,10 @@ as the JSON payload used to construct the signature.</p>
 <td><strong>bank_code</strong></td>
 <td>-</td>
 <td>Yes</td>
-<td>The bank code for this card&rsquo;s issuer as returned by the &ldquo;Bank Codes&rdquo; endpoint</td>
+<td>The bank code for this card&#39;s issuer as returned by the &quot;Bank Codes&quot; endpoint</td>
 </tr>
 </tbody></table>
-
-<h3 id="json-response-payload">JSON Response Payload</h3>
-
+<h3 id='json-response-payload-23'>JSON Response Payload</h3>
 <p>Returns a JSON object representing the order:</p>
 
 <table><thead>
@@ -4199,13 +4284,11 @@ as the JSON payload used to construct the signature.</p>
 <td>-</td>
 </tr>
 </tbody></table>
-
-<h2 id="phone-number-withdrawal">Phone Number Withdrawal</h2>
-
+<h2 id='phone-number-withdrawal'>Phone Number Withdrawal</h2>
 <blockquote>
 <p>The string returned by the API looks like this:</p>
 </blockquote>
-<div class="highlight"><pre class="highlight json"><code><span class="p">{</span><span class="w">
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"success"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
     </span><span class="nl">"payload"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="nl">"wid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"p4u8d7f0768ee91d3b33bee6483132i8"</span><span class="p">,</span><span class="w">
@@ -4231,13 +4314,9 @@ number must be registered for SPEI Transfers with their corresponding bank)
 These <strong>withdrawals are immediate</strong> during banking hours for some
 banks (M-F 9:00AM - 5:00PM Mexico City Time), 24 hours for
 others.</p>
-
-<h3 id="http-request">HTTP Request</h3>
-
-<p><code class="prettyprint">POST https://api.bitso.com/v3/phone_withdrawal/</code></p>
-
-<h3 id="authorization-header-parameters">Authorization Header Parameters</h3>
-
+<h3 id='http-request-25'>HTTP Request</h3>
+<p><code>POST https://api.bitso.com/v3/phone_withdrawal/</code></p>
+<h3 id='authorization-header-parameters-16'>Authorization Header Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -4265,9 +4344,7 @@ others.</p>
 <td>See <a href="#creating-and-signing-requests">Creating and Signing Requests</a></td>
 </tr>
 </tbody></table>
-
-<h3 id="body-parameters">Body Parameters</h3>
-
+<h3 id='body-parameters-8'>Body Parameters</h3>
 <p>Body parameters should be JSON encoded and should be exactly the same
 as the JSON payload used to construct the signature.</p>
 
@@ -4289,13 +4366,13 @@ as the JSON payload used to construct the signature.</p>
 <td><strong>recipient_given_names</strong></td>
 <td>-</td>
 <td>Yes</td>
-<td>The recipient&rsquo;s first and middle name(s)</td>
+<td>The recipient&#39;s first and middle name(s)</td>
 </tr>
 <tr>
 <td><strong>recipient_family_names</strong></td>
 <td>-</td>
 <td>Yes</td>
-<td>The recipient&rsquo;s last name</td>
+<td>The recipient&#39;s last name</td>
 </tr>
 <tr>
 <td><strong>phone_number</strong></td>
@@ -4307,12 +4384,10 @@ as the JSON payload used to construct the signature.</p>
 <td><strong>bank_code</strong></td>
 <td>-</td>
 <td>Yes</td>
-<td>The bank code for this card&rsquo;s issuer as returned by the &ldquo;Bank Codes&rdquo; endpoint</td>
+<td>The bank code for this card&#39;s issuer as returned by the &quot;Bank Codes&quot; endpoint</td>
 </tr>
 </tbody></table>
-
-<h3 id="json-response-payload">JSON Response Payload</h3>
-
+<h3 id='json-response-payload-24'>JSON Response Payload</h3>
 <p>Returns a JSON object representing the order:</p>
 
 <table><thead>
@@ -4366,11 +4441,7 @@ as the JSON payload used to construct the signature.</p>
 <td>-</td>
 </tr>
 </tbody></table>
-
-<h1 id="websocket-api">WebSocket API</h1>
-
-<h2 id="general">General</h2>
-
+<h1 id='websocket-api'>WebSocket API</h1><h2 id='general-2'>General</h2>
 <p>The <strong>Trades channel</strong> send a message whenever a new trade is executed in the corresponding order book.</p>
 
 <p>The <strong>Orders channel</strong> maintains an up-to-date list of the top 20 asks and the top 20 bids, new messages are sent across the channel whenever there is a change in either top 20.</p>
@@ -4378,9 +4449,9 @@ as the JSON payload used to construct the signature.</p>
 <p>The <strong>Diff-Orders</strong> channel will send across any modifications to the
 order book. Specifically, any state changes in existing orders
 (including orders not in the top 20), and any new orders. An order
-could be removed, in which case it won&rsquo;t have an &lsquo;a&rsquo; field (amount),
+could be removed, in which case it won&#39;t have an &#39;a&#39; field (amount),
 or an order could have been partially filled (you can look up an
-order&rsquo;s state via the lookup_order endpoint) which will be reflected
+order&#39;s state via the lookup_order endpoint) which will be reflected
 in the amount field. Each message contains a sequence number, which
 are increasing integer values, each new message incrementing the
 sequence number by one. If you see a sequence number that is more than
@@ -4389,9 +4460,7 @@ you need to update the order book to get to correct state. In theory,
 you can get a copy of the full order book via REST once, and keep it
 up to date by using the diff-orders channel with the following
 algorithm:</p>
-
-<h3 id="algorithm">Algorithm</h3>
-
+<h3 id='algorithm'>Algorithm</h3>
 <ol>
 <li>Subscribe to the diff-orders channel.</li>
 <li>Queue any message that come in to this channel.</li>
@@ -4404,10 +4473,8 @@ structure.</li>
 trough the stream.</li>
 </ol>
 
-<p>An order&rsquo;s timestamp field is immutable. Even if the amount field is mutated, or the order removed, the timestamp field remains as it was when the order was created. Note that a timestamp is not unique. Different orders can have the same timestamp.</p>
-
-<h3 id="how-to-connect">How to connect</h3>
-
+<p>An order&#39;s timestamp field is immutable. Even if the amount field is mutated, or the order removed, the timestamp field remains as it was when the order was created. Note that a timestamp is not unique. Different orders can have the same timestamp.</p>
+<h3 id='how-to-connect'>How to connect</h3>
 <blockquote>
 <p>Create a WebSocket instance:</p>
 </blockquote>
@@ -4423,13 +4490,13 @@ trough the stream.</li>
 };
 </code></pre></div>
 <blockquote>
-<p>The server will acknowledge each subscription to a channel with a message. For example, a successful subscription to the &lsquo;trades&rsquo; channel
+<p>The server will acknowledge each subscription to a channel with a message. For example, a successful subscription to the &#39;trades&#39; channel
 will be acknowledged in the following manner:</p>
 </blockquote>
 <div class="highlight"><pre class="highlight plaintext"><code>{action: "subscribe", response: "ok", time: 1455831538045, type: "trades"}
 </code></pre></div>
 <blockquote>
-<p>Once you&rsquo;ve succesfully subscribed to a channel, listen for messages and handle them appropriately:</p>
+<p>Once you&#39;ve succesfully subscribed to a channel, listen for messages and handle them appropriately:</p>
 </blockquote>
 <div class="highlight"><pre class="highlight plaintext"><code>websocket.onmessage = function(message){
                 var data = JSON.parse(message.data);
@@ -4449,18 +4516,14 @@ will be acknowledged in the following manner:</p>
 <p>Keep alive messages look like this:</p>
 </blockquote>
 <div class="highlight"><pre class="highlight plaintext"><code>{"type":"ka"}
-</code></pre></div>
-<h3 id="example-implementation">Example Implementation</h3>
-
+</code></pre></div><h3 id='example-implementation'>Example Implementation</h3>
 <p>Use this example native javascript implementation for your reference:
 <a href="https://bitso.com/demo_ws.html">https://bitso.com/demo_ws.html</a></p>
-
-<h2 id="trades-channel">Trades Channel</h2>
-
+<h2 id='trades-channel'>Trades Channel</h2>
 <blockquote>
 <p>Messages on this channel look like this:</p>
 </blockquote>
-<div class="highlight"><pre class="highlight json"><code><span class="p">{</span><span class="w">
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"trades"</span><span class="p">,</span><span class="w">
   </span><span class="nl">"book"</span><span class="p">:</span><span class="w"> </span><span class="s2">"btc_mxn"</span><span class="p">,</span><span class="w">
   </span><span class="nl">"payload"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
@@ -4472,17 +4535,11 @@ will be acknowledged in the following manner:</p>
     </span><span class="p">}</span><span class="w">
   </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre></div>
-<h3 id="client-subscription-message">Client subscription message</h3>
-
-<p><code class="prettyprint">{ action: &#39;subscribe&#39;, book: &#39;btc_mxn&#39;, type: &#39;trades&#39; }</code></p>
-
-<h3 id="server-subscription-response-message">Server subscription response message</h3>
-
-<p><code class="prettyprint">{action: &quot;subscribe&quot;, response: &quot;ok&quot;, time: 1455831538045, type: &quot;trades&quot;}</code></p>
-
-<h3 id="server-json-message">Server JSON message</h3>
-
+</span></code></pre></div><h3 id='client-subscription-message'>Client subscription message</h3>
+<p><code>{ action: &#39;subscribe&#39;, book: &#39;btc_mxn&#39;, type: &#39;trades&#39; }</code></p>
+<h3 id='server-subscription-response-message'>Server subscription response message</h3>
+<p><code>{action: &quot;subscribe&quot;, response: &quot;ok&quot;, time: 1455831538045, type: &quot;trades&quot;}</code></p>
+<h3 id='server-json-message'>Server JSON message</h3>
 <p>The payload contains an array with one or more trades of the following form:</p>
 
 <table><thead>
@@ -4536,13 +4593,11 @@ will be acknowledged in the following manner:</p>
 <td>-</td>
 </tr>
 </tbody></table>
-
-<h2 id="diff-orders">Diff-Orders</h2>
-
+<h2 id='diff-orders'>Diff-Orders</h2>
 <blockquote>
 <p>Messages on this channel look like this:</p>
 </blockquote>
-<div class="highlight"><pre class="highlight json"><code><span class="p">{</span><span class="w">
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"diff-orders"</span><span class="p">,</span><span class="w">
   </span><span class="nl">"book"</span><span class="p">:</span><span class="w"> </span><span class="s2">"btc_mxn"</span><span class="p">,</span><span class="w">
   </span><span class="nl">"sequence"</span><span class="p">:</span><span class="w"> </span><span class="mi">2734</span><span class="p">,</span><span class="w">
@@ -4557,17 +4612,11 @@ will be acknowledged in the following manner:</p>
     </span><span class="p">}</span><span class="w">
   </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre></div>
-<h3 id="client-subscription-message">Client subscription message</h3>
-
-<p><code class="prettyprint">websocket.send(JSON.stringify({ action: &#39;subscribe&#39;, book: &#39;btc_mxn&#39;, type: &#39;diff-orders&#39; }));</code></p>
-
-<h3 id="server-subscription-response-message">Server subscription response message</h3>
-
-<p><code class="prettyprint">{action: &quot;subscribe&quot;, response: &quot;ok&quot;, time: 1455831538047, type: &quot;diff-orders&quot;}</code></p>
-
-<h3 id="server-json-message">Server JSON Message</h3>
-
+</span></code></pre></div><h3 id='client-subscription-message-2'>Client subscription message</h3>
+<p><code>websocket.send(JSON.stringify({ action: &#39;subscribe&#39;, book: &#39;btc_mxn&#39;, type: &#39;diff-orders&#39; }));</code></p>
+<h3 id='server-subscription-response-message-2'>Server subscription response message</h3>
+<p><code>{action: &quot;subscribe&quot;, response: &quot;ok&quot;, time: 1455831538047, type: &quot;diff-orders&quot;}</code></p>
+<h3 id='server-json-message-2'>Server JSON Message</h3>
 <p>The payload contains an array with one or more orders of the following form:</p>
 
 <table><thead>
@@ -4615,13 +4664,11 @@ will be acknowledged in the following manner:</p>
 <td>-</td>
 </tr>
 </tbody></table>
-
-<h2 id="orders">Orders</h2>
-
+<h2 id='orders'>Orders</h2>
 <blockquote>
 <p>Messages on this channel look like this:</p>
 </blockquote>
-<div class="highlight"><pre class="highlight json"><code><span class="p">{</span><span class="w">
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"orders"</span><span class="p">,</span><span class="w">
   </span><span class="nl">"book"</span><span class="p">:</span><span class="w"> </span><span class="s2">"btc_mxn"</span><span class="p">,</span><span class="w">
   </span><span class="nl">"payload"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
@@ -4666,17 +4713,11 @@ will be acknowledged in the following manner:</p>
     </span><span class="p">]</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre></div>
-<h3 id="client-subscription-message">Client Subscription message</h3>
-
-<p><code class="prettyprint">{ websocket.send(JSON.stringify({ action: &#39;subscribe&#39;, book: &#39;btc_mxn&#39;, type: &#39;orders&#39; }));</code></p>
-
-<h3 id="server-subscription-response-message">Server subscription response message</h3>
-
-<p><code class="prettyprint">{action: &quot;subscribe&quot;, response: &quot;ok&quot;, time: 1455831538048, type: &quot;orders&quot;}</code></p>
-
-<h3 id="server-json-message">Server JSON message</h3>
-
+</span></code></pre></div><h3 id='client-subscription-message-3'>Client Subscription message</h3>
+<p><code>{ websocket.send(JSON.stringify({ action: &#39;subscribe&#39;, book: &#39;btc_mxn&#39;, type: &#39;orders&#39; }));</code></p>
+<h3 id='server-subscription-response-message-3'>Server subscription response message</h3>
+<p><code>{action: &quot;subscribe&quot;, response: &quot;ok&quot;, time: 1455831538048, type: &quot;orders&quot;}</code></p>
+<h3 id='server-json-message-3'>Server JSON message</h3>
 <p>The payload contains a JSON with two keys, one for the bids and the other for asks on the order book. Both bids and asks contain orders of the following form:</p>
 
 <table><thead>
@@ -4718,28 +4759,20 @@ will be acknowledged in the following manner:</p>
 <td>Milliseconds</td>
 </tr>
 </tbody></table>
-
-<h1 id="webhooks">Webhooks</h1>
-
-<h2 id="registering-urls">Registering URLs</h2>
-
+<h1 id='webhooks'>Webhooks</h1><h2 id='registering-urls'>Registering URLs</h2>
 <p>Users can register a callback url that will get hit with payloads
 corresponding to certain events described below. (Callback urls that take more than 5 seconds to respond will timeout)</p>
 
 <blockquote>
 <p>The JSON object returned by the API looks like this:</p>
 </blockquote>
-<div class="highlight"><pre class="highlight json"><code><span class="p">{</span><span class="w">
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"success"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
     </span><span class="nl">"payload"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Succesfully registered URL: &lt;callback_url&gt;"</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre></div>
-<h3 id="http-request">HTTP Request</h3>
-
-<p><code class="prettyprint">POST https://api.bitso.com/v3/webhooks/</code></p>
-
-<h3 id="authorization-header-parameters">Authorization Header Parameters</h3>
-
+</span></code></pre></div><h3 id='http-request-26'>HTTP Request</h3>
+<p><code>POST https://api.bitso.com/v3/webhooks/</code></p>
+<h3 id='authorization-header-parameters-17'>Authorization Header Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -4767,9 +4800,7 @@ corresponding to certain events described below. (Callback urls that take more t
 <td>See <a href="#creating-and-signing-requests">Creating and Signing Requests</a></td>
 </tr>
 </tbody></table>
-
-<h3 id="body-parameters">Body Parameters</h3>
-
+<h3 id='body-parameters-9'>Body Parameters</h3>
 <p>Body parameters should be JSON encoded and should be exactly the same
 as the JSON payload used to construct the signature.</p>
 
@@ -4788,16 +4819,14 @@ as the JSON payload used to construct the signature.</p>
 <td>Specifies a url that will be hit on events</td>
 </tr>
 </tbody></table>
-
-<h2 id="fundings">Fundings</h2>
-
+<h2 id='fundings-2'>Fundings</h2>
 <p>Users that register a webhook will get a POST payload to that URL
 with the following fields on deposits.</p>
 
 <blockquote>
 <p>The JSON Object posted to the webhook URL looks like this</p>
 </blockquote>
-<div class="highlight"><pre class="highlight json"><code><span class="p">{</span><span class="w">
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"event"</span><span class="p">:</span><span class="w"> </span><span class="s2">"funding"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"payload"</span><span class="p">:</span><span class="w">
 
@@ -4821,9 +4850,7 @@ with the following fields on deposits.</p>
         </span><span class="p">}</span><span class="w">
     </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre></div>
-<h3 id="json-payload">JSON  Payload</h3>
-
+</span></code></pre></div><h3 id='json-payload'>JSON  Payload</h3>
 <p>Returns a JSON object with the following fields:</p>
 
 <table><thead>
@@ -4883,16 +4910,14 @@ with the following fields on deposits.</p>
 <td>-</td>
 </tr>
 </tbody></table>
-
-<h2 id="withdrawals">Withdrawals</h2>
-
+<h2 id='withdrawals-2'>Withdrawals</h2>
 <p>Users that register a webhook will get a POST payload to that URL
 with the following fields on withdrawals.</p>
 
 <blockquote>
 <p>The JSON Object posted to the webhook URL looks like this</p>
 </blockquote>
-<div class="highlight"><pre class="highlight json"><code><span class="p">{</span><span class="w">
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"event"</span><span class="p">:</span><span class="w"> </span><span class="s2">"withdrawal"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"payload"</span><span class="p">:</span><span class="w">
 
@@ -4911,9 +4936,7 @@ with the following fields on withdrawals.</p>
         </span><span class="p">}</span><span class="w">
     </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre></div>
-<h3 id="json-payload">JSON  Payload</h3>
-
+</span></code></pre></div><h3 id='json-payload-2'>JSON  Payload</h3>
 <p>Returns a JSON object with the follwing fields:</p>
 
 <table><thead>
