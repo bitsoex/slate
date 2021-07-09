@@ -25,7 +25,7 @@ system functions, along with examples in common programming languages.
 
 # Changelog
 
-### 2021-06-26
+### 2021-06-24
 
 Fixed documentation inconsistency between REST Api service and the implementation:
 * in user_trades service documentation, now 'book' is required.
