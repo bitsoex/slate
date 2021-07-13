@@ -282,9 +282,9 @@
   color: #859900;
 }
     </style>
-    <link href="stylesheets/screen-c9d8fa83.css" rel="stylesheet" media="screen" />
-    <link href="stylesheets/print-953e3353.css" rel="stylesheet" media="print" />
-      <script src="javascripts/all-a9fde460.js"></script>
+    <link href="stylesheets/screen-25a96096.css" rel="stylesheet" media="screen" />
+    <link href="stylesheets/print-19a72a7e.css" rel="stylesheet" media="print" />
+      <script src="javascripts/all-c51fe4a9.js"></script>
 
   </head>
 
@@ -295,7 +295,7 @@
         <img src="images/navbar-cad8cdcb.png" alt="" />
       </span>
     </a>
-    <div class="toc-wrapper">
+    <div class="tocify-wrapper">
       <img src="images/logo.png" class="logo" alt="" />
         <div class="lang-selector">
               <a href="#" data-language-name="shell">Shell</a>
@@ -317,10 +317,10 @@
             <a href="#changelog" class="toc-h1 toc-link" data-title="Changelog">Changelog</a>
               <ul class="toc-list-h2">
                   <li>
-                    <a href="#2021-06-24" class="toc-h2 toc-link" data-title="2021-06-24">2021-06-24</a>
+                    <a href="#2021-06-25" class="toc-h2 toc-link" data-title="2021-06-25">2021-06-25</a>
                   </li>
                   <li>
-                    <a href="#2021-06-25" class="toc-h2 toc-link" data-title="2021-06-25">2021-06-25</a>
+                    <a href="#2021-06-24" class="toc-h2 toc-link" data-title="2021-06-24">2021-06-24</a>
                   </li>
                   <li>
                     <a href="#2020-08-21" class="toc-h2 toc-link" data-title="2020-08-21">2020-08-21</a>
@@ -498,16 +498,16 @@
 with third party applications, such as trading applications, charting programs,
 point of sale systems, and much more. Below you will find details on how the
 system functions, along with examples in common programming languages.</p>
-<h1 id='changelog'>Changelog</h1><h3 id='2021-06-24'>2021-06-24</h3>
+<h1 id='changelog'>Changelog</h1><h3 id='2021-06-25'>2021-06-25</h3>
+<p>There was an inconsistency for Diff-Orders and for Orders API. The &quot;t&quot; field was being described as number 0 for selling
+and 1 for buying, but the correct implementation is the opposite. To make the documentation consistent with its 
+implementation, the field was updated to number 0 for buying and number 1 for selling. 
+This update was for documentation only, nothing changes in the consumer side.</p>
+<h3 id='2021-06-24'>2021-06-24</h3>
 <p>Fixed documentation inconsistency between REST Api service and the implementation:
 * in user_trades service documentation, now &#39;book&#39; is required.
 * in order_trades service documentation the field &#39;make_side&#39; have changed to &#39;maker_side&#39;
 * also in the same service the &#39;created_at&#39; field format have been upgraded from 2021-06-11T09:25:05+0000 to 2021-06-11T09:25:05.000+00:00</p>
-<h3 id='2021-06-25'>2021-06-25</h3>
-<p>There was an inconsistency for Diff-Orders and for Orders API. The &quot;t&quot; field was being described as number 0 for selling
-and 1 for buying, but the correct implementation is the opposite. To make the documentation consistent with its 
-implementation, the field was updated to number 0 for buying and number 1 for selling. 
-This update was for documentation only, nothing changes in the consumer side. </p>
 <h3 id='2020-08-21'>2020-08-21</h3>
 <p>Deleted some old API errors from v2 and migrating to v3 errors for some cases:</p>
 
