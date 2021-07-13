@@ -47,7 +47,7 @@ html, body {
   width: 20px;
 }
 
-.toc-wrapper {
+.tocify-wrapper {
   transition: left 0.3s ease-in-out;
 
   overflow-y: auto;
@@ -562,7 +562,7 @@ html, body {
 // There are also a couple styles disperesed
 
 @media (max-width: $tablet-width) {
-  .toc-wrapper {
+  .tocify-wrapper {
     left: -$nav-width;
 
     &.open {
@@ -593,7 +593,7 @@ html, body {
     margin-right: 0;
   }
 
-  .toc-wrapper .lang-selector {
+  .tocify-wrapper .lang-selector {
     display: block;
   }
 

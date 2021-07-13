@@ -20,7 +20,7 @@
   };
 
   var closeToc = function() {
-    $(".toc-wrapper").removeClass('open');
+    $(".tocify-wrapper").removeClass('open');
     $("#nav-button").removeClass('open');
   };
 
@@ -94,7 +94,7 @@
       refreshToc();
 
       $("#nav-button").click(function() {
-        $(".toc-wrapper").toggleClass('open');
+        $(".tocify-wrapper").toggleClass('open');
         $("#nav-button").toggleClass('open');
         return false;
       });

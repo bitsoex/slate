@@ -12,7 +12,7 @@ $default: auto;
     float: left;
 }
 
-.toc-wrapper {
+.tocify-wrapper {
     transition: right 0.3s ease-in-out !important;
     left: $default !important;
     #{right}: 0;
@@ -111,7 +111,7 @@ aside {
     direction: rtl;
 }
 
-.toc-wrapper {
+.tocify-wrapper {
     text-align: right;
     direction: rtl;
     font-weight: 100 !important;
@@ -122,7 +122,7 @@ aside {
 // RESPONSIVE DESIGN
 ////////////////////////////////////////////////////////////////////////////////
 @media (max-width: $tablet-width) {
-    .toc-wrapper {
+    .tocify-wrapper {
         #{right}: -$nav-width;
         &.open {
             #{right}: 0;
