@@ -25,19 +25,19 @@ system functions, along with examples in common programming languages.
 
 # Changelog
 
+### 2021-06-25
+
+There was an inconsistency for Diff-Orders and for Orders API. The "t" field was being described as number 0 for selling
+and 1 for buying, but the correct implementation is the opposite. To make the documentation consistent with its 
+implementation, the field was updated to number 0 for buying and number 1 for selling. 
+This update was for documentation only, nothing changes in the consumer side.
+
 ### 2021-06-24
 
 Fixed documentation inconsistency between REST Api service and the implementation:
 * in user_trades service documentation, now 'book' is required.
 * in order_trades service documentation the field 'make_side' have changed to 'maker_side'
 * also in the same service the 'created_at' field format have been upgraded from 2021-06-11T09:25:05+0000 to 2021-06-11T09:25:05.000+00:00
-
-### 2021-06-25
-
-There was an inconsistency for Diff-Orders and for Orders API. The "t" field was being described as number 0 for selling
-and 1 for buying, but the correct implementation is the opposite. To make the documentation consistent with its 
-implementation, the field was updated to number 0 for buying and number 1 for selling. 
-This update was for documentation only, nothing changes in the consumer side. 
 
 ### 2020-08-21
 
