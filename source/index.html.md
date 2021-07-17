@@ -28,7 +28,7 @@ system functions, along with examples in common programming languages.
 ### 2021-06-24
 
 Fixed documentation inconsistency between REST Api service and the implementation:
-* in user_trades service documentation, now 'book' is required.
+* in user_trades service documentation, now 'book' *is not required*.
 * in order_trades service documentation the field 'make_side' have changed to 'maker_side'
 * also in the same service the 'created_at' field format have been upgraded from 2021-06-11T09:25:05+0000 to 2021-06-11T09:25:05.000+00:00
 
@@ -1681,7 +1681,7 @@ This endpoint returns a list of the user's trades.
 
 Parameter | Default | Required | Description
 --------- | ------- | -------- | -----------
-**book** |   | Yes | Specifies which book to use
+**book** |   | NO | Specifies which book to use
 **marker** |  | No | Returns objects that are older or newer (depending on 'sort') than the object with this ID
 **sort** | desc | No | Specifies ordering direction of returned objects
 **limit** | 25 | No | Specifies number of objects to return. (Max is 100)
