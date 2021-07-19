@@ -502,18 +502,23 @@ with third party applications, such as trading applications, charting programs,
 point of sale systems, and much more. Below you will find details on how the
 system functions, along with examples in common programming languages.</p>
 <h1 id='changelog'>Changelog</h1><h3 id='2021-07-19'>2021-07-19</h3>
-<p>Documentation inconsistency between REST Api service and implementation was fixed:
-* in user_trades service documentation, now &#39;book&#39; is not required.</p>
+<p>Documentation inconsistency between REST Api service and implementation was fixed:</p>
+
+<ul>
+<li>in user_trades service documentation, now &#39;book&#39; is not required.</li>
+</ul>
 <h3 id='2021-06-25'>2021-06-25</h3>
 <p>There was an inconsistency for Diff-Orders and for Orders API. The &quot;t&quot; field was being described as number 0 for selling
 and 1 for buying, but the correct implementation is the opposite. To make the documentation consistent with its 
 implementation, the field was updated to number 0 for buying and number 1 for selling. 
 This update was for documentation only, nothing changes in the consumer side.</p>
 <h3 id='2021-06-24'>2021-06-24</h3>
-<p>Fixed documentation inconsistency between REST Api service and the implementation:
-* in user_trades service documentation, now &#39;book&#39; is required.
-* in order_trades service documentation the field &#39;make_side&#39; have changed to &#39;maker_side&#39;
-* also in the same service the &#39;created_at&#39; field format have been upgraded from 2021-06-11T09:25:05+0000 to 2021-06-11T09:25:05.000+00:00</p>
+<p>Fixed documentation inconsistency between REST Api service and the implementation:</p>
+
+<ul>
+<li>in order_trades service documentation the field &#39;make_side&#39; have changed to &#39;maker_side&#39;</li>
+<li>also in the same service the &#39;created_at&#39; field format have been upgraded from 2021-06-11T09:25:05+0000 to 2021-06-11T09:25:05.000+00:00</li>
+</ul>
 <h3 id='2020-08-21'>2020-08-21</h3>
 <p>Deleted some old API errors from v2 and migrating to v3 errors for some cases:</p>
 
