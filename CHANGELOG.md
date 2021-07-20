@@ -1,5 +1,12 @@
 # Changelog
 
+## Version 2.0.1
+
+*July 19, 2021*
+
+Documentation inconsistency between REST Api service and implementation was fixed:
+* in user_trades service documentation, now 'book' is not required.
+
 ## Version 2.0.0
 
 *July 9, 2021*
