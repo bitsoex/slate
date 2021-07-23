@@ -274,6 +274,7 @@ error categories, the last two digits define specific errors.
 * 0723: Action restricted by country regulation
 * 0724: No funding methods available
 * 0725: No withdrawal methods available
+* 0726: Action restricted for business accounts
 
 ### Throttling Errors: 08 (HTTP 420)
 * 0801: You have hit the request rate-limit
