@@ -1807,7 +1807,7 @@ Field Name | Type | Description | Units
         "oid": "543cr2v32a1h68443",
         "origin_id": "origin_id1",
         "side": "buy",
-        "status": "partial-fill",
+        "status": "partially filled",
         "type": "limit"
     }, {
         "book": "btc_mxn",
@@ -1876,7 +1876,7 @@ Field Name | Type | Description | Units
 **updated_at** | String | Timestamp at which the trade was updated (can be null) | ISO 8601 timestamp
 **price** | String | The order's price | Minor
 **side** | String | The order side (buy, sell) | -
-**status** | String | The order's status (queued, open, partial-fill) |
+**status** | String | The order's status (queued, open, partially filled) |
 **type** | String | The order type (will always be 'limit' for open orders) | -
 
 
@@ -1897,7 +1897,7 @@ Field Name | Type | Description | Units
         "price": "5600.00",
         "oid": "543cr2v32a1h6844",
         "side": "buy",
-        "status": "partial-fill",
+        "status": "partially filled",
         "type": "limit"
     }, {
         "book": "btc_mxn",
@@ -1948,7 +1948,7 @@ Field Name | Type | Description | Units
 **updated_at** | String | Timestamp at which the order was updated (can be null) | ISO 8601 timestamp
 **price** | String | The order's price | Minor
 **side** | String | The order side (buy, sell) | -
-**status** | String | The order's status (queued, open, partial-fill, closed) | -
+**status** | String | The order's status (queued, open, partially filled, closed) | -
 **type** | String | The order type (market, limit) | -
 **origin_id** | String | The origin_id if any | -
 **time_in_force** | String | The time in force paramater for limit orders | -
