@@ -317,6 +317,9 @@
             <a href="#changelog" class="toc-h1 toc-link" data-title="Changelog">Changelog</a>
               <ul class="toc-list-h2">
                   <li>
+                    <a href="#2021-07-27" class="toc-h2 toc-link" data-title="2021-07-27">2021-07-27</a>
+                  </li>
+                  <li>
                     <a href="#2021-07-19" class="toc-h2 toc-link" data-title="2021-07-19">2021-07-19</a>
                   </li>
                   <li>
@@ -501,7 +504,13 @@
 with third party applications, such as trading applications, charting programs,
 point of sale systems, and much more. Below you will find details on how the
 system functions, along with examples in common programming languages.</p>
-<h1 id='changelog'>Changelog</h1><h3 id='2021-07-19'>2021-07-19</h3>
+<h1 id='changelog'>Changelog</h1><h3 id='2021-07-27'>2021-07-27</h3>
+<p>Documentation inconsistency between REST Api service and implementation was fixed:</p>
+
+<ul>
+<li>in open_orders and lookup_orders services documentation, now &#39;status&#39; uses &#39;partially filled&#39; instead of &#39;partial-fill&#39; as an option.</li>
+</ul>
+<h3 id='2021-07-19'>2021-07-19</h3>
 <p>Documentation inconsistency between REST Api service and implementation was fixed:</p>
 
 <ul>
@@ -3122,7 +3131,7 @@ a specific operation type.</p>
         </span><span class="nl">"oid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"543cr2v32a1h68443"</span><span class="p">,</span><span class="w">
         </span><span class="nl">"origin_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"origin_id1"</span><span class="p">,</span><span class="w">
         </span><span class="nl">"side"</span><span class="p">:</span><span class="w"> </span><span class="s2">"buy"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"partial-fill"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"partially filled"</span><span class="p">,</span><span class="w">
         </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"limit"</span><span class="w">
     </span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="nl">"book"</span><span class="p">:</span><span class="w"> </span><span class="s2">"btc_mxn"</span><span class="p">,</span><span class="w">
@@ -3284,7 +3293,7 @@ a specific operation type.</p>
 <tr>
 <td><strong>status</strong></td>
 <td>String</td>
-<td>The order&#39;s status (queued, open, partial-fill)</td>
+<td>The order&#39;s status (queued, open, partially filled)</td>
 <td></td>
 </tr>
 <tr>
@@ -3310,7 +3319,7 @@ a specific operation type.</p>
         </span><span class="nl">"price"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5600.00"</span><span class="p">,</span><span class="w">
         </span><span class="nl">"oid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"543cr2v32a1h6844"</span><span class="p">,</span><span class="w">
         </span><span class="nl">"side"</span><span class="p">:</span><span class="w"> </span><span class="s2">"buy"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"partial-fill"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"partially filled"</span><span class="p">,</span><span class="w">
         </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"limit"</span><span class="w">
     </span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="nl">"book"</span><span class="p">:</span><span class="w"> </span><span class="s2">"btc_mxn"</span><span class="p">,</span><span class="w">
@@ -3430,7 +3439,7 @@ a specific operation type.</p>
 <tr>
 <td><strong>status</strong></td>
 <td>String</td>
-<td>The order&#39;s status (queued, open, partial-fill, closed)</td>
+<td>The order&#39;s status (queued, open, partially filled, closed)</td>
 <td>-</td>
 </tr>
 <tr>
