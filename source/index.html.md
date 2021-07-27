@@ -25,6 +25,11 @@ system functions, along with examples in common programming languages.
 
 # Changelog
 
+### 2021-07-27
+Documentation inconsistency between REST Api service and implementation was fixed:
+
+* in open_orders and lookup_orders services documentation, now 'status' uses 'partially filled' instead of 'partial-fill' as an option.
+
 ### 2021-07-19
 Documentation inconsistency between REST Api service and implementation was fixed:
 
