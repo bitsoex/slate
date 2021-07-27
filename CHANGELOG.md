@@ -1,5 +1,42 @@
 # Changelog
 
+## Version 2.0.1
+
+*July 19, 2021*
+
+Documentation inconsistency between REST Api service and implementation was fixed:
+* in user_trades service documentation, now 'book' is not required.
+
+## Version 2.0.0
+
+*July 9, 2021*
+
+Project dependencies were updated along with javascript, css and layout code in order to be up to date with slate's latest version.
+This was necessary to deploy slate without errors or missing parts, such as table of contents.
+
+## Version 1.3.4
+
+*June 25, 2021*
+
+There was an inconsistency for Diff-Orders and for Orders API. The "t" field was being described as number 0 for selling
+and 1 for buying, but the implementation of this api is validating the opposite.
+To make the documentation consistent with the code, the field was updated to number 0 for buying and number 1 for selling.
+
+## Version 1.3.3
+
+*June 24, 2021*
+
+Fixed documentation inconsistency between REST Api service and the implementation:
+* in user_trades service documentation, now 'book' is required.
+* in order_trades service documentation the field 'make_side' have changed to 'maker_side'
+* also in the same service the 'created_at' field format have been upgraded from 2021-06-11T09:25:05+0000 to 2021-06-11T09:25:05.000+00:00
+
+## Version 1.3.2
+
+*February 3, 2016*
+
+A small bugfix for slightly incorrect background colors on code samples in some cases.
+
 ## Version 1.3.1
 
 *January 31, 2016*
@@ -8,7 +45,7 @@ A small bugfix for incorrect whitespace in code blocks.
 
 ## Version 1.3
 
-*January 27th, 2016*
+*January 27, 2016*
 
 We've upgraded Middleman and a number of other dependencies, which should fix quite a few bugs.
 
@@ -35,7 +72,7 @@ Instead of `rake build` and `rake deploy`, you should now run `bundle exec middl
 
 ## Version 1.1
 
-*July 27th, 2014*
+*July 27, 2014*
 
 **Fixes:**
 
