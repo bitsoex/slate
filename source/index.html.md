@@ -221,7 +221,7 @@ error categories, the last two digits define specific errors.
 * 0372: Incorrect value type for field
 * 0373: Request has expired
 * 0374: Invalid 2FA recovery code
-* 0375: Not applicable taxes
+* 0375: No applicable taxes
 
 
 ### System Limit Errors: 04 (HTTP 400)
