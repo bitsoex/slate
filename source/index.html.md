@@ -291,7 +291,7 @@ error categories, the last two digits define specific errors.
 * 1004: Deprecated functionality
 * 1005: Invalid operation
 * 1006: No content for given mobile client name (204 code)
-* 1007: Could not share wire instructions
+* 1007: Internal use
 
 ### Operation Errors: 11 (500 error)
 * 1101: Error when processing the withdrawal
