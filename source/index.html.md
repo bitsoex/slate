@@ -25,6 +25,10 @@ system functions, along with examples in common programming languages.
 
 # Changelog
 
+### 2021-09-27
+Updated `General\Developer Testing Server` to point to the newly
+configured `sandbox` environment.
+
 ### 2021-07-27
 Documentation inconsistency between REST Api service and implementation was fixed:
 
@@ -101,12 +105,12 @@ For unsuccessful API calls, our JSON response objects look like:
 
 ## Developer Testing Server
 
-When working on integrations, we recommend that you use our dev server
+When working on integrations, we recommend that you use our sandbox server
 before running your code against production. The URL for this server
-is `https://api-dev.bitso.com/v3/`
+is `https://api-sandbox.bitso.com/v3/`
 
 You can fund accounts on the dev server with Testnet Bitcoin and
-"Morden" test network Eth.
+"Ropsten" test network Eth.
 
 
 
