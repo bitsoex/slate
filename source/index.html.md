@@ -154,7 +154,7 @@ error categories, the last two digits define specific errors.
 * 0209: Two Factor authentication required
 * 0210: Device authentication required
 * 0211: Device authentication failed (Invalid IP or expired Token)
-* 0212: IP address is not allowed to access this resource
+* 0213: IP address is not allowed to access this resource
 
 ### Validation Errors: 03 (HTTP 400)
 * 0301: Unknown Order book
