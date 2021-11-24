@@ -1,5 +1,13 @@
 # Changelog
 
+
+
+## Version 2.0.3
+*November 24, 2021*
+
+Documentation inconsistency between REST Api service and implementation was fixed:
+* in open_orders parameters are wrong, now parameters matches with the original implementation
+
 ## Version 2.0.2
 
 *July 27, 2021*

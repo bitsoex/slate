@@ -24,6 +24,11 @@ point of sale systems, and much more. Below you will find details on how the
 system functions, along with examples in common programming languages.
 
 # Changelog
+### 2021-11-24
+Documentation inconsistency between REST Api service and implementation was fixed:
+
+* in open_orders request parameters are wrong, now request parameters are 'book' and 'currency' as defined in the service implementation
+
 
 ### 2021-09-27
 Updated `General\Developer Testing Server` to point to the newly
@@ -1869,10 +1874,10 @@ Parameter | Default | Required | Description
 
 Parameter | Default | Required | Description
 --------- | ------- | -------- | -----------
-**book** | all  | No | Specifies which book to use
-**marker** |  | No | Returns objects that are older or newer (depending on 'sort') than the object with this ID
-**sort** | desc | No | Specifies ordering direction of returned objects
-**limit** | 25 | No | Specifies number of objects to return. (Max is 100)
+**book** | all  | no | Specifies which book to use
+**currency** |  | No | Specifies which orders are going to be filtered by currency (minor or major)
+**limit** | 500 | No | Limits the amount of results from the result set
+
 
 ### JSON Response Payload
 
