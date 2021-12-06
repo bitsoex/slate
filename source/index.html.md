@@ -237,7 +237,7 @@ error categories, the last two digits define specific errors.
 * 0372: Incorrect value type for field
 * 0373: Request has expired
 * 0374: Invalid 2FA recovery code
-* 0375: Invalid routing number
+* 0375: Invalid routing number - `This code is reserved for internal use`
 
 
 ### System Limit Errors: 04 (HTTP 400)
