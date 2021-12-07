@@ -1,6 +1,9 @@
 # Changelog
 
+## Version 2.0.4
+*December 7, 2021*
 
+Added new validation error code 0375 reserved for internal use of Shift API
 
 ## Version 2.0.3
 *November 24, 2021*
