@@ -1,5 +1,10 @@
 # Changelog
 
+## Version 2.0.5
+*January 7, 2021*
+
+Added new validation error code 1301 reserved for non existent objects.
+
 ## Version 2.0.4
 *December 7, 2021*
 
