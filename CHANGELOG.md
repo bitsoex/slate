@@ -4,7 +4,7 @@
 *January 7, 2021*
 
 Added new validation errors codes:
-* 1301 and 1302 for OTP validations
+* 13 for internal use
 * 1401 for non-existent objects
 
 ## Version 2.0.4
