@@ -47,8 +47,8 @@ Documentation inconsistency between REST Api service and implementation was fixe
 ### 2021-06-25
 
 There was an inconsistency for Diff-Orders and for Orders API. The "t" field was being described as number 0 for selling
-and 1 for buying, but the correct implementation is the opposite. To make the documentation consistent with its 
-implementation, the field was updated to number 0 for buying and number 1 for selling. 
+and 1 for buying, but the correct implementation is the opposite. To make the documentation consistent with its
+implementation, the field was updated to number 0 for buying and number 1 for selling.
 This update was for documentation only, nothing changes in the consumer side.
 
 ### 2021-06-24
@@ -297,7 +297,7 @@ error categories, the last two digits define specific errors.
 * 0801: You have hit the request rate-limit
 * 0802: Too many attempts to perform an operation
 
-### Unsupported HTTP method (400 error)
+### Unsupported HTTP method: (400 error)
 * 0901: Unsupported HTTP method
 
 ### Miscellaneous Errors: 10 (400 error)
@@ -322,6 +322,8 @@ error categories, the last two digits define specific errors.
 * 1202: We cannot send an SMS to the number provided (out of jurisdiction)
 * 1299: Unexpected error when trying to send SMS
 
+### Not found related errors: 14 (404 error)
+* 1401: Requested resource with this id was not found
 
 ## Client Libraries
 

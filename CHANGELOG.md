@@ -1,5 +1,11 @@
 # Changelog
 
+## Version 2.0.5
+*January 7, 2021*
+
+Added new validation errors codes:
+* 1401 for non-existent objects
+
 ## Version 2.0.4
 *December 7, 2021*
 
