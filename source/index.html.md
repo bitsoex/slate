@@ -322,8 +322,6 @@ error categories, the last two digits define specific errors.
 * 1202: We cannot send an SMS to the number provided (out of jurisdiction)
 * 1299: Unexpected error when trying to send SMS
 
-### Reserved for internal use: 13 (425 error)
-
 ### Not found related errors: 14 (404 error)
 * 1401: Requested resource with this id was not found
 
