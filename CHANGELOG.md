@@ -1,10 +1,16 @@
 # Changelog
 
-## Version 2.0.5
+
+## Version 2.0.6
 *January 6, 2022*
 
 Added new validation error code 0376 for Bitso Transfer rate limit check
 
+## Version 2.0.5
+*January 7, 2021*
+
+Added new validation errors codes:
+* 1401 for non-existent objects
 
 ## Version 2.0.4
 *December 7, 2021*
