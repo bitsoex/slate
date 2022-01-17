@@ -238,6 +238,7 @@ error categories, the last two digits define specific errors.
 * 0373: Request has expired
 * 0374: Invalid 2FA recovery code
 * 0375: Reserved for internal use
+* 0376: Limit of Bitso Transfer reached
 
 
 ### System Limit Errors: 04 (HTTP 400)
