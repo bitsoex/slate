@@ -1,6 +1,11 @@
 # Changelog
 
 
+## Version 2.0.7
+*January 18, 2022*
+
+Added new error codes for trading/conversions disabled on an account
+
 ## Version 2.0.6
 *January 6, 2022*
 
