@@ -24,6 +24,9 @@ point of sale systems, and much more. Below you will find details on how the
 system functions, along with examples in common programming languages.
 
 # Changelog
+### 2022-01-18
+Add new error codes when trading or conversions are disabled on your account
+
 ### 2021-11-24
 Documentation inconsistency between REST Api service and implementation was fixed:
 
@@ -310,6 +313,8 @@ error categories, the last two digits define specific errors.
 * 1005: Invalid operation
 * 1006: No content for given mobile client name (204 code)
 * 1007: Internal use
+* 1008: Trading disabled
+* 1009: Conversions disabled
 
 ### Operation Errors: 11 (500 error)
 * 1101: Error when processing the withdrawal
