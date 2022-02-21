@@ -1,6 +1,11 @@
 # Changelog
 
 
+### Version 2.0.8
+*February 21, 2022*
+
+Add new error code 0727 for scenario that user is temporarily blocked to perform BRL PIX withdrawals due to too many PIX key query failed attempts.
+
 ## Version 2.0.7
 *January 18, 2022*
 
