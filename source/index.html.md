@@ -332,10 +332,10 @@ error categories, the last two digits define specific errors.
 * 1301: OTP hash value is not valid
 * 1302: Duplicated token save attempt, there is another valid OTP
 * 1303: Invalid otp token
-* 1304: Not found otp token
 
 ### Not found related errors: 14 (404 error)
 * 1401: Requested resource with this id was not found
+* 1402: Not found otp token
 
 ## Client Libraries
 
