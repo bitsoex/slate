@@ -1,5 +1,9 @@
 # Changelog
 
+## Version 2.0.8
+*March 10, 2022*
+
+Modifying `0201` error description to a more appropiate one
 
 ## Version 2.0.7
 *January 18, 2022*
