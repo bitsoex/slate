@@ -24,6 +24,9 @@ point of sale systems, and much more. Below you will find details on how the
 system functions, along with examples in common programming languages.
 
 # Changelog
+### 2022-03-10
+Add new error codes '0414' - '0417'
+
 ### 2022-01-18
 Add new error codes when trading or conversions are disabled on your account
 
@@ -257,6 +260,10 @@ error categories, the last two digits define specific errors.
 * 0411: Trading not enabled for market orders
 * 0412: Incorrect stop, below the minimum
 * 0413: Incorrect stop, above the maximum
+* 0414: Internal use
+* 0415: Internal use
+* 0416: Internal use
+* 0417: Internal use
 
 
 ### User Limit Error: 05 (HTTP 400)
