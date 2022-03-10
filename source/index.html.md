@@ -24,6 +24,9 @@ point of sale systems, and much more. Below you will find details on how the
 system functions, along with examples in common programming languages.
 
 # Changelog
+### 2022-02-21
+Add new error code 0727 for scenario that user is temporarily blocked to perform BRL PIX withdrawals due to too many PIX key query failed attempts.
+
 ### 2022-01-18
 Add new error codes when trading or conversions are disabled on your account
 
@@ -296,6 +299,7 @@ error categories, the last two digits define specific errors.
 * 0724: No funding methods available
 * 0725: No withdrawal methods available
 * 0726: Action restricted for business accounts
+* 0727: BRL PIX withdrawal temporarily blocked due to too many PIX key query failed attempts
 
 ### Throttling Errors: 08 (HTTP 420)
 * 0801: You have hit the request rate-limit
