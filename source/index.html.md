@@ -151,7 +151,7 @@ error categories, the last two digits define specific errors.
 * 0102: "Invalid Ripple Withdrawal"
 
 ### Authentication Errors: 02 (HTTP 401)
-* 0201: Invalid Nonce or Invalid Credentials
+* 0201: Check your credentials
 * 0202: API key is not authorized to execute the requested method
 * 0203: Login token is invalid or expired
 * 0204: Incorrect PIN
