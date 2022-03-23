@@ -1794,7 +1794,7 @@ curl "https://api.bitso.com/v3/order_trades/Jvqrschkgdkc1go3"
 }
 ```
 
-This endpoint returns a list of trades that were created from one of your order Id.
+This endpoint returns a list of trades that were created from one of your orders.
 
 ### HTTP Request
 
