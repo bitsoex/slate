@@ -1794,7 +1794,7 @@ curl "https://api.bitso.com/v3/order_trades/Jvqrschkgdkc1go3"
 }
 ```
 
-This endpoint returns a list of the user's trades.
+This endpoint returns a list of trades that were created from one of your order Id.
 
 ### HTTP Request
 
@@ -1955,7 +1955,9 @@ Field Name | Type | Description | Units
 }
 ```
 
-Returns a list of details for 1 or more orders
+Returns details for 1 or more of your orders. Only opened or partially filled orders will be returned by this endpoint. 
+As soon as an order has been fully matched or canceled, it will not be included in the response. 
+Please refer to the <a href='#order-trades'>Order Trades</a> endpoint to pull the list of trades for orders.
 
 ### HTTP Request
 
