@@ -1,5 +1,10 @@
 # Changelog
 
+## Version 2.0.9
+*April 22, 2022*
+
+Add new error code 0727 for the minimum number of ubos and directors required in business accounts.
+
 ## Version 2.0.8
 *March 10, 2022*
 

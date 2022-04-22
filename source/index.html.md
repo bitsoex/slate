@@ -303,6 +303,7 @@ error categories, the last two digits define specific errors.
 * 0724: No funding methods available
 * 0725: No withdrawal methods available
 * 0726: Action restricted for business accounts
+* 0727: Minimum number of ubos and directors required
 
 ### Throttling Errors: 08 (HTTP 420)
 * 0801: You have hit the request rate-limit
