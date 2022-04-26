@@ -1,9 +1,14 @@
 # Changelog
 
-## Version 2.0.9
+## Version 2.1.0
 *April 22, 2022*
 
 Add new error code 0727 for the minimum number of ubos and directors required in business accounts.
+
+## Version 2.0.9
+*April 26, 2022*
+
+Added `1106` error code for the catalogues api.
 
 ## Version 2.0.8
 *March 10, 2022*
