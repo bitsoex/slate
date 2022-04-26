@@ -329,7 +329,7 @@ error categories, the last two digits define specific errors.
 * 1103: System-wide method disabled
 * 1104: Multiple accounts are associated with a device
 * 1105: Account creation limit has been reached on a device.
-* 1106: No currencies available in currency service.
+* 1106: There are no currencies available.
 
 ### Phone related errors: 12 (400 error)
 * 1201: The number provided is not a mobile number
