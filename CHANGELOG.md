@@ -3,7 +3,7 @@
 ## Version 2.0.9
 *April 26, 2022*
 
-Added `1106` error code for the catalogues.
+Added `1106` error code for the catalogues api.
 
 ## Version 2.0.8
 *March 10, 2022*
