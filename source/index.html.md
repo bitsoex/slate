@@ -29,6 +29,8 @@ system functions, along with examples in common programming languages.
 Add new error code '0506'
 Added withdrawal new endpoints documentation.
 Added withdrawal methodds new endpoints documentation.
+Deprecated Crypto withdrawal endpoints.
+Deprecated Spei withdrawal endpoints.
 
 ### 2022-03-10
 Add new error codes '0414' - '0417'
@@ -2148,7 +2150,7 @@ Field Name | Type | Description | Units
 
 ## Withdrawal taxonomy
 
-In order to execute withdrawals is it mandatory to know under which available method, network and protocol you want to operate.
+In order to execute withdrawals is it mandatory to know under which available method, network, asset and protocol you want to operate.
 Withdrawal methods endpoint returns all required metadata (taxonomy) in order to execute a successful withdrawal.
 
 > The string returned by the API looks like this (example for BTC):
