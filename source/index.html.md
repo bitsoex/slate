@@ -24,6 +24,12 @@ point of sale systems, and much more. Below you will find details on how the
 system functions, along with examples in common programming languages.
 
 # Changelog
+
+### 2022-08-18
+Add new error code '0506'
+Added withdrawal new endpoints documentation.
+Added withdrawal methodds new endpoints documentation.
+
 ### 2022-03-10
 Add new error codes '0414' - '0417'
 
@@ -271,6 +277,7 @@ error categories, the last two digits define specific errors.
 * 0502: Exceeds user limit for deposits
 * 0503: Exceeds destination user limit for deposits
 * 0504: Exceeds cashout withdrawal limit for phone number
+* 0506: Withdrawal limit due to funds being on hold
 
 ### Funds Error: 06 (HTTP 400)
 * 0601: Not enough btc funds
@@ -2139,9 +2146,78 @@ Field Name | Type | Description | Units
 **account_identifier_name** | String | Account identifier name to fund with the specified currency. | -
 **account_identifier** | String | Identifier to where the funds can be sent to. | -
 
+## Withdrawal taxonomy
 
+In order to execute withdrawals is it mandatory to know under which available method, network and protocol you want to operate.
+Withdrawal methods endpoint returns all required metadata (taxonomy) in order to execute a successful withdrawal.
 
-## Crypto Withdrawals
+> The string returned by the API looks like this (example for BTC):
+
+```json
+{
+    "success": true,
+    "payload": [
+        {
+            "method": "btc",
+            "name": "Bitcoin",
+            "network_name": "Bitcoin Network",
+            "network_description": "Send to an address of the Bitcoin network with a fee.",
+            "required_fields": [
+                "address"
+            ],
+            "optional_fields": [
+                "origin_id",
+                "client_withdrawal_id",
+                "max_fee"
+            ],
+            "currency_configurations": [
+                {
+                    "currency": "btc",
+                    "legal_operating_entity": {
+                        "legal_operation_entity": "Bitso International",
+                        "country_code": "GI"
+                    },
+                    "fee": {
+                        "amount": "0.00002999",
+                        "type": "fixed"
+                    },
+                    "limits": {
+                        "system_min": "0.00002730",
+                        "system_max": "0.01002858",
+                        "tx_limit": "0.01002858"
+                    },
+                    "status": {
+                        "type": "active",
+                        "description": "Ok"
+                    },
+                    "asset": "btc"
+                }
+            ],
+            "network": "btc",
+            "protocol": "btc",
+        }
+    ]
+}
+```
+
+### HTTP Request
+
+`GET https://api.bitso.com/v3/withdrawal_methods/<currency>/`
+
+### JSON Response Payload
+
+Returns a JSON object representing the order:
+
+Field Name | Type | Description
+---------- | ---- | -----------
+**method** | String | Main method identifier.
+**network** | String | Network identifier like bitcoin network, ethereum network.
+**protocol** | String | Protocol identifier allowed under network.
+**currency** | String | Currency identifier.
+**asset** | String | Asset identifier on which you can withdraw the selected currency.
+**fee** | String | Required fee suggested to pay on a given time to perform a successful transaction.
+
+## Withdrawals
 
 > The string returned by the API looks like this (example for BTC):
 
@@ -2167,6 +2243,75 @@ The following endpoints are available for making a cryptocurrency withdrawal fro
 
 ### HTTP Request
 
+`POST https://api.bitso.com/v3/withdrawals/`
+
+### Authorization Header Parameters
+
+Parameter | Default | Required | Description
+--------- | ------- | -------- | -----------
+**key** | - | Yes | See [Creating and Signing Requests](#creating-and-signing-requests)
+**signature** | - | Yes | See [Creating and Signing Requests](#creating-and-signing-requests)
+**nonce** | - | Yes | See [Creating and Signing Requests](#creating-and-signing-requests)
+
+### Body Parameters
+
+Body parameters should be JSON encoded and should be exactly the same
+as the JSON payload used to construct the signature.
+
+Parameter | Default | Required | Description
+--------- | ------- | -------- | -----------
+**amount** | - | Yes | The amount of the asset to withdraw from your account
+**address** | - | Yes | The address to send that amount to
+**max_fee** | - | No | The maximum withdrawal you are willing to pay
+**destination_tag** | - | No | Destination Tag (Ripple XRP only, optional)
+**origin_id** | - | No | Unique identifier to avoid double spend due race conditions
+**currency** | - | Yes | The currency to withdraw using available balance. See [Withdrawal Taxonomy](#withdrawal-taxonomy)
+**asset** | - | Yes | Most cases equal to withdrawal currency. On some cases like USD you can use a 1:1 paired asset like usdp or usdc. See [Withdrawal Taxonomy](#withdrawal-taxonomy)
+**method** | - | Yes | See [Withdrawal Taxonomy](#withdrawal-taxonomy)
+**protocol** | - | Yes | See [Withdrawal Taxonomy](#withdrawal-taxonomy) 
+**network** | - | Yes | See [Withdrawal Taxonomy](#withdrawal-taxonomy)
+
+### JSON Response Payload
+
+Returns a JSON object representing the order:
+
+Field Name | Type | Description | Units
+---------- | ---- | ----------- | -----
+**wid** | String | Unique Withdrawal ID | -
+**status** | String | Status of the withdrawal request (pending, complete) | -
+**created_at** | String | Timestamp at which the withdrawal request was created | ISO 8601 timestamp
+**currency** | String | Currency specified for this withdrawal (e.g. BTC) | -
+**method** | String | Method for this withdrawal (e.g. BTC). | -
+**amount** | String | Amount to withdraw. | units of e.g. BTC
+**details** | String | Method specific details for this withdrawal | -
+
+## Crypto Withdrawals (Deprecated)
+
+See [Withdrawal taxonomy](#withdrawal-taxonomy) and [Withdrawals](#withdrawals) instead.
+
+> The string returned by the API looks like this (example for BTC):
+
+```json
+{
+    "success": true,
+    "payload": {
+        "wid": "c5b8d7f0768ee91d3b33bee648318688",
+        "status": "pending",
+        "created_at": "2016-04-08T17:52:31.000+00:00",
+        "currency": "btc",
+        "method": "btc",
+        "amount": "0.48650929",
+        "details": {
+            "withdrawal_address": "3EW92Ajg6sMT4hxK8ngEc7Ehrqkr9RoDt7",
+            "tx_hash": null
+        }
+    }
+}
+```
+
+The following endpoints are available for making a cryptocurrency withdrawal from the user's account:
+
+### endpoints
 
 Asset | Endpoint
 ----- | --------
@@ -2214,7 +2359,9 @@ Field Name | Type | Description | Units
 
 
 
-## SPEI Withdrawal
+## SPEI Withdrawal (Deprecated)
+
+See [Withdrawal taxonomy](#withdrawal-taxonomy) and [Withdrawals](#withdrawals) instead.
 
 > The string returned by the API looks like this:
 
