@@ -25,6 +25,10 @@ system functions, along with examples in common programming languages.
 
 # Changelog
 
+### 2022-12-22
+Improved documentation for order lookup endpoint. Non-existing status "closed" was removed 
+and additional information was added for retrieval of completed and canceled orders. 
+
 ### 2022-08-18
 Add new error code '0506'
 Added withdrawal new endpoints documentation.
@@ -1966,8 +1970,9 @@ Field Name | Type | Description | Units
 }
 ```
 
-Returns details for one or more of your orders. Only opened or partially filled orders will be returned by this endpoint. 
-As soon as an order has been fully matched or canceled, it will not be included in the response. 
+Returns details for one or more of your orders. Purpose of this endpoint is to return opened or partially filled orders. 
+As soon as an order has been fully matched or canceled, it should not be included in the response. 
+Although, for limited time period of up to 60 min, they can still appear here before they are internally processed. 
 Please refer to the <a href='#order-trades'>Order Trades</a> endpoint to pull the list of trades for orders.
 
 ### HTTP Request
@@ -2001,7 +2006,7 @@ Field Name | Type | Description | Units
 **updated_at** | String | Timestamp at which the order was updated (can be null) | ISO 8601 timestamp
 **price** | String | The order's price | Minor
 **side** | String | The order side (buy, sell) | -
-**status** | String | The order's status (queued, open, partially filled, closed) | -
+**status** | String | The order's status (queued, open, partially filled, completed, cancelled) | -
 **type** | String | The order type (market, limit) | -
 **origin_id** | String | The origin_id if any | -
 **time_in_force** | String | The time in force paramater for limit orders | -
